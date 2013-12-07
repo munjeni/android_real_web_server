@@ -1,0 +1,353 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/oscam/!svn/ver/6089/tags/1.10
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/oscam/!svn/ver/5640/tags/1.10/Makefile
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/oscam/!svn/ver/5640/tags/1.10/CMakeLists.txt
+END
+module-dvbapi.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/oscam/!svn/ver/5640/tags/1.10/module-dvbapi.h
+END
+config.sh
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/oscam/!svn/ver/5640/tags/1.10/config.sh
+END
+module-cccshare.c
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/oscam/!svn/ver/5766/tags/1.10/module-cccshare.c
+END
+module-stat.c
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/oscam/!svn/ver/5640/tags/1.10/module-stat.c
+END
+module-serial.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/oscam/!svn/ver/5640/tags/1.10/module-serial.c
+END
+oscam.c
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/oscam/!svn/ver/5766/tags/1.10/oscam.c
+END
+oscam-reader.c
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/oscam/!svn/ver/5640/tags/1.10/oscam-reader.c
+END
+reader-tongfang.c
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/oscam/!svn/ver/5640/tags/1.10/reader-tongfang.c
+END
+module-constcw.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/oscam/!svn/ver/5640/tags/1.10/module-constcw.c
+END
+module-cccshare.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/oscam/!svn/ver/5640/tags/1.10/module-cccshare.h
+END
+oscam-config.c
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/oscam/!svn/ver/5775/tags/1.10/oscam-config.c
+END
+oscam-chk.c
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/oscam/!svn/ver/5640/tags/1.10/oscam-chk.c
+END
+reader-conax.c
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/oscam/!svn/ver/5673/tags/1.10/reader-conax.c
+END
+oscam-types.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/oscam/!svn/ver/5640/tags/1.10/oscam-types.h
+END
+oscam-config.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/oscam/!svn/ver/5640/tags/1.10/oscam-config.h
+END
+reader-videoguard1.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/oscam/!svn/ver/5640/tags/1.10/reader-videoguard1.c
+END
+module-monitor.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/oscam/!svn/ver/5640/tags/1.10/module-monitor.c
+END
+global-functions.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/oscam/!svn/ver/5640/tags/1.10/global-functions.h
+END
+reader-videoguard2.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/oscam/!svn/ver/5755/tags/1.10/reader-videoguard2.c
+END
+reader-seca.c
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/oscam/!svn/ver/5921/tags/1.10/reader-seca.c
+END
+oscam-simples.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/oscam/!svn/ver/5640/tags/1.10/oscam-simples.c
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/oscam/!svn/ver/5640/tags/1.10/README
+END
+module-radegast.c
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/oscam/!svn/ver/5640/tags/1.10/module-radegast.c
+END
+oscam-http.c
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/oscam/!svn/ver/5880/tags/1.10/oscam-http.c
+END
+oscam-http.h
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/oscam/!svn/ver/5817/tags/1.10/oscam-http.h
+END
+.gitignore
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/oscam/!svn/ver/5640/tags/1.10/.gitignore
+END
+reader-irdeto.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/oscam/!svn/ver/5963/tags/1.10/reader-irdeto.c
+END
+module-datastruct-llist.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/oscam/!svn/ver/5755/tags/1.10/module-datastruct-llist.c
+END
+reader-nagra.c
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/oscam/!svn/ver/5916/tags/1.10/reader-nagra.c
+END
+reader-common.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/oscam/!svn/ver/5640/tags/1.10/reader-common.c
+END
+oscam-garbage.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/oscam/!svn/ver/5640/tags/1.10/oscam-garbage.c
+END
+globals.h
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/oscam/!svn/ver/5766/tags/1.10/globals.h
+END
+module-cccam.c
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/oscam/!svn/ver/5775/tags/1.10/module-cccam.c
+END
+module-datastruct-llist.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/oscam/!svn/ver/5640/tags/1.10/module-datastruct-llist.h
+END
+reader-videoguard12.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/oscam/!svn/ver/5640/tags/1.10/reader-videoguard12.c
+END
+reader-common.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/oscam/!svn/ver/5640/tags/1.10/reader-common.h
+END
+module-camd33.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/oscam/!svn/ver/5640/tags/1.10/module-camd33.c
+END
+module-cccam.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/oscam/!svn/ver/5766/tags/1.10/module-cccam.h
+END
+Maketype
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/oscam/!svn/ver/5640/tags/1.10/Maketype
+END
+module-camd35.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/oscam/!svn/ver/5753/tags/1.10/module-camd35.c
+END
+reader-viaccess.c
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/oscam/!svn/ver/5983/tags/1.10/reader-viaccess.c
+END
+module-newcamd.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/oscam/!svn/ver/5741/tags/1.10/module-newcamd.c
+END
+VERSION
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/oscam/!svn/ver/5640/tags/1.10/VERSION
+END
+reader-cryptoworks.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/oscam/!svn/ver/5640/tags/1.10/reader-cryptoworks.c
+END
+module-coolapi.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/oscam/!svn/ver/5640/tags/1.10/module-coolapi.c
+END
+reader-dre.c
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/oscam/!svn/ver/5673/tags/1.10/reader-dre.c
+END
+module-coolapi.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/oscam/!svn/ver/5640/tags/1.10/module-coolapi.h
+END
+reader-videoguard-common.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/oscam/!svn/ver/5954/tags/1.10/reader-videoguard-common.c
+END
+oscam-http-helpers.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/oscam/!svn/ver/5705/tags/1.10/oscam-http-helpers.c
+END
+oscam-log.c
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/oscam/!svn/ver/5640/tags/1.10/oscam-log.c
+END
+LICENCE
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/oscam/!svn/ver/5640/tags/1.10/LICENCE
+END
+module-gbox.c
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/oscam/!svn/ver/5700/tags/1.10/module-gbox.c
+END
+oscam-ac.c
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/oscam/!svn/ver/5766/tags/1.10/oscam-ac.c
+END
+reader-videoguard-common.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/oscam/!svn/ver/5640/tags/1.10/reader-videoguard-common.h
+END
+module-lcd.c
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/oscam/!svn/ver/5640/tags/1.10/module-lcd.c
+END
+module-dvbapi.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/oscam/!svn/ver/6089/tags/1.10/module-dvbapi.c
+END

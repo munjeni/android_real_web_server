@@ -1,0 +1,76 @@
+--source include/have_example_plugin.inc
+
+CREATE TABLE t1(a int) ENGINE=EXAMPLE;
+DROP TABLE t1;
+
+INSTALL PLUGIN example SONAME 'ha_example.so';
+--error 1125
+INSTALL PLUGIN EXAMPLE SONAME 'ha_example.so';
+
+UNINSTALL PLUGIN example;
+
+INSTALL PLUGIN example SONAME 'ha_example.so';
+
+CREATE TABLE t1(a int) ENGINE=EXAMPLE;
+
+# Let's do some advanced ops with the example engine :)
+SELECT * FROM t1;
+
+DROP TABLE t1;
+
+UNINSTALL PLUGIN example;
+--error 1305
+UNINSTALL PLUGIN EXAMPLE;
+
+--error 1305
+UNINSTALL PLUGIN non_exist;
+
+
+--echo #
+--echo # Bug#32034: check_func_enum() does not check correct values but set it
+--echo #            to impossible int val
+--echo #
+
+INSTALL PLUGIN example SONAME 'ha_example.so';
+
+SET GLOBAL example_enum_var= e1;
+SET GLOBAL example_enum_var= e2;
+--error 1231
+SET GLOBAL example_enum_var= impossible;
+
+UNINSTALL PLUGIN example;
+
+
+
+#
+# Bug #32757 hang with sql_mode set when setting some global variables
+#
+INSTALL PLUGIN example SONAME 'ha_example.so';
+
+select @@session.sql_mode into @old_sql_mode;
+
+# first, try normal sql_mode (no error, send OK)
+set session sql_mode='';
+set global example_ulong_var=500;
+select @@global.example_ulong_var;
+# overflow -- correct value, but throw warning
+set global example_ulong_var=1111;
+select @@global.example_ulong_var;
+
+# now, try STRICT (error occurrs, no message is sent, so send default)
+set session sql_mode='STRICT_ALL_TABLES';
+set global example_ulong_var=500;
+select @@global.example_ulong_var;
+# overflow -- throw warning, do NOT change value
+--error ER_WRONG_VALUE_FOR_VAR
+set global example_ulong_var=1111;
+select @@global.example_ulong_var;
+
+set session sql_mode=@old_sql_mode;
+
+# finally, show that conditions that already raised an error are not
+# adversely affected (error was already sent, do nothing)
+--error ER_INCORRECT_GLOBAL_LOCAL_VAR
+set session old=bla;
+
+UNINSTALL PLUGIN example;

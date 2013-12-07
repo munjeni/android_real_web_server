@@ -1,0 +1,115 @@
+                             ======================
+                             OSCam: Open Source CAM
+                             ======================
+
+
+1. Compiling OSCam from source
+------------------------------
+
+1. Get the lastest sources from SVN
+      svn co http://streamboard.gmc.to/svn/oscam/trunk oscam-trunk
+
+2. Create folders:
+      cd oscam-trunk
+      mkdir build
+      cd build
+
+3. Look for compile options in oscam-config.h.
+   Enable features with make:
+      NAME_OF_FEATURE     - enable feature
+
+   Enable features with cmake:
+      -DNAME_OF_FEATURE=1 - enable feature
+
+   Use config.sh to enable/disable features.
+
+   If you use cmake you may use the interface to change build parameters
+      ccmake ..
+
+   or specify them on the command line like this:
+      cmake -DCS_CONFDIR=/where/is/config/files -DCMAKE_INSTALL_PREFIX=/where/to/installed ..
+
+4. Build:
+      make
+
+5. Install:
+      make install
+
+
+2. Build with a different toolchain (cross-compilation)
+-------------------------------------------------------
+In short, you need to define the toolchain file on the command line, for 
+example:
+
+      cmake -DCMAKE_TOOLCHAIN_FILE=../toolchains/toolchain-powerpc-tuxbox.cmake ..
+
+For current toolchains and more detailed instructions see
+http://streamboard.gmc.to/oscam/wiki/crosscompiling/
+
+
+3. Licence
+----------
+OSCam: Open Source CAM
+Copyright (C) 2009-2011 OSCam developers
+Based on Streamboard mp-cardserver v0.9d - (w) 2004-2007 by dukat
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+http://www.gnu.org/licenses/gpl-3.0.html
+
+
+4. Copyright
+------------
+OSCam is based on the Streamboard mp-cardserver 0.9d by dukat and has 
+been extended and worked on by many more since then.
+You are free to use it under the terms of the GNU General Public 
+License, as described in the LICENSE file.
+
+
+5. Version History
+------------------
+See the file VERSION which should come with your distribution for details.
+
+You may also have a look at the Trac timeline
+http://streamboard.gmc.to/oscam/timeline/
+for more detailed and up-to-date changes.
+
+
+6. Web Links
+------------
+svn repository:
+svn co http://streamboard.gmc.to/svn/oscam/trunk oscam-svn
+
+mirror svn:
+svn co http://oscam.to/svn/oscam/trunk oscam-mirror
+
+Build server for automated builds:
+http://download.oscam.to/index.php
+
+Configuration wiki:
+http://streamboard.gmc.to/wiki/index.php/OSCam/
+
+
+7. Help and Support
+-------------------
+If you experience any problems with OSCam, feel free to post in our support 
+forum under (mainly German and English language)
+http://streamboard.gmc.to/wbb2/portal.php
+
+Support for international (mainly French and Italian language) users can be 
+found on
+http://oscam.to/wbb3/index.php
+
+You may also visit our Trac system for tracking and filing bug reports:
+http://streamboard.gmc.to/oscam

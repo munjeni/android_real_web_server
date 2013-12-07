@@ -1,0 +1,71 @@
+#! /bin/sh
+#
+# Created by configure
+
+CC="/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-gcc -march=armv7-a -mfloat-abi=softfp -mfpu=vfp"; export CC
+CFLAGS="-I/androidserver/include -D_GNU_SOURCE"; export CFLAGS
+"./configure" \
+"--prefix=/androidserver" \
+"--target=arm-none-linux" \
+"--host=arm-none-linux" \
+"--enable-load-all-modules" \
+"--enable-mime-magic" \
+"--enable-expires" \
+"--enable-unique-id" \
+"--enable-usertrack" \
+"--enable-remoteip" \
+"--enable-session" \
+"--enable-session-cookie" \
+"--enable-ssl" \
+"--enable-ssl-staticlib-deps" \
+"--with-ssl=/androidserver" \
+"--enable-dav" \
+"--enable-info" \
+"--enable-cgi" \
+"--enable-negotiation" \
+"--enable-rewrite" \
+"--with-z=/androidserver" \
+"--with-pcre=/androidserver" \
+"--with-openssl=/androidserver" \
+"--with-libxml2=/androidserver" \
+"--with-apr=/androidserver/bin" \
+"--with-apr-util=/androidserver/bin" \
+"--enable-auth-digest" \
+"--enable-deflate" \
+"--enable-logio" \
+"--with-mpm=prefork" \
+"--enable-static" \
+"--enable-mods-static=all" \
+"--disable-shared" \
+"--enable-so" \
+"--disable-lbmethod-heartbeat" \
+"--disable-heartbeat" \
+"--disable-heartmonitor" \
+"--enable-proxy" \
+"--disable-slotmem-plain" \
+"--enable-suexec" \
+"--with-suexec-bin=/androidserver/bin/suexec" \
+"--with-suexec-caller=system" \
+"--includedir=/androidserver/include" \
+"ac_cv_file__dev_zero=yes" \
+"ac_cv_func_setpgrp_void=yes" \
+"apr_cv_process_shared_works=yes" \
+"apr_cv_mutex_robust_shared=yes" \
+"apr_cv_tcp_nodelay_with_cork=yes" \
+"ap_cv_void_ptr_lt_long=no" \
+"ac_cv_struct_rlimit=yes" \
+"ac_cv_func_timegm=no" \
+"ac_cv_func_fopen64=no" \
+"ac_cv_func_getloadavg=no" \
+"ac_cv_func_kqueue=no" \
+"ac_cv_func_port_create=no" \
+"ac_cv_func_bindprocessor=no" \
+"ac_cv_lib_m_sqrt=yes" \
+"ac_cv_search_sqrt=-lm" \
+"ac_cv_search_crypt=no" \
+"program_prefix=" \
+"host_alias=arm-none-linux" \
+"target_alias=arm-none-linux" \
+"CC=/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-gcc -march=armv7-a -mfloat-abi=softfp -mfpu=vfp" \
+"CFLAGS=-I/androidserver/include -D_GNU_SOURCE" \
+"$@"

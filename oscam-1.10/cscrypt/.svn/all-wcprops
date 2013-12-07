@@ -1,0 +1,185 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt
+END
+bn_lcl.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/bn_lcl.h
+END
+i_cbc.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/i_cbc.c
+END
+bn_asm.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/bn_asm.c
+END
+rc6.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/rc6.h
+END
+bn_div.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/bn_div.c
+END
+i_ecb.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/i_ecb.c
+END
+idea_lcl.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/idea_lcl.h
+END
+bn.h
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/bn.h
+END
+bn_add.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/bn_add.c
+END
+idea.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/idea.h
+END
+openssl_mods.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/openssl_mods.h
+END
+bn_print.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/bn_print.c
+END
+bn_exp.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/bn_exp.c
+END
+des.c
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/des.c
+END
+bn_mul.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/bn_mul.c
+END
+crc32.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/crc32.c
+END
+bn_ctx.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/bn_ctx.c
+END
+buffer.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/buffer.h
+END
+mem.c
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/mem.c
+END
+des.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/des.h
+END
+i_skey.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/i_skey.c
+END
+bn_sqr.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/bn_sqr.c
+END
+md5.c
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/md5.c
+END
+bn_lib.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/bn_lib.c
+END
+bn_word.c
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/bn_word.c
+END
+rc6.c
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/rc6.c
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/Makefile
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/CMakeLists.txt
+END
+bn_shift.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/bn_shift.c
+END
+cscrypt.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/oscam/!svn/ver/5640/tags/1.10/cscrypt/cscrypt.h
+END

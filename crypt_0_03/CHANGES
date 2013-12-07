@@ -1,0 +1,6 @@
+v00.03 -- Added Serpent to the list of ciphers.
+
+v00.02 -- Changed RC5 to only allow 12 to 24 rounds
+       -- Added more to the manual.
+
+v00.01 -- We will call this the first version.

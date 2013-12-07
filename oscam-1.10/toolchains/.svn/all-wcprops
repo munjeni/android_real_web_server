@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/oscam/!svn/ver/5640/tags/1.10/toolchains
+END
+toolchain-mips-azbox.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/oscam/!svn/ver/5640/tags/1.10/toolchains/toolchain-mips-azbox.cmake
+END
+toolchain-arm-friendlyarm.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/oscam/!svn/ver/5640/tags/1.10/toolchains/toolchain-arm-friendlyarm.cmake
+END
+toolchain-tripledragon.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/oscam/!svn/ver/5640/tags/1.10/toolchains/toolchain-tripledragon.cmake
+END
+toolchain-mips-agv2_w.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/oscam/!svn/ver/5640/tags/1.10/toolchains/toolchain-mips-agv2_w.cmake
+END
+toolchain-sh4-amino.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/oscam/!svn/ver/5640/tags/1.10/toolchains/toolchain-sh4-amino.cmake
+END
+toolchain-mips-tuxbox.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/oscam/!svn/ver/5640/tags/1.10/toolchains/toolchain-mips-tuxbox.cmake
+END
+toolchain-sparc-padre.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/oscam/!svn/ver/5640/tags/1.10/toolchains/toolchain-sparc-padre.cmake
+END
+toolchain-mips-wrt54g.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/oscam/!svn/ver/5640/tags/1.10/toolchains/toolchain-mips-wrt54g.cmake
+END
+toolchain-mips-fonera2.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/oscam/!svn/ver/5640/tags/1.10/toolchains/toolchain-mips-fonera2.cmake
+END
+toolchain-arm-wrt350nv2-openwrt.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/oscam/!svn/ver/5640/tags/1.10/toolchains/toolchain-arm-wrt350nv2-openwrt.cmake
+END
+toolchain-powerpc-tuxbox.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/oscam/!svn/ver/5640/tags/1.10/toolchains/toolchain-powerpc-tuxbox.cmake
+END
+toolchain-arm-nslu2-unslung.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/oscam/!svn/ver/5640/tags/1.10/toolchains/toolchain-arm-nslu2-unslung.cmake
+END
+toolchain-arm-nslu2-openwrt.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/oscam/!svn/ver/5640/tags/1.10/toolchains/toolchain-arm-nslu2-openwrt.cmake
+END
+toolchain-arm-none.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/oscam/!svn/ver/5640/tags/1.10/toolchains/toolchain-arm-none.cmake
+END
+toolchain-mipsel-tuxbox.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/oscam/!svn/ver/5640/tags/1.10/toolchains/toolchain-mipsel-tuxbox.cmake
+END
+toolchain-sh4-qboxhd.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/oscam/!svn/ver/5640/tags/1.10/toolchains/toolchain-sh4-qboxhd.cmake
+END
+toolchain-mips-dir825.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/oscam/!svn/ver/5640/tags/1.10/toolchains/toolchain-mips-dir825.cmake
+END
+toolchain-arm-dockstar-openwrt.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/oscam/!svn/ver/5640/tags/1.10/toolchains/toolchain-arm-dockstar-openwrt.cmake
+END
+toolchain-arm-coolstream.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/oscam/!svn/ver/5640/tags/1.10/toolchains/toolchain-arm-coolstream.cmake
+END

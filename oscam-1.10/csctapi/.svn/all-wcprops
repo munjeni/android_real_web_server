@@ -1,0 +1,221 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/oscam/!svn/ver/5643/tags/1.10/csctapi
+END
+ifd_sc8in1.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/ifd_sc8in1.c
+END
+ifd_smartreader.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/ifd_smartreader.c
+END
+ifd_sc8in1.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/ifd_sc8in1.h
+END
+ifd_phoenix.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/ifd_phoenix.c
+END
+ifd_smartreader.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/ifd_smartreader.h
+END
+ifd_phoenix.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/ifd_phoenix.h
+END
+smartreader_types.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/smartreader_types.h
+END
+sci_global.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/sci_global.h
+END
+ifd_azbox.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/ifd_azbox.c
+END
+ifd_mp35.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/ifd_mp35.c
+END
+ifd_azbox.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/ifd_azbox.h
+END
+ifd_pcsc.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/ifd_pcsc.c
+END
+ifd_mp35.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/ifd_mp35.h
+END
+ifd_pcsc.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/ifd_pcsc.h
+END
+defines.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/defines.h
+END
+icc_async_exports.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/icc_async_exports.h
+END
+atr.c
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/atr.c
+END
+atr.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/atr.h
+END
+icc_async.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/oscam/!svn/ver/5643/tags/1.10/csctapi/icc_async.c
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/CMakeLists.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/Makefile
+END
+t1_block.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/t1_block.c
+END
+ifd_sci.c
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/ifd_sci.c
+END
+icc_async.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/oscam/!svn/ver/5643/tags/1.10/csctapi/icc_async.h
+END
+t1_block.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/t1_block.h
+END
+protocol_t0.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/protocol_t0.c
+END
+protocol_t1.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/protocol_t1.c
+END
+ifd_sci.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/ifd_sci.h
+END
+io_serial.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/io_serial.c
+END
+protocol_t0.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/protocol_t0.h
+END
+ifd_smargo.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/ifd_smargo.c
+END
+io_serial.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/io_serial.h
+END
+sci_ioctl.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/sci_ioctl.h
+END
+ifd_cool.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/ifd_cool.c
+END
+ifd_cool.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/ifd_cool.h
+END
+mc_global.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/oscam/!svn/ver/5640/tags/1.10/csctapi/mc_global.h
+END

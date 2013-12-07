@@ -1,0 +1,57 @@
+--- configpm.orig	2013-03-04 17:16:21.000000000 +0200
++++ configpm	2013-04-04 12:25:09.699708320 +0300
+@@ -57,9 +57,9 @@
+ # wonderfully easy to instrument, and no longer exists.
+ $Common{$_} = $_ foreach qw(dlext so);
+ 
+-# names of things which may need to have slashes changed to double-colons
++# modules lists -- config.sh uses different format for these
+ my %Extensions = map {($_,$_)}
+-                 qw(dynamic_ext static_ext extensions known_extensions);
++	 qw(dynamic_ext static_ext extensions known_extensions nonxs_ext);
+ 
+ # The plan is that this information is used by ExtUtils::MakeMaker to generate
+ # Makefile dependencies, rather than hardcoding a list, which has become out
+@@ -97,6 +97,9 @@
+     'glossary' => 1,  # --no-glossary  - no glossary file inclusion,
+                       #                  for compactness
+     'chdir'    => '', # --chdir=dir    - change directory before writing files
++    'config-sh' => 'config.sh',
++    'config-pm' => 'lib/Config.pm',
++    'config-pod' => 'lib/Config.pod'
+ );
+ 
+ sub opts {
+@@ -129,19 +132,9 @@
+ my ($Config_SH, $Config_PM, $Config_heavy, $Config_POD);
+ my $Glossary = 'Porting/Glossary';
+ 
+-if ($Opts{cross}) {
+-  # creating cross-platform config file
+-  mkdir "xlib";
+-  mkdir "xlib/$Opts{cross}";
+-  $Config_PM = "xlib/$Opts{cross}/Config.pm";
+-  $Config_POD = "xlib/$Opts{cross}/Config.pod";
+-  $Config_SH = "Cross/config-$Opts{cross}.sh";
+-}
+-else {
+-  $Config_PM = "lib/Config.pm";
+-  $Config_POD = "lib/Config.pod";
+-  $Config_SH = "config.sh";
+-}
++$Config_PM = $Opts{'config-pm'};
++$Config_POD = $Opts{'config-pod'};
++$Config_SH = $Opts{'config-sh'};
+ ($Config_heavy = $Config_PM) =~ s/\.pm$/_heavy.pl/;
+ die "Can't automatically determine name for Config_heavy.pl from '$Config_PM'"
+   if $Config_heavy eq $Config_PM;
+@@ -334,7 +327,8 @@
+     $in_v = $val !~ /$quote\n/;
+     next if $in_v;
+ 
+-    s,/,::,g if $Extensions{$name};
++    $val =~ s{[a-zA-Z]+/}{}g if $Extensions{$name};
++    $val =~ s{-}{/}g if $Extensions{$name};
+ 
+     $val =~ s/$quote\n?\z//;
+ 

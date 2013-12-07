@@ -1,0 +1,15 @@
+Tiny Crypt Library
+Tom St Denis
+tomstdenis@yahoo.com
+http://tomstdenis.home.dhs.org/zips/crypt.zip
+
+More info to come.  Check out test.c to see how it works.
+
+A manual will come too...
+
+....
+
+LICENSE:  TDCAL or "Tom Doesn't Care About Licenses".  All the code except for mpi.c/mpi.h/mpi-config.h was written
+from scratch myself.  MPI is free code, contact Michael Fromberger [he's on the web] for further details.
+
+You can use this lib for ANY purpose you want.

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/oscam/!svn/ver/5640/tags/1.10/utils
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/oscam/!svn/ver/5640/tags/1.10/utils/CMakeLists.txt
+END
+list_smargo.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/oscam/!svn/ver/5640/tags/1.10/utils/list_smargo.c
+END

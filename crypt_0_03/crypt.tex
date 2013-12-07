@@ -1,0 +1,589 @@
+\documentclass{book}
+\usepackage{makeidx}
+\usepackage{amssymb}
+\def\union{\cup}
+\def\intersect{\cap}
+\def\getsrandom{\stackrel{\rm R}{\gets}}
+\def\cross{\times}
+\def\cat{\hspace{0.5em} \| \hspace{0.5em}}
+\def\catn{$\|$}
+\def\divides{\hspace{0.3em} | \hspace{0.3em}}
+\def\nequiv{\not\equiv}
+\def\approx{\raisebox{0.2ex}{\mbox{\small $\sim$}}}
+\def\lcm{{\rm lcm}}
+\def\gcd{{\rm gcd}}
+\def\log{{\rm log}}
+\def\ord{{\rm ord}}
+\def\abs{{\mathit abs}}
+\def\rep{{\mathit rep}}
+\def\mod{{\mathit\ mod\ }}
+\renewcommand{\pmod}[1]{\ ({\rm mod\ }{#1})}
+\newcommand{\floor}[1]{\left\lfloor{#1}\right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil{#1}\right\rceil}
+\def\Or{{\rm\ or\ }}
+\def\And{{\rm\ and\ }}
+\def\iff{\hspace{1em}\Longleftrightarrow\hspace{1em}}
+\def\implies{\Rightarrow}
+\def\undefined{{\rm ``undefined"}}
+\def\Proof{\vspace{1ex}\noindent {\bf Proof:}\hspace{1em}}
+\let\oldphi\phi
+\def\phi{\varphi}
+\def\Pr{{\rm Pr}}
+\newcommand{\str}[1]{{\mathbf{#1}}}
+\def\F{{\mathbb F}}
+\def\N{{\mathbb N}}
+\def\Z{{\mathbb Z}}
+\def\R{{\mathbb R}}
+\def\C{{\mathbb C}}
+\def\Q{{\mathbb Q}}
+
+\newcommand{\url}[1]{\mbox{$<${#1}$>$}}
+\newcommand{\emailaddr}[1]{\mbox{$<${#1}$>$}}
+\def\twiddle{\raisebox{0.3ex}{\mbox{\tiny $\sim$}}}
+
+\def\gap{\vspace{0.5ex}}
+\makeindex
+\begin{document}
+\title{Tiny Crypto Library \\ Version 00.03}
+\author{Tom St Denis \\
+Algonquin College \\
+\\
+tomstdenis@yahoo.com \\
+http://tomstdenis.home.dhs.org \\
+111 Banning Rd \\
+Kanata, Ontario \\
+K2L 1C3 \\
+Canada 
+}
+\maketitle
+\newpage
+\tableofcontents
+\chapter{Introduction}
+\section{What is libcrypt.a}
+Since I really could care less for a name you can call this library either ``Tiny Crypto Library'' or ``libcrypt.a''.  I
+think there is already a ``libcrypt.a'' with ``cygwin'' but I could care less about that too.
+
+So what is ``libcrypt.a'' or just ``lba'' for short?  It is a portable ANSI C cryptographic library that supports
+symmetric ciphers, one-way hashes, pseudo-random number generators and public key crypto (via RSA).  It is designed 
+to compile out of the box with the GNU C Compiler (GCC) version 2.95.3 and higher.  
+
+The library is designed so new ciphers/hashes/prngs can be added and the existing API (and helper API functions) will 
+be able to use the new designs automatically.  There exist self-check functions for each cipher and hash to ensure that
+they compile and execute to the design specifications.  The library also performs extensive parameter error checking
+and will give verbose error messages.
+
+\section{License}
+
+All of the code except for ``mpi.c'', ``mpi-config.h'' and ``mpi.h'' has been written from scratch by Tom St Denis
+and as such is under the official binding ``Tom Doesn't Care About Licenses'' or TDCAL license.  This entitles the 
+user to use this library for {\em whatever} they want without any form of repayment to the author whatsoever.  Similarly
+MPI is public domain software copyright'ed by Michael Fromberger and may be used.
+
+Essentially, ``have fun kids.''
+
+\section{Building the library}
+
+To build the library on a GCC equipped platform simply type ``make'' at your command prompt.  It will build the library
+file ``libcrypt.a''.  If you are on a non-x86 platform comment out the appropriate line in ``makefile''.  To build the
+test executable just take off the ``.exe''.  I hope to have a makefile for *NIX platforms shortly.
+
+To build the library on a non-GCC platform just build all of the source files (except test.c) and archive them in a 
+single library.
+
+To install the library copy all of the ``.h'' files into your include path and the single libcrypt.a file into your 
+LIB path.
+
+Et voila.
+
+\chapter{The API}
+\section{Introduction}
+
+In general the API is very simple to memorize and use.  Most of the functions return either {\bf void} or {\bf int}.  Functions
+that return {\bf int} will return either {\bf CRYPT\_OK} or {\bf CRYPT\_ERROR}.  If there is an error the character pointer
+{\bf crypt\_error}\footnote{Note that it is lower case.} will be set.  
+
+There is no initialization routine for the library and for the most part the code is thread safe.  The only thread
+related issue is if you use the same symmetric cipher, hash or public key state data in multiple threads.  Normally
+that is not an issue, therefore, the library is thread safe.
+
+To include the prototypes for libcrypt into your own program simply include ``crypt.h'' like so:
+
+\begin{verbatim}
+#include <crypt.h>
+int main(void) {
+    return 0;
+}
+\end{verbatim}
+
+\section{Macros}
+
+There are a few helper macros to make the coding process a bit easier.  The first set are related to loading and storing
+32/64-bit words in little endian format.  The macros are:
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+     \hline STORE32L(x, y) & {\bf unsigned long} x, {\bf unsigned char} *y & $x \to y[0 \ldots 3]$ \\
+     \hline STORE64L(x, y) & {\bf unsigned long long} x, {\bf unsigned char} *y & $x \to y[0 \ldots 7]$ \\
+     \hline LOAD32L(x, y) & {\bf unsigned long} x, {\bf unsigned char} *y & $y[0 \ldots 3] \to x$ \\
+     \hline LOAD64L(x, y) & {\bf unsigned long long} x, {\bf unsigned char} *y & $y[0 \ldots 7] \to x$ \\
+     \hline BSWAP(x) & {\bf unsigned long} x & Swaps the byte order of x. \\
+     \hline
+\end{tabular}
+\end{center}
+
+There are 32-bit cyclic rotations as well:
+\begin{center}
+\begin{tabular}{|c|c|c|}
+     \hline ROL(x, y) & {\bf unsigned long} x, {\bf unsigned long} y & $x << y$ \\
+     \hline ROR(x, y) & {\bf unsigned long} x, {\bf unsigned long} y & $x >> y$ \\
+     \hline
+\end{tabular}
+\end{center}
+
+\section{Functions with Variable Length Output}
+Certain functions such as ``rsa\_export()'' give an output that is variable length.  To prevent buffer overflows you
+must pass it the length of the buffer\footnote{Extensive error checking is not in place but it will be in future releases so it is a good idea to follow through with these guidelines.} where
+the output will be stored.  For example:
+
+\begin{verbatim}
+#include <crypt.h>
+int main(void) {
+    struct rsa_key key;
+    unsigned char buffer[1024];
+    int x;
+
+    /* ... Make up the key somehow */
+
+    /* lets export the key */ 
+    x = 1024; 
+    if (rsa_export(buffer, &x, PK_PUBLIC, &key) == CRYPT_ERROR) {
+       printf("Export error: %s\n", crypt_error);
+       return -1;
+    }
+
+    /* ... do something with the buffer */
+    
+    return 0;
+}
+\end{verbatim}
+
+\chapter{Symmetric Block Ciphers}
+\section{Core Functions}
+
+libcrypt provides several block ciphers all in a plain vanila ECB block mode.  All ciphers store their scheduled keys in
+a single union called ``symmetric\_key''.  This allows all ciphers to have the same prototype and store their keys as 
+naturally as possible.  All ciphers provide four visible functions which are (given that XXX is the name of the cipher):
+\begin{verbatim}
+int XXX_setup(unsigned char *key, int keylen, int rounds, 
+              union symmetric_key *skey);
+\end{verbatim}
+
+The XXX\_setup() routine will setup the cipher to be used with a given number of rounds and a given key length (in bytes).  
+The number of rounds can be set to zero to use the default.  It returns {\bf CRYPT\_ERROR} if the parameters are 
+invalid such as an incorrect key size or number of rounds.  If the cipher is setup correctly it returns {\bf CRYPT\_OK}.
+
+\begin{verbatim}
+void XXX_ecb_encrypt(unsigned char *pt, unsigned char *ct,
+                     union symmetric_key *skey);
+
+void XXX_ecb_decrypt(unsigned char *ct, unsigned char *pt,
+                     union symmetric_key *skey);
+\end{verbatim}
+
+These two functions will encrypt or decrypt (respectively) a single block of text\footnote{The size of which depends on which cipher you are using.}
+ and store the result where you want it.  It is possible that the input and output buffer are the same buffer.
+
+\begin{verbatim}
+int XXX_test(void);
+\end{verbatim}
+
+This function will return {\bf CRYPT\_OK} if the cipher matches the test vectors from the designs.  It returns 
+{\bf CRYPT\_ERROR} if it fails to meet the test vectors.
+
+An example snippet that encodes a block with Blowfish in ECB mode is below.
+
+\begin{verbatim}
+#include <crypt.h>
+int main(void)
+{ 
+    unsigned char pt[8], ct[8], key[8];
+    union symmetric_key skey;
+    int x;
+
+    /* make up a key */
+    for (x = 0; x < 8; x++) pt[x] = key[x] = x;
+
+    /* schedule the key */
+    if (blowfish_setup(key, 8, 0, &skey) == CRYPT_ERROR) {
+       printf("Setup error: %s\n", crypt_error);
+       return -1;
+    }    
+
+    /* encrypt the block */
+    blowfish_ecb_encrypt(pt, ct, &skey);
+ 
+    /* decrypt the block */
+    blowfish_ecb_decrypt(ct, pt, &skey);
+
+    return 0;
+}
+\end{verbatim}
+
+\section{The Cipher Descriptors}
+
+To facilitate automatic routines an array of cipher descriptors is provided in the array ``cipher\_descriptor''.  An element
+of this array has the following format:
+
+\begin{verbatim}
+struct _cipher_descriptor {
+   char *name;
+   int  min_key_length, max_key_length, 
+        block_length, default_rounds;
+   int  (*setup)      (unsigned char *key, int keylength, 
+                       int num_rounds, union symmetric_key *skey);
+   void (*ecb_encrypt)(unsigned char *pt, unsigned char *ct, 
+                       union symmetric_key *key);
+   void (*ecb_decrypt)(unsigned char *ct, unsigned char *pt, 
+                       union symmetric_key *key);
+   int (*test)        (void);
+};
+\end{verbatim}
+
+Where ``name'' is the lower case ASCII version of the name.  The fields ``min\_key\_length'', ``max\_key\_length'' and
+``block\_length'' are all the number of bytes not bits.  As a good rule of thumb it is assumed that the cipher supports
+the min and max key lengths but not always everything in between.  The ``default\_rounds'' field is the default number
+of rounds that will be used.
+
+The remaining fields are all pointers to the core functions for each cipher.  The end of the cipher\_descriptor array is
+marked when ``name'' equals {\bf NULL}.
+
+As of this release the current cipher\_descriptors elements are
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+     \hline Name & Block Size & Key Range & Rounds \\
+     \hline Blowfish, ``blowfish'' & 8 & 8 ... 56 & 16 \\
+     \hline RC5-32/12/b, ``rc5'' & 8 & 8 ... 128 & 12 ... 24 \\
+     \hline RC6-32/20/b, ``rc6'' & 16 & 8 ... 128 & 20 \\
+     \hline SAFER+, ``safer+'' & 16 & 16, 24, 32 & 8, 12, 16 \\
+     \hline Serpent, ``serpent'' & 16 & 16 .. 32 & 32 \\
+     \hline
+\end{tabular}
+\end{center}
+
+Note that ``SAFER+'' does not allow the user to override the number of rounds.  The number of rounds varies per 
+key length.  There are 8 rounds for 16 byte keys, 12 rounds for 24 byte keys and 16 rounds for 32 byte keys.  You can either
+specify the correct number of rounds or zero and let it pick.
+
+To work with the cipher\_descriptor array there is a function ``int find\_cipher({\bf char *}name)'' that will search
+for a given name in the array.  It returns negative one if the cipher is not found, otherwise it returns the location
+in the array where the cipher was found.  For example, to indirectly setup Blowfish you can also use:
+
+\begin{small}
+\begin{verbatim}
+cipher_descriptor[find_cipher("blowfish")].setup(key, keylen, rounds, &skey);
+\end{verbatim}
+\end{small}
+
+A good safety would be to check the return value before accessing the desired function.
+
+\section{CBC and CTR Block Modes}
+The library provides simple support routines for handling CBC and CTR encoded messages.  Assuming the mode you want
+is XXX there is a structure called ``{\bf struct symmetric\_XXX}'' that will contain the information required to
+use that mode.  They have virtually identical setup routines:
+\begin{verbatim}
+int cbc_start(int cipher, unsigned char *IV, unsigned char *key, 
+              int keylen, int num_rounds, struct symmetric_CBC *cbc);
+
+int ctr_start(int cipher, unsigned char *count, unsigned char *key, 
+              int keylen, int num_rounds, struct symmetric_CTR *ctr);
+\end{verbatim}
+
+In both cases ``cipher'' is the index into the cipher\_descriptor array of the cipher you want to use.  The ``IV'' and
+``count'' values are the initialization vectors.  You must fill them yourself and it is assumed they are the same length
+as the block size of the cipher you choose.  The parameters ``key'', ``keylen'' and ``num\_rounds'' are the same as in
+the XXX\_setup() function call.  The final parameter is a pointer to the structure you want to hold the information for
+the mode of operation.
+
+Both routines return {\bf CRYPT\_OK} if the cipher initialized correctly, otherwise they return {\bf CRYPT\_ERROR}.  To 
+actually encrypt or decrypt the following routines are provided:
+\begin{verbatim}
+void cbc_encrypt(unsigned char *pt, unsigned char *ct, 
+                 struct symmetric_CBC *cbc);
+void cbc_decrypt(unsigned char *ct, unsigned char *pt,
+                 struct symmetric_CBC *cbc);
+
+void ctr_encrypt(unsigned char *pt, unsigned char *ct, 
+                 int len, struct symmetric_CTR *ctr);
+void ctr_decrypt(unsigned char *ct, unsigned char *pt, 
+                 int len, struct symmetric_CTR *ctr);
+\end{verbatim}
+
+These routines work much like the ECB mode routines.  In the CBC case it always encrypts blocks of a size determined
+by the cipher.  This means in CBC mode you should pad your message (with zeroes will work) so the message length
+is a multiple of block cipher length.  In CTR mode you can specify the size of each block which means when you reach
+the end of the message you can simply pass the value of the remaining length.
+
+To decrypt in either mode you simply setup the CBC or CTR buffer like before (recall you have to fetch the IV value you used)
+and use the decrypt routine on all of the blocks.
+
+\chapter{One-Way Hash Functions}
+\section{Core Functions}
+
+Like the ciphers there are hash core functions and a universal structure to hold the hash state called 
+``{\bf union hash\_state}''.  To initialize hash XXX (where XXX is the name) call:
+\begin{verbatim}
+void XXX_init(union hash_state *md);
+\end{verbatim}
+
+This simply sets up the hash to the default state governed by the specifications of the hash.  To add data to the 
+message being hashed call:
+\begin{verbatim}
+void XXX_process(unsigned char *in, int len, 
+                 union hash_state *md);
+\end{verbatim}
+
+Essentially all hash messages are virtually infinitely\footnote{All hashes are limited to $2^{32}$ bits} long message which is 
+buffered.  You pass pieces of the data at a time to the process function.  To finally get the result of the hash
+call:
+\begin{verbatim}
+void XXX_done(union hash_state *md, 
+              unsigned char *out);
+\end{verbatim}
+
+This function will finish up the hash and store the result in the ``out'' array.  You must ensure that ``out'' is long
+enough for the hash in question.  To test a hash function call:
+\begin{verbatim}
+int XXX_test(void);
+\end{verbatim}
+
+This will return {\bf CRYPTO\_OK} if the hash matches the test vectors, otherwise it returns {\bf CRYPTO\_ERROR}.  An
+example snippet that hashes a message with md5 is given below.
+\begin{verbatim}
+#include <crypt.h>
+int main(void)
+{
+    union hash_state md;
+    unsigned char *in = "hello world", out[16];
+
+    /* setup the hash */
+    md5_init(&md);
+
+    /* add the message */
+    md5_process(in, strlen(in), &md);
+
+    /* get the hash */
+    md5_done(&md, out);
+
+    return 0;
+}
+\end{verbatim}
+
+\section{Hash Descriptors}
+
+Like the set of ciphers the set of hashes have descriptors too.  They are stored in an array called ``hash\_descriptor'' and
+are defined by:
+\begin{verbatim}
+struct _hash_descriptor {
+    char *name;
+    int hashsize;
+    void (*init)   (union hash_state *);
+    void (*process)(union hash_state *, 
+                    unsigned char *, int);
+    void (*done)   (union hash_state *, 
+                    unsigned char *);
+    int  (*test)   (void);
+};
+\end{verbatim}
+
+Similarly ``name'' is the name of the hash function in ASCII (all lowercase).  ``hashsize'' is the size of the digest output
+in bytes.  The remaining fields are pointers to the functions that do the respective tasks.  There is a function to
+search the array as well called ``int find\_hash(char *name)''.  It returns -1 if the hash is not found, otherwise the
+position in the descriptor table of the hash.
+
+There are two helper functions as well:
+\begin{verbatim}
+int hash_memory(int hash, unsigned char *data, 
+                int len, unsigned char *dst);
+
+int hash_file(int hash, char *fname, 
+              unsigned char *dst);
+\end{verbatim}
+
+Both functions return {\bf CRYPT\_OK} on success, otherwise they return {\bf CRYPT\_ERROR}.  The ``hash'' parameter is
+the location in the descriptor table of the hash.  The functions are otherwise straightforward.  To perform the above 
+hash with md5 the following code could be used:
+\begin{verbatim}
+hash_memory(find_hash("md5"), "hello world", 11, out);
+\end{verbatim}
+
+The following hashes are provided as of this release:
+\begin{center}
+\begin{tabular}{|c|c|}
+      \hline Name & Size \\
+      \hline SHA-256, ``sha256'' & 32 \\
+      \hline SHA-1, ``sha1'' & 20 \\
+      \hline MD5, ``md5'' & 16 \\
+      \hline TIGER-192, ``tiger'' & 24 \\
+      \hline
+\end{tabular}
+\end{center}
+
+\chapter{Pseudo-Random Number Generators}
+\section{Core Functions}
+
+The library provides an array of core functions for PRNGs as well.  There is a universal structure called 
+``{\bf union prng\_state}''.  To initialize a PRNG call:
+\begin{verbatim}
+int XXX_start(union prng_state *prng);
+\end{verbatim}
+
+This will setup the PRNG but not seed it.  Returns {\bf CRYPTO\_ERROR} if there is an error.  In order for the PRNG to be 
+cryptographically useful you must give it entropy.  Ideally you'd have some OS level source to tap like in UNIX.  Since 
+this is a portable library I leave it upto you to figure this one out.  Nyah Nyah!.  To add entropy to the PRNG call:
+\begin{verbatim}
+int XXX_add_entropy(unsigned char *in, int len, 
+                    union prng_state *prng);
+\end{verbatim}
+
+Which returns {\bf CRYPTO\_OK} if the entropy was accepted.  Once you think you have enough entropy you call another
+function to put the entropy into action.
+\begin{verbatim}
+int XXX_ready(union prng_state *prng);
+\end{verbatim}
+
+Which returns {\bf CRYPTO\_OK} if it is ready.  Finally to actually read bytes call:
+\begin{verbatim}
+int XXX_read(unsigned char *out, int len,
+             union prng_state *prng);
+\end{verbatim}
+
+Which returns the number of bytes read from the PRNG.
+
+\subsection{Remarks}
+
+It is possible to be adding entropy and reading from a PRNG at the same time.  For example, if you first seed the PRNG
+and call ready() you can now read from it.  You can also keep adding new entropy to it.  The new entropy will not be used
+in the PRNG until ready() is called.  This allows the PRNG to be used and re-seeded at the same time.
+
+No real error checking is guaranteed to see if the entropy is sufficient or if the PRNG is even in a ready state.  Simple
+snippet to read 10 bytes from yarrow is below.
+
+\begin{verbatim}
+#include <crypt.h>
+int main(void)
+{
+   union prng_state prng;
+   unsigned char buf[10];
+
+   /* start it */
+   yarrow_start(&prng);
+
+   /* add entropy */
+   yarrow_add_entropy("hello world", 11, &prng);
+ 
+   /* ready and read */
+   yarrow_ready(&prng);
+   yarrow_read(buf, 10, &prng);
+
+   return 0;
+}
+\end{verbatim}
+
+\section{PRNG Descriptors}
+
+PRNGs have descriptors too (surprised?). Stored in the structure ``prng\_descriptor''.  The format of an element is:
+\begin{verbatim}
+struct _prng_descriptor {
+    char *name;
+    int (*start)      (union prng_state *);
+    int (*add_entropy)(unsigned char *, int, 
+                       union prng_state *);
+    int (*ready)      (union prng_state *);
+    int (*read)       (unsigned char *, int len, 
+                       union prng_state *);
+};
+\end{verbatim}
+
+There is a ``int find\_prng(char *name)'' function as well.  Returns -1 if the PRNG is not found, otherwise it returns
+the position in the prng\_descriptor array.
+
+There are no additional support routines for PRNGs.  Yarrow is the only currently support PRNG available.  It uses by 
+default SHA1 and Blowfish but you can change that after calling ``yarrow\_start()''.
+
+\chapter{RSA Routines}
+\section{Core Functions}
+
+For RSA routines a single ``struct rsa\_key'' structure is used.  To make a new RSA key call:
+\begin{verbatim}
+int rsa_make_key(union prng_state *prng, 
+                 int wprng, int size, 
+                 long e, struct rsa_key *key);
+\end{verbatim}
+
+Where ``wprng'' is the index into the PRNG descriptor array.  ``size'' is the size in bytes of the RSA modulus desired.
+``e'' is the encryption exponent desired, typical values are 3, 17, 257 and 65537.  I suggest you stick with 65537 since its big
+enough to prevent trivial math attacks and not super slow.  ``key'' is where the key is placed.  This routine returns
+{\bf CRYPTO\_ERROR} if it fails to make a RSA key.
+
+Todo raw work with the RSA function call:
+\begin{verbatim}
+int rsa_exptmod(unsigned char *in, int inlen, 
+                unsigned char *out, int *outlen, 
+                int which, struct rsa_key *key);
+\end{verbatim}
+This loads the bignum from ``in'' as a little endian word, raises it to either ``e'' or ``d'' and stores the result
+in ``out'' and the size of the result in ``outlen''.  You must ensure that ``outlen'' is set to the maximum size of
+the output buffer before calling this function.  This is to prevent buffer overruns.  ``which'' is set to 
+{\bf PK\_PUBLIC} to use ``e'' (i.e. for encryption) and set to {\bf PK\_PRIVATE} to use ``d'' as the exponent.  This
+function returns {\bf CRYPT\_ERROR} on error.
+
+\section{Packet Routines}
+The remaining RSA functions are non-standard but should (to the best of my knowledge) be secure if used correctly.  To
+encrypt a buffer of memory in a hybrid fashion call:
+\begin{verbatim}
+int rsa_encrypt(unsigned char *in, int len, 
+                unsigned char *out, int *outlen,
+                union prng_state *prng, int wprng, 
+                int cipher, struct rsa_key *key);
+\end{verbatim}
+This will encrypt the message with the cipher specified by ``cipher'' under a random key made by a PRNG specified by
+``wprng'' and RSA encrypt the symmetric key with ``key''.  This stores all the relevent information in ``out'' and sets
+the length in ``outlen''.  You must ensure that ``outlen'' is set to the buffer size before calling this.  This returns
+{\bf CRYPT\_ERROR} on error.  To decrypt packets made by this routine call:
+\begin{verbatim}
+int rsa_decrypt(unsigned char *in, int len, 
+                unsigned char *out, int *outlen, 
+                struct rsa_key *key);
+\end{verbatim}
+Which works akin to rsa\_encrypt().  Similarly to sign/verify there are:
+\begin{verbatim}
+int rsa_sign(unsigned char *in, int inlen, 
+             unsigned char *out, int *outlen, int hash, 
+             union prng_state *prng, int wprng, struct rsa_key *key);
+
+int rsa_verify(unsigned char *sig, 
+               unsigned char *msg, 
+               int inlen, int *stat, 
+               struct rsa_key *key);
+\end{verbatim}
+
+The verify function sets ``stat'' to 1 if it passes or to 0 if it fails.  The ``sig'' parameter is the output of the
+rsa\_sign() function and ``msg'' is the original msg that was signed.  To import/export RSA keys as a memory buffer (
+e.g. to store them to disk) call:
+\begin{verbatim}
+int rsa_export(unsigned char *out, int *outlen, 
+               int type, struct rsa_key *key);
+
+int rsa_import(unsigned char *in, struct rsa_key *key);
+\end{verbatim}
+
+To free the memory used by an RSA key call:
+\begin{verbatim}
+void rsa_free(struct rsa_key *key);
+\end{verbatim}
+
+\backmatter
+\appendix
+\input{crypt.ind}
+\end{document}

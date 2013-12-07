@@ -1,0 +1,14 @@
+##############################################################################
+#
+#  List the test cases that are to be disabled temporarily.
+#
+#  Separate the test case name and the comment with ':'.
+#
+#    <testcasename> : BUG#<xxxx> <date disabled> <disabler> <comment>
+#
+#  Do not use any TAB characters for whitespace.
+#
+##############################################################################
+kill                     : Bug#37780 2008-12-03 HHunger need some changes to be robust enough for pushbuild.
+query_cache_28249        : Bug#41098 Query Cache returns wrong result with concurrent insert
+innodb_bug39438          : BUG#42383 2009-01-28 lsoares "This fails in embedded and on windows.  Note that this test is not run on windows and on embedded in PB for main trees currently"

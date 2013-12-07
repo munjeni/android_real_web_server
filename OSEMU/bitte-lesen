@@ -1,0 +1,25 @@
+ OSEmu
+ micro-EMU As small and lightweight as possible
+
+Build: Just enter "make", there are no options necessary as long as you don't crosscompile 
+(but as it's standard c code with no dependencies it should work quite easy on all plattforms)
+
+Start: Start the built OSEmu binary. The necessary options will get displayed as usage info 
+(a single user account and the port). It automatically listens on all IP addresses on the machine, including localhost.
+
+Use in OSCam: Create a camd35 reader with caid/ident defined accordingly to what you emulate and 
+maybe also services if you want. 
+Use the user/password/port that you specified on start of OSEmu and it should start to get decoded. 
+
+no keys needed built in emu
+
+./osemu.mipsel -a emu:emu -p 54321 &
+/var/bin/OSEmu -a emu:emu -p 54321 &
+
+[reader]
+label = Emulator
+protocol = camd35
+device = 127.0.0.1,54321
+user = emu
+password = emu
+group = 1
