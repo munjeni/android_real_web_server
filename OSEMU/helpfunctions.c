@@ -1,7 +1,5 @@
 #include "globals.h"
 
-int8_t debuglog = 0;
-
 void cs_log(const char* format, ... ){
   va_list arglist;
   va_start(arglist, format);

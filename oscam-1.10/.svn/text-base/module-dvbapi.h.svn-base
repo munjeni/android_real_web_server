@@ -1,43 +1,44 @@
+#ifndef MODULE_DVBAPI_H_
+#define MODULE_DVBAPI_H_
+
 #ifdef HAVE_DVBAPI
-
-#ifndef MODULEDVBAPI_H_
-#define MODULEDVBAPI_H_
-
-
 #include <sys/un.h>
-#include <dirent.h>
 
 #define TYPE_ECM 1
 #define TYPE_EMM 2
 
 //api
-#define DVBAPI_3	0
-#define DVBAPI_1	1
-#define STAPI		2
-#define COOLAPI		3
+#define DVBAPI_3    0
+#define DVBAPI_1    1
+#define STAPI       2
+#define COOLAPI     3
 
-#define TMPDIR	"/tmp/"
-#define STANDBY_FILE	"/tmp/.pauseoscam"
-#define ECMINFO_FILE	"/tmp/ecm.info"
+#define PORT        9000
 
-#ifdef COOL
-#define MAX_DEMUX 3
-#else
-#define MAX_DEMUX 5
-#endif
+#define TMPDIR  "/tmp/"
+#define STANDBY_FILE    "/tmp/.pauseoscam"
+#define ECMINFO_FILE    "/tmp/ecm.info"
+
+#define MAX_DEMUX 16
 #define MAX_CAID 50
 #define ECM_PIDS 30
-#define MAX_FILTER 10
-
-#ifndef FALSE
-#define FALSE 0
-#endif
-
-#ifndef TRUE
-#define TRUE 1
-#endif
+#define MAX_FILTER 24
 
 #define BOX_COUNT 6
+
+#define BOXTYPE_DREAMBOX    1
+#define BOXTYPE_DUCKBOX 2
+#define BOXTYPE_UFS910  3
+#define BOXTYPE_DBOX2   4
+#define BOXTYPE_IPBOX   5
+#define BOXTYPE_IPBOX_PMT   6
+#define BOXTYPE_DM7000  7
+#define BOXTYPE_QBOXHD  8
+#define BOXTYPE_COOLSTREAM  9
+#define BOXTYPE_NEUMO   10
+#define BOXTYPE_PC      11
+#define BOXTYPES        11
+#define DMXMD5HASHSIZE  16  // use MD5() 
 
 struct box_devices
 {
@@ -45,6 +46,7 @@ struct box_devices
 	char *ca_device;
 	char *demux_device;
 	char *cam_socket_path;
+	int8_t api;
 };
 
 struct s_ecmpids
@@ -52,13 +54,15 @@ struct s_ecmpids
 	uint16_t CAID;
 	uint32_t PROVID;
 	uint16_t ECM_PID;
+	uint32_t CHID;
 	uint16_t EMM_PID;
-	int8_t irdeto_numchids;
-	int8_t irdeto_curchid;
-	int32_t irdeto_chids;
-	int32_t irdeto_cycle;
+	uint32_t VPID; // videopid
+	uint8_t irdeto_maxindex; // max irdeto indexes always fresh fetched from current ecm
+	uint8_t irdeto_curindex; // current irdeto index we want to handle
+	uint8_t irdeto_cycle; // temp var that holds the irdeto index we started with to detect if we cycled trough all indexes
 	int8_t checked;
 	int8_t status;
+	uint8_t tries;
 	unsigned char table;
 	int8_t index;
 	uint32_t streams;
@@ -69,12 +73,15 @@ typedef struct filter_s
 	uint32_t fd; //FilterHandle
 	int32_t pidindex;
 	int32_t pid;
+	uint16_t caid;
+	uint32_t provid;
 	uint16_t type;
 	int32_t count;
+	uchar   ecmd5[CS_ECMSTORESIZE]; // last requested ecm md5
 #ifdef WITH_STAPI
 	int32_t NumSlots;
-	uint32_t	SlotHandle[10];
-	uint32_t  	BufferHandle[10];
+	uint32_t    SlotHandle[10];
+	uint32_t    BufferHandle[10];
 #endif
 } FILTERTYPE;
 
@@ -86,27 +93,8 @@ struct s_emmpids
 	uint8_t type;
 };
 
-#ifdef WITH_STAPI
-struct STDEVICE
-{
-	char name[20];
-	uint32_t 	SessionHandle;
-	uint32_t	SignalHandle;
-	pthread_t thread;
-	struct filter_s demux_fd[MAX_DEMUX][MAX_FILTER];
-};
-
-struct read_thread_param
-{
-	int32_t id;
-	struct s_client *cli;
-};
-
-#define BUFFLEN	1024
-#define PROCDIR	"/proc/stpti4_core/"
 #define PTINUM 10
 #define SLOTNUM 20
-#endif
 
 typedef struct demux_s
 {
@@ -116,22 +104,29 @@ typedef struct demux_s
 	int8_t adapter_index;
 	int32_t socket_fd;
 	int8_t ECMpidcount;
+	struct timeb emmstart; // last time emm cat was started
 	struct s_ecmpids ECMpids[ECM_PIDS];
 	int8_t EMMpidcount;
 	struct s_emmpids EMMpids[ECM_PIDS];
+	uint16_t max_emm_filter;
 	int8_t STREAMpidcount;
 	uint16_t STREAMpids[ECM_PIDS];
 	int16_t pidindex;
 	int16_t curindex;
-	int8_t tries;
 	int8_t max_status;
 	uint16_t program_number;
+	uint16_t onid;
+	uint16_t tsid;
+	uint32_t enigma_namespace;
 	unsigned char lastcw[2][8];
 	int8_t emm_filter;
 	uchar hexserial[8];
 	struct s_reader *rdr;
 	char pmt_file[30];
-	int32_t pmt_time;
+	time_t pmt_time;
+	uint8_t stopdescramble;
+	uint8_t old_ecmfiltercount; // previous ecm filtercount
+	uint8_t old_emmfiltercount; // previous emm filtercount 
 #ifdef WITH_STAPI
 	uint32_t DescramblerHandle[PTINUM];
 	int32_t desc_pidcount;
@@ -139,16 +134,24 @@ typedef struct demux_s
 #endif
 } DEMUXTYPE;
 
+typedef struct s_streampid
+{
+	uint8_t		cadevice; // holds ca device
+	uint16_t 	streampid; // holds pids
+	uint32_t	activeindexers; // bitmask indexers if streampid enabled for index bit is set
+}STREAMPIDTYPE;
+
 struct s_dvbapi_priority
 {
 	char type; // p or i
 	uint16_t caid;
 	uint32_t provid;
 	uint16_t srvid;
-	uint16_t chid;
+	uint32_t chid;
 	uint16_t ecmpid;
 	uint16_t mapcaid;
 	uint32_t mapprovid;
+	uint16_t mapecmpid;
 	int16_t delay;
 	int8_t force;
 #ifdef WITH_STAPI
@@ -166,26 +169,26 @@ struct s_dvbapi_priority
 //dvbapi 1
 typedef struct dmxFilter
 {
-	uint8_t 	filter[DMX_FILTER_SIZE];
-	uint8_t 	mask[DMX_FILTER_SIZE];
+	uint8_t     filter[DMX_FILTER_SIZE];
+	uint8_t     mask[DMX_FILTER_SIZE];
 } dmxFilter_t;
 
 struct dmxSctFilterParams
 {
-	uint16_t		    pid;
-	dmxFilter_t		     filter;
-	uint32_t		     timeout;
-	uint32_t		     flags;
-#define DMX_CHECK_CRC	    1
-#define DMX_ONESHOT	    2
+	uint16_t            pid;
+	dmxFilter_t          filter;
+	uint32_t             timeout;
+	uint32_t             flags;
+#define DMX_CHECK_CRC       1
+#define DMX_ONESHOT     2
 #define DMX_IMMEDIATE_START 4
-#define DMX_BUCKET	    0x1000	/* added in 2005.05.18 */
+#define DMX_BUCKET      0x1000  /* added in 2005.05.18 */
 #define DMX_KERNEL_CLIENT   0x8000
 };
 
-#define DMX_START1		  _IOW('o',41,int)
-#define DMX_STOP1		  _IOW('o',42,int)
-#define DMX_SET_FILTER1 	  _IOW('o',43,struct dmxSctFilterParams *)
+#define DMX_START1        _IOW('o',41,int)
+#define DMX_STOP1         _IOW('o',42,int)
+#define DMX_SET_FILTER1       _IOW('o',43,struct dmxSctFilterParams *)
 //------------------------------------------------------------------
 
 
@@ -200,95 +203,36 @@ typedef struct dmx_filter
 
 struct dmx_sct_filter_params
 {
-	uint16_t	    pid;
-	dmx_filter_t	    filter;
-	uint32_t	    timeout;
-	uint32_t	    flags;
-#define DMX_CHECK_CRC	    1
-#define DMX_ONESHOT	    2
+	uint16_t        pid;
+	dmx_filter_t        filter;
+	uint32_t        timeout;
+	uint32_t        flags;
+#define DMX_CHECK_CRC       1
+#define DMX_ONESHOT     2
 #define DMX_IMMEDIATE_START 4
 #define DMX_KERNEL_CLIENT   0x8000
 };
 
-typedef struct ca_descr {
+typedef struct ca_descr
+{
 	uint32_t index;
-	uint32_t parity;	/* 0 == even, 1 == odd */
+	uint32_t parity;    /* 0 == even, 1 == odd */
 	unsigned char cw[8];
 } ca_descr_t;
 
-typedef struct ca_pid {
+typedef struct ca_pid
+{
 	uint32_t pid;
-	int32_t index;		/* -1 == disable*/
+	int32_t index;      /* -1 == disable*/
 } ca_pid_t;
 
-#define DMX_START		_IO('o', 41)
-#define DMX_STOP		_IO('o', 42)
-#define DMX_SET_FILTER	_IOW('o', 43, struct dmx_sct_filter_params)
+#define DMX_START       _IO('o', 41)
+#define DMX_STOP        _IO('o', 42)
+#define DMX_SET_FILTER  _IOW('o', 43, struct dmx_sct_filter_params)
 
-#define CA_SET_DESCR		_IOW('o', 134, ca_descr_t)
-#define CA_SET_PID		_IOW('o', 135, ca_pid_t)
+#define CA_SET_DESCR        _IOW('o', 134, ca_descr_t)
+#define CA_SET_PID      _IOW('o', 135, ca_pid_t)
 // --------------------------------------------------------------------
-
-#ifdef AZBOX
-#include "openxcas/openxcas_api.h"
-#include "openxcas/openxcas_message.h"
-
-int32_t openxcas_provid, openxcas_seq, openxcas_filter_idx, openxcas_stream_id, openxcas_cipher_idx, openxcas_busy;
-unsigned char openxcas_cw[16];
-uint16_t openxcas_sid, openxcas_caid, openxcas_ecm_pid, openxcas_video_pid, openxcas_audio_pid, openxcas_data_pid;
-
-void azbox_openxcas_ecm_callback(int32_t stream_id, uint32_t sequence, int32_t cipher_index, uint32_t caid, unsigned char *ecm_data, int32_t l, uint16_t pid);
-void azbox_openxcas_ex_callback(int32_t stream_id, uint32_t seq, int32_t idx, uint32_t pid, unsigned char *ecm_data, int32_t l);
-void azbox_send_dcw(struct s_client *client, ECM_REQUEST *er);
-void * azbox_main(void * cli);
-#endif
-
-#ifdef COOL
-int32_t coolapi_set_filter (int32_t fd, int32_t num, int32_t pid, byte * flt, byte * mask);
-int32_t coolapi_remove_filter (int32_t fd, int32_t num);
-int32_t coolapi_open_device (int32_t demux_index, int32_t demux_id);
-int32_t coolapi_close_device(int32_t fd);
-int32_t coolapi_write_cw(int32_t mask, uint16_t *STREAMpids, int32_t count, ca_descr_t * ca_descr);
-int32_t coolapi_set_pid (int32_t demux_id, int32_t num, int32_t index, int32_t pid);
-void coolapi_close_all();
-static void dvbapi_write_cw(int32_t demux_id, uchar *cw, int32_t index);
-#endif
-
-#ifdef WITH_STAPI
-static int32_t stapi_open();
-static int32_t stapi_set_filter(int32_t demux_id, uint16_t pid, uchar *filter, uchar *mask, int32_t num, char *pmtfile);
-static int32_t stapi_remove_filter(int32_t demux_id, int32_t num, char *pmtfile);
-static int32_t stapi_set_pid(int32_t demux_id, int32_t num, int32_t index, uint16_t pid, char *pmtfile);
-static int32_t stapi_write_cw(int32_t demux_id, uchar *cw, uint16_t *, int32_t, char *pmtfile);
-static int32_t stapi_do_set_filter(int32_t demux_id, FILTERTYPE *filter, uint16_t *pids, int32_t pidcount, uchar *filt, uchar *mask, int32_t dev_id);
-static int32_t stapi_do_remove_filter(int32_t demux_id, FILTERTYPE *filter, int32_t dev_id);
-static void *stapi_read_thread(void *);
-
-uint32_t oscam_stapi_Capability(char *name);
-char *oscam_stapi_LibVersion(void);
-uint32_t oscam_stapi_Open(char *name, uint32_t *sessionhandle);
-uint32_t oscam_stapi_SignalAllocate(uint32_t sessionhandle, uint32_t *signalhandle);
-uint32_t oscam_stapi_FilterAllocate(uint32_t sessionhandle, uint32_t *filterhandle);
-uint32_t oscam_stapi_SlotInit(uint32_t sessionhandle, uint32_t signalhandle, uint32_t *bufferhandle, uint32_t *slothandle, uint16_t pid);
-uint32_t oscam_stapi_FilterSet(uint32_t filterhandle, uchar *filt, uchar *mask);
-uint32_t oscam_stapi_FilterAssociate(uint32_t filterhandle, uint32_t slothandle);
-uint32_t oscam_stapi_SlotDeallocate(uint32_t slothandle);
-uint32_t oscam_stapi_BufferDeallocate(uint32_t bufferhandle);
-uint32_t oscam_stapi_FilterDeallocate(uint32_t filterhandle);
-uint32_t oscam_stapi_Close(uint32_t sessionhandle);
-uint32_t oscam_stapi_CheckVersion();
-uint32_t oscam_stapi_DescramblerAssociate(uint32_t deschandle, uint32_t slot);
-uint32_t oscam_stapi_DescramblerDisassociate(uint32_t deschandle, uint32_t slot);
-uint32_t oscam_stapi_DescramblerAllocate(uint32_t sessionhandle, uint32_t *deschandle);
-uint32_t oscam_stapi_DescramblerDeallocate(uint32_t deschandle);
-uint32_t oscam_stapi_DescramblerSet(uint32_t deschandle, int32_t parity, uchar *cw);
-uint32_t oscam_stapi_SignalWaitBuffer(uint32_t signalhandle, uint32_t *qbuffer, int32_t timeout);
-uint32_t oscam_stapi_BufferReadSection(uint32_t bufferhandle, uint32_t *filterlist, int32_t maxfilter, uint32_t *filtercount, int32_t *crc, uchar *buf, int32_t bufsize, uint32_t *size);
-uint32_t oscam_stapi_SignalAbort(uint32_t signalhandle);
-uint32_t oscam_stapi_PidQuery(char *name, uint16_t pid);
-uint32_t oscam_stapi_BufferFlush(uint32_t bufferhandle);
-uint32_t oscam_stapi_SlotClearPid(uint32_t slot);
-#endif
 
 void dvbapi_stop_descrambling(int);
 void dvbapi_process_input(int32_t demux_id, int32_t filter_num, uchar *buffer, int32_t len);
@@ -296,18 +240,34 @@ int32_t dvbapi_open_device(int32_t, int32_t, int);
 int32_t dvbapi_stop_filternum(int32_t demux_index, int32_t num);
 int32_t dvbapi_stop_filter(int32_t demux_index, int32_t type);
 struct s_dvbapi_priority *dvbapi_check_prio_match(int32_t demux_id, int32_t pidindex, char type);
+void dvbapi_send_dcw(struct s_client *client, ECM_REQUEST *er);
+void dvbapi_write_cw(int32_t demux_id, uchar *cw, int32_t idx);
+int32_t dvbapi_parse_capmt(unsigned char *buffer, uint32_t length, int32_t connfd, char *pmtfile);
+void request_cw(struct s_client *client, ECM_REQUEST *er, int32_t demux_id, uint8_t delayed_ecm_check);
+void dvbapi_try_next_caid(int32_t demux_id, int8_t checked);
+void dvbapi_read_priority(void);
+int32_t dvbapi_set_section_filter(int32_t demux_index, ECM_REQUEST *er);
+int32_t dvbapi_activate_section_filter(int32_t fd, int32_t pid, uchar *filter, uchar *mask);
+int32_t dvbapi_check_ecm_delayed_delivery(int32_t demux_index, ECM_REQUEST *er);
+int32_t dvbapi_get_filternum(int32_t demux_index, ECM_REQUEST *er, int32_t type);
+int32_t dvbapi_ca_setpid(int32_t demux_index, int32_t pid);
+void dvbapi_set_pid(int32_t demux_id, int32_t num, int32_t idx, bool enable);
+bool update_streampid_list(uint8_t cadevice, uint16_t pid, int32_t idx);
+bool remove_streampid_from_list(uint8_t cadevice, uint16_t pid, int32_t idx);
+void disable_unused_streampids(int16_t demux_id);
+bool is_ca_used(uint8_t cadevice);
 
-#ifdef WITH_STAPI
-	#define cs_log(x...)	cs_log("stapi: "x)
-	#ifdef WITH_DEBUG
-		#define cs_debug_mask(x,y...)	cs_debug_mask(x,"stapi: "y)
-	#endif
-#else
-	#define cs_log(x...)	cs_log("dvbapi: "x)
-	#ifdef WITH_DEBUG
-		#define cs_debug_mask(x,y...)	cs_debug_mask(x,"dvbapi: "y)
-	#endif
+#ifdef DVBAPI_LOG_PREFIX
+#undef cs_log
+#define cs_log(txt, x...)   cs_log_int(0, 1, NULL, 0, "dvbapi: "txt, ##x)
+#ifdef WITH_DEBUG
+#undef cs_debug_mask
+#define cs_debug_mask(x,txt,y...)   cs_log_int(x, 1, NULL, 0, "dvbapi: "txt, ##y)
+#endif
 #endif
 
-#endif // MODULEDVBAPI_H_
+#else
+static inline void dvbapi_read_priority(void) { }
 #endif // WITH_DVBAPI
+
+#endif // MODULE_DVBAPI_H_

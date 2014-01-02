@@ -1,57 +1,15 @@
-                             ======================
-                             OSCam: Open Source CAM
-                             ======================
+OSCam: Open Source Conditional Access Module
+============================================
 
 
-1. Compiling OSCam from source
-------------------------------
+License
+=======
 
-1. Get the lastest sources from SVN
-      svn co http://streamboard.gmc.to/svn/oscam/trunk oscam-trunk
-
-2. Create folders:
-      cd oscam-trunk
-      mkdir build
-      cd build
-
-3. Look for compile options in oscam-config.h.
-   Enable features with make:
-      NAME_OF_FEATURE     - enable feature
-
-   Enable features with cmake:
-      -DNAME_OF_FEATURE=1 - enable feature
-
-   Use config.sh to enable/disable features.
-
-   If you use cmake you may use the interface to change build parameters
-      ccmake ..
-
-   or specify them on the command line like this:
-      cmake -DCS_CONFDIR=/where/is/config/files -DCMAKE_INSTALL_PREFIX=/where/to/installed ..
-
-4. Build:
-      make
-
-5. Install:
-      make install
-
-
-2. Build with a different toolchain (cross-compilation)
--------------------------------------------------------
-In short, you need to define the toolchain file on the command line, for 
-example:
-
-      cmake -DCMAKE_TOOLCHAIN_FILE=../toolchains/toolchain-powerpc-tuxbox.cmake ..
-
-For current toolchains and more detailed instructions see
-http://streamboard.gmc.to/oscam/wiki/crosscompiling/
-
-
-3. Licence
-----------
 OSCam: Open Source CAM
-Copyright (C) 2009-2011 OSCam developers
-Based on Streamboard mp-cardserver v0.9d - (w) 2004-2007 by dukat
+Copyright (C) 2009-2013 OSCam developers
+
+OSCam is based on the Streamboard mp-cardserver 0.9d by dukat and
+has been extended and worked on by many more since then.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -66,50 +24,87 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-http://www.gnu.org/licenses/gpl-3.0.html
+For the full text of the licese, please read COPYING file in OSCam
+top directory or visit http://www.gnu.org/licenses/gpl-3.0.html
 
 
-4. Copyright
-------------
-OSCam is based on the Streamboard mp-cardserver 0.9d by dukat and has 
-been extended and worked on by many more since then.
-You are free to use it under the terms of the GNU General Public 
-License, as described in the LICENSE file.
+Version history
+===============
+
+OSCam history is accessible through Trac timeline at:
+   http://www.streamboard.tv/oscam/timeline/
 
 
-5. Version History
-------------------
-See the file VERSION which should come with your distribution for details.
+Repositories
+============
 
-You may also have a look at the Trac timeline
-http://streamboard.gmc.to/oscam/timeline/
-for more detailed and up-to-date changes.
+SVN repository:
+   svn checkout http://www.streamboard.tv/svn/oscam/trunk oscam-svn
 
 
-6. Web Links
-------------
-svn repository:
-svn co http://streamboard.gmc.to/svn/oscam/trunk oscam-svn
+Building OSCam from source
+==========================
 
-mirror svn:
-svn co http://oscam.to/svn/oscam/trunk oscam-mirror
+ - Get the lastest sources from SVN
+    svn checkout http://www.streamboard.tv/svn/oscam/trunk oscam-trunk
 
-Build server for automated builds:
-http://download.oscam.to/index.php
+ - Go to oscam-trunk directory.
+
+ - Run `make config` to choose the features you want.
+
+ - Run `make` to compile OSCam.
+
+For more information and examples on using the build system, please
+see README.build and README.config files.
+
+
+Building OScam for different CPUs (cross-compilation)
+=====================================================
+
+First you need to install the target CPU toolchain. Already built toolchains
+for various architectures can be downloaded from:
+
+    http://www.streamboard.tv/oscam/wiki/crosscompiling/
+
+In order to cross compile OSCam you need to set CROSS variable when
+running make. For example to compile for SH4 architecture you need
+to run: `make CROSS=sh4-linux-` or if your cross compilers are not
+in your PATH - `make CROSS=/opt/STM/STLinux-2.3/devkit/sh4/bin/sh4-linux-`.
+
+
+Dependencies
+============
+
+OSCam by default do not depend on external libraries except when compilation
+with SSL is requested. In that case openssl (libcrypto) library must be
+installed.
+
+OSCam supports building with the following external dependencies:
+  - libcrypto (libssl) - 'make USE_LIBCRYPTO=1'
+  - libusb             - 'make USE_LIBUSB=1'
+  - PCSC               - 'make USE_PCSC=1'
+  - SH4 STAPI support  - 'make USE_STAPI=1'
+  - Coolapi support    - 'make USE_COOLAPI=1'
+  - AZBOX support      - 'make USE_AZBOX=1'
+
+For STAPI support you need to download liboscam_stapi.a library and place
+it in stapi directory under oscam/ root dir. liboscam_stapi.a can be downloaded
+from: http://www.streamboard.tv/wbb2/thread.php?threadid=28854
+
+For more information and examples on using the build system, run `make help`.
+
+
+Help and Support
+================
+
+man pages and configuration examples are in Distribution/doc directory.
+
+You may visit our Trac system for tracking and filling bug reports.
+   http://www.streamboard.tv/oscam/
+
+If you experience any problems with OSCam, feel free to post in our support
+forum under (mainly German and English language) at:
+   http://www.streamboard.tv/wbb2/portal.php
 
 Configuration wiki:
-http://streamboard.gmc.to/wiki/index.php/OSCam/
-
-
-7. Help and Support
--------------------
-If you experience any problems with OSCam, feel free to post in our support 
-forum under (mainly German and English language)
-http://streamboard.gmc.to/wbb2/portal.php
-
-Support for international (mainly French and Italian language) users can be 
-found on
-http://oscam.to/wbb3/index.php
-
-You may also visit our Trac system for tracking and filing bug reports:
-http://streamboard.gmc.to/oscam
+   http://www.streamboard.tv/wiki/index.php/OSCam/

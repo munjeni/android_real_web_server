@@ -1,15 +1,15 @@
 10
 
 dir
-8829
-http://www.streamboard.tv/svn/oscam/tags/1.10/utils
-http://www.streamboard.tv/svn/oscam
+9164
+http://streamboard.de.vu/svn/oscam/trunk/utils
+http://streamboard.de.vu/svn/oscam
 
 
 
-2011-07-12T18:40:05.021321Z
-5615
-JrCs
+2013-12-05T17:20:10.733636Z
+9069
+stefansat
 
 
 
@@ -26,17 +26,17 @@ JrCs
 
 4b0bc96b-bc66-0410-9d44-ebda105a78c1
 
-list_smargo.c
+CMakeLists.txt
 file
 
 
 
 
-2013-08-11T12:27:02.000000Z
-ac2afd3dff59400b9f4f5a87ff598d0a
-2011-04-14T00:41:42.841508Z
-4998
-Admin
+2013-12-31T19:34:49.000000Z
+7d95d90d36f47f0a4d0419d2d61dbd85
+2013-08-02T15:47:20.781586Z
+8803
+stefansat
 has-props
 
 
@@ -58,19 +58,20 @@ has-props
 
 
 
-4582
+1547
 
-CMakeLists.txt
+list_smargo.c
 file
 
 
 
 
-2013-08-11T12:27:02.000000Z
-d0e5ab01a7162e3728e045decec151da
-2011-07-12T18:40:05.021321Z
-5615
-JrCs
+2013-12-31T19:34:49.000000Z
+e96cff469baa211ab6df5cc4a9753e04
+2013-12-05T17:20:10.733636Z
+9069
+stefansat
+has-props
 
 
 
@@ -91,6 +92,5 @@ JrCs
 
 
 
-
-15856
+4850
 

@@ -44,90 +44,90 @@ try.c:(.text+0xa): undefined reference to `socks5_init'
 try.c:(.text+0xa): undefined reference to `strlcat'
 try.c:(.text+0xa): undefined reference to `strlcpy'
 try.c:(.text+0xa): undefined reference to `unordered'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccm5MQbw.o: in function main:try.c(.text+0x8): error: undefined reference to 'accessx'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccw64nTt.o: in function main:try.c(.text+0x8): error: undefined reference to 'aintl'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccUfeooG.o: in function main:try.c(.text+0x8): error: undefined reference to 'atolf'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccWCaWJ2.o: in function main:try.c(.text+0x10): error: undefined reference to 'chsize'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc6NrAo0.o: in function main:try.c(.text+0x8): error: undefined reference to 'class'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccaTcvug.o: in function main:try.c(.text+0x8): error: undefined reference to 'crypt'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cckIWdPf.o: in function main:try.c(.text+0x8): error: undefined reference to 'ctermid'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccadxfEk.o: in function main:try.c(.text+0x8): error: undefined reference to 'cuserid'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccY8rawn.o: in function main:try.c(.text+0x8): error: undefined reference to 'difftime64'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccQQSRCD.o: in function main:try.c(.text+0x8): error: undefined reference to 'eaccess'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cckOb9VF.o: in function main:try.c(.text+0x8): error: undefined reference to 'endgrent'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc4jWPgI.o: in function main:try.c(.text+0x8): error: undefined reference to 'endhostent'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccQMAoCK.o: in function main:try.c(.text+0x8): error: undefined reference to 'endnetent'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc2UB74M.o: in function main:try.c(.text+0x8): error: undefined reference to 'endprotoent'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccUEj87p.o: in function main:try.c(.text+0x8): error: undefined reference to 'fp_class'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccTST87l.o: in function main:try.c(.text+0x8): error: undefined reference to 'fpclass'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccwyVezc.o: in function main:try.c(.text+0x8): error: undefined reference to 'fpclassify'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccaxwSUe.o: in function main:try.c(.text+0x8): error: undefined reference to 'fpclassl'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccUilADs.o: in function main:try.c(.text+0x8): error: undefined reference to 'fstatvfs'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccuFHNHz.o: in function main:try.c(.text+0x8): error: undefined reference to 'futimes'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccEznamK.o: in function main:try.c(.text+0x8): error: undefined reference to 'getespwnam'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccEMLsXH.o: in function main:try.c(.text+0x8): error: undefined reference to 'getfsstat'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc2LwV1O.o: in function main:try.c(.text+0x8): error: undefined reference to 'getgrent'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccaFpqF8.o: in function main:try.c(.text+0x8): error: undefined reference to 'getmnt'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccUG0hwi.o: in function main:try.c(.text+0x8): error: undefined reference to 'getnetent'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccsk0MYk.o: in function main:try.c(.text+0x8): error: undefined reference to 'getpagesize'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccod5Edv.o: in function main:try.c(.text+0x8): error: undefined reference to 'getpgrp2'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccWcbgqB.o: in function main:try.c(.text+0x8): error: undefined reference to 'getprotobyaddr'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc2JO9mI.o: in function main:try.c(.text+0x8): error: undefined reference to 'getprotoent'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccEHXSOK.o: in function main:try.c(.text+0x8): error: undefined reference to 'getprpwnam'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccMJEO4M.o: in function main:try.c(.text+0x8): error: undefined reference to 'getpwent'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccOCMZoP.o: in function main:try.c(.text+0x8): error: undefined reference to 'getservbyaddr'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccasxDOY.o: in function main:try.c(.text+0x8): error: undefined reference to 'getspnam'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccMMviO4.o: in function main:try.c(.text+0x8): error: undefined reference to 'hasmntopt'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccGo7gWl.o: in function main:try.c(.text+0x8): error: undefined reference to 'inetntop'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cccLuQmo.o: in function main:try.c(.text+0x8): error: undefined reference to 'inetpton'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccoVibjz.o: in function main:try.c(.text+0x8): error: undefined reference to 'localeconv'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccSg014D.o: in function main:try.c(.text+0x8): error: undefined reference to 'lockf'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccCi7TRN.o: in function main:try.c(.text+0x8): error: undefined reference to 'malloc_good_size'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccmUmFoQ.o: in function main:try.c(.text+0x8): error: undefined reference to 'malloc_size'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cceehRTS.o: in function main:try.c(.text+0x8): error: undefined reference to 'mblen'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cccbUF8W.o: in function main:try.c(.text+0x8): error: undefined reference to 'mbtowc'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc8PZfpq.o: in function main:try.c(.text+0x8): error: undefined reference to 'mkfifo'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccKpMBjK.o: in function main:try.c(.text+0x8): error: undefined reference to 'msgctl'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc2UDI4K.o: in function main:try.c(.text+0x8): error: undefined reference to 'msgget'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc03mW3R.o: in function main:try.c(.text+0x8): error: undefined reference to 'msgrcv'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccSB4XOP.o: in function main:try.c(.text+0x8): error: undefined reference to 'msgsnd'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc433jHZ.o: in function main:try.c(.text+0x8): error: undefined reference to 'nl_langinfo'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccIDSl2j.o: in function main:try.c(.text+0x8): error: undefined reference to 'pthread_atfork'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccEjbwHo.o: in function main:try.c(.text+0x8): error: undefined reference to 'pthread_yield'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccvQe47l.o: in function main:try.c(.text+0x8): error: undefined reference to 'rand'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc0jypCc.o: in function main:try.c(.text+0x8): error: undefined reference to 'random'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccgsaiBG.o: in function main:try.c(.text+0x8): error: undefined reference to 'seekdir'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccCmZ7CH.o: in function main:try.c(.text+0x8): error: undefined reference to 'semctl'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccgxifHO.o: in function main:try.c(.text+0x8): error: undefined reference to 'semget'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccA5mabN.o: in function main:try.c(.text+0x8): error: undefined reference to 'semop'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cciU5VjW.o: in function main:try.c(.text+0x8): error: undefined reference to 'setgrent'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccmSHWm1.o: in function main:try.c(.text+0x8): error: undefined reference to 'sethostent'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccsjZKah.o: in function main:try.c(.text+0x8): error: undefined reference to 'setnetent'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccaWrkLj.o: in function main:try.c(.text+0x8): error: undefined reference to 'setpgrp2'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccWG9wOo.o: in function main:try.c(.text+0x8): error: undefined reference to 'setproctitle'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccolDAUv.o: in function main:try.c(.text+0x8): error: undefined reference to 'setprotoent'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cccLZQPt.o: in function main:try.c(.text+0x8): error: undefined reference to 'setpwent'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccGsUNhI.o: in function main:try.c(.text+0x8): error: undefined reference to 'setrgid'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccSYnPOK.o: in function main:try.c(.text+0x8): error: undefined reference to 'setruid'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccm60abY.o: in function main:try.c(.text+0x8): error: undefined reference to 'sfreserve'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cckLMFUY.o: in function main:try.c(.text+0x8): error: undefined reference to 'shmat'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccmsI9U0.o: in function main:try.c(.text+0x8): error: undefined reference to 'shmctl'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccgbpkc3.o: in function main:try.c(.text+0x8): error: undefined reference to 'shmdt'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccM5b2F5.o: in function main:try.c(.text+0x8): error: undefined reference to 'shmget'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccq3P4Zi.o: in function main:try.c(.text+0x8): error: undefined reference to 'sockatmark'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccwEWH4c.o: in function main:try.c(.text+0x8): error: undefined reference to 'socks5_init'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccsIAWkg.o: in function main:try.c(.text+0x8): error: undefined reference to 'statvfs'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cciCR62H.o: in function main:try.c(.text+0x8): error: undefined reference to 'strtold'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cckXb6uM.o: in function main:try.c(.text+0x8): error: undefined reference to 'strtoq'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccYlZHQV.o: in function main:try.c(.text+0x8): error: undefined reference to 'strtouq'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc6mCZSk.o: in function main:try.c(.text+0x8): error: undefined reference to 'telldir'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc2bWDRo.o: in function main:try.c(.text+0x8): error: undefined reference to 'timegm'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccURcmey.o: in function main:try.c(.text+0x8): error: undefined reference to 'ualarm'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc6NfHSH.o: in function main:try.c(.text+0x8): error: undefined reference to 'unordered'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccyaGNJS.o: in function main:try.c(.text+0x8): error: undefined reference to 'ustat'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccM01gs1.o: in function main:try.c(.text+0x8): error: undefined reference to 'wait4'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccSpIUYa.o: in function main:try.c(.text+0x8): error: undefined reference to 'wctomb'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccwcbouf.o: in function main:try.c(.text+0x44): error: undefined reference to 'sys_errlist'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccS9dkuV.o: in function main:try.c(.text+0x8): error: undefined reference to 'accessx'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccWpNBI2.o: in function main:try.c(.text+0x8): error: undefined reference to 'aintl'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccubmhzm.o: in function main:try.c(.text+0x8): error: undefined reference to 'atolf'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccy3DlzZ.o: in function main:try.c(.text+0x10): error: undefined reference to 'chsize'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccqHgT83.o: in function main:try.c(.text+0x8): error: undefined reference to 'class'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccAlIIYu.o: in function main:try.c(.text+0x8): error: undefined reference to 'crypt'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccYHxLQA.o: in function main:try.c(.text+0x8): error: undefined reference to 'ctermid'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cco54VDK.o: in function main:try.c(.text+0x8): error: undefined reference to 'cuserid'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc2rySJX.o: in function main:try.c(.text+0x8): error: undefined reference to 'difftime64'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccyWTLLq.o: in function main:try.c(.text+0x8): error: undefined reference to 'eaccess'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccWbOYCc.o: in function main:try.c(.text+0x8): error: undefined reference to 'endgrent'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccCX1B5f.o: in function main:try.c(.text+0x8): error: undefined reference to 'endhostent'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccck0evn.o: in function main:try.c(.text+0x8): error: undefined reference to 'endnetent'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccUWeplt.o: in function main:try.c(.text+0x8): error: undefined reference to 'endprotoent'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccyZvJBS.o: in function main:try.c(.text+0x8): error: undefined reference to 'fp_class'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cccRadf4.o: in function main:try.c(.text+0x8): error: undefined reference to 'fpclass'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cci26zF9.o: in function main:try.c(.text+0x8): error: undefined reference to 'fpclassify'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccymniUf.o: in function main:try.c(.text+0x8): error: undefined reference to 'fpclassl'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccYrBJYo.o: in function main:try.c(.text+0x8): error: undefined reference to 'fstatvfs'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccCgHrcJ.o: in function main:try.c(.text+0x8): error: undefined reference to 'futimes'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cccUMcD3.o: in function main:try.c(.text+0x8): error: undefined reference to 'getespwnam'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccaHOVF7.o: in function main:try.c(.text+0x8): error: undefined reference to 'getfsstat'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cco4YVQa.o: in function main:try.c(.text+0x8): error: undefined reference to 'getgrent'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccSqHy4O.o: in function main:try.c(.text+0x8): error: undefined reference to 'getmnt'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccCriODd.o: in function main:try.c(.text+0x8): error: undefined reference to 'getnetent'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccK5qSvm.o: in function main:try.c(.text+0x8): error: undefined reference to 'getpagesize'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccmgEJLn.o: in function main:try.c(.text+0x8): error: undefined reference to 'getpgrp2'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccoPE9YE.o: in function main:try.c(.text+0x8): error: undefined reference to 'getprotobyaddr'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cciYM3bV.o: in function main:try.c(.text+0x8): error: undefined reference to 'getprotoent'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccM9uud0.o: in function main:try.c(.text+0x8): error: undefined reference to 'getprpwnam'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc67uYk8.o: in function main:try.c(.text+0x8): error: undefined reference to 'getpwent'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc8kjcmc.o: in function main:try.c(.text+0x8): error: undefined reference to 'getservbyaddr'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccYnBr4z.o: in function main:try.c(.text+0x8): error: undefined reference to 'getspnam'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccCt3qGP.o: in function main:try.c(.text+0x8): error: undefined reference to 'hasmntopt'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccm6tTXn.o: in function main:try.c(.text+0x8): error: undefined reference to 'inetntop'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccxEehVl.o: in function main:try.c(.text+0x8): error: undefined reference to 'inetpton'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccqA2tmj.o: in function main:try.c(.text+0x8): error: undefined reference to 'localeconv'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccIBu0Dw.o: in function main:try.c(.text+0x8): error: undefined reference to 'lockf'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc4gy1LO.o: in function main:try.c(.text+0x8): error: undefined reference to 'malloc_good_size'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccCMLRkR.o: in function main:try.c(.text+0x8): error: undefined reference to 'malloc_size'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccmMx7cW.o: in function main:try.c(.text+0x8): error: undefined reference to 'mblen'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccYRunF7.o: in function main:try.c(.text+0x8): error: undefined reference to 'mbtowc'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccyoN4eH.o: in function main:try.c(.text+0x8): error: undefined reference to 'mkfifo'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccgOy5ss.o: in function main:try.c(.text+0x8): error: undefined reference to 'msgctl'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cceR2i2z.o: in function main:try.c(.text+0x8): error: undefined reference to 'msgget'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc6KVwsE.o: in function main:try.c(.text+0x8): error: undefined reference to 'msgrcv'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc6XXL9G.o: in function main:try.c(.text+0x8): error: undefined reference to 'msgsnd'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccUxsMT2.o: in function main:try.c(.text+0x8): error: undefined reference to 'nl_langinfo'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc467n5l.o: in function main:try.c(.text+0x8): error: undefined reference to 'pthread_atfork'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccoB6LZt.o: in function main:try.c(.text+0x8): error: undefined reference to 'pthread_yield'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccobhu7H.o: in function main:try.c(.text+0x8): error: undefined reference to 'rand'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccslXWiP.o: in function main:try.c(.text+0x8): error: undefined reference to 'random'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccwjZbaM.o: in function main:try.c(.text+0x8): error: undefined reference to 'seekdir'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccGJg8g2.o: in function main:try.c(.text+0x8): error: undefined reference to 'semctl'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccomZ7D5.o: in function main:try.c(.text+0x8): error: undefined reference to 'semget'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc4ta2ua.o: in function main:try.c(.text+0x8): error: undefined reference to 'semop'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc4Defeb.o: in function main:try.c(.text+0x8): error: undefined reference to 'setgrent'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccyL6aeo.o: in function main:try.c(.text+0x8): error: undefined reference to 'sethostent'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccIWWRNL.o: in function main:try.c(.text+0x8): error: undefined reference to 'setnetent'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccCF71r2.o: in function main:try.c(.text+0x8): error: undefined reference to 'setpgrp2'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccUaLMja.o: in function main:try.c(.text+0x8): error: undefined reference to 'setproctitle'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccsAFCDe.o: in function main:try.c(.text+0x8): error: undefined reference to 'setprotoent'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccYI5aAn.o: in function main:try.c(.text+0x8): error: undefined reference to 'setpwent'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccC7DgrN.o: in function main:try.c(.text+0x8): error: undefined reference to 'setrgid'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cckEtXXQ.o: in function main:try.c(.text+0x8): error: undefined reference to 'setruid'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccKDSgEd.o: in function main:try.c(.text+0x8): error: undefined reference to 'sfreserve'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccU6cKxl.o: in function main:try.c(.text+0x8): error: undefined reference to 'shmat'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccu7dkgr.o: in function main:try.c(.text+0x8): error: undefined reference to 'shmctl'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccioZbde.o: in function main:try.c(.text+0x8): error: undefined reference to 'shmdt'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc6FLdbk.o: in function main:try.c(.text+0x8): error: undefined reference to 'shmget'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccGwROQV.o: in function main:try.c(.text+0x8): error: undefined reference to 'sockatmark'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccwhlkCf.o: in function main:try.c(.text+0x8): error: undefined reference to 'socks5_init'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc2GkUGv.o: in function main:try.c(.text+0x8): error: undefined reference to 'statvfs'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc6yLzvf.o: in function main:try.c(.text+0x8): error: undefined reference to 'strtold'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccAGRAaq.o: in function main:try.c(.text+0x8): error: undefined reference to 'strtoq'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccyoTz7O.o: in function main:try.c(.text+0x8): error: undefined reference to 'strtouq'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccKKJNmA.o: in function main:try.c(.text+0x8): error: undefined reference to 'telldir'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccqNXmNJ.o: in function main:try.c(.text+0x8): error: undefined reference to 'timegm'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccij18r3.o: in function main:try.c(.text+0x8): error: undefined reference to 'ualarm'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccGtomoj.o: in function main:try.c(.text+0x8): error: undefined reference to 'unordered'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccWEoVCg.o: in function main:try.c(.text+0x8): error: undefined reference to 'ustat'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccWP8b0x.o: in function main:try.c(.text+0x8): error: undefined reference to 'wait4'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccccd7NR.o: in function main:try.c(.text+0x8): error: undefined reference to 'wctomb'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccUk8Rp5.o: in function main:try.c(.text+0x44): error: undefined reference to 'sys_errlist'
 
 ---------------------------------------
 
@@ -176,9 +176,9 @@ libmcrypt
 iconv
 
 
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc6CKyFO.o: in function main:conftest.c:89: error: undefined reference to 'canonicalize_file_name'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccCRPyj1.o: in function main:conftest.c:92: error: undefined reference to 'readlinkat'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccKfRBZ7.o: in function main:conftest.c:146: error: undefined reference to 'tsearch'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccoJMYbw.o: in function main:conftest.c:89: error: undefined reference to 'canonicalize_file_name'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cca5Vi16.o: in function main:conftest.c:92: error: undefined reference to 'readlinkat'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccCyDPo4.o: in function main:conftest.c:146: error: undefined reference to 'tsearch'
 
 ---------------------------------------
 
@@ -197,188 +197,6 @@ libmbfl
 openssl
 
 
-
----------------------------------------
-
-libxml
-
-
-
----------------------------------------
-
-bind
-
-
-
----------------------------------------
-
-mysql
-
-
-
----------------------------------------
-
-apr
-
-
-
----------------------------------------
-
-apr-util
-
-
-
----------------------------------------
-
-libjpeg
-
-
-
----------------------------------------
-
-freetype
-
-
-
----------------------------------------
-
-fontconfig
-
-
-
----------------------------------------
-
-libpng
-
-
-
----------------------------------------
-
-tiff
-
-
-
----------------------------------------
-
-libgd
-
-
-
----------------------------------------
-
-gettext
-
-
-
----------------------------------------
-
-gmp
-
-
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /compilation/arm-linux-androideabi-4.6/sysroot/usr/lib/crtbegin_dynamic.o: in function _start:crtbrand.c(.text+0x78): error: undefined reference to 'main'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccEOgD08.o: in function yylex:conftest.c(.text+0x9e4): error: undefined reference to 'yywrap'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccEOgD08.o: in function input:conftest.c(.text+0x1d18): error: undefined reference to 'yywrap'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccEOgD08.o: in function main:conftest.c(.text+0x32d8): error: undefined reference to 'yywrap'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccu8vOHl.o: in function yylex:conftest.c(.text+0x9e4): error: undefined reference to 'yywrap'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccu8vOHl.o: in function input:conftest.c(.text+0x1d18): error: undefined reference to 'yywrap'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccu8vOHl.o: in function main:conftest.c(.text+0x32d8): error: undefined reference to 'yywrap'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc6GA42u.o: in function yylex:conftest.c(.text+0x9e4): error: undefined reference to 'yywrap'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc6GA42u.o: in function input:conftest.c(.text+0x1d18): error: undefined reference to 'yywrap'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc6GA42u.o: in function main:conftest.c(.text+0x32d8): error: undefined reference to 'yywrap'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccgJt9QF.o: in function yylex:conftest.c(.text+0x9e4): error: undefined reference to 'yywrap'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccgJt9QF.o: in function input:conftest.c(.text+0x1d18): error: undefined reference to 'yywrap'
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccgJt9QF.o: in function main:conftest.c(.text+0x32d8): error: undefined reference to 'yywrap'
-
----------------------------------------
-
-apache2
-
-
-
----------------------------------------
-
-imap
-
-
-
----------------------------------------
-
-php
-
-
-/tmp/ccI4BwyM.o:conftest.c:function main: error: undefined reference to 'setproctitle'
-/tmp/cc2SttGk.o:conftest.c:function main: error: undefined reference to 'htonl'
-/tmp/ccSXBrJp.o:conftest.c:function main: error: undefined reference to '__htonl'
-/tmp/ccgqpppu.o:conftest.c:function main: error: undefined reference to 'htonl'
-/tmp/ccSv9yNy.o:conftest.c:function main: error: undefined reference to '__htonl'
-/home/crystax/work/ndk/platform/ndk/sources/crystax/src/gdtoa/_hdtoa.c:112: error: undefined reference to '__fpclassifyd'
-/home/crystax/work/ndk/platform/ndk/sources/crystax/src/gdtoa/_ldtoa.c:108: error: undefined reference to '__fpclassifyd'
-/tmp/ccca2bgS.o:conftest.c:function main: error: undefined reference to '__gethostbyaddr'
-/home/crystax/work/ndk/platform/ndk/sources/crystax/src/gdtoa/_hdtoa.c:112: error: undefined reference to '__fpclassifyd'
-/home/crystax/work/ndk/platform/ndk/sources/crystax/src/gdtoa/_ldtoa.c:108: error: undefined reference to '__fpclassifyd'
-/tmp/cckcbMW3.o:conftest.c:function main: error: undefined reference to '__gethostbyaddr'
-/tmp/cceROh97.o:conftest.c:function main: error: undefined reference to 'yp_get_default_domain'
-/tmp/ccGZOVQd.o:conftest.c:function main: error: undefined reference to '__yp_get_default_domain'
-/tmp/ccAgSSTh.o:conftest.c:function main: error: undefined reference to 'yp_get_default_domain'
-/tmp/ccgCvn1l.o:conftest.c:function main: error: undefined reference to '__yp_get_default_domain'
-/tmp/cck5QdFx.o:conftest.c:function main: error: undefined reference to 'fopencookie'
-/tmp/ccIupbO8.o:conftest.c:function main: error: undefined reference to '_doprnt'
-/tmp/cc29ovCf.o:conftest.c:function main: error: undefined reference to 'cuserid'
-/tmp/cccuAYcG.o:conftest.c:function main: error: undefined reference to 'gcvt'
-/tmp/ccyFZ9EL.o:conftest.c:function main: error: undefined reference to 'getloadavg'
-/tmp/ccWY6mHF.o:conftest.c:function main: error: undefined reference to 'getpwnam_r'
-/tmp/cc4k7I8J.o:conftest.c:function main: error: undefined reference to 'getgrnam_r'
-/tmp/cckdAAxO.o:conftest.c:function main: error: undefined reference to 'getpwuid_r'
-/tmp/ccOG0ggQ.o:conftest.c:function main: error: undefined reference to 'grantpt'
-/tmp/ccrUIoRl.o:conftest.c:function main: error: undefined reference to 'lockf'
-/tmp/ccOEhukM.o:conftest.c:function main: error: undefined reference to 'nl_langinfo'
-/tmp/ccIMchZg.o:conftest.c:function main: error: undefined reference to 'random'
-/tmp/cc0S5lQo.o:conftest.c:function main: error: undefined reference to 'srandom'
-/tmp/ccSGhjli.o:conftest.c:function main: error: undefined reference to 'statvfs'
-/tmp/ccWkQcKr.o:conftest.c:function main: error: undefined reference to 'std_syslog'
-/tmp/ccEejXB9.o:conftest.c:function main: error: undefined reference to '__nanosleep'
-/tmp/ccwFfi9z.o:conftest.c:function main: error: undefined reference to 'crypt_r'
-/tmp/ccqkqU6w.o:conftest.c:function main: error: undefined reference to 'DSA_get_default_method'
-/tmp/ccCA4JlF.o:conftest.c:function main: error: undefined reference to 'gdImageCreateFromWebp'
-/androidserver/lib/libgd.a(gdft.o):gdft.c:function find_font: error: undefined reference to 'FcConfigSubstitute'
-/androidserver/lib/libgd.a(gdft.o):gdft.c:function find_font: error: undefined reference to 'FcConfigSubstitute'
-/androidserver/lib/libgd.a(gdft.o):gdft.c:function find_font: error: undefined reference to 'FcDefaultSubstitute'
-/androidserver/lib/libgd.a(gdft.o):gdft.c:function find_font: error: undefined reference to 'FcFontMatch'
-/androidserver/lib/libgd.a(gdft.o):gdft.c:function find_postscript_font: error: undefined reference to 'FcPatternBuild'
-/androidserver/lib/libgd.a(gdft.o):gdft.c:function find_postscript_font: error: undefined reference to 'FcPatternDestroy'
-/androidserver/lib/libgd.a(gdft.o):gdft.c:function find_postscript_font: error: undefined reference to 'FcPatternGetString'
-/androidserver/lib/libgd.a(gdft.o):gdft.c:function find_postscript_font: error: undefined reference to 'FcPatternDestroy'
-/androidserver/lib/libgd.a(gdft.o):gdft.c:function find_postscript_font: error: undefined reference to 'FcPatternDestroy'
-/androidserver/lib/libgd.a(gdft.o):gdft.c:function font_pattern: error: undefined reference to 'FcNameParse'
-/androidserver/lib/libgd.a(gdft.o):gdft.c:function font_pattern: error: undefined reference to 'FcPatternDestroy'
-/androidserver/lib/libgd.a(gdft.o):gdft.c:function font_pattern: error: undefined reference to 'FcPatternGetString'
-/tmp/ccou2Dik.o:conftest.c:function main: error: undefined reference to 'iconv_ccs_init'
-/tmp/ccO7KJdr.o:conftest.c:function main: error: undefined reference to 'cstoccsid'
-/tmp/ccmuNWsL.o:conftest.c:function main: error: undefined reference to 'pam_start'
-/tmp/ccqfZLHq.o:conftest.c:function main: error: undefined reference to 'mysql_stmt_next_result'
-/tmp/ccmhiGmV.o:conftest.c:function main: error: undefined reference to 'getsid'
-/tmp/ccA4srtg.o:conftest.c:function main: error: undefined reference to 'ctermid'
-/tmp/ccOx9kok.o:conftest.c:function main: error: undefined reference to 'mkfifo'
-/tmp/cccBJzPw.o:conftest.c:function main: error: undefined reference to 'makedev'
-/tmp/cc6wV7oN.o:conftest.c:function main: error: undefined reference to 'getgrgid_r'
-/tmp/ccGekb8j.o:conftest.c:function main: error: undefined reference to 'getwd'
-/tmp/cc8H7wR5.o:conftest.c:function main: error: undefined reference to 'strfmon'
-/tmp/ccINsfEm.o:conftest.c:function main: error: undefined reference to 'fpclass'
-/tmp/cc4e6bOt.o:conftest.c:function main: error: undefined reference to 'isinf'
-/tmp/cc8OvEfH.o:conftest.c:function main: error: undefined reference to 'mempcpy'
-/tmp/cc8OhiwS.o:conftest.c:function main: error: undefined reference to 'strpncpy'
-/tmp/cc0ASEt8.o:conftest.c:function main: error: undefined reference to 'res_nsearch'
-/tmp/ccYTmt9n.o:conftest.c:function main: error: undefined reference to 'dns_search'
-/tmp/ccmV3yuc.o:conftest.c:function main: error: undefined reference to '__dns_search'
-/tmp/ccsqXqan.o:conftest.c:function main: error: undefined reference to 'dns_search'
-/tmp/ccAWIazr.o:conftest.c:function main: error: undefined reference to '__dns_search'
-/tmp/ccqjY3pB.o:conftest.c:function main: error: undefined reference to 'dns_search'
-/tmp/ccK5U2mE.o:conftest.c:function main: error: undefined reference to '__dns_search'
-/tmp/ccA18vAM.o:conftest.c:function main: error: undefined reference to 'dns_search'
-/tmp/ccwxzH2Q.o:conftest.c:function main: error: undefined reference to '__dns_search'
-/tmp/ccqraNq9.o:conftest.c:function main: error: undefined reference to 'dn_skipname'
-/tmp/cccNwUVV.o:conftest.c:function main: error: undefined reference to 'finite'
-/tmp/ccQdNJE8.o:conftest.c:function main: error: undefined reference to 'isfinite'
 
 ---------------------------------------
 

@@ -2,9 +2,9 @@
     eval 'exec /androidserver/bin/perl -S $0 ${1+"$@"}'
 	if $running_under_some_shell;
 
-my $config_tag1 = '5.16.3 - Sat Dec  7 12:24:24 CET 2013';
+my $config_tag1 = '5.16.3 - Tue Dec 31 20:41:01 CET 2013';
 
-my $patchlevel_date = 1363011508;
+my $patchlevel_date = 1386530286;
 my $patch_tags = '';
 my @patches = (
     ''

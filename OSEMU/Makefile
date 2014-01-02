@@ -1,5 +1,5 @@
 CC=/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-gcc
-CFLAGS=-Wall -static -I. -fpic -march=armv7-a -mfloat-abi=softfp -mfpu=vfp
+CFLAGS=-Wall -static -I. -march=armv7-a -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 SRCS = aes.c des.c md5.c helpfunctions.c emulator.c OSEmu.c
 OBJS = $(SRCS:.c=.o)
 DEPS = $(SRCS:.c=.d)

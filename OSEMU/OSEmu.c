@@ -65,7 +65,7 @@ static int32_t camd35_send(uchar *buf, int32_t buflen)
 
 static int32_t camd35_auth_client(uchar *ucrc)
 {
-  //int32_t rc=1;
+  int32_t rc=1;
   uint32_t crc;
   unsigned char md5tmp[MD5_DIGEST_LENGTH];
   crc=(((ucrc[0]<<24) | (ucrc[1]<<16) | (ucrc[2]<<8) | ucrc[3]) & 0xffffffffL);
@@ -78,7 +78,7 @@ static int32_t camd35_auth_client(uchar *ucrc)
 
 static int32_t camd35_recv(uchar *buf, int32_t rs)
 {
-	int32_t rc = 0, s, n=0, buflen=0/*, len=0*/;
+	int32_t rc = 0, s, n=0, buflen=0, len=0;
 	for (s=0; !rc; s++) {
 		switch(s) {
 			case 0:
@@ -144,13 +144,22 @@ static void camd35_process_ecm(uchar *buf, int buflen){
 	er.srvid = b2i(2, buf+ 8);
 	er.caid = b2i(2, buf+10);
 	er.prid = b2i(4, buf+12);
-	memcpy(er.ecm, buf + 20, er.ecmlen);
+	er.rc = buf[3];
 	
-	if (!ProcessECM(er.caid,er.ecm,er.cw)) {
-		er.rc = E_FOUND;
-	} else er.rc = E_NOTFOUND;
-	
-	if (er.rc == E_NOTFOUND){
+	ProcessECM(er.caid,buf + 20,er.cw);
+
+	if (er.rc == E_STOPPED) {
+		buf[0] = 0x08;
+		buf[1] = 2;
+		buf[20] = 0;
+		/*
+		* the second Databyte should be forseen for a sleeptime in minutes
+		* whoever knows the camd3 protocol related to CMD08 - please help!
+		* on tests this don't work with native camd3
+		*/
+		buf[21] = 0;
+	}
+	if ((er.rc == E_NOTFOUND) || (er.rc == E_INVALID)) {
 		buf[0] = 0x08;
 		buf[1] = 2;
 		memset(buf + 20, 0, buf[1]);
@@ -233,12 +242,12 @@ int main(int argc, char**argv)
 		len = sizeof(cl_socket);
 		n = recvfrom(cl_sockfd,mbuf,sizeof(mbuf),0,(struct sockaddr *)&cl_socket,&len);
 		
-		camd35_recv(mbuf, n);     
-		
+		if (camd35_recv(mbuf, n) >= 0 ){
 		if(mbuf[0] == 0 || mbuf[0] == 3) {
 			camd35_process_ecm(mbuf, n);
 		} else {
 			cs_log("unknown/not implemented camd35 command! (%d) n=%d", mbuf[0], n);
+			}
 		}
 	}
 }

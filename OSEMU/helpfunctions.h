@@ -1,4 +1,3 @@
-int8_t debuglog;
 void cs_log(const char* format, ... );
 void cs_log_debug(const char* format, ... );
 int32_t boundary(int32_t exp, int32_t n);

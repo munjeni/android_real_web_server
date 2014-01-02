@@ -157,8 +157,8 @@ Set cf_email='root@Ubuntu-1204-precise-64-minimal'
 Result: root@Ubuntu-1204-precise-64-minimal
 
 Configured on
-Set cf_date='Sat Dec  7 12:24:01 CET 2013'
-Result: Sat Dec  7 12:24:01 CET 2013
+Set cf_date='Tue Dec 31 20:40:02 CET 2013'
+Result: Tue Dec 31 20:40:02 CET 2013
 
 Checking whether to include <stdio.h>
 | #include <stdio.h>
@@ -1573,7 +1573,7 @@ Result: -lm -lcrypt -ldl
 Checking for _fwalk
 | int main(void) { _fwalk(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccBAqnBR.o: In function `main':
+/tmp/ccnmgQOS.o: In function `main':
 try.c:(.text+0xa): undefined reference to `_fwalk'
 collect2: ld returned 1 exit status
 Set d__fwalk='undef'
@@ -1590,7 +1590,7 @@ Result: found
 Checking for accessx
 | int main(void) { accessx(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccFRjaIW.o: In function `main':
+/tmp/ccB8aZdY.o: In function `main':
 try.c:(.text+0xa): undefined reference to `accessx'
 collect2: ld returned 1 exit status
 Set d_accessx='undef'
@@ -1599,7 +1599,7 @@ Result: not found
 Checking for aintl
 | int main(void) { aintl(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccGIEJQV.o: In function `main':
+/tmp/cci1tsq0.o: In function `main':
 try.c:(.text+0xa): undefined reference to `aintl'
 collect2: ld returned 1 exit status
 Set d_aintl='undef'
@@ -1615,7 +1615,7 @@ Result: found
 Checking for asctime64
 | int main(void) { asctime64(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cc3vX5w0.o: In function `main':
+/tmp/ccmIlAId.o: In function `main':
 try.c:(.text+0xa): undefined reference to `asctime64'
 collect2: ld returned 1 exit status
 Set d_asctime64='undef'
@@ -1624,7 +1624,7 @@ Result: not found
 Checking for atolf
 | int main(void) { atolf(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccKnWRv3.o: In function `main':
+/tmp/cccvVZLj.o: In function `main':
 try.c:(.text+0xa): undefined reference to `atolf'
 collect2: ld returned 1 exit status
 Set d_atolf='undef'
@@ -1679,7 +1679,7 @@ Result: found
 Checking for chsize
 | int main(void) { chsize(0,0); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccqYe2Ol.o: In function `main':
+/tmp/cctmL7t2.o: In function `main':
 try.c:(.text+0x14): undefined reference to `chsize'
 collect2: ld returned 1 exit status
 Set d_chsize='undef'
@@ -1688,7 +1688,7 @@ Result: not found
 Checking for class
 | int main(void) { class(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccFMsyXn.o: In function `main':
+/tmp/ccF4kf48.o: In function `main':
 try.c:(.text+0xa): undefined reference to `class'
 collect2: ld returned 1 exit status
 Set d_class='undef'
@@ -1730,7 +1730,7 @@ Result: found
 Checking for ctime64
 | int main(void) { ctime64(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccuHVEgE.o: In function `main':
+/tmp/ccFwr2kx.o: In function `main':
 try.c:(.text+0xa): undefined reference to `ctime64'
 collect2: ld returned 1 exit status
 Set d_ctime64='undef'
@@ -1751,7 +1751,7 @@ Result: found
 Checking for difftime64
 | int main(void) { difftime64(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccNdEPuy.o: In function `main':
+/tmp/cch6no7P.o: In function `main':
 try.c:(.text+0xa): undefined reference to `difftime64'
 collect2: ld returned 1 exit status
 Set d_difftime64='undef'
@@ -1898,7 +1898,7 @@ Result: found
 Checking for fp_class
 | int main(void) { fp_class(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccg9O4yo.o: In function `main':
+/tmp/ccYDUlJn.o: In function `main':
 try.c:(.text+0xa): undefined reference to `fp_class'
 collect2: ld returned 1 exit status
 Set d_fp_class='undef'
@@ -1914,7 +1914,7 @@ Result: found
 Checking for fpclass
 | int main(void) { fpclass(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccraurBq.o: In function `main':
+/tmp/ccWKGeNz.o: In function `main':
 try.c:(.text+0xa): undefined reference to `fpclass'
 collect2: ld returned 1 exit status
 Set d_fpclass='undef'
@@ -1923,7 +1923,7 @@ Result: not found
 Checking for fpclassify
 | int main(void) { fpclassify(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccs2gzvs.o: In function `main':
+/tmp/ccy1GkfC.o: In function `main':
 try.c:(.text+0xa): undefined reference to `fpclassify'
 collect2: ld returned 1 exit status
 Set d_fpclassify='undef'
@@ -1932,7 +1932,7 @@ Result: not found
 Checking for fpclassl
 | int main(void) { fpclassl(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccQFtbUw.o: In function `main':
+/tmp/ccD8k1vH.o: In function `main':
 try.c:(.text+0xa): undefined reference to `fpclassl'
 collect2: ld returned 1 exit status
 Set d_fpclassl='undef'
@@ -2006,7 +2006,7 @@ Result: found
 Checking for getespwnam
 | int main(void) { getespwnam(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccv4QdbM.o: In function `main':
+/tmp/ccFFDTzt.o: In function `main':
 try.c:(.text+0xa): undefined reference to `getespwnam'
 collect2: ld returned 1 exit status
 Set d_getespwnam='undef'
@@ -2015,7 +2015,7 @@ Result: not found
 Checking for getfsstat
 | int main(void) { getfsstat(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccy6wW8N.o: In function `main':
+/tmp/ccJy3GEy.o: In function `main':
 try.c:(.text+0xa): undefined reference to `getfsstat'
 collect2: ld returned 1 exit status
 Set d_getfsstat='undef'
@@ -2072,7 +2072,7 @@ Result: found
 Checking for getmnt
 | int main(void) { getmnt(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccoUF3U5.o: In function `main':
+/tmp/ccUnA6vh.o: In function `main':
 try.c:(.text+0xa): undefined reference to `getmnt'
 collect2: ld returned 1 exit status
 Set d_getmnt='undef'
@@ -2130,7 +2130,7 @@ Result: found
 Checking for getpgrp2
 | int main(void) { getpgrp2(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccxkdqbo.o: In function `main':
+/tmp/cc5SnTFQ.o: In function `main':
 try.c:(.text+0xa): undefined reference to `getpgrp2'
 collect2: ld returned 1 exit status
 Set d_getpgrp2='undef'
@@ -2153,7 +2153,7 @@ Result: found
 Checking for getprotobyaddr
 | int main(void) { getprotobyaddr(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccCf5sjs.o: In function `main':
+/tmp/ccE5cVn9.o: In function `main':
 try.c:(.text+0xa): undefined reference to `getprotobyaddr'
 collect2: ld returned 1 exit status
 Set d_getprotobyaddr='undef'
@@ -2180,7 +2180,7 @@ Result: found
 Checking for getprpwnam
 | int main(void) { getprpwnam(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccOg3TVA.o: In function `main':
+/tmp/ccy2Cawt.o: In function `main':
 try.c:(.text+0xa): undefined reference to `getprpwnam'
 collect2: ld returned 1 exit status
 Set d_getprpwnam='undef'
@@ -2195,7 +2195,7 @@ Result: found
 Checking for getservbyaddr
 | int main(void) { getservbyaddr(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccYlXJcH.o: In function `main':
+/tmp/ccKLrapG.o: In function `main':
 try.c:(.text+0xa): undefined reference to `getservbyaddr'
 collect2: ld returned 1 exit status
 Set d_getservbyaddr='undef'
@@ -2235,7 +2235,7 @@ Result: found
 Checking for gmtime64
 | int main(void) { gmtime64(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cc5DLj1T.o: In function `main':
+/tmp/ccdEvSK9.o: In function `main':
 try.c:(.text+0xa): undefined reference to `gmtime64'
 collect2: ld returned 1 exit status
 Set d_gmtime64='undef'
@@ -2281,7 +2281,7 @@ Result: found
 Checking for inetntop
 | int main(void) { inetntop(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccaft5mY.o: In function `main':
+/tmp/ccL2dglN.o: In function `main':
 try.c:(.text+0xa): undefined reference to `inetntop'
 collect2: ld returned 1 exit status
 Set d_inetntop='undef'
@@ -2290,7 +2290,7 @@ Result: not found
 Checking for inetpton
 | int main(void) { inetpton(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cc5cO8UX.o: In function `main':
+/tmp/cc5fXtOL.o: In function `main':
 try.c:(.text+0xa): undefined reference to `inetpton'
 collect2: ld returned 1 exit status
 Set d_inetpton='undef'
@@ -2372,7 +2372,7 @@ Result: found
 Checking for localtime64
 | int main(void) { localtime64(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccFzcXvp.o: In function `main':
+/tmp/ccqVrcXL.o: In function `main':
 try.c:(.text+0xa): undefined reference to `localtime64'
 collect2: ld returned 1 exit status
 Set d_localtime64='undef'
@@ -2397,7 +2397,7 @@ Result: found
 Checking for malloc_good_size
 | int main(void) { malloc_good_size(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccYsJQav.o: In function `main':
+/tmp/ccOx9PzZ.o: In function `main':
 try.c:(.text+0xa): undefined reference to `malloc_good_size'
 collect2: ld returned 1 exit status
 Set d_malloc_good_size='undef'
@@ -2406,7 +2406,7 @@ Result: not found
 Checking for malloc_size
 | int main(void) { malloc_size(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccrBCZ5w.o: In function `main':
+/tmp/cck21UIR.o: In function `main':
 try.c:(.text+0xa): undefined reference to `malloc_size'
 collect2: ld returned 1 exit status
 Set d_malloc_size='undef'
@@ -2512,7 +2512,7 @@ Result: found
 Checking for mktime64
 | int main(void) { mktime64(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cc2QOohX.o: In function `main':
+/tmp/cc7mqRvd.o: In function `main':
 try.c:(.text+0xa): undefined reference to `mktime64'
 collect2: ld returned 1 exit status
 Set d_mktime64='undef'
@@ -2823,7 +2823,7 @@ Result: found
 Checking for setpgrp2
 | int main(void) { setpgrp2(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cchitwkw.o: In function `main':
+/tmp/ccQzZl80.o: In function `main':
 try.c:(.text+0xa): undefined reference to `setpgrp2'
 collect2: ld returned 1 exit status
 Set d_setpgrp2='undef'
@@ -2838,7 +2838,7 @@ Result: found
 Checking for setproctitle
 | int main(void) { setproctitle(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccmI0RCC.o: In function `main':
+/tmp/ccuNisac.o: In function `main':
 try.c:(.text+0xa): undefined reference to `setproctitle'
 collect2: ld returned 1 exit status
 Set d_setproctitle='undef'
@@ -2883,7 +2883,7 @@ Result: found
 Checking for setrgid
 | int main(void) { setrgid(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccNyKPKO.o: In function `main':
+/tmp/ccqY005J.o: In function `main':
 try.c:(.text+0xa): undefined reference to `setrgid'
 collect2: ld returned 1 exit status
 Set d_setrgid='undef'
@@ -2892,7 +2892,7 @@ Result: not found
 Checking for setruid
 | int main(void) { setruid(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccGMWq8S.o: In function `main':
+/tmp/ccX0PpEN.o: In function `main':
 try.c:(.text+0xa): undefined reference to `setruid'
 collect2: ld returned 1 exit status
 Set d_setruid='undef'
@@ -2921,7 +2921,7 @@ Checking for sfreserve
 | /* <sfio.h> missing */
 | int main(void) { sfreserve(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccxM7f3Y.o: In function `main':
+/tmp/ccJyNjAf.o: In function `main':
 try.c:(.text+0xa): undefined reference to `sfreserve'
 collect2: ld returned 1 exit status
 Set d_sfreserve='undef'
@@ -3005,7 +3005,7 @@ Result: found
 Checking for socks5_init
 | int main(void) { socks5_init(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccln4yzh.o: In function `main':
+/tmp/ccYHKAT3.o: In function `main':
 try.c:(.text+0xa): undefined reference to `socks5_init'
 collect2: ld returned 1 exit status
 Set d_socks5_init='undef'
@@ -3060,7 +3060,7 @@ Result: found
 Checking for strlcat
 | int main(void) { strlcat(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccAIROMw.o: In function `main':
+/tmp/cclCz8fM.o: In function `main':
 try.c:(.text+0xa): undefined reference to `strlcat'
 collect2: ld returned 1 exit status
 Set d_strlcat='undef'
@@ -3069,7 +3069,7 @@ Result: not found
 Checking for strlcpy
 | int main(void) { strlcpy(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccLWR5Qy.o: In function `main':
+/tmp/cceVYqqF.o: In function `main':
 try.c:(.text+0xa): undefined reference to `strlcpy'
 collect2: ld returned 1 exit status
 Set d_strlcpy='undef'
@@ -3224,7 +3224,7 @@ Result: found
 Checking for unordered
 | int main(void) { unordered(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccwMg7Bh.o: In function `main':
+/tmp/cc1tGDyY.o: In function `main':
 try.c:(.text+0xa): undefined reference to `unordered'
 collect2: ld returned 1 exit status
 Set d_unordered='undef'
@@ -3601,7 +3601,7 @@ Set cat='cat'
 Set cccdlflags='-fPIC'
 Set ccdlflags='-Wl,-E'
 Set charbits='8'
-Set cf_time='Sat Dec  7 12:24:12 CET 2013'
+Set cf_time='Tue Dec 31 20:40:33 CET 2013'
 Set chmod='chmod'
 Set comm='comm'
 Set contains='grep'
@@ -4153,8 +4153,8 @@ Set cf_email='root@Ubuntu-1204-precise-64-minimal'
 Result: root@Ubuntu-1204-precise-64-minimal
 
 Configured on
-Set cf_date='Sat Dec  7 12:24:14 CET 2013'
-Result: Sat Dec  7 12:24:14 CET 2013
+Set cf_date='Tue Dec 31 20:40:37 CET 2013'
+Result: Tue Dec 31 20:40:37 CET 2013
 
 Checking whether to include <stdio.h>
 | #include <stdio.h>
@@ -5513,7 +5513,7 @@ Result: found
 Checking for accessx
 | int main(void) { accessx(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccm5MQbw.o: in function main:try.c(.text+0x8): error: undefined reference to 'accessx'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccS9dkuV.o: in function main:try.c(.text+0x8): error: undefined reference to 'accessx'
 collect2: ld returned 1 exit status
 Set d_accessx='undef'
 Result: not found
@@ -5521,7 +5521,7 @@ Result: not found
 Checking for aintl
 | int main(void) { aintl(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccw64nTt.o: in function main:try.c(.text+0x8): error: undefined reference to 'aintl'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccWpNBI2.o: in function main:try.c(.text+0x8): error: undefined reference to 'aintl'
 collect2: ld returned 1 exit status
 Set d_aintl='undef'
 Result: not found
@@ -5542,7 +5542,7 @@ Result: found
 Checking for atolf
 | int main(void) { atolf(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccUfeooG.o: in function main:try.c(.text+0x8): error: undefined reference to 'atolf'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccubmhzm.o: in function main:try.c(.text+0x8): error: undefined reference to 'atolf'
 collect2: ld returned 1 exit status
 Set d_atolf='undef'
 Result: not found
@@ -5596,7 +5596,7 @@ Result: found
 Checking for chsize
 | int main(void) { chsize(0,0); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccWCaWJ2.o: in function main:try.c(.text+0x10): error: undefined reference to 'chsize'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccy3DlzZ.o: in function main:try.c(.text+0x10): error: undefined reference to 'chsize'
 collect2: ld returned 1 exit status
 Set d_chsize='undef'
 Result: not found
@@ -5604,7 +5604,7 @@ Result: not found
 Checking for class
 | int main(void) { class(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc6NrAo0.o: in function main:try.c(.text+0x8): error: undefined reference to 'class'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccqHgT83.o: in function main:try.c(.text+0x8): error: undefined reference to 'class'
 collect2: ld returned 1 exit status
 Set d_class='undef'
 Result: not found
@@ -5633,7 +5633,7 @@ Result: found
 Checking for crypt
 | int main(void) { crypt(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccaTcvug.o: in function main:try.c(.text+0x8): error: undefined reference to 'crypt'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccAlIIYu.o: in function main:try.c(.text+0x8): error: undefined reference to 'crypt'
 collect2: ld returned 1 exit status
 Set d_crypt='undef'
 Result: not found
@@ -5641,7 +5641,7 @@ Result: not found
 Checking for ctermid
 | int main(void) { ctermid(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cckIWdPf.o: in function main:try.c(.text+0x8): error: undefined reference to 'ctermid'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccYHxLQA.o: in function main:try.c(.text+0x8): error: undefined reference to 'ctermid'
 collect2: ld returned 1 exit status
 Set d_ctermid='undef'
 Result: not found
@@ -5655,7 +5655,7 @@ Result: found
 Checking for cuserid
 | int main(void) { cuserid(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccadxfEk.o: in function main:try.c(.text+0x8): error: undefined reference to 'cuserid'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cco54VDK.o: in function main:try.c(.text+0x8): error: undefined reference to 'cuserid'
 collect2: ld returned 1 exit status
 Set d_cuserid='undef'
 Result: not found
@@ -5669,7 +5669,7 @@ Result: found
 Checking for difftime64
 | int main(void) { difftime64(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccY8rawn.o: in function main:try.c(.text+0x8): error: undefined reference to 'difftime64'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc2rySJX.o: in function main:try.c(.text+0x8): error: undefined reference to 'difftime64'
 collect2: ld returned 1 exit status
 Set d_difftime64='undef'
 Result: not found
@@ -5707,7 +5707,7 @@ Result: found
 Checking for eaccess
 | int main(void) { eaccess(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccQQSRCD.o: in function main:try.c(.text+0x8): error: undefined reference to 'eaccess'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccyWTLLq.o: in function main:try.c(.text+0x8): error: undefined reference to 'eaccess'
 collect2: ld returned 1 exit status
 Set d_eaccess='undef'
 Result: not found
@@ -5715,7 +5715,7 @@ Result: not found
 Checking for endgrent
 | int main(void) { endgrent(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cckOb9VF.o: in function main:try.c(.text+0x8): error: undefined reference to 'endgrent'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccWbOYCc.o: in function main:try.c(.text+0x8): error: undefined reference to 'endgrent'
 collect2: ld returned 1 exit status
 Set d_endgrent='undef'
 Result: not found
@@ -5723,7 +5723,7 @@ Result: not found
 Checking for endhostent
 | int main(void) { endhostent(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc4jWPgI.o: in function main:try.c(.text+0x8): error: undefined reference to 'endhostent'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccCX1B5f.o: in function main:try.c(.text+0x8): error: undefined reference to 'endhostent'
 collect2: ld returned 1 exit status
 Set d_endhostent='undef'
 Result: not found
@@ -5731,7 +5731,7 @@ Result: not found
 Checking for endnetent
 | int main(void) { endnetent(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccQMAoCK.o: in function main:try.c(.text+0x8): error: undefined reference to 'endnetent'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccck0evn.o: in function main:try.c(.text+0x8): error: undefined reference to 'endnetent'
 collect2: ld returned 1 exit status
 Set d_endnetent='undef'
 Result: not found
@@ -5739,7 +5739,7 @@ Result: not found
 Checking for endprotoent
 | int main(void) { endprotoent(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc2UB74M.o: in function main:try.c(.text+0x8): error: undefined reference to 'endprotoent'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccUWeplt.o: in function main:try.c(.text+0x8): error: undefined reference to 'endprotoent'
 collect2: ld returned 1 exit status
 Set d_endprotoent='undef'
 Result: not found
@@ -5825,7 +5825,7 @@ Result: found
 Checking for fp_class
 | int main(void) { fp_class(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccUEj87p.o: in function main:try.c(.text+0x8): error: undefined reference to 'fp_class'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccyZvJBS.o: in function main:try.c(.text+0x8): error: undefined reference to 'fp_class'
 collect2: ld returned 1 exit status
 Set d_fp_class='undef'
 Result: not found
@@ -5840,7 +5840,7 @@ Result: found
 Checking for fpclass
 | int main(void) { fpclass(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccTST87l.o: in function main:try.c(.text+0x8): error: undefined reference to 'fpclass'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cccRadf4.o: in function main:try.c(.text+0x8): error: undefined reference to 'fpclass'
 collect2: ld returned 1 exit status
 Set d_fpclass='undef'
 Result: not found
@@ -5848,7 +5848,7 @@ Result: not found
 Checking for fpclassify
 | int main(void) { fpclassify(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccwyVezc.o: in function main:try.c(.text+0x8): error: undefined reference to 'fpclassify'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cci26zF9.o: in function main:try.c(.text+0x8): error: undefined reference to 'fpclassify'
 collect2: ld returned 1 exit status
 Set d_fpclassify='undef'
 Result: not found
@@ -5856,7 +5856,7 @@ Result: not found
 Checking for fpclassl
 | int main(void) { fpclassl(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccaxwSUe.o: in function main:try.c(.text+0x8): error: undefined reference to 'fpclassl'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccymniUf.o: in function main:try.c(.text+0x8): error: undefined reference to 'fpclassl'
 collect2: ld returned 1 exit status
 Set d_fpclassl='undef'
 Result: not found
@@ -5892,7 +5892,7 @@ Result: found
 Checking for fstatvfs
 | int main(void) { fstatvfs(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccUilADs.o: in function main:try.c(.text+0x8): error: undefined reference to 'fstatvfs'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccYrBJYo.o: in function main:try.c(.text+0x8): error: undefined reference to 'fstatvfs'
 collect2: ld returned 1 exit status
 Set d_fstatvfs='undef'
 Result: not found
@@ -5912,7 +5912,7 @@ Result: found
 Checking for futimes
 | int main(void) { futimes(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccuFHNHz.o: in function main:try.c(.text+0x8): error: undefined reference to 'futimes'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccCgHrcJ.o: in function main:try.c(.text+0x8): error: undefined reference to 'futimes'
 collect2: ld returned 1 exit status
 Set d_futimes='undef'
 Result: not found
@@ -5933,7 +5933,7 @@ Result: found
 Checking for getespwnam
 | int main(void) { getespwnam(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccEznamK.o: in function main:try.c(.text+0x8): error: undefined reference to 'getespwnam'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cccUMcD3.o: in function main:try.c(.text+0x8): error: undefined reference to 'getespwnam'
 collect2: ld returned 1 exit status
 Set d_getespwnam='undef'
 Result: not found
@@ -5941,7 +5941,7 @@ Result: not found
 Checking for getfsstat
 | int main(void) { getfsstat(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccEMLsXH.o: in function main:try.c(.text+0x8): error: undefined reference to 'getfsstat'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccaHOVF7.o: in function main:try.c(.text+0x8): error: undefined reference to 'getfsstat'
 collect2: ld returned 1 exit status
 Set d_getfsstat='undef'
 Result: not found
@@ -5949,7 +5949,7 @@ Result: not found
 Checking for getgrent
 | int main(void) { getgrent(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc2LwV1O.o: in function main:try.c(.text+0x8): error: undefined reference to 'getgrent'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cco4YVQa.o: in function main:try.c(.text+0x8): error: undefined reference to 'getgrent'
 collect2: ld returned 1 exit status
 Set d_getgrent='undef'
 Result: not found
@@ -5999,7 +5999,7 @@ Result: found
 Checking for getmnt
 | int main(void) { getmnt(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccaFpqF8.o: in function main:try.c(.text+0x8): error: undefined reference to 'getmnt'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccSqHy4O.o: in function main:try.c(.text+0x8): error: undefined reference to 'getmnt'
 collect2: ld returned 1 exit status
 Set d_getmnt='undef'
 Result: not found
@@ -6031,7 +6031,7 @@ Result: found
 Checking for getnetent
 | int main(void) { getnetent(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccUG0hwi.o: in function main:try.c(.text+0x8): error: undefined reference to 'getnetent'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccCriODd.o: in function main:try.c(.text+0x8): error: undefined reference to 'getnetent'
 collect2: ld returned 1 exit status
 Set d_getnetent='undef'
 Result: not found
@@ -6039,7 +6039,7 @@ Result: not found
 Checking for getpagesize
 | int main(void) { getpagesize(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccsk0MYk.o: in function main:try.c(.text+0x8): error: undefined reference to 'getpagesize'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccK5qSvm.o: in function main:try.c(.text+0x8): error: undefined reference to 'getpagesize'
 collect2: ld returned 1 exit status
 Set d_getpagesize='undef'
 Result: not found
@@ -6060,7 +6060,7 @@ Result: found
 Checking for getpgrp2
 | int main(void) { getpgrp2(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccod5Edv.o: in function main:try.c(.text+0x8): error: undefined reference to 'getpgrp2'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccmgEJLn.o: in function main:try.c(.text+0x8): error: undefined reference to 'getpgrp2'
 collect2: ld returned 1 exit status
 Set d_getpgrp2='undef'
 Result: not found
@@ -6082,7 +6082,7 @@ Result: found
 Checking for getprotobyaddr
 | int main(void) { getprotobyaddr(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccWcbgqB.o: in function main:try.c(.text+0x8): error: undefined reference to 'getprotobyaddr'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccoPE9YE.o: in function main:try.c(.text+0x8): error: undefined reference to 'getprotobyaddr'
 collect2: ld returned 1 exit status
 Set d_getprotobyaddr='undef'
 Result: not found
@@ -6102,7 +6102,7 @@ Result: found
 Checking for getprotoent
 | int main(void) { getprotoent(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc2JO9mI.o: in function main:try.c(.text+0x8): error: undefined reference to 'getprotoent'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cciYM3bV.o: in function main:try.c(.text+0x8): error: undefined reference to 'getprotoent'
 collect2: ld returned 1 exit status
 Set d_getprotoent='undef'
 Result: not found
@@ -6110,7 +6110,7 @@ Result: not found
 Checking for getprpwnam
 | int main(void) { getprpwnam(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccEHXSOK.o: in function main:try.c(.text+0x8): error: undefined reference to 'getprpwnam'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccM9uud0.o: in function main:try.c(.text+0x8): error: undefined reference to 'getprpwnam'
 collect2: ld returned 1 exit status
 Set d_getprpwnam='undef'
 Result: not found
@@ -6118,7 +6118,7 @@ Result: not found
 Checking for getpwent
 | int main(void) { getpwent(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccMJEO4M.o: in function main:try.c(.text+0x8): error: undefined reference to 'getpwent'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc67uYk8.o: in function main:try.c(.text+0x8): error: undefined reference to 'getpwent'
 collect2: ld returned 1 exit status
 Set d_getpwent='undef'
 Result: not found
@@ -6126,7 +6126,7 @@ Result: not found
 Checking for getservbyaddr
 | int main(void) { getservbyaddr(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccOCMZoP.o: in function main:try.c(.text+0x8): error: undefined reference to 'getservbyaddr'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc8kjcmc.o: in function main:try.c(.text+0x8): error: undefined reference to 'getservbyaddr'
 collect2: ld returned 1 exit status
 Set d_getservbyaddr='undef'
 Result: not found
@@ -6152,7 +6152,7 @@ Result: found
 Checking for getspnam
 | int main(void) { getspnam(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccasxDOY.o: in function main:try.c(.text+0x8): error: undefined reference to 'getspnam'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccYnBr4z.o: in function main:try.c(.text+0x8): error: undefined reference to 'getspnam'
 collect2: ld returned 1 exit status
 Set d_getspnam='undef'
 Result: not found
@@ -6173,7 +6173,7 @@ Result: found
 Checking for hasmntopt
 | int main(void) { hasmntopt(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccMMviO4.o: in function main:try.c(.text+0x8): error: undefined reference to 'hasmntopt'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccCt3qGP.o: in function main:try.c(.text+0x8): error: undefined reference to 'hasmntopt'
 collect2: ld returned 1 exit status
 Set d_hasmntopt='undef'
 Result: not found
@@ -6212,7 +6212,7 @@ Result: found
 Checking for inetntop
 | int main(void) { inetntop(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccGo7gWl.o: in function main:try.c(.text+0x8): error: undefined reference to 'inetntop'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccm6tTXn.o: in function main:try.c(.text+0x8): error: undefined reference to 'inetntop'
 collect2: ld returned 1 exit status
 Set d_inetntop='undef'
 Result: not found
@@ -6220,7 +6220,7 @@ Result: not found
 Checking for inetpton
 | int main(void) { inetpton(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cccLuQmo.o: in function main:try.c(.text+0x8): error: undefined reference to 'inetpton'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccxEehVl.o: in function main:try.c(.text+0x8): error: undefined reference to 'inetpton'
 collect2: ld returned 1 exit status
 Set d_inetpton='undef'
 Result: not found
@@ -6295,7 +6295,7 @@ Result: found
 Checking for localeconv
 | int main(void) { localeconv(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccoVibjz.o: in function main:try.c(.text+0x8): error: undefined reference to 'localeconv'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccqA2tmj.o: in function main:try.c(.text+0x8): error: undefined reference to 'localeconv'
 collect2: ld returned 1 exit status
 Set d_localeconv='undef'
 Result: not found
@@ -6309,7 +6309,7 @@ Result: found
 Checking for lockf
 | int main(void) { lockf(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccSg014D.o: in function main:try.c(.text+0x8): error: undefined reference to 'lockf'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccIBu0Dw.o: in function main:try.c(.text+0x8): error: undefined reference to 'lockf'
 collect2: ld returned 1 exit status
 Set d_lockf='undef'
 Result: not found
@@ -6329,7 +6329,7 @@ Result: found
 Checking for malloc_good_size
 | int main(void) { malloc_good_size(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccCi7TRN.o: in function main:try.c(.text+0x8): error: undefined reference to 'malloc_good_size'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc4gy1LO.o: in function main:try.c(.text+0x8): error: undefined reference to 'malloc_good_size'
 collect2: ld returned 1 exit status
 Set d_malloc_good_size='undef'
 Result: not found
@@ -6337,7 +6337,7 @@ Result: not found
 Checking for malloc_size
 | int main(void) { malloc_size(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccmUmFoQ.o: in function main:try.c(.text+0x8): error: undefined reference to 'malloc_size'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccCMLRkR.o: in function main:try.c(.text+0x8): error: undefined reference to 'malloc_size'
 collect2: ld returned 1 exit status
 Set d_malloc_size='undef'
 Result: not found
@@ -6345,7 +6345,7 @@ Result: not found
 Checking for mblen
 | int main(void) { mblen(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cceehRTS.o: in function main:try.c(.text+0x8): error: undefined reference to 'mblen'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccmMx7cW.o: in function main:try.c(.text+0x8): error: undefined reference to 'mblen'
 collect2: ld returned 1 exit status
 Set d_mblen='undef'
 Result: not found
@@ -6359,7 +6359,7 @@ Result: found
 Checking for mbtowc
 | int main(void) { mbtowc(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cccbUF8W.o: in function main:try.c(.text+0x8): error: undefined reference to 'mbtowc'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccYRunF7.o: in function main:try.c(.text+0x8): error: undefined reference to 'mbtowc'
 collect2: ld returned 1 exit status
 Set d_mbtowc='undef'
 Result: not found
@@ -6420,7 +6420,7 @@ Result: found
 Checking for mkfifo
 | int main(void) { mkfifo(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc8PZfpq.o: in function main:try.c(.text+0x8): error: undefined reference to 'mkfifo'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccyoN4eH.o: in function main:try.c(.text+0x8): error: undefined reference to 'mkfifo'
 collect2: ld returned 1 exit status
 Set d_mkfifo='undef'
 Result: not found
@@ -6476,7 +6476,7 @@ Result: found
 Checking for msgctl
 | int main(void) { msgctl(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccKpMBjK.o: in function main:try.c(.text+0x8): error: undefined reference to 'msgctl'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccgOy5ss.o: in function main:try.c(.text+0x8): error: undefined reference to 'msgctl'
 collect2: ld returned 1 exit status
 Set d_msgctl='undef'
 Result: not found
@@ -6484,7 +6484,7 @@ Result: not found
 Checking for msgget
 | int main(void) { msgget(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc2UDI4K.o: in function main:try.c(.text+0x8): error: undefined reference to 'msgget'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cceR2i2z.o: in function main:try.c(.text+0x8): error: undefined reference to 'msgget'
 collect2: ld returned 1 exit status
 Set d_msgget='undef'
 Result: not found
@@ -6492,7 +6492,7 @@ Result: not found
 Checking for msgrcv
 | int main(void) { msgrcv(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc03mW3R.o: in function main:try.c(.text+0x8): error: undefined reference to 'msgrcv'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc6KVwsE.o: in function main:try.c(.text+0x8): error: undefined reference to 'msgrcv'
 collect2: ld returned 1 exit status
 Set d_msgrcv='undef'
 Result: not found
@@ -6500,7 +6500,7 @@ Result: not found
 Checking for msgsnd
 | int main(void) { msgsnd(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccSB4XOP.o: in function main:try.c(.text+0x8): error: undefined reference to 'msgsnd'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc6XXL9G.o: in function main:try.c(.text+0x8): error: undefined reference to 'msgsnd'
 collect2: ld returned 1 exit status
 Set d_msgsnd='undef'
 Result: not found
@@ -6526,7 +6526,7 @@ Result: found
 Checking for nl_langinfo
 | int main(void) { nl_langinfo(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc433jHZ.o: in function main:try.c(.text+0x8): error: undefined reference to 'nl_langinfo'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccUxsMT2.o: in function main:try.c(.text+0x8): error: undefined reference to 'nl_langinfo'
 collect2: ld returned 1 exit status
 Set d_nl_langinfo='undef'
 Result: not found
@@ -6569,7 +6569,7 @@ Result: found
 Checking for pthread_atfork
 | int main(void) { pthread_atfork(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccIDSl2j.o: in function main:try.c(.text+0x8): error: undefined reference to 'pthread_atfork'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc467n5l.o: in function main:try.c(.text+0x8): error: undefined reference to 'pthread_atfork'
 collect2: ld returned 1 exit status
 Set d_pthread_atfork='undef'
 Result: not found
@@ -6583,7 +6583,7 @@ Result: found
 Checking for pthread_yield
 | int main(void) { pthread_yield(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccEjbwHo.o: in function main:try.c(.text+0x8): error: undefined reference to 'pthread_yield'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccoB6LZt.o: in function main:try.c(.text+0x8): error: undefined reference to 'pthread_yield'
 collect2: ld returned 1 exit status
 Set d_pthread_yield='undef'
 Result: not found
@@ -6597,7 +6597,7 @@ Result: found
 Checking for rand
 | int main(void) { rand(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccvQe47l.o: in function main:try.c(.text+0x8): error: undefined reference to 'rand'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccobhu7H.o: in function main:try.c(.text+0x8): error: undefined reference to 'rand'
 collect2: ld returned 1 exit status
 Set d_rand='undef'
 Result: not found
@@ -6605,7 +6605,7 @@ Result: not found
 Checking for random
 | int main(void) { random(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc0jypCc.o: in function main:try.c(.text+0x8): error: undefined reference to 'random'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccslXWiP.o: in function main:try.c(.text+0x8): error: undefined reference to 'random'
 collect2: ld returned 1 exit status
 Set d_random='undef'
 Result: not found
@@ -6671,7 +6671,7 @@ Result: found
 Checking for seekdir
 | int main(void) { seekdir(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccgsaiBG.o: in function main:try.c(.text+0x8): error: undefined reference to 'seekdir'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccwjZbaM.o: in function main:try.c(.text+0x8): error: undefined reference to 'seekdir'
 collect2: ld returned 1 exit status
 Set d_seekdir='undef'
 Result: not found
@@ -6686,7 +6686,7 @@ Result: found
 Checking for semctl
 | int main(void) { semctl(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccCmZ7CH.o: in function main:try.c(.text+0x8): error: undefined reference to 'semctl'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccGJg8g2.o: in function main:try.c(.text+0x8): error: undefined reference to 'semctl'
 collect2: ld returned 1 exit status
 Set d_semctl='undef'
 Result: not found
@@ -6694,7 +6694,7 @@ Result: not found
 Checking for semget
 | int main(void) { semget(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccgxifHO.o: in function main:try.c(.text+0x8): error: undefined reference to 'semget'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccomZ7D5.o: in function main:try.c(.text+0x8): error: undefined reference to 'semget'
 collect2: ld returned 1 exit status
 Set d_semget='undef'
 Result: not found
@@ -6702,7 +6702,7 @@ Result: not found
 Checking for semop
 | int main(void) { semop(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccA5mabN.o: in function main:try.c(.text+0x8): error: undefined reference to 'semop'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc4ta2ua.o: in function main:try.c(.text+0x8): error: undefined reference to 'semop'
 collect2: ld returned 1 exit status
 Set d_semop='undef'
 Result: not found
@@ -6728,7 +6728,7 @@ Result: found
 Checking for setgrent
 | int main(void) { setgrent(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cciU5VjW.o: in function main:try.c(.text+0x8): error: undefined reference to 'setgrent'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc4Defeb.o: in function main:try.c(.text+0x8): error: undefined reference to 'setgrent'
 collect2: ld returned 1 exit status
 Set d_setgrent='undef'
 Result: not found
@@ -6742,7 +6742,7 @@ Result: found
 Checking for sethostent
 | int main(void) { sethostent(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccmSHWm1.o: in function main:try.c(.text+0x8): error: undefined reference to 'sethostent'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccyL6aeo.o: in function main:try.c(.text+0x8): error: undefined reference to 'sethostent'
 collect2: ld returned 1 exit status
 Set d_sethostent='undef'
 Result: not found
@@ -6770,7 +6770,7 @@ Result: found
 Checking for setnetent
 | int main(void) { setnetent(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccsjZKah.o: in function main:try.c(.text+0x8): error: undefined reference to 'setnetent'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccIWWRNL.o: in function main:try.c(.text+0x8): error: undefined reference to 'setnetent'
 collect2: ld returned 1 exit status
 Set d_setnetent='undef'
 Result: not found
@@ -6790,7 +6790,7 @@ Result: found
 Checking for setpgrp2
 | int main(void) { setpgrp2(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccaWrkLj.o: in function main:try.c(.text+0x8): error: undefined reference to 'setpgrp2'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccCF71r2.o: in function main:try.c(.text+0x8): error: undefined reference to 'setpgrp2'
 collect2: ld returned 1 exit status
 Set d_setpgrp2='undef'
 Result: not found
@@ -6804,7 +6804,7 @@ Result: found
 Checking for setproctitle
 | int main(void) { setproctitle(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccWG9wOo.o: in function main:try.c(.text+0x8): error: undefined reference to 'setproctitle'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccUaLMja.o: in function main:try.c(.text+0x8): error: undefined reference to 'setproctitle'
 collect2: ld returned 1 exit status
 Set d_setproctitle='undef'
 Result: not found
@@ -6812,7 +6812,7 @@ Result: not found
 Checking for setprotoent
 | int main(void) { setprotoent(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccolDAUv.o: in function main:try.c(.text+0x8): error: undefined reference to 'setprotoent'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccsAFCDe.o: in function main:try.c(.text+0x8): error: undefined reference to 'setprotoent'
 collect2: ld returned 1 exit status
 Set d_setprotoent='undef'
 Result: not found
@@ -6820,7 +6820,7 @@ Result: not found
 Checking for setpwent
 | int main(void) { setpwent(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cccLZQPt.o: in function main:try.c(.text+0x8): error: undefined reference to 'setpwent'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccYI5aAn.o: in function main:try.c(.text+0x8): error: undefined reference to 'setpwent'
 collect2: ld returned 1 exit status
 Set d_setpwent='undef'
 Result: not found
@@ -6852,7 +6852,7 @@ Result: found
 Checking for setrgid
 | int main(void) { setrgid(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccGsUNhI.o: in function main:try.c(.text+0x8): error: undefined reference to 'setrgid'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccC7DgrN.o: in function main:try.c(.text+0x8): error: undefined reference to 'setrgid'
 collect2: ld returned 1 exit status
 Set d_setrgid='undef'
 Result: not found
@@ -6860,7 +6860,7 @@ Result: not found
 Checking for setruid
 | int main(void) { setruid(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccSYnPOK.o: in function main:try.c(.text+0x8): error: undefined reference to 'setruid'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cckEtXXQ.o: in function main:try.c(.text+0x8): error: undefined reference to 'setruid'
 collect2: ld returned 1 exit status
 Set d_setruid='undef'
 Result: not found
@@ -6888,7 +6888,7 @@ Checking for sfreserve
 | /* <sfio.h> missing */
 | int main(void) { sfreserve(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccm60abY.o: in function main:try.c(.text+0x8): error: undefined reference to 'sfreserve'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccKDSgEd.o: in function main:try.c(.text+0x8): error: undefined reference to 'sfreserve'
 collect2: ld returned 1 exit status
 Set d_sfreserve='undef'
 Result: not found
@@ -6896,7 +6896,7 @@ Result: not found
 Checking for shmat
 | int main(void) { shmat(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cckLMFUY.o: in function main:try.c(.text+0x8): error: undefined reference to 'shmat'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccU6cKxl.o: in function main:try.c(.text+0x8): error: undefined reference to 'shmat'
 collect2: ld returned 1 exit status
 Set d_shmat='undef'
 Result: not found
@@ -6904,7 +6904,7 @@ Result: not found
 Checking for shmctl
 | int main(void) { shmctl(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccmsI9U0.o: in function main:try.c(.text+0x8): error: undefined reference to 'shmctl'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccu7dkgr.o: in function main:try.c(.text+0x8): error: undefined reference to 'shmctl'
 collect2: ld returned 1 exit status
 Set d_shmctl='undef'
 Result: not found
@@ -6912,7 +6912,7 @@ Result: not found
 Checking for shmdt
 | int main(void) { shmdt(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccgbpkc3.o: in function main:try.c(.text+0x8): error: undefined reference to 'shmdt'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccioZbde.o: in function main:try.c(.text+0x8): error: undefined reference to 'shmdt'
 collect2: ld returned 1 exit status
 Set d_shmdt='undef'
 Result: not found
@@ -6920,7 +6920,7 @@ Result: not found
 Checking for shmget
 | int main(void) { shmget(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccM5b2F5.o: in function main:try.c(.text+0x8): error: undefined reference to 'shmget'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc6FLdbk.o: in function main:try.c(.text+0x8): error: undefined reference to 'shmget'
 collect2: ld returned 1 exit status
 Set d_shmget='undef'
 Result: not found
@@ -6964,7 +6964,7 @@ Result: not found
 Checking for sockatmark
 | int main(void) { sockatmark(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccq3P4Zi.o: in function main:try.c(.text+0x8): error: undefined reference to 'sockatmark'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccGwROQV.o: in function main:try.c(.text+0x8): error: undefined reference to 'sockatmark'
 collect2: ld returned 1 exit status
 Set d_sockatmark='undef'
 Result: not found
@@ -6986,7 +6986,7 @@ Result: found
 Checking for socks5_init
 | int main(void) { socks5_init(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccwEWH4c.o: in function main:try.c(.text+0x8): error: undefined reference to 'socks5_init'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccwhlkCf.o: in function main:try.c(.text+0x8): error: undefined reference to 'socks5_init'
 collect2: ld returned 1 exit status
 Set d_socks5_init='undef'
 Result: not found
@@ -7003,7 +7003,7 @@ Result: found
 Checking for statvfs
 | int main(void) { statvfs(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccsIAWkg.o: in function main:try.c(.text+0x8): error: undefined reference to 'statvfs'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc2GkUGv.o: in function main:try.c(.text+0x8): error: undefined reference to 'statvfs'
 collect2: ld returned 1 exit status
 Set d_statvfs='undef'
 Result: not found
@@ -7070,7 +7070,7 @@ Result: found
 Checking for strtold
 | int main(void) { strtold(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cciCR62H.o: in function main:try.c(.text+0x8): error: undefined reference to 'strtold'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc6yLzvf.o: in function main:try.c(.text+0x8): error: undefined reference to 'strtold'
 collect2: ld returned 1 exit status
 Set d_strtold='undef'
 Result: not found
@@ -7084,7 +7084,7 @@ Result: found
 Checking for strtoq
 | int main(void) { strtoq(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cckXb6uM.o: in function main:try.c(.text+0x8): error: undefined reference to 'strtoq'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccAGRAaq.o: in function main:try.c(.text+0x8): error: undefined reference to 'strtoq'
 collect2: ld returned 1 exit status
 Set d_strtoq='undef'
 Result: not found
@@ -7106,7 +7106,7 @@ Result: found
 Checking for strtouq
 | int main(void) { strtouq(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccYlZHQV.o: in function main:try.c(.text+0x8): error: undefined reference to 'strtouq'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccyoTz7O.o: in function main:try.c(.text+0x8): error: undefined reference to 'strtouq'
 collect2: ld returned 1 exit status
 Set d_strtouq='undef'
 Result: not found
@@ -7157,7 +7157,7 @@ Result: found
 Checking for telldir
 | int main(void) { telldir(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc6mCZSk.o: in function main:try.c(.text+0x8): error: undefined reference to 'telldir'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccKKJNmA.o: in function main:try.c(.text+0x8): error: undefined reference to 'telldir'
 collect2: ld returned 1 exit status
 Set d_telldir='undef'
 Result: not found
@@ -7172,7 +7172,7 @@ Result: found
 Checking for timegm
 | int main(void) { timegm(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc2bWDRo.o: in function main:try.c(.text+0x8): error: undefined reference to 'timegm'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccqNXmNJ.o: in function main:try.c(.text+0x8): error: undefined reference to 'timegm'
 collect2: ld returned 1 exit status
 Set d_timegm='undef'
 Result: not found
@@ -7194,7 +7194,7 @@ Result: found
 Checking for ualarm
 | int main(void) { ualarm(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccURcmey.o: in function main:try.c(.text+0x8): error: undefined reference to 'ualarm'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccij18r3.o: in function main:try.c(.text+0x8): error: undefined reference to 'ualarm'
 collect2: ld returned 1 exit status
 Set d_ualarm='undef'
 Result: not found
@@ -7214,7 +7214,7 @@ Result: found
 Checking for unordered
 | int main(void) { unordered(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/cc6NfHSH.o: in function main:try.c(.text+0x8): error: undefined reference to 'unordered'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccGtomoj.o: in function main:try.c(.text+0x8): error: undefined reference to 'unordered'
 collect2: ld returned 1 exit status
 Set d_unordered='undef'
 Result: not found
@@ -7234,7 +7234,7 @@ Result: found
 Checking for ustat
 | int main(void) { ustat(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccyaGNJS.o: in function main:try.c(.text+0x8): error: undefined reference to 'ustat'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccWEoVCg.o: in function main:try.c(.text+0x8): error: undefined reference to 'ustat'
 collect2: ld returned 1 exit status
 Set d_ustat='undef'
 Result: not found
@@ -7255,7 +7255,7 @@ Result: found
 Checking for wait4
 | int main(void) { wait4(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccM01gs1.o: in function main:try.c(.text+0x8): error: undefined reference to 'wait4'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccWP8b0x.o: in function main:try.c(.text+0x8): error: undefined reference to 'wait4'
 collect2: ld returned 1 exit status
 Set d_wait4='undef'
 Result: not found
@@ -7277,7 +7277,7 @@ Result: found
 Checking for wctomb
 | int main(void) { wctomb(); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccSpIUYa.o: in function main:try.c(.text+0x8): error: undefined reference to 'wctomb'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccccd7NR.o: in function main:try.c(.text+0x8): error: undefined reference to 'wctomb'
 collect2: ld returned 1 exit status
 Set d_wctomb='undef'
 Result: not found
@@ -7297,7 +7297,7 @@ Checking for sys_errlist
 | void foo() { };
 | int main() { foo(sys_errlist); return 0; }
 > arm-linux-androideabi-gcc --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot -o try try.c -lm -lpthread -ldl -lc
-/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccwcbouf.o: in function main:try.c(.text+0x44): error: undefined reference to 'sys_errlist'
+/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: /tmp/ccUk8Rp5.o: in function main:try.c(.text+0x44): error: undefined reference to 'sys_errlist'
 collect2: ld returned 1 exit status
 Set d_sys_errlist='undef'
 Result: not found
@@ -7849,7 +7849,7 @@ Set cat='cat'
 Set cccdlflags='-fPIC'
 Set ccdlflags='-Wl,-E'
 Set charbits='8'
-Set cf_time='Sat Dec  7 12:24:24 CET 2013'
+Set cf_time='Tue Dec 31 20:41:01 CET 2013'
 Set chmod='chmod'
 Set comm='comm'
 Set contains='grep'
