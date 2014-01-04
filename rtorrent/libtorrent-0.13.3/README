@@ -1,0 +1,36 @@
+LibTorrent
+
+LICENSE
+
+ GNU GPL, see COPYING. "libtorrent/src/utils/sha_fast.{cc,h}" is
+originally from the Mozilla NSS and is under a triple license; MPL,
+LGPL and GPL. An exception to non-NSS code has been added for linking
+to OpenSSL as requested by Debian, though the author considers that
+library to be part of the Operative System and thus linking is allowed
+according to the GPL.
+
+ Use whatever fits your purpose, the code required to compile with
+Mozilla's NSS implementation of SHA1 has been retained and can be
+compiled if the user wishes to avoid using OpenSSL.
+
+CONTACT
+
+ Send bug reports, suggestions and patches to <jaris@ifi.uio.no> or
+to the mailinglist.
+
+LIBRARY DEPENDENCIES
+
+  g++ >= 4.2.1
+
+SIGC++
+
+ The API will use sigc++ signals to give the client a simple, yet
+powerful way of reacting to events from the library. The client can
+hook multiple slots on each signal and modify the parameters to suit
+the functions. This avoids lots of unnecessary code in the client.
+
+POLLING
+
+ "libtorrent/src/torrent/poll.h" provides an abstract class for
+implementing any kind of polling the client wishes to use. Currently
+epoll and select based polling is included.
