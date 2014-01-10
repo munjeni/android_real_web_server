@@ -38,7 +38,7 @@
 
 #include <unistd.h>
 #include <sys/ioctl.h>
-#include <sys/termios.h>
+#include "../../../../arm-linux-androideabi-4.6/sysroot/usr/include/termios.h"
 #include <torrent/exceptions.h>
 
 #include "canvas.h"

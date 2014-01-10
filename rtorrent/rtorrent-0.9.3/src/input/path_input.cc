@@ -43,12 +43,12 @@
 
 #include <sys/types.h>
 
-#ifdef __sun__
+//#ifdef __sun__
   #include <dirent.h>
   #include <sys/stat.h>
-#else
-  #include <sys/dir.h>
-#endif
+//#else
+//  #include <sys/dir.h>
+//#endif
 
 #include "path_input.h"
 
