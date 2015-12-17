@@ -14,7 +14,7 @@ library_names=''
 old_library='libyassl.a'
 
 # Libraries that this one depends upon.
-dependency_libs=' -L/hdd/server/lib -lnsl -lncurses -lz -lssl -lcrypto -lmissing -lpthread /compilationmoj/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/lib/libstdc++.la'
+dependency_libs=' -L/hdd/server/lib -lnsl -lncurses -lz -lssl -lcrypto -lmissing -lpthread /compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/lib/libstdc++.la'
 
 # Version information for libyassl.
 current=6

@@ -78,17 +78,17 @@ build_os=linux-gnu
 echo="echo"
 
 # The archiver.
-AR="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ar"
+AR="/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ar"
 AR_FLAGS="cru"
 
 # A C compiler.
-LTCC="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc"
+LTCC="/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc"
 
 # LTCC compiler flags.
 LTCFLAGS="-I/hdd/server/include -O3 -fPIC -D_GNU_SOURCE  "
 
 # A language-specific compiler.
-CC="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc"
+CC="/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc"
 
 # Is the compiler the GNU C compiler?
 with_gcc=yes
@@ -97,7 +97,7 @@ with_gcc=yes
 EGREP="/bin/grep -E"
 
 # The linker used to build libraries.
-LD="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ld"
+LD="/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ld"
 
 # Whether we need hard or soft links.
 LN_S="ln -s"
@@ -106,7 +106,7 @@ LN_S="ln -s"
 NM="nm"
 
 # A symbol stripping program
-STRIP="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-strip"
+STRIP="/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-strip"
 
 # Used to examine libraries when file_magic_cmd begins "file"
 MAGIC_CMD=file
@@ -118,7 +118,7 @@ DLLTOOL="dlltool"
 OBJDUMP="objdump"
 
 # Used on cygwin: assembler.
-AS="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -c"
+AS="/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -c"
 
 # The name of the directory that contains temporary libtool files.
 objdir=.libs
@@ -199,7 +199,7 @@ library_names_spec=""
 soname_spec=""
 
 # Commands used to build and install an old-style archive.
-RANLIB="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ranlib"
+RANLIB="/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ranlib"
 old_archive_cmds="\$AR \$AR_FLAGS \$oldlib\$oldobjs~\$RANLIB \$oldlib"
 old_postinstall_cmds="chmod 644 \$oldlib~\$RANLIB \$oldlib"
 old_postuninstall_cmds=""
@@ -221,8 +221,8 @@ module_cmds=""
 module_expsym_cmds=""
 
 # Commands to strip libraries.
-old_striplib="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-strip --strip-debug"
-striplib="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-strip --strip-unneeded"
+old_striplib="/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-strip --strip-debug"
+striplib="/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-strip --strip-unneeded"
 
 # Dependencies to place before the objects being linked to create a
 # shared library.
@@ -322,7 +322,7 @@ variables_saved_for_relink="PATH  LD_RUN_PATH GCC_EXEC_PREFIX COMPILER_PATH LIBR
 link_all_deplibs=unknown
 
 # Compile-time system search path for libraries
-sys_lib_search_path_spec="/compilationmoj/mipsel-unknown-linux-gnu/lib/gcc/mipsel-unknown-linux-gnu/4.3.2 /compilationmoj/mipsel-unknown-linux-gnu/lib/gcc /compilationmoj/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/lib /compilationmoj/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root/lib /compilationmoj/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root/usr/lib"
+sys_lib_search_path_spec="/compilation/mipsel-unknown-linux-gnu/lib/gcc/mipsel-unknown-linux-gnu/4.3.2 /compilation/mipsel-unknown-linux-gnu/lib/gcc /compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/lib /compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root/lib /compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root/usr/lib"
 
 # Run-time system search path for libraries
 sys_lib_dlsearch_path_spec="/lib /usr/lib"
@@ -7313,17 +7313,17 @@ build_os=linux-gnu
 echo="echo"
 
 # The archiver.
-AR="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ar"
+AR="/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ar"
 AR_FLAGS="cru"
 
 # A C compiler.
-LTCC="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc"
+LTCC="/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc"
 
 # LTCC compiler flags.
 LTCFLAGS="-I/hdd/server/include -O3 -fPIC -D_GNU_SOURCE  "
 
 # A language-specific compiler.
-CC="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-c++"
+CC="/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-c++"
 
 # Is the compiler the GNU C compiler?
 with_gcc=yes
@@ -7332,7 +7332,7 @@ with_gcc=yes
 EGREP="/bin/grep -E"
 
 # The linker used to build libraries.
-LD="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ld"
+LD="/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ld"
 
 # Whether we need hard or soft links.
 LN_S="ln -s"
@@ -7341,7 +7341,7 @@ LN_S="ln -s"
 NM="nm"
 
 # A symbol stripping program
-STRIP="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-strip"
+STRIP="/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-strip"
 
 # Used to examine libraries when file_magic_cmd begins "file"
 MAGIC_CMD=file
@@ -7353,7 +7353,7 @@ DLLTOOL="dlltool"
 OBJDUMP="objdump"
 
 # Used on cygwin: assembler.
-AS="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -c"
+AS="/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -c"
 
 # The name of the directory that contains temporary libtool files.
 objdir=.libs
@@ -7434,7 +7434,7 @@ library_names_spec=""
 soname_spec=""
 
 # Commands used to build and install an old-style archive.
-RANLIB="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ranlib"
+RANLIB="/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ranlib"
 old_archive_cmds="\$AR \$AR_FLAGS \$oldlib\$oldobjs~\$RANLIB \$oldlib"
 old_postinstall_cmds="chmod 644 \$oldlib~\$RANLIB \$oldlib"
 old_postuninstall_cmds=""
@@ -7456,16 +7456,16 @@ module_cmds=""
 module_expsym_cmds=""
 
 # Commands to strip libraries.
-old_striplib="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-strip --strip-debug"
-striplib="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-strip --strip-unneeded"
+old_striplib="/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-strip --strip-debug"
+striplib="/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-strip --strip-unneeded"
 
 # Dependencies to place before the objects being linked to create a
 # shared library.
-predep_objects="/compilationmoj/mipsel-unknown-linux-gnu/bin/../mipsel-unknown-linux-gnu/sys-root/usr/lib/crti.o /compilationmoj/mipsel-unknown-linux-gnu/bin/../lib/gcc/mipsel-unknown-linux-gnu/4.3.2/crtbeginS.o"
+predep_objects="/compilation/mipsel-unknown-linux-gnu/bin/../mipsel-unknown-linux-gnu/sys-root/usr/lib/crti.o /compilation/mipsel-unknown-linux-gnu/bin/../lib/gcc/mipsel-unknown-linux-gnu/4.3.2/crtbeginS.o"
 
 # Dependencies to place after the objects being linked to create a
 # shared library.
-postdep_objects="/compilationmoj/mipsel-unknown-linux-gnu/bin/../lib/gcc/mipsel-unknown-linux-gnu/4.3.2/crtendS.o /compilationmoj/mipsel-unknown-linux-gnu/bin/../mipsel-unknown-linux-gnu/sys-root/usr/lib/crtn.o"
+postdep_objects="/compilation/mipsel-unknown-linux-gnu/bin/../lib/gcc/mipsel-unknown-linux-gnu/4.3.2/crtendS.o /compilation/mipsel-unknown-linux-gnu/bin/../mipsel-unknown-linux-gnu/sys-root/usr/lib/crtn.o"
 
 # Dependencies to place before the objects being linked to create a
 # shared library.
@@ -7477,7 +7477,7 @@ postdeps="-lstdc++ -lm -lgcc_s -lc -lgcc_s"
 
 # The library search path used internally by the compiler when linking
 # a shared library.
-compiler_lib_search_path="-L/compilationmoj/mipsel-unknown-linux-gnu/bin/../lib/gcc/mipsel-unknown-linux-gnu/4.3.2 -L/compilationmoj/mipsel-unknown-linux-gnu/bin/../lib/gcc -L/compilationmoj/mipsel-unknown-linux-gnu/bin/../lib/gcc/mipsel-unknown-linux-gnu/4.3.2/../../../../mipsel-unknown-linux-gnu/lib -L/compilationmoj/mipsel-unknown-linux-gnu/bin/../mipsel-unknown-linux-gnu/sys-root/lib -L/compilationmoj/mipsel-unknown-linux-gnu/bin/../mipsel-unknown-linux-gnu/sys-root/usr/lib"
+compiler_lib_search_path="-L/compilation/mipsel-unknown-linux-gnu/bin/../lib/gcc/mipsel-unknown-linux-gnu/4.3.2 -L/compilation/mipsel-unknown-linux-gnu/bin/../lib/gcc -L/compilation/mipsel-unknown-linux-gnu/bin/../lib/gcc/mipsel-unknown-linux-gnu/4.3.2/../../../../mipsel-unknown-linux-gnu/lib -L/compilation/mipsel-unknown-linux-gnu/bin/../mipsel-unknown-linux-gnu/sys-root/lib -L/compilation/mipsel-unknown-linux-gnu/bin/../mipsel-unknown-linux-gnu/sys-root/usr/lib"
 
 # Method to check whether dependent libraries are shared objects.
 deplibs_check_method="unknown"
@@ -7557,7 +7557,7 @@ variables_saved_for_relink="PATH  LD_RUN_PATH GCC_EXEC_PREFIX COMPILER_PATH LIBR
 link_all_deplibs=unknown
 
 # Compile-time system search path for libraries
-sys_lib_search_path_spec="/compilationmoj/mipsel-unknown-linux-gnu/lib/gcc/mipsel-unknown-linux-gnu/4.3.2 /compilationmoj/mipsel-unknown-linux-gnu/lib/gcc /compilationmoj/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/lib /compilationmoj/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root/lib /compilationmoj/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root/usr/lib"
+sys_lib_search_path_spec="/compilation/mipsel-unknown-linux-gnu/lib/gcc/mipsel-unknown-linux-gnu/4.3.2 /compilation/mipsel-unknown-linux-gnu/lib/gcc /compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/lib /compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root/lib /compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root/usr/lib"
 
 # Run-time system search path for libraries
 sys_lib_dlsearch_path_spec="/lib /usr/lib"

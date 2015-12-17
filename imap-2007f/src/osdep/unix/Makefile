@@ -129,10 +129,10 @@ EMPTYPROTO=unixproto
 
 # Commands possibly overriden by the individual port
 
-ARRC=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ar rc
-CC=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc
+ARRC=/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ar rc
+CC=/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc
 LN=ln -s
-RANLIB=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ranlib
+RANLIB=/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ranlib
 
 
 # Standard distribution build parameters

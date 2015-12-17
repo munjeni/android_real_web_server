@@ -1,8 +1,8 @@
 # MAKEFILE for GCC
 CFLAGS = -O2 -Wall -c -I./ -I/hdd/server/include
-CC=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fPIC -L/hdd/server/lib -lcrypto
-LD=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ld
-AR=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ar
+CC=/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fPIC -L/hdd/server/lib -lcrypto
+LD=/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ld
+AR=/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ar
 
 default:libcrypt.a
 

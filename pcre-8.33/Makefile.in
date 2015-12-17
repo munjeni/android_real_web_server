@@ -3138,7 +3138,7 @@ config.h.generic: configure.ac
 	rm -rf _generic
 
 @WITH_REBUILD_CHARTABLES_TRUE@pcre_chartables.c: dftables$(EXEEXT)
-@WITH_REBUILD_CHARTABLES_TRUE@	/compilation/qemu-mipsel -L /compilationmoj/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root ./dftables$(EXEEXT) $@
+@WITH_REBUILD_CHARTABLES_TRUE@	/compilation/qemu-mipsel -L /compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root ./dftables$(EXEEXT) $@
 
 @WITH_REBUILD_CHARTABLES_FALSE@pcre_chartables.c: $(srcdir)/pcre_chartables.c.dist
 @WITH_REBUILD_CHARTABLES_FALSE@	rm -f $@

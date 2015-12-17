@@ -2,7 +2,7 @@
 #
 # Created by configure
 
-CC="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc"; export CC
+CC="/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc"; export CC
 CFLAGS="-D_GNU_SOURCE -DBIG_SECURITY_HOLE"; export CFLAGS
 LDFLAGS="-L/hdd/server/lib -ldl"; export LDFLAGS
 "./configure" \
@@ -68,7 +68,7 @@ LDFLAGS="-L/hdd/server/lib -ldl"; export LDFLAGS
 "program_prefix=" \
 "host_alias=mipsel-unknown-linux" \
 "target_alias=mipsel-unknown-linux" \
-"CC=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc" \
+"CC=/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc" \
 "CFLAGS=-D_GNU_SOURCE -DBIG_SECURITY_HOLE" \
 "LDFLAGS=-L/hdd/server/lib -ldl" \
 "$@"

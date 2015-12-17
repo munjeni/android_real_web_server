@@ -1075,9 +1075,9 @@
  *	This symbol is intended to be used along with CPPRUN in the same manner
  *	symbol CPPMINUS is used with CPPSTDIN. It contains either "-" or "".
  */
-#define CPPSTDIN "/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -E"
+#define CPPSTDIN "/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -E"
 #define CPPMINUS "-"
-#define CPPRUN "/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -E"
+#define CPPRUN "/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -E"
 #define CPPLAST "-"
 
 /* HAS_ACCESS:

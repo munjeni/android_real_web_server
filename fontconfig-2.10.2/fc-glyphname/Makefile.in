@@ -590,7 +590,7 @@ uninstall-am:
 
 $(TARG): $(STMPL) fc-glyphname$(EXEEXT) $(SGLYPHNAME)
 	$(AM_V_GEN) $(RM) $(TARG); \
-	/compilation/qemu-mipsel -L /compilationmoj/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root ./fc-glyphname$(EXEEXT) $(SGLYPHNAME) < $(STMPL) > $(TARG).tmp && \
+	/compilation/qemu-mipsel -L /compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root ./fc-glyphname$(EXEEXT) $(SGLYPHNAME) < $(STMPL) > $(TARG).tmp && \
 	mv $(TARG).tmp $(TARG)
 
 $(ALIAS_FILES):

@@ -229,7 +229,7 @@ if [ x"$BASE_SYSTEM" != x"netware" ] ; then
   # If we compiled with gcc, copy libgcc.a to the dist as libmygcc.a
   # ----------------------------------------------------------------------
   if [ x"yes" = x"yes" ] ; then
-    gcclib=`/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic  -I/hdd/server/include -D_GNU_SOURCE   --print-libgcc-file 2>/dev/null` || true
+    gcclib=`/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic  -I/hdd/server/include -D_GNU_SOURCE   --print-libgcc-file 2>/dev/null` || true
     if [ -z "$gcclib" ] ; then
       echo "Warning: Compiler doesn't tell libgcc.a!"
     elif [ -f "$gcclib" ] ; then

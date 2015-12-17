@@ -15,9 +15,9 @@
 SHELL=/bin/sh
 
 # To assist in cross-compiling
-CC=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -static -fPIC
-AR=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ar
-RANLIB=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ranlib
+CC=/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -static -fPIC
+AR=/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ar
+RANLIB=/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ranlib
 LDFLAGS=
 
 BIGFILES=-D_FILE_OFFSET_BITS=64

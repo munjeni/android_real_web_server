@@ -85,7 +85,7 @@ sub AUTOLOAD {
 tie %Config, 'Config', {
     archlibexp => '/hdd/server/lib/perl5/5.16.3/mipsel-linux',
     archname => 'mipsel-linux',
-    cc => '/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc',
+    cc => '/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc',
     d_readlink => 'define',
     d_symlink => 'define',
     dlext => 'so',

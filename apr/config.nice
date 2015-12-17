@@ -2,7 +2,7 @@
 #
 # Created by configure
 
-CC="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic"; export CC
+CC="/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic"; export CC
 CFLAGS="-I/hdd/server/include"; export CFLAGS
 LDFLAGS="-L/hdd/server/lib"; export LDFLAGS
 LIBS="-lcrypt -lcrypto -lpthread -ldl"; export LIBS
@@ -59,7 +59,7 @@ LIBS="-lcrypt -lcrypto -lpthread -ldl"; export LIBS
 "ac_cv_func_nl_langinfo=no" \
 "host_alias=mipsel-unknown-linux" \
 "target_alias=mipsel-unknown-linux" \
-"CC=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic" \
+"CC=/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic" \
 "CFLAGS=-I/hdd/server/include" \
 "LDFLAGS=-L/hdd/server/lib" \
 "LIBS=-lcrypt -lcrypto -lpthread -ldl" \

@@ -14,7 +14,7 @@ library_names=''
 old_library='libmysqlclient_r.a'
 
 # Libraries that this one depends upon.
-dependency_libs=' -lz -lz -L/hdd/server/lib -lz -lz /compilationmoj/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/lib/libstdc++.la -lnsl -lm -lncurses -lz -lssl -lcrypto -lmissing -lpthread -lz'
+dependency_libs=' -lz -lz -L/hdd/server/lib -lz -lz /compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/lib/libstdc++.la -lnsl -lm -lncurses -lz -lssl -lcrypto -lmissing -lpthread -lz'
 
 # Version information for libmysqlclient_r.
 current=16

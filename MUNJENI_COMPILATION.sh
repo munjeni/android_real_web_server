@@ -10,7 +10,7 @@ NC='\e[0m' # No Color
 
 OLDPATH=$PATH
 
-TOOLCHAIN=/compilationmoj/mipsel-unknown-linux-gnu
+TOOLCHAIN=/compilation/mipsel-unknown-linux-gnu
 PLATFORM=$TOOLCHAIN/mipsel-unknown-linux-gnu/sys-root
 export PATH=$PATH:$TOOLCHAIN/bin
 
@@ -189,7 +189,7 @@ echo ""
 sleep 3
 cd pcre-8.33
 for TT in `find . -type f -name *.o`; do rm $TT; done
-if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc -fpic" RANLIB=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib AR=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar LD=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld STRIP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip CXX=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++ ASCPP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as ./configure --prefix=/hdd/server --enable-static --disable-shared --target=mipsel-unknown-linux --host=mipsel-unknown-linux --enable-utf8 --enable-unicode-properties --enable-pcregrep-libz --enable-rebuild-chartables program_prefix="" --disable-pcretest-libreadline --enable-pcregrep-libbz2 LDFLAGS="-L/hdd/server/lib -lz -lbz2" CFLAGS="-I/hdd/server/include" --with-sysroot="/compilationmoj/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root" program_prefix="" ; then
+if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc -fpic" RANLIB=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib AR=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar LD=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld STRIP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip CXX=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++ ASCPP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as ./configure --prefix=/hdd/server --enable-static --disable-shared --target=mipsel-unknown-linux --host=mipsel-unknown-linux --enable-utf8 --enable-unicode-properties --enable-pcregrep-libz --enable-rebuild-chartables program_prefix="" --disable-pcretest-libreadline --enable-pcregrep-libbz2 LDFLAGS="-L/hdd/server/lib -lz -lbz2" CFLAGS="-I/hdd/server/include" --with-sysroot="/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root" program_prefix="" ; then
     echo "Failure!!!"
     exit 1
 fi
@@ -461,10 +461,10 @@ cd ..
 mkdir /hdd/server/bind/include/sys
 echo "" >/hdd/server/bind/include/sys/bitypes.h
 ln -s /hdd/server/lib/libbind.a /hdd/server/lib/libresolv.a
-/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-objcopy --localize-symbol=MD5_Init /hdd/server/lib/libresolv.a
-/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-objcopy --localize-symbol=MD5_Final /hdd/server/lib/libresolv.a
-/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-objcopy --localize-symbol=MD5_Update /hdd/server/lib/libresolv.a
-/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-objcopy --localize-symbol=MD5_version /hdd/server/lib/libresolv.a
+/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-objcopy --localize-symbol=MD5_Init /hdd/server/lib/libresolv.a
+/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-objcopy --localize-symbol=MD5_Final /hdd/server/lib/libresolv.a
+/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-objcopy --localize-symbol=MD5_Update /hdd/server/lib/libresolv.a
+/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-objcopy --localize-symbol=MD5_version /hdd/server/lib/libresolv.a
 ##########################################################
 echo ""
 echo -e "${RED}COMPILING MYSQL${NC}"
@@ -522,7 +522,7 @@ echo -e "${RED}COMPILING APR-UTIL${NC}"
 echo ""
 sleep 3
 mkdir -p /root/x-tools
-ln -s /compilationmoj/mipsel-unknown-linux-gnu /root/x-tools/mipsel-unknown-linux-gnu
+ln -s /compilation/mipsel-unknown-linux-gnu /root/x-tools/mipsel-unknown-linux-gnu
 cd apr-util-1.5.2
 for TT in `find . -type f -name *.o`; do rm $TT; done
 if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc -fpic" RANLIB=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib AR=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar LD=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld STRIP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip CXX=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++ ASCPP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as CC_FOR_BUILD=gcc ./configure --prefix=/hdd/server --target=mipsel-unknown-linux --host=mipsel-unknown-linux --without-iconv --with-expat=/hdd/server --with-mysql=/hdd/server --with-openssl="/hdd/server" --with-crypto="/hdd/server" --with-apr=/hdd/server/bin/apr-1-config CFLAGS="-I/hdd/server/include" LDFLAGS="-L/hdd/server/lib" LIBS="-lssl -lcrypto -liconv -lcrypt" LIBTOOL="/hdd/server/build-1/libtool" program_prefix="" ac_cv_search_crypt="-lcrypt -lcrypto" ac_cv_func_nl_langinfo=no ac_cv_header_langinfo_h=no ; then
@@ -621,7 +621,7 @@ if ! make install LIBTOOL="/hdd/server/build-1/libtool" ; then
 fi
 make distclean
 cd ..
-/compilation/qemu-mipsel -L /compilationmoj/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root /hdd/server/bin/fc-cache
+/compilation/qemu-mipsel -L /compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root /hdd/server/bin/fc-cache
 #####################################################################
 echo ""
 echo -e "${RED}COMPILING LIBPNG-1.6.3${NC}"
@@ -837,8 +837,6 @@ fi
 make distclean
 cd ..
 cp -fr envvars /hdd/server/bin/
-#cp -fr apachectl /hdd/server/bin/
-cp -fr httpd.conf /hdd/server/conf/
 #####################################################################
 echo ""
 echo -e "${RED}COMPILING C-CLIENT (IMAP)${NC}"
@@ -880,7 +878,7 @@ echo -e "${RED}COMPILING PHP-5.5.1${NC}"
 echo ""
 sleep 3
 mkdir -p /root/x-tools
-ln -s /compilationmoj/mipsel-unknown-linux-gnu /root/x-tools/mipsel-unknown-linux-gnu
+ln -s /compilation/mipsel-unknown-linux-gnu /root/x-tools/mipsel-unknown-linux-gnu
 cd php-5.5.1
 for TT in `find . -type f -name *.o`; do rm $TT; done
 if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc" \
@@ -1021,7 +1019,8 @@ chmod 777 /hdd/server/session22
 mkdir /hdd/server/tmp
 chmod 777 /hdd/server/tmp
 #cp /compilation/php-5.5.1/php.ini-production /hdd/server/conf/php.ini
-cp /compilation/php.ini /hdd/server/conf/php.ini
+cp -fr /compilation/php.ini /hdd/server/conf/php.ini
+cp -fr httpd.conf /hdd/server/conf/
 for TT in `tar tzf /compilation/lib.tar.gz | sed 's/.\///g'`; do rm -rf /hdd/server/lib/$TT; done
 #####################################################################
 cd /

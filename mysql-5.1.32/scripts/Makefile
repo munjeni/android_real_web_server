@@ -106,17 +106,17 @@ ABI_CHECK = abi_check
 ACLOCAL = ${SHELL} /compilation/mysql-5.1.32/missing --run aclocal-1.10
 ALLOCA = 
 AMTAR = ${SHELL} /compilation/mysql-5.1.32/missing --run tar
-AR = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ar
+AR = /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ar
 ARFLAGS = cru
-AS = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -c
+AS = /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -c
 ASFLAGS = 
 AUTOCONF = ${SHELL} /compilation/mysql-5.1.32/missing --run autoconf
 AUTOHEADER = ${SHELL} /compilation/mysql-5.1.32/missing --run autoheader
 AUTOMAKE = ${SHELL} /compilation/mysql-5.1.32/missing --run automake-1.10
 AVAILABLE_LANGUAGES = czech danish dutch english estonian french german greek hungarian italian japanese korean norwegian norwegian-ny polish portuguese romanian russian serbian slovak spanish swedish ukrainian
 AWK = mawk
-CC = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc
-CCAS = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc
+CC = /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc
+CCAS = /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc
 CCASDEPMODE = depmode=gcc3
 CCASFLAGS = -I/hdd/server/include -O3 -fPIC -D_GNU_SOURCE   
 CCDEPMODE = depmode=gcc3
@@ -129,12 +129,12 @@ CLIENT_LIBS = -lnsl -lm -lncurses -lz -lssl -lcrypto -lmissing -lpthread  -lz
 CLIENT_THREAD_LIBS = 
 CMP = /usr/bin/cmp
 COMPILATION_COMMENT = Source distribution
-CONF_COMMAND = ./configure  '--prefix=/hdd/server' '--target=mipsel' '--host=mipsel' '--with-lib-ccflags=-fPIC' '--disable-shared' '--enable-static' '--with-ssl' '--without-docs' '--without-man' '--with-readline' 'ac_cv_sys_restartable_syscalls=yes' 'with_named_curses=yes' 'mysql_cv_termcap_lib=y' 'ac_cv_search_crypt=no' 'ac_cv_func_re_comp=no' 'ac_cv_func_getline=no' 'ac_cv_func_tcgetattr=no' 'ac_cv_func_wctomb=no' 'ac_cv_func_strunvis=no' 'ac_cv_func_strvis=no' 'ac_cv_func__doprnt=no' 'ac_cv_func_bcmp=no' 'ac_cv_func_bfill=no' 'ac_cv_func_bmove=no' 'ac_cv_func_chsize=no' 'ac_cv_func_cuserid=no' 'ac_cv_func_fconvert=no' 'ac_cv_func_fpresetsticky=no' 'ac_cv_func_fpsetmask=no' 'ac_cv_func_gethostbyaddr_r=no' 'ac_cv_func_getpass=no' 'ac_cv_func_getpassphrase=no' 'ac_cv_func_getwd=no' 'ac_cv_func_gethrtime=no' 'ac_cv_func_locking=no' 'ac_cv_func_mlockall=no' 'ac_cv_func_mmap64=no' 'ac_cv_func_getpagesize=no' 'ac_cv_func_rwlock_init=no' 'ac_cv_func_shmget=no' 'ac_cv_func_shmat=no' 'ac_cv_func_shmdt=no' 'ac_cv_func_shmctl=no' 'ac_cv_func_sigemptyset=no' 'ac_cv_func_sigaddset=no' 'ac_cv_func_sighold=no' 'ac_cv_func_sigset=no' 'ac_cv_type_sigset_t=no' 'ac_cv_func_sigthreadmask=no' 'ac_cv_func_port_create=no' 'ac_cv_func_stpcpy=no' 'ac_cv_func_tell=no' 'ac_cv_func_thr_setconcurrency=no' 'ac_cv_func_posix_fallocate=no' 'ac_cv_lib_rt_aio_read=no' 'program_prefix=' 'host_alias=mipsel' 'target_alias=mipsel' 'CC=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc' 'CFLAGS=-I/hdd/server/include -O3 -fPIC -D_GNU_SOURCE' 'LDFLAGS=-L/hdd/server/lib' 'LIBS=-lncurses -lz -lssl -lcrypto -lmissing -lpthread' 'CXX=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-c++' 'CXXFLAGS=-I/hdd/server/include -O3 -fPIC -D_GNU_SOURCE'
+CONF_COMMAND = ./configure  '--prefix=/hdd/server' '--target=mipsel' '--host=mipsel' '--with-lib-ccflags=-fPIC' '--disable-shared' '--enable-static' '--with-ssl' '--without-docs' '--without-man' '--with-readline' 'ac_cv_sys_restartable_syscalls=yes' 'with_named_curses=yes' 'mysql_cv_termcap_lib=y' 'ac_cv_search_crypt=no' 'ac_cv_func_re_comp=no' 'ac_cv_func_getline=no' 'ac_cv_func_tcgetattr=no' 'ac_cv_func_wctomb=no' 'ac_cv_func_strunvis=no' 'ac_cv_func_strvis=no' 'ac_cv_func__doprnt=no' 'ac_cv_func_bcmp=no' 'ac_cv_func_bfill=no' 'ac_cv_func_bmove=no' 'ac_cv_func_chsize=no' 'ac_cv_func_cuserid=no' 'ac_cv_func_fconvert=no' 'ac_cv_func_fpresetsticky=no' 'ac_cv_func_fpsetmask=no' 'ac_cv_func_gethostbyaddr_r=no' 'ac_cv_func_getpass=no' 'ac_cv_func_getpassphrase=no' 'ac_cv_func_getwd=no' 'ac_cv_func_gethrtime=no' 'ac_cv_func_locking=no' 'ac_cv_func_mlockall=no' 'ac_cv_func_mmap64=no' 'ac_cv_func_getpagesize=no' 'ac_cv_func_rwlock_init=no' 'ac_cv_func_shmget=no' 'ac_cv_func_shmat=no' 'ac_cv_func_shmdt=no' 'ac_cv_func_shmctl=no' 'ac_cv_func_sigemptyset=no' 'ac_cv_func_sigaddset=no' 'ac_cv_func_sighold=no' 'ac_cv_func_sigset=no' 'ac_cv_type_sigset_t=no' 'ac_cv_func_sigthreadmask=no' 'ac_cv_func_port_create=no' 'ac_cv_func_stpcpy=no' 'ac_cv_func_tell=no' 'ac_cv_func_thr_setconcurrency=no' 'ac_cv_func_posix_fallocate=no' 'ac_cv_lib_rt_aio_read=no' 'program_prefix=' 'host_alias=mipsel' 'target_alias=mipsel' 'CC=/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc' 'CFLAGS=-I/hdd/server/include -O3 -fPIC -D_GNU_SOURCE' 'LDFLAGS=-L/hdd/server/lib' 'LIBS=-lncurses -lz -lssl -lcrypto -lmissing -lpthread' 'CXX=/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-c++' 'CXXFLAGS=-I/hdd/server/include -O3 -fPIC -D_GNU_SOURCE'
 CP = /bin/cp
-CPP = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -E
+CPP = /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -E
 CPPFLAGS = 
-CXX = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-c++
-CXXCPP = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-c++ -E
+CXX = /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-c++
+CXXCPP = /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-c++ -E
 CXXDEPMODE = depmode=gcc3
 CXXFLAGS =  -I/hdd/server/include -O3 -fPIC -D_GNU_SOURCE   -fno-implicit-templates -fno-exceptions -fno-rtti
 CXXLDFLAGS = 
@@ -166,7 +166,7 @@ INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 KILL = /bin/kill
-LD = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ld
+LD = /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ld
 LDFLAGS = -L/hdd/server/lib 
 LD_VERSION_SCRIPT = -Wl,--version-script=$(top_builddir)/libmysql/libmysql.ver
 LIBDL = -ldl 
@@ -232,12 +232,12 @@ PERL = /usr/bin/perl
 PERL5 = /usr/bin/perl
 PROTOCOL_VERSION = 10
 PS = /bin/ps
-RANLIB = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ranlib
+RANLIB = /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ranlib
 RM = /bin/rm
 SAVE_ASFLAGS = 
-SAVE_CC = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc
+SAVE_CC = /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc
 SAVE_CFLAGS = -I/hdd/server/include -O3 -fPIC -D_GNU_SOURCE
-SAVE_CXX = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-c++
+SAVE_CXX = /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-c++
 SAVE_CXXFLAGS = -I/hdd/server/include -O3 -fPIC -D_GNU_SOURCE
 SAVE_CXXLDFLAGS = 
 SAVE_LDFLAGS = -L/hdd/server/lib
@@ -247,7 +247,7 @@ SHARED_LIB_MAJOR_VERSION = 16
 SHARED_LIB_VERSION = 16:0:0
 SHELL = /bin/bash
 STATIC_NSS_FLAGS = 
-STRIP = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-strip
+STRIP = /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-strip
 SYSTEM_TYPE = unknown-elf
 TAR = tar
 TARGET_LINUX = false
@@ -809,11 +809,11 @@ mysql_fix_privilege_tables_sql.c: comp_sql.c mysql_fix_privilege_tables.sql
 	  -e 's!@''sysconfdir''@!$(sysconfdir)!g' \
 	  -e 's!@''mandir''@!$(mandir)!g' \
 	  -e 's!@''infodir''@!$(infodir)!g' \
-	  -e 's!@''CC''@!/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc!'\
-	  -e 's!@''CXX''@!/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-c++!'\
+	  -e 's!@''CC''@!/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc!'\
+	  -e 's!@''CXX''@!/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-c++!'\
 	  -e 's!@''GXX''@!yes!'\
-	  -e 's!@''SAVE_CC''@!/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc!'\
-	  -e 's!@''SAVE_CXX''@!/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-c++!'\
+	  -e 's!@''SAVE_CC''@!/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc!'\
+	  -e 's!@''SAVE_CXX''@!/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-c++!'\
 	  -e 's!@''CC_VERSION''@!mipsel-unknown-linux-gnu-gcc (crosstool-NG-1.3.3) 4.3.2!'\
 	  -e 's!@''CXX_VERSION''@!mipsel-unknown-linux-gnu-c++ (crosstool-NG-1.3.3) 4.3.2!'\
 	  -e 's!@''PERL''@!/usr/bin/perl!' \
@@ -846,7 +846,7 @@ mysql_fix_privilege_tables_sql.c: comp_sql.c mysql_fix_privilege_tables.sql
 	  -e 's!@''MYSQL_TCP_PORT''@!3306!' \
 	  -e 's!@''MYSQL_TCP_PORT_DEFAULT''@!0!' \
 	  -e 's!@''TARGET_LINUX''@!false!' \
-	  -e "s!@""CONF_COMMAND""@!./configure  '--prefix=/hdd/server' '--target=mipsel' '--host=mipsel' '--with-lib-ccflags=-fPIC' '--disable-shared' '--enable-static' '--with-ssl' '--without-docs' '--without-man' '--with-readline' 'ac_cv_sys_restartable_syscalls=yes' 'with_named_curses=yes' 'mysql_cv_termcap_lib=y' 'ac_cv_search_crypt=no' 'ac_cv_func_re_comp=no' 'ac_cv_func_getline=no' 'ac_cv_func_tcgetattr=no' 'ac_cv_func_wctomb=no' 'ac_cv_func_strunvis=no' 'ac_cv_func_strvis=no' 'ac_cv_func__doprnt=no' 'ac_cv_func_bcmp=no' 'ac_cv_func_bfill=no' 'ac_cv_func_bmove=no' 'ac_cv_func_chsize=no' 'ac_cv_func_cuserid=no' 'ac_cv_func_fconvert=no' 'ac_cv_func_fpresetsticky=no' 'ac_cv_func_fpsetmask=no' 'ac_cv_func_gethostbyaddr_r=no' 'ac_cv_func_getpass=no' 'ac_cv_func_getpassphrase=no' 'ac_cv_func_getwd=no' 'ac_cv_func_gethrtime=no' 'ac_cv_func_locking=no' 'ac_cv_func_mlockall=no' 'ac_cv_func_mmap64=no' 'ac_cv_func_getpagesize=no' 'ac_cv_func_rwlock_init=no' 'ac_cv_func_shmget=no' 'ac_cv_func_shmat=no' 'ac_cv_func_shmdt=no' 'ac_cv_func_shmctl=no' 'ac_cv_func_sigemptyset=no' 'ac_cv_func_sigaddset=no' 'ac_cv_func_sighold=no' 'ac_cv_func_sigset=no' 'ac_cv_type_sigset_t=no' 'ac_cv_func_sigthreadmask=no' 'ac_cv_func_port_create=no' 'ac_cv_func_stpcpy=no' 'ac_cv_func_tell=no' 'ac_cv_func_thr_setconcurrency=no' 'ac_cv_func_posix_fallocate=no' 'ac_cv_lib_rt_aio_read=no' 'program_prefix=' 'host_alias=mipsel' 'target_alias=mipsel' 'CC=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc' 'CFLAGS=-I/hdd/server/include -O3 -fPIC -D_GNU_SOURCE' 'LDFLAGS=-L/hdd/server/lib' 'LIBS=-lncurses -lz -lssl -lcrypto -lmissing -lpthread' 'CXX=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-c++' 'CXXFLAGS=-I/hdd/server/include -O3 -fPIC -D_GNU_SOURCE'!" \
+	  -e "s!@""CONF_COMMAND""@!./configure  '--prefix=/hdd/server' '--target=mipsel' '--host=mipsel' '--with-lib-ccflags=-fPIC' '--disable-shared' '--enable-static' '--with-ssl' '--without-docs' '--without-man' '--with-readline' 'ac_cv_sys_restartable_syscalls=yes' 'with_named_curses=yes' 'mysql_cv_termcap_lib=y' 'ac_cv_search_crypt=no' 'ac_cv_func_re_comp=no' 'ac_cv_func_getline=no' 'ac_cv_func_tcgetattr=no' 'ac_cv_func_wctomb=no' 'ac_cv_func_strunvis=no' 'ac_cv_func_strvis=no' 'ac_cv_func__doprnt=no' 'ac_cv_func_bcmp=no' 'ac_cv_func_bfill=no' 'ac_cv_func_bmove=no' 'ac_cv_func_chsize=no' 'ac_cv_func_cuserid=no' 'ac_cv_func_fconvert=no' 'ac_cv_func_fpresetsticky=no' 'ac_cv_func_fpsetmask=no' 'ac_cv_func_gethostbyaddr_r=no' 'ac_cv_func_getpass=no' 'ac_cv_func_getpassphrase=no' 'ac_cv_func_getwd=no' 'ac_cv_func_gethrtime=no' 'ac_cv_func_locking=no' 'ac_cv_func_mlockall=no' 'ac_cv_func_mmap64=no' 'ac_cv_func_getpagesize=no' 'ac_cv_func_rwlock_init=no' 'ac_cv_func_shmget=no' 'ac_cv_func_shmat=no' 'ac_cv_func_shmdt=no' 'ac_cv_func_shmctl=no' 'ac_cv_func_sigemptyset=no' 'ac_cv_func_sigaddset=no' 'ac_cv_func_sighold=no' 'ac_cv_func_sigset=no' 'ac_cv_type_sigset_t=no' 'ac_cv_func_sigthreadmask=no' 'ac_cv_func_port_create=no' 'ac_cv_func_stpcpy=no' 'ac_cv_func_tell=no' 'ac_cv_func_thr_setconcurrency=no' 'ac_cv_func_posix_fallocate=no' 'ac_cv_lib_rt_aio_read=no' 'program_prefix=' 'host_alias=mipsel' 'target_alias=mipsel' 'CC=/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc' 'CFLAGS=-I/hdd/server/include -O3 -fPIC -D_GNU_SOURCE' 'LDFLAGS=-L/hdd/server/lib' 'LIBS=-lncurses -lz -lssl -lcrypto -lmissing -lpthread' 'CXX=/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-c++' 'CXXFLAGS=-I/hdd/server/include -O3 -fPIC -D_GNU_SOURCE'!" \
 	  -e 's!@''MYSQLD_USER''@!mysql!' \
 	  -e 's!@''STATIC_NSS_FLAGS''@!!' \
 	  -e 's!@''NON_THREADED_LIBS''@!-lnsl -lm -lncurses -lz -lssl -lcrypto -lmissing -lpthread!' \

@@ -25,23 +25,23 @@
 
 # These definitions are from config.sh (via ../../lib/Config.pm).
 # They may have been overridden via Makefile.PL or on the command line.
-AR = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ar
-CC = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc
+AR = /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ar
+CC = /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc
 CCCDLFLAGS = -fPIC
 CCDLFLAGS = -Wl,-E
 DLEXT = so
 DLSRC = dl_dlopen.xs
 EXE_EXT = 
 FULL_AR = ar
-LD = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ld
+LD = /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ld
 LDDLFLAGS = -shared 
-LDFLAGS = --sysroot=/compilationmoj/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root 
+LDFLAGS = --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root 
 LIBC = 
 LIB_EXT = .a
 OBJ_EXT = .o
 OSNAME = linux
 OSVERS = current
-RANLIB = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ranlib
+RANLIB = /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ranlib
 SITELIBEXP = /hdd/server/lib/perl5/site_perl/5.16.3
 SITEARCHEXP = /hdd/server/lib/perl5/site_perl/5.16.3/mipsel-linux
 SO = so

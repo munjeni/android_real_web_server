@@ -1,8 +1,8 @@
 #
 CFLAGS = -O2 -Wall
-CC=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -O2 -Wall -fpic
-LD=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ld
-AR=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ar
+CC=/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -O2 -Wall -fpic
+LD=/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ld
+AR=/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ar
 
 CFLAGS += -fpic
 

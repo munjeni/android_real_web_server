@@ -733,19 +733,19 @@ user.ps:	user.r $(NROFF_INC)
 		-groff -mm user.r > $@
 
 output1.r:      factorial
-		/compilation/qemu-mipsel -L /compilationmoj/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root ./factorial 1 2 3 4 5 | cat > $@
+		/compilation/qemu-mipsel -L /compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root ./factorial 1 2 3 4 5 | cat > $@
 
 output2.r:      factorial
-		/compilation/qemu-mipsel -L /compilationmoj/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root ./factorial -\#t:o 2 3 | cat >$@
+		/compilation/qemu-mipsel -L /compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root ./factorial -\#t:o 2 3 | cat >$@
 
 output3.r:      factorial
-		/compilation/qemu-mipsel -L /compilationmoj/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root ./factorial -\#d:t:o 3 | cat >$@
+		/compilation/qemu-mipsel -L /compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root ./factorial -\#d:t:o 3 | cat >$@
 
 output4.r:      factorial
-		/compilation/qemu-mipsel -L /compilationmoj/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root ./factorial -\#d,result:o 4 | cat >$@
+		/compilation/qemu-mipsel -L /compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root ./factorial -\#d,result:o 4 | cat >$@
 
 output5.r:      factorial
-		/compilation/qemu-mipsel -L /compilationmoj/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root ./factorial -\#d:f,factorial:F:L:o 3 | cat >$@
+		/compilation/qemu-mipsel -L /compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root ./factorial -\#d:f,factorial:F:L:o 3 | cat >$@
 .c.r:
 		@RM@ -f $@
 		@SED@ -e 's!\\!\\\\!g' $< > $@

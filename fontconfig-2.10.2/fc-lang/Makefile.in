@@ -841,7 +841,7 @@ uninstall-am:
 
 $(TARG):$(ORTH) fc-lang${EXEEXT} $(STMPL)
 	$(AM_V_GEN) $(RM) $(TARG); \
-	/compilation/qemu-mipsel -L /compilationmoj/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root ./fc-lang${EXEEXT} -d ${srcdir} $(ORTH) < $(STMPL) > $(TARG).tmp && \
+	/compilation/qemu-mipsel -L /compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root ./fc-lang${EXEEXT} -d ${srcdir} $(ORTH) < $(STMPL) > $(TARG).tmp && \
 	mv $(TARG).tmp $(TARG)
 
 $(ALIAS_FILES):
