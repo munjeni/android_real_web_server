@@ -28,25 +28,25 @@
 
 # These definitions are from config.sh (via ../../lib/Config.pm).
 # They may have been overridden via Makefile.PL or on the command line.
-AR = arm-linux-androideabi-ar
-CC = arm-linux-androideabi-gcc
+AR = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ar
+CC = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc
 CCCDLFLAGS = -fPIC
 CCDLFLAGS = -Wl,-E
 DLEXT = so
 DLSRC = dl_dlopen.xs
 EXE_EXT = 
 FULL_AR = ar
-LD = arm-linux-androideabi-gcc
+LD = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ld
 LDDLFLAGS = -shared 
-LDFLAGS = --sysroot=/compilation/android-ndk-r8e/platforms/android-14/arch-arm 
+LDFLAGS = --sysroot=/compilationmoj/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root 
 LIBC = 
 LIB_EXT = .a
 OBJ_EXT = .o
 OSNAME = linux
 OSVERS = current
-RANLIB = arm-linux-androideabi-ranlib
-SITELIBEXP = /androidserver/lib/perl5/site_perl/5.16.3
-SITEARCHEXP = /androidserver/lib/perl5/site_perl/5.16.3/arm-androideabi
+RANLIB = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ranlib
+SITELIBEXP = /hdd/server/lib/perl5/site_perl/5.16.3
+SITEARCHEXP = /hdd/server/lib/perl5/site_perl/5.16.3/mipsel-linux
 SO = so
 VENDORARCHEXP = 
 VENDORLIBEXP = 
@@ -76,28 +76,28 @@ MAN3EXT = 3
 INSTALLDIRS = perl
 DESTDIR = 
 PREFIX = $(PERLPREFIX)
-PERLPREFIX = /androidserver
-SITEPREFIX = /androidserver
+PERLPREFIX = /hdd/server
+SITEPREFIX = /hdd/server
 VENDORPREFIX = 
-INSTALLPRIVLIB = /androidserver/lib/perl5
+INSTALLPRIVLIB = /hdd/server/lib/perl5
 DESTINSTALLPRIVLIB = $(DESTDIR)$(INSTALLPRIVLIB)
-INSTALLSITELIB = /androidserver/lib/perl5/site_perl/5.16.3
+INSTALLSITELIB = /hdd/server/lib/perl5/site_perl/5.16.3
 DESTINSTALLSITELIB = $(DESTDIR)$(INSTALLSITELIB)
 INSTALLVENDORLIB = 
 DESTINSTALLVENDORLIB = $(DESTDIR)$(INSTALLVENDORLIB)
-INSTALLARCHLIB = /androidserver/lib/perl5/5.16.3/arm-androideabi
+INSTALLARCHLIB = /hdd/server/lib/perl5/5.16.3/mipsel-linux
 DESTINSTALLARCHLIB = $(DESTDIR)$(INSTALLARCHLIB)
-INSTALLSITEARCH = /androidserver/lib/perl5/site_perl/5.16.3/arm-androideabi
+INSTALLSITEARCH = /hdd/server/lib/perl5/site_perl/5.16.3/mipsel-linux
 DESTINSTALLSITEARCH = $(DESTDIR)$(INSTALLSITEARCH)
 INSTALLVENDORARCH = 
 DESTINSTALLVENDORARCH = $(DESTDIR)$(INSTALLVENDORARCH)
-INSTALLBIN = /androidserver/bin
+INSTALLBIN = /hdd/server/bin
 DESTINSTALLBIN = $(DESTDIR)$(INSTALLBIN)
-INSTALLSITEBIN = /androidserver/bin
+INSTALLSITEBIN = /hdd/server/bin
 DESTINSTALLSITEBIN = $(DESTDIR)$(INSTALLSITEBIN)
 INSTALLVENDORBIN = 
 DESTINSTALLVENDORBIN = $(DESTDIR)$(INSTALLVENDORBIN)
-INSTALLSCRIPT = /androidserver/bin
+INSTALLSCRIPT = /hdd/server/bin
 DESTINSTALLSCRIPT = $(DESTDIR)$(INSTALLSCRIPT)
 INSTALLSITESCRIPT = $(INSTALLSCRIPT)
 DESTINSTALLSITESCRIPT = $(DESTDIR)$(INSTALLSITESCRIPT)
@@ -105,15 +105,15 @@ INSTALLVENDORSCRIPT =
 DESTINSTALLVENDORSCRIPT = $(DESTDIR)$(INSTALLVENDORSCRIPT)
 INSTALLMAN1DIR = none
 DESTINSTALLMAN1DIR = $(DESTDIR)$(INSTALLMAN1DIR)
-INSTALLSITEMAN1DIR = /androidserver/share/man/man1
+INSTALLSITEMAN1DIR = /hdd/server/share/man/man1
 DESTINSTALLSITEMAN1DIR = $(DESTDIR)$(INSTALLSITEMAN1DIR)
-INSTALLVENDORMAN1DIR = /androidserver/share/man/man1
+INSTALLVENDORMAN1DIR = /hdd/server/share/man/man1
 DESTINSTALLVENDORMAN1DIR = $(DESTDIR)$(INSTALLVENDORMAN1DIR)
 INSTALLMAN3DIR = none
 DESTINSTALLMAN3DIR = $(DESTDIR)$(INSTALLMAN3DIR)
-INSTALLSITEMAN3DIR = /androidserver/share/man/man3
+INSTALLSITEMAN3DIR = /hdd/server/share/man/man3
 DESTINSTALLSITEMAN3DIR = $(DESTDIR)$(INSTALLSITEMAN3DIR)
-INSTALLVENDORMAN3DIR = /androidserver/share/man/man3
+INSTALLVENDORMAN3DIR = /hdd/server/share/man/man3
 DESTINSTALLVENDORMAN3DIR = $(DESTDIR)$(INSTALLVENDORMAN3DIR)
 PERL_LIB = ../../lib
 PERL_ARCHLIB = ../../lib
@@ -235,10 +235,10 @@ PM_TO_BLIB = lib/CPANPLUS/Backend/RV.pm \
 	../../lib/CPANPLUS/Module/Author.pm \
 	lib/CPANPLUS/Module.pm \
 	../../lib/CPANPLUS/Module.pm \
-	lib/CPANPLUS/Dist/MM.pm \
-	../../lib/CPANPLUS/Dist/MM.pm \
 	lib/CPANPLUS/Module/Checksums.pm \
 	../../lib/CPANPLUS/Module/Checksums.pm \
+	lib/CPANPLUS/Dist/MM.pm \
+	../../lib/CPANPLUS/Dist/MM.pm \
 	lib/CPANPLUS/Internals.pm \
 	../../lib/CPANPLUS/Internals.pm \
 	lib/CPANPLUS/Module/Signature.pm \
@@ -247,10 +247,10 @@ PM_TO_BLIB = lib/CPANPLUS/Backend/RV.pm \
 	../../lib/CPANPLUS/Hacking.pod \
 	lib/CPANPLUS.pm \
 	../../lib/CPANPLUS.pm \
-	lib/CPANPLUS/Shell/Default/Plugins/Remote.pm \
-	../../lib/CPANPLUS/Shell/Default/Plugins/Remote.pm \
 	lib/CPANPLUS/Backend.pm \
 	../../lib/CPANPLUS/Backend.pm \
+	lib/CPANPLUS/Shell/Default/Plugins/Remote.pm \
+	../../lib/CPANPLUS/Shell/Default/Plugins/Remote.pm \
 	lib/CPANPLUS/Internals/Report.pm \
 	../../lib/CPANPLUS/Internals/Report.pm \
 	lib/CPANPLUS/Module/Author/Fake.pm \
@@ -265,12 +265,12 @@ PM_TO_BLIB = lib/CPANPLUS/Backend/RV.pm \
 	../../lib/CPANPLUS/Shell/Default/Plugins/Source.pm \
 	lib/CPANPLUS/Internals/Constants/Report.pm \
 	../../lib/CPANPLUS/Internals/Constants/Report.pm \
-	lib/CPANPLUS/Internals/Source.pm \
-	../../lib/CPANPLUS/Internals/Source.pm \
-	lib/CPANPLUS/Shell.pm \
-	../../lib/CPANPLUS/Shell.pm \
 	lib/CPANPLUS/Configure/Setup.pm \
 	../../lib/CPANPLUS/Configure/Setup.pm \
+	lib/CPANPLUS/Shell.pm \
+	../../lib/CPANPLUS/Shell.pm \
+	lib/CPANPLUS/Internals/Source.pm \
+	../../lib/CPANPLUS/Internals/Source.pm \
 	lib/CPANPLUS/Internals/Fetch.pm \
 	../../lib/CPANPLUS/Internals/Fetch.pm \
 	lib/CPANPLUS/Dist.pm \
@@ -287,12 +287,12 @@ PM_TO_BLIB = lib/CPANPLUS/Backend/RV.pm \
 	../../lib/CPANPLUS/Internals/Source/SQLite/Tie.pm \
 	lib/CPANPLUS/Internals/Extract.pm \
 	../../lib/CPANPLUS/Internals/Extract.pm \
-	lib/CPANPLUS/Internals/Utils/Autoflush.pm \
-	../../lib/CPANPLUS/Internals/Utils/Autoflush.pm \
-	lib/CPANPLUS/Dist/Sample.pm \
-	../../lib/CPANPLUS/Dist/Sample.pm \
 	lib/CPANPLUS/Shell/Default/Plugins/CustomSource.pm \
 	../../lib/CPANPLUS/Shell/Default/Plugins/CustomSource.pm \
+	lib/CPANPLUS/Dist/Sample.pm \
+	../../lib/CPANPLUS/Dist/Sample.pm \
+	lib/CPANPLUS/Internals/Utils/Autoflush.pm \
+	../../lib/CPANPLUS/Internals/Utils/Autoflush.pm \
 	lib/CPANPLUS/Module/Fake.pm \
 	../../lib/CPANPLUS/Module/Fake.pm \
 	lib/CPANPLUS/Error.pm \
@@ -303,12 +303,12 @@ PM_TO_BLIB = lib/CPANPLUS/Backend/RV.pm \
 	../../lib/CPANPLUS/Internals/Source/Memory.pm \
 	lib/CPANPLUS/Dist/Autobundle.pm \
 	../../lib/CPANPLUS/Dist/Autobundle.pm \
-	lib/CPANPLUS/Internals/Constants.pm \
-	../../lib/CPANPLUS/Internals/Constants.pm \
+	lib/CPANPLUS/Shell/Default/Plugins/HOWTO.pod \
+	../../lib/CPANPLUS/Shell/Default/Plugins/HOWTO.pod \
 	lib/CPANPLUS/Dist/Base.pm \
 	../../lib/CPANPLUS/Dist/Base.pm \
-	lib/CPANPLUS/Shell/Default/Plugins/HOWTO.pod \
-	../../lib/CPANPLUS/Shell/Default/Plugins/HOWTO.pod
+	lib/CPANPLUS/Internals/Constants.pm \
+	../../lib/CPANPLUS/Internals/Constants.pm
 
 
 # --- MakeMaker platform_constants section:
@@ -630,7 +630,7 @@ realclean purge ::  clean realclean_subdirs
 	  ../../lib/CPANPLUS/Dist.pm ../../lib/CPANPLUS/Backend/RV.pm \
 	  ../../lib/CPANPLUS/Dist/Autobundle.pm ../../lib/CPANPLUS/Internals/Search.pm \
 	  ../../lib/CPANPLUS/Internals/Source/SQLite/Tie.pm $(MAKEFILE_OLD) \
-	  ../../lib/CPANPLUS/Shell/Default/Plugins/HOWTO.pod ../../lib/CPANPLUS/Dist/Base.pm \
+	  ../../lib/CPANPLUS/Dist/Base.pm ../../lib/CPANPLUS/Shell/Default/Plugins/HOWTO.pod \
 	  ../../lib/CPANPLUS/Shell/Default/Plugins/Remote.pm ../../lib/CPANPLUS/Internals/Constants.pm \
 	  ../../lib/CPANPLUS/Module.pm ../../lib/CPANPLUS.pm \
 	  ../../lib/CPANPLUS/Backend.pm ../../lib/CPANPLUS/Shell.pm \
@@ -959,7 +959,7 @@ ppd :
 	$(NOECHO) $(ECHO) '    <ABSTRACT>Ameliorated interface to the CPAN</ABSTRACT>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <AUTHOR>Jos Boumans &lt;kane[at]cpan.org&gt;</AUTHOR>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="arm-androideabi-5.16" />' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="mipsel-linux-5.16" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <CODEBASE HREF="" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    </IMPLEMENTATION>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '</SOFTPKG>' >> $(DISTNAME).ppd
@@ -973,14 +973,14 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	  lib/CPANPLUS/Shell/Default.pm ../../lib/CPANPLUS/Shell/Default.pm \
 	  lib/CPANPLUS/Module/Author.pm ../../lib/CPANPLUS/Module/Author.pm \
 	  lib/CPANPLUS/Module.pm ../../lib/CPANPLUS/Module.pm \
-	  lib/CPANPLUS/Dist/MM.pm ../../lib/CPANPLUS/Dist/MM.pm \
 	  lib/CPANPLUS/Module/Checksums.pm ../../lib/CPANPLUS/Module/Checksums.pm \
+	  lib/CPANPLUS/Dist/MM.pm ../../lib/CPANPLUS/Dist/MM.pm \
 	  lib/CPANPLUS/Internals.pm ../../lib/CPANPLUS/Internals.pm \
 	  lib/CPANPLUS/Module/Signature.pm ../../lib/CPANPLUS/Module/Signature.pm \
 	  lib/CPANPLUS/Hacking.pod ../../lib/CPANPLUS/Hacking.pod \
 	  lib/CPANPLUS.pm ../../lib/CPANPLUS.pm \
-	  lib/CPANPLUS/Shell/Default/Plugins/Remote.pm ../../lib/CPANPLUS/Shell/Default/Plugins/Remote.pm \
 	  lib/CPANPLUS/Backend.pm ../../lib/CPANPLUS/Backend.pm \
+	  lib/CPANPLUS/Shell/Default/Plugins/Remote.pm ../../lib/CPANPLUS/Shell/Default/Plugins/Remote.pm \
 	  lib/CPANPLUS/Internals/Report.pm ../../lib/CPANPLUS/Internals/Report.pm \
 	  lib/CPANPLUS/Module/Author/Fake.pm ../../lib/CPANPLUS/Module/Author/Fake.pm \
 	  lib/CPANPLUS/FAQ.pod ../../lib/CPANPLUS/FAQ.pod \
@@ -988,9 +988,9 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	  lib/CPANPLUS/Internals/Utils.pm ../../lib/CPANPLUS/Internals/Utils.pm \
 	  lib/CPANPLUS/Shell/Default/Plugins/Source.pm ../../lib/CPANPLUS/Shell/Default/Plugins/Source.pm \
 	  lib/CPANPLUS/Internals/Constants/Report.pm ../../lib/CPANPLUS/Internals/Constants/Report.pm \
-	  lib/CPANPLUS/Internals/Source.pm ../../lib/CPANPLUS/Internals/Source.pm \
-	  lib/CPANPLUS/Shell.pm ../../lib/CPANPLUS/Shell.pm \
 	  lib/CPANPLUS/Configure/Setup.pm ../../lib/CPANPLUS/Configure/Setup.pm \
+	  lib/CPANPLUS/Shell.pm ../../lib/CPANPLUS/Shell.pm \
+	  lib/CPANPLUS/Internals/Source.pm ../../lib/CPANPLUS/Internals/Source.pm \
 	  lib/CPANPLUS/Internals/Fetch.pm ../../lib/CPANPLUS/Internals/Fetch.pm \
 	  lib/CPANPLUS/Dist.pm ../../lib/CPANPLUS/Dist.pm \
 	  lib/CPANPLUS/Shell/Classic.pm ../../lib/CPANPLUS/Shell/Classic.pm \
@@ -999,18 +999,18 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	  lib/CPANPLUS/Internals/Search.pm ../../lib/CPANPLUS/Internals/Search.pm \
 	  lib/CPANPLUS/Internals/Source/SQLite/Tie.pm ../../lib/CPANPLUS/Internals/Source/SQLite/Tie.pm \
 	  lib/CPANPLUS/Internals/Extract.pm ../../lib/CPANPLUS/Internals/Extract.pm \
-	  lib/CPANPLUS/Internals/Utils/Autoflush.pm ../../lib/CPANPLUS/Internals/Utils/Autoflush.pm \
-	  lib/CPANPLUS/Dist/Sample.pm ../../lib/CPANPLUS/Dist/Sample.pm \
 	  lib/CPANPLUS/Shell/Default/Plugins/CustomSource.pm ../../lib/CPANPLUS/Shell/Default/Plugins/CustomSource.pm \
+	  lib/CPANPLUS/Dist/Sample.pm ../../lib/CPANPLUS/Dist/Sample.pm \
+	  lib/CPANPLUS/Internals/Utils/Autoflush.pm ../../lib/CPANPLUS/Internals/Utils/Autoflush.pm \
 	  lib/CPANPLUS/Module/Fake.pm ../../lib/CPANPLUS/Module/Fake.pm \
 	  lib/CPANPLUS/Error.pm ../../lib/CPANPLUS/Error.pm \
 	  lib/CPANPLUS/Internals/Source/SQLite.pm ../../lib/CPANPLUS/Internals/Source/SQLite.pm \
 	  lib/CPANPLUS/Internals/Source/Memory.pm ../../lib/CPANPLUS/Internals/Source/Memory.pm 
 	$(NOECHO) $(ABSPERLRUN) -MExtUtils::Install -e 'pm_to_blib({@ARGV}, '\''$(INST_LIB)/auto'\'', q[$(PM_FILTER)], '\''$(PERM_DIR)'\'')' -- \
 	  lib/CPANPLUS/Dist/Autobundle.pm ../../lib/CPANPLUS/Dist/Autobundle.pm \
-	  lib/CPANPLUS/Internals/Constants.pm ../../lib/CPANPLUS/Internals/Constants.pm \
+	  lib/CPANPLUS/Shell/Default/Plugins/HOWTO.pod ../../lib/CPANPLUS/Shell/Default/Plugins/HOWTO.pod \
 	  lib/CPANPLUS/Dist/Base.pm ../../lib/CPANPLUS/Dist/Base.pm \
-	  lib/CPANPLUS/Shell/Default/Plugins/HOWTO.pod ../../lib/CPANPLUS/Shell/Default/Plugins/HOWTO.pod 
+	  lib/CPANPLUS/Internals/Constants.pm ../../lib/CPANPLUS/Internals/Constants.pm 
 	$(NOECHO) $(TOUCH) pm_to_blib
 
 

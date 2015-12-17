@@ -9,10 +9,6 @@
 #include <arpa/inet.h>
 #endif
 
-#undef h_errno
-#define  h_errno   (*__get_h_errno())
-int*  __get_h_errno(void);
-
 #if HAVE_IPV6
 /* Sets addr by hostname, or by ip in string form (AF_INET6) */
 int php_set_inet6_addr(struct sockaddr_in6 *sin6, char *string, php_socket *php_sock TSRMLS_DC) /* {{{ */

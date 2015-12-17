@@ -1,5 +1,5 @@
-#!/androidserver/bin/perl
-    eval 'exec /androidserver/bin/perl -S $0 ${1+"$@"}'
+#!/hdd/server/bin/perl
+    eval 'exec /hdd/server/bin/perl -S $0 ${1+"$@"}'
 	if $running_under_some_shell;
 #!/usr/bin/perl
 ##############################################################################

@@ -48,6 +48,11 @@
 
 #define HOSTID "/etc/hostid"
 
+/* avoid undefined reference to `__set_errno' error */
+#ifndef __set_errno
+#  define __set_errno(val) (*__errno_location ()) = (val)
+#endif
+
 #ifdef __USE_BSD
 int sethostid(long int new_id)
 {

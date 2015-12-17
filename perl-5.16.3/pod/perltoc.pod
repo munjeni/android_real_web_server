@@ -24616,6 +24616,28 @@ Sichuan Yi, {yi} : Yiddish, {yo} : Yoruba, [{ypk} : Yupik languages], {znd}
 
 =back
 
+=head2 I18N::Langinfo - query locale information
+
+=over 4
+
+=item SYNOPSIS
+
+=item DESCRIPTION
+
+=over 4
+
+=item EXPORT
+
+=back
+
+=item SEE ALSO
+
+=item AUTHOR
+
+=item COPYRIGHT AND LICENSE
+
+=back
+
 =head2 IO - load various IO modules
 
 =over 4
@@ -26485,6 +26507,28 @@ Interleaving STDOUT/STDERR
 
 =back
 
+=head2 IPC::Msg - SysV Msg IPC object class
+
+=over 4
+
+=item SYNOPSIS
+
+=item DESCRIPTION
+
+=item METHODS
+
+new ( KEY , FLAGS ), id, rcv ( BUF, LEN [, TYPE [, FLAGS ]] ), remove, set
+( STAT ), set ( NAME => VALUE [, NAME => VALUE ...] ), snd ( TYPE, MSG [,
+FLAGS ] ), stat
+
+=item SEE ALSO
+
+=item AUTHORS
+
+=item COPYRIGHT
+
+=back
+
 =head2 IPC::Open2 - open a process for both reading and writing using
 open2()
 
@@ -26514,6 +26558,69 @@ using open3()
 L<IPC::Open2>, L<IPC::Run>
 
 =item WARNING
+
+=back
+
+=head2 IPC::Semaphore - SysV Semaphore IPC object class
+
+=over 4
+
+=item SYNOPSIS
+
+=item DESCRIPTION
+
+=item METHODS
+
+new ( KEY , NSEMS , FLAGS ), getall, getncnt ( SEM ), getpid ( SEM ),
+getval ( SEM ), getzcnt ( SEM ), id, op ( OPLIST ), remove, set ( STAT ),
+set ( NAME => VALUE [, NAME => VALUE ...] ), setall ( VALUES ), setval ( N
+, VALUE ), stat
+
+=item SEE ALSO
+
+=item AUTHORS
+
+=item COPYRIGHT
+
+=back
+
+=head2 IPC::SharedMem - SysV Shared Memory IPC object class
+
+=over 4
+
+=item SYNOPSIS
+
+=item DESCRIPTION
+
+=item METHODS
+
+new ( KEY , SIZE , FLAGS ), id, read ( POS, SIZE ), write ( STRING, POS,
+SIZE ), remove, is_removed, stat, attach ( [FLAG] ), detach, addr
+
+=item SEE ALSO
+
+=item AUTHORS
+
+=item COPYRIGHT
+
+=back
+
+=head2 IPC::SysV - System V IPC constants and system calls
+
+=over 4
+
+=item SYNOPSIS
+
+=item DESCRIPTION
+
+ftok( PATH ), ftok( PATH, ID ), shmat( ID, ADDR, FLAG ), shmdt( ADDR ),
+memread( ADDR, VAR, POS, SIZE ), memwrite( ADDR, STRING, POS, SIZE )
+
+=item SEE ALSO
+
+=item AUTHORS
+
+=item COPYRIGHT
 
 =back
 

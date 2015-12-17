@@ -2,26 +2,27 @@
 #
 # Created by configure
 
-CC="/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-gcc -march=armv7-a -mfloat-abi=softfp -mfpu=vfp"; export CC
-CFLAGS="-I/androidserver/include"; export CFLAGS
+CC="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic"; export CC
+CFLAGS="-I/hdd/server/include"; export CFLAGS
+LDFLAGS="-L/hdd/server/lib"; export LDFLAGS
+LIBS="-lcrypt -lcrypto -lpthread -ldl"; export LIBS
 "./configure" \
-"--prefix=/androidserver" \
-"--target=arm-none-linux" \
-"--host=arm-none-linux" \
+"--prefix=/hdd/server" \
+"--target=mipsel-unknown-linux" \
+"--host=mipsel-unknown-linux" \
 "--enable-static" \
 "--disable-shared" \
-"CFLAGS=-I/androidserver/include" \
+"--with-crypto" \
 "program_prefix=" \
 "ac_cv_file__dev_zero=yes" \
 "ac_cv_func_setpgrp_void=yes" \
 "apr_cv_process_shared_works=yes" \
 "apr_cv_mutex_robust_shared=yes" \
 "apr_cv_tcp_nodelay_with_cork=yes" \
-"ac_cv_search_crypt=no" \
+"ac_cv_search_crypt=-lcrypt -lcrypto" \
 "ac_cv_search_modf=-lm" \
-"ac_cv_func_pthread_yield=no" \
 "ac_cv_func_gethostbyaddr_r=no" \
-"ac_cv_func_kqueue=noac_cv_func_kqueue=no" \
+"ac_cv_func_kqueue=no" \
 "ac_cv_func_port_create=no" \
 "ac_cv_func_getpwnam_r=no" \
 "ac_cv_func_getpwuid_r=no" \
@@ -54,8 +55,12 @@ CFLAGS="-I/androidserver/include"; export CFLAGS
 "ac_cv_search_uuid_generate=no" \
 "ac_cv_func_send_file=no" \
 "ac_cv_func_set_h_errno=no" \
+"ac_cv_sizeof_pid_t=4" \
 "ac_cv_func_nl_langinfo=no" \
-"host_alias=arm-none-linux" \
-"target_alias=arm-none-linux" \
-"CC=/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-gcc -march=armv7-a -mfloat-abi=softfp -mfpu=vfp" \
+"host_alias=mipsel-unknown-linux" \
+"target_alias=mipsel-unknown-linux" \
+"CC=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic" \
+"CFLAGS=-I/hdd/server/include" \
+"LDFLAGS=-L/hdd/server/lib" \
+"LIBS=-lcrypt -lcrypto -lpthread -ldl" \
 "$@"

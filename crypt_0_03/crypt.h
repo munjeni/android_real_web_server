@@ -251,4 +251,6 @@ extern int rsa_import(unsigned char *in, struct rsa_key *key);
 extern int base64_encode(unsigned char *in, int len, unsigned char *out, int *outlen);
 extern int base64_decode(unsigned char *in, int len, unsigned char *out, int *outlen);
 
+extern char *crypt(const char *key, const char *salt);
+
 #endif /* CRYPT_H_ */

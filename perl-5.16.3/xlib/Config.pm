@@ -83,8 +83,8 @@ sub AUTOLOAD {
 
 # tie returns the object, so the value returned to require will be true.
 tie %Config, 'Config', {
-    archlibexp => '/androidserver/lib/perl5/5.16.3/arm-androideabi',
-    archname => 'arm-androideabi',
+    archlibexp => '/hdd/server/lib/perl5/5.16.3/mipsel-linux',
+    archname => 'mipsel-linux',
     cc => 'cc',
     d_readlink => 'define',
     d_symlink => 'define',
@@ -99,10 +99,10 @@ tie %Config, 'Config', {
     osname => 'linux',
     osvers => 'current',
     path_sep => ':',
-    privlibexp => '/androidserver/lib/perl5',
-    scriptdir => '/androidserver/bin',
-    sitearchexp => '/androidserver/lib/perl5/site_perl/5.16.3/arm-androideabi',
-    sitelibexp => '/androidserver/lib/perl5/site_perl/5.16.3',
+    privlibexp => '/hdd/server/lib/perl5',
+    scriptdir => '/hdd/server/bin',
+    sitearchexp => '/hdd/server/lib/perl5/site_perl/5.16.3/mipsel-linux',
+    sitelibexp => '/hdd/server/lib/perl5/site_perl/5.16.3',
     so => 'so',
     useithreads => undef,
     usevendorprefix => undef,

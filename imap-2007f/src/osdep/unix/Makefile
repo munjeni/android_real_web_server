@@ -48,17 +48,17 @@ GCCOPTLEVEL= -O2
 # Try to have some consistency in GCC builds.  We want optimization, but we
 # also want to be able to debug.
 
-GCCCFLAGS= -g $(GCCOPTLEVEL) -pipe -fno-omit-frame-pointer
+GCCCFLAGS= -g $(GCCOPTLEVEL) -pipe -fno-omit-frame-pointer -fpic
 GCC4CFLAGS= $(GCCCFLAGS) -Wno-pointer-sign
 
 
 # Extended flags needed for SSL.  You may need to modify.
 
-SSLDIR=/usr/local/ssl
+SSLDIR=/hdd/server/ssl
 SSLCERTS=$(SSLDIR)/certs
 SSLKEYS=$(SSLCERTS)
-SSLINCLUDE=$(SSLDIR)/include
-SSLLIB=$(SSLDIR)/lib
+SSLINCLUDE=$(SSLDIR)/../include
+SSLLIB=$(SSLDIR)/../lib
 
 SSLCRYPTO=-lcrypto
 
@@ -73,12 +73,12 @@ SSLRSA= # -lRSAglue -lrsaref
 
 SSLCFLAGS= -I$(SSLINCLUDE) -I$(SSLINCLUDE)/openssl\
  -DSSL_CERT_DIRECTORY=\"$(SSLCERTS)\" -DSSL_KEY_DIRECTORY=\"$(SSLKEYS)\"
-SSLLDFLAGS= -L$(SSLLIB) -lssl $(SSLCRYPTO) $(SSLRSA)
+SSLLDFLAGS= -L$(SSLLIB) -lcrypt -lssl $(SSLCRYPTO) $(SSLRSA) -ldl
 
 
 # Extended flags needed for non-standard passwd types.  You may need to modify.
 
-AFSDIR=/usr/afsws
+AFSDIR=/hdd/server/usr/afsws
 AFSCFLAGS=-I$(AFSDIR)/include
 AFSLIB=$(AFSDIR)/lib
 AFSLDFLAGS=-L$(AFSLIB)/afs -L$(AFSLIB) -L$(AFSDIR)/domestic/lib\
@@ -96,14 +96,14 @@ CHECKPW=std
 LOGINPW=std
 SIGTYPE=bsd
 CRXTYPE=std
-ACTIVEFILE=/usr/lib/news/active
-SPOOLDIR=/usr/spool
+ACTIVEFILE=/hdd/server/usr/lib/news/active
+SPOOLDIR=/hdd/server/usr/spool
 MAILSPOOL=$(SPOOLDIR)/mail
 NEWSSPOOL=$(SPOOLDIR)/news
-RSHPATH=/usr/ucb/rsh
-MD5PWD=/etc/cram-md5.pwd
+RSHPATH=/hdd/server/usr/ucb/rsh
+MD5PWD=/hdd/server/etc/cram-md5.pwd
 # Tries one of the test alternatives below if not specified.
-LOCKPGM=
+LOCKPGM=/hdd/server/sbin/mlock
 # Test alternatives if LOCKPGM not specified
 LOCKPGM1=/usr/libexec/mlock
 LOCKPGM2=/usr/sbin/mlock
@@ -129,10 +129,10 @@ EMPTYPROTO=unixproto
 
 # Commands possibly overriden by the individual port
 
-ARRC=ar rc
-CC=cc
+ARRC=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ar rc
+CC=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc
 LN=ln -s
-RANLIB=ranlib
+RANLIB=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ranlib
 
 
 # Standard distribution build parameters
@@ -507,9 +507,9 @@ lnx:	# Linux non-shadow passwords
 	@echo in the C library, you must use slx, sl4, or sl5 instead!
 	$(BUILD) `$(CAT) SPECIALS` OS=$@ \
 	 SIGTYPE=psx CRXTYPE=nfs \
-	 SPOOLDIR=/var/spool \
-	 ACTIVEFILE=/var/lib/news/active \
-	 RSHPATH=/usr/bin/rsh \
+	 SPOOLDIR=/hdd/server/var/spool \
+	 ACTIVEFILE=/hdd/server/var/lib/news/active \
+	 RSHPATH=/hdd/server/bin/rsh \
 	 BASECFLAGS="$(GCCCFLAGS)"
 
 lyn:	# LynxOS
@@ -924,8 +924,8 @@ osdep.o:mail.h misc.h env.h fs.h ftl.h nl.h tcp.h \
 	@echo or build with command: make `$(CAT) OSTYPE` SSLTYPE=none
 	`$(CAT) CCTYPE` -c `$(CAT) CFLAGS` `$(CAT) OSCFLAGS` -c osdep.c
 
-osdep.c: /compilation/getpass/getpass.c /compilation/crypt_uclibs/crypt.c /compilation/crypt_uclibs/md5.c /compilation/crypt_uclibs/des.c osdepbas.c osdepckp.c osdeplog.c osdepssl.c
-	$(CAT) /compilation/getpass/getpass.c /compilation/crypt_uclibs/crypt.c /compilation/crypt_uclibs/md5.c /compilation/crypt_uclibs/des.c osdepbas.c osdepckp.c osdeplog.c osdepssl.c > osdep.c
+osdep.c: /compilation/getpass/getpass.c osdepbas.c osdepckp.c osdeplog.c osdepssl.c
+	$(CAT) /compilation/getpass/getpass.c osdepbas.c osdepckp.c osdeplog.c osdepssl.c > osdep.c
 
 osdepbas.c:
 	@echo osdepbas.c not found...try make clean and new make

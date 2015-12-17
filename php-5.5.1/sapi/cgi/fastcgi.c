@@ -26,7 +26,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <errno.h>
-#define in_addr_t uint32_t
+
 #ifdef _WIN32
 
 #include <windows.h>

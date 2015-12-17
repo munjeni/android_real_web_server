@@ -29,25 +29,25 @@
 
 # These definitions are from config.sh (via ../../lib/Config.pm).
 # They may have been overridden via Makefile.PL or on the command line.
-AR = arm-linux-androideabi-ar
-CC = arm-linux-androideabi-gcc
+AR = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ar
+CC = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc
 CCCDLFLAGS = -fPIC
 CCDLFLAGS = -Wl,-E
 DLEXT = so
 DLSRC = dl_dlopen.xs
 EXE_EXT = 
 FULL_AR = ar
-LD = arm-linux-androideabi-gcc
+LD = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ld
 LDDLFLAGS = -shared 
-LDFLAGS = --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot 
+LDFLAGS = --sysroot=/compilationmoj/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root 
 LIBC = 
 LIB_EXT = .a
 OBJ_EXT = .o
 OSNAME = linux
 OSVERS = current
-RANLIB = arm-linux-androideabi-ranlib
-SITELIBEXP = /androidserver/lib/perl5/site_perl/5.16.3
-SITEARCHEXP = /androidserver/lib/perl5/site_perl/5.16.3/arm-androideabi
+RANLIB = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ranlib
+SITELIBEXP = /hdd/server/lib/perl5/site_perl/5.16.3
+SITEARCHEXP = /hdd/server/lib/perl5/site_perl/5.16.3/mipsel-linux
 SO = so
 VENDORARCHEXP = 
 VENDORLIBEXP = 
@@ -77,28 +77,28 @@ MAN3EXT = 3
 INSTALLDIRS = perl
 DESTDIR = 
 PREFIX = $(PERLPREFIX)
-PERLPREFIX = /androidserver
-SITEPREFIX = /androidserver
+PERLPREFIX = /hdd/server
+SITEPREFIX = /hdd/server
 VENDORPREFIX = 
-INSTALLPRIVLIB = /androidserver/lib/perl5
+INSTALLPRIVLIB = /hdd/server/lib/perl5
 DESTINSTALLPRIVLIB = $(DESTDIR)$(INSTALLPRIVLIB)
-INSTALLSITELIB = /androidserver/lib/perl5/site_perl/5.16.3
+INSTALLSITELIB = /hdd/server/lib/perl5/site_perl/5.16.3
 DESTINSTALLSITELIB = $(DESTDIR)$(INSTALLSITELIB)
 INSTALLVENDORLIB = 
 DESTINSTALLVENDORLIB = $(DESTDIR)$(INSTALLVENDORLIB)
-INSTALLARCHLIB = /androidserver/lib/perl5/5.16.3/arm-androideabi
+INSTALLARCHLIB = /hdd/server/lib/perl5/5.16.3/mipsel-linux
 DESTINSTALLARCHLIB = $(DESTDIR)$(INSTALLARCHLIB)
-INSTALLSITEARCH = /androidserver/lib/perl5/site_perl/5.16.3/arm-androideabi
+INSTALLSITEARCH = /hdd/server/lib/perl5/site_perl/5.16.3/mipsel-linux
 DESTINSTALLSITEARCH = $(DESTDIR)$(INSTALLSITEARCH)
 INSTALLVENDORARCH = 
 DESTINSTALLVENDORARCH = $(DESTDIR)$(INSTALLVENDORARCH)
-INSTALLBIN = /androidserver/bin
+INSTALLBIN = /hdd/server/bin
 DESTINSTALLBIN = $(DESTDIR)$(INSTALLBIN)
-INSTALLSITEBIN = /androidserver/bin
+INSTALLSITEBIN = /hdd/server/bin
 DESTINSTALLSITEBIN = $(DESTDIR)$(INSTALLSITEBIN)
 INSTALLVENDORBIN = 
 DESTINSTALLVENDORBIN = $(DESTDIR)$(INSTALLVENDORBIN)
-INSTALLSCRIPT = /androidserver/bin
+INSTALLSCRIPT = /hdd/server/bin
 DESTINSTALLSCRIPT = $(DESTDIR)$(INSTALLSCRIPT)
 INSTALLSITESCRIPT = $(INSTALLSCRIPT)
 DESTINSTALLSITESCRIPT = $(DESTDIR)$(INSTALLSITESCRIPT)
@@ -106,15 +106,15 @@ INSTALLVENDORSCRIPT =
 DESTINSTALLVENDORSCRIPT = $(DESTDIR)$(INSTALLVENDORSCRIPT)
 INSTALLMAN1DIR = none
 DESTINSTALLMAN1DIR = $(DESTDIR)$(INSTALLMAN1DIR)
-INSTALLSITEMAN1DIR = /androidserver/share/man/man1
+INSTALLSITEMAN1DIR = /hdd/server/share/man/man1
 DESTINSTALLSITEMAN1DIR = $(DESTDIR)$(INSTALLSITEMAN1DIR)
-INSTALLVENDORMAN1DIR = /androidserver/share/man/man1
+INSTALLVENDORMAN1DIR = /hdd/server/share/man/man1
 DESTINSTALLVENDORMAN1DIR = $(DESTDIR)$(INSTALLVENDORMAN1DIR)
 INSTALLMAN3DIR = none
 DESTINSTALLMAN3DIR = $(DESTDIR)$(INSTALLMAN3DIR)
-INSTALLSITEMAN3DIR = /androidserver/share/man/man3
+INSTALLSITEMAN3DIR = /hdd/server/share/man/man3
 DESTINSTALLSITEMAN3DIR = $(DESTDIR)$(INSTALLSITEMAN3DIR)
-INSTALLVENDORMAN3DIR = /androidserver/share/man/man3
+INSTALLVENDORMAN3DIR = /hdd/server/share/man/man3
 DESTINSTALLVENDORMAN3DIR = $(DESTDIR)$(INSTALLVENDORMAN3DIR)
 PERL_LIB = ../../lib
 PERL_ARCHLIB = ../../lib
@@ -283,42 +283,42 @@ PM_TO_BLIB = Collate/CJK/Pinyin.pm \
 	$(INST_LIB)/Unicode/Collate/Locale/uk.pl \
 	Collate/CJK/JISX0208.pm \
 	$(INST_LIB)/Unicode/Collate/CJK/JISX0208.pm \
-	Collate/Locale/tr.pl \
-	$(INST_LIB)/Unicode/Collate/Locale/tr.pl \
 	Collate/Locale/se.pl \
 	$(INST_LIB)/Unicode/Collate/Locale/se.pl \
+	Collate/Locale/tr.pl \
+	$(INST_LIB)/Unicode/Collate/Locale/tr.pl \
 	Collate/Locale/si.pl \
 	$(INST_LIB)/Unicode/Collate/Locale/si.pl \
 	Collate/CJK/Stroke.pm \
 	$(INST_LIB)/Unicode/Collate/CJK/Stroke.pm \
 	Collate/Locale/bg.pl \
 	$(INST_LIB)/Unicode/Collate/Locale/bg.pl \
-	Collate/Locale/ar.pl \
-	$(INST_LIB)/Unicode/Collate/Locale/ar.pl \
 	Collate/Locale/sk.pl \
 	$(INST_LIB)/Unicode/Collate/Locale/sk.pl \
-	Collate/Locale/eo.pl \
-	$(INST_LIB)/Unicode/Collate/Locale/eo.pl \
+	Collate/Locale/ar.pl \
+	$(INST_LIB)/Unicode/Collate/Locale/ar.pl \
 	Collate/Locale/ro.pl \
 	$(INST_LIB)/Unicode/Collate/Locale/ro.pl \
+	Collate/Locale/eo.pl \
+	$(INST_LIB)/Unicode/Collate/Locale/eo.pl \
 	Collate/CJK/Big5.pm \
 	$(INST_LIB)/Unicode/Collate/CJK/Big5.pm \
 	Collate/Locale/cy.pl \
 	$(INST_LIB)/Unicode/Collate/Locale/cy.pl \
-	Collate/Locale/mt.pl \
-	$(INST_LIB)/Unicode/Collate/Locale/mt.pl \
 	Collate/Locale/si_dict.pl \
 	$(INST_LIB)/Unicode/Collate/Locale/si_dict.pl \
 	Collate/Locale/to.pl \
 	$(INST_LIB)/Unicode/Collate/Locale/to.pl \
+	Collate/Locale/mt.pl \
+	$(INST_LIB)/Unicode/Collate/Locale/mt.pl \
 	Collate/Locale/pa.pl \
 	$(INST_LIB)/Unicode/Collate/Locale/pa.pl \
 	Collate/Locale/nb.pl \
 	$(INST_LIB)/Unicode/Collate/Locale/nb.pl \
-	Collate/Locale/yo.pl \
-	$(INST_LIB)/Unicode/Collate/Locale/yo.pl \
 	Collate/Locale/de_phone.pl \
 	$(INST_LIB)/Unicode/Collate/Locale/de_phone.pl \
+	Collate/Locale/yo.pl \
+	$(INST_LIB)/Unicode/Collate/Locale/yo.pl \
 	Collate/Locale/lv.pl \
 	$(INST_LIB)/Unicode/Collate/Locale/lv.pl \
 	Collate/Locale/ca.pl \
@@ -337,12 +337,12 @@ PM_TO_BLIB = Collate/CJK/Pinyin.pm \
 	$(INST_LIB)/Unicode/Collate/Locale/as.pl \
 	Collate/Locale/es.pl \
 	$(INST_LIB)/Unicode/Collate/Locale/es.pl \
-	Collate/Locale/ig.pl \
-	$(INST_LIB)/Unicode/Collate/Locale/ig.pl \
-	Collate/Locale/bn.pl \
-	$(INST_LIB)/Unicode/Collate/Locale/bn.pl \
 	Collate/Locale/hu.pl \
 	$(INST_LIB)/Unicode/Collate/Locale/hu.pl \
+	Collate/Locale/bn.pl \
+	$(INST_LIB)/Unicode/Collate/Locale/bn.pl \
+	Collate/Locale/ig.pl \
+	$(INST_LIB)/Unicode/Collate/Locale/ig.pl \
 	Collate/Locale/ja.pl \
 	$(INST_LIB)/Unicode/Collate/Locale/ja.pl \
 	Collate/Locale/az.pl \
@@ -369,10 +369,10 @@ PM_TO_BLIB = Collate/CJK/Pinyin.pm \
 	$(INST_LIB)/Unicode/Collate/Locale/cs.pl \
 	Collate/Locale/th.pl \
 	$(INST_LIB)/Unicode/Collate/Locale/th.pl \
-	Collate/Locale/tn.pl \
-	$(INST_LIB)/Unicode/Collate/Locale/tn.pl \
 	Collate/Locale/zh_strk.pl \
 	$(INST_LIB)/Unicode/Collate/Locale/zh_strk.pl \
+	Collate/Locale/tn.pl \
+	$(INST_LIB)/Unicode/Collate/Locale/tn.pl \
 	Collate/Locale/ru.pl \
 	$(INST_LIB)/Unicode/Collate/Locale/ru.pl \
 	Collate/Locale/kl.pl \
@@ -389,22 +389,22 @@ PM_TO_BLIB = Collate/CJK/Pinyin.pm \
 	$(INST_LIB)/Unicode/Collate.pm \
 	Collate/Locale/fa.pl \
 	$(INST_LIB)/Unicode/Collate/Locale/fa.pl \
-	Collate/Locale/fi.pl \
-	$(INST_LIB)/Unicode/Collate/Locale/fi.pl \
 	Collate/CJK/GB2312.pm \
 	$(INST_LIB)/Unicode/Collate/CJK/GB2312.pm \
 	Collate/Locale/fr.pl \
 	$(INST_LIB)/Unicode/Collate/Locale/fr.pl \
+	Collate/Locale/fi.pl \
+	$(INST_LIB)/Unicode/Collate/Locale/fi.pl \
 	Collate/Locale/kok.pl \
 	$(INST_LIB)/Unicode/Collate/Locale/kok.pl \
 	Collate/Locale/sv_refo.pl \
 	$(INST_LIB)/Unicode/Collate/Locale/sv_refo.pl \
 	Collate/Locale/hr.pl \
 	$(INST_LIB)/Unicode/Collate/Locale/hr.pl \
-	Collate/Locale/da.pl \
-	$(INST_LIB)/Unicode/Collate/Locale/da.pl \
 	Collate/Locale.pm \
 	$(INST_LIB)/Unicode/Collate/Locale.pm \
+	Collate/Locale/da.pl \
+	$(INST_LIB)/Unicode/Collate/Locale/da.pl \
 	Collate/Locale/fi_phone.pl \
 	$(INST_LIB)/Unicode/Collate/Locale/fi_phone.pl \
 	Collate/Locale/ha.pl \
@@ -451,12 +451,12 @@ PM_TO_BLIB = Collate/CJK/Pinyin.pm \
 	$(INST_LIB)/Unicode/Collate/Locale/gu.pl \
 	Collate/Locale/nn.pl \
 	$(INST_LIB)/Unicode/Collate/Locale/nn.pl \
-	Collate/Locale/kn.pl \
-	$(INST_LIB)/Unicode/Collate/Locale/kn.pl \
+	Collate/Locale/or.pl \
+	$(INST_LIB)/Unicode/Collate/Locale/or.pl \
 	Collate/CJK/Korean.pm \
 	$(INST_LIB)/Unicode/Collate/CJK/Korean.pm \
-	Collate/Locale/or.pl \
-	$(INST_LIB)/Unicode/Collate/Locale/or.pl
+	Collate/Locale/kn.pl \
+	$(INST_LIB)/Unicode/Collate/Locale/kn.pl
 
 
 # --- MakeMaker platform_constants section:
@@ -544,7 +544,7 @@ DISTVNAME = Unicode-Collate-0.89
 
 # --- MakeMaker cflags section:
 
-CCFLAGS = --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot
+CCFLAGS = --sysroot=/compilationmoj/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT
 OPTIMIZE = 
 PERLTYPE = 
 MPOLLUTE = 
@@ -584,7 +584,7 @@ PASTHRU = LIBPERL_A="$(LIBPERL_A)"\
 # --- MakeMaker c_o section:
 
 .c.i:
-	arm-linux-androideabi-gcc -E -c $(PASTHRU_INC) $(INC) \
+	/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -E -c $(PASTHRU_INC) $(INC) \
 	$(CCFLAGS) $(OPTIMIZE) \
 	$(PERLTYPE) $(MPOLLUTE) $(DEFINE_VERSION) \
 	$(XS_DEFINE_VERSION) $(CCCDLFLAGS) "-I$(PERL_INC)" $(PASTHRU_DEFINE) $(DEFINE) $*.c > $*.i
@@ -1253,7 +1253,7 @@ ppd :
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="constant::" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="strict::" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="warnings::" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="arm-androideabi-5.16" />' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="mipsel-linux-5.16" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <CODEBASE HREF="" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    </IMPLEMENTATION>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '</SOFTPKG>' >> $(DISTNAME).ppd
@@ -1266,24 +1266,24 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	  Collate/CJK/Pinyin.pm $(INST_LIB)/Unicode/Collate/CJK/Pinyin.pm \
 	  Collate/Locale/uk.pl $(INST_LIB)/Unicode/Collate/Locale/uk.pl \
 	  Collate/CJK/JISX0208.pm $(INST_LIB)/Unicode/Collate/CJK/JISX0208.pm \
-	  Collate/Locale/tr.pl $(INST_LIB)/Unicode/Collate/Locale/tr.pl \
 	  Collate/Locale/se.pl $(INST_LIB)/Unicode/Collate/Locale/se.pl \
+	  Collate/Locale/tr.pl $(INST_LIB)/Unicode/Collate/Locale/tr.pl \
 	  Collate/Locale/si.pl $(INST_LIB)/Unicode/Collate/Locale/si.pl \
 	  Collate/CJK/Stroke.pm $(INST_LIB)/Unicode/Collate/CJK/Stroke.pm \
 	  Collate/Locale/bg.pl $(INST_LIB)/Unicode/Collate/Locale/bg.pl \
-	  Collate/Locale/ar.pl $(INST_LIB)/Unicode/Collate/Locale/ar.pl \
 	  Collate/Locale/sk.pl $(INST_LIB)/Unicode/Collate/Locale/sk.pl \
-	  Collate/Locale/eo.pl $(INST_LIB)/Unicode/Collate/Locale/eo.pl \
+	  Collate/Locale/ar.pl $(INST_LIB)/Unicode/Collate/Locale/ar.pl \
 	  Collate/Locale/ro.pl $(INST_LIB)/Unicode/Collate/Locale/ro.pl \
+	  Collate/Locale/eo.pl $(INST_LIB)/Unicode/Collate/Locale/eo.pl \
 	  Collate/CJK/Big5.pm $(INST_LIB)/Unicode/Collate/CJK/Big5.pm \
 	  Collate/Locale/cy.pl $(INST_LIB)/Unicode/Collate/Locale/cy.pl \
-	  Collate/Locale/mt.pl $(INST_LIB)/Unicode/Collate/Locale/mt.pl \
 	  Collate/Locale/si_dict.pl $(INST_LIB)/Unicode/Collate/Locale/si_dict.pl \
 	  Collate/Locale/to.pl $(INST_LIB)/Unicode/Collate/Locale/to.pl \
+	  Collate/Locale/mt.pl $(INST_LIB)/Unicode/Collate/Locale/mt.pl \
 	  Collate/Locale/pa.pl $(INST_LIB)/Unicode/Collate/Locale/pa.pl \
 	  Collate/Locale/nb.pl $(INST_LIB)/Unicode/Collate/Locale/nb.pl \
-	  Collate/Locale/yo.pl $(INST_LIB)/Unicode/Collate/Locale/yo.pl \
 	  Collate/Locale/de_phone.pl $(INST_LIB)/Unicode/Collate/Locale/de_phone.pl \
+	  Collate/Locale/yo.pl $(INST_LIB)/Unicode/Collate/Locale/yo.pl \
 	  Collate/Locale/lv.pl $(INST_LIB)/Unicode/Collate/Locale/lv.pl \
 	  Collate/Locale/ca.pl $(INST_LIB)/Unicode/Collate/Locale/ca.pl \
 	  Collate/Locale/es_trad.pl $(INST_LIB)/Unicode/Collate/Locale/es_trad.pl \
@@ -1293,9 +1293,9 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	  Collate/Locale/lt.pl $(INST_LIB)/Unicode/Collate/Locale/lt.pl \
 	  Collate/Locale/as.pl $(INST_LIB)/Unicode/Collate/Locale/as.pl \
 	  Collate/Locale/es.pl $(INST_LIB)/Unicode/Collate/Locale/es.pl \
-	  Collate/Locale/ig.pl $(INST_LIB)/Unicode/Collate/Locale/ig.pl \
-	  Collate/Locale/bn.pl $(INST_LIB)/Unicode/Collate/Locale/bn.pl \
 	  Collate/Locale/hu.pl $(INST_LIB)/Unicode/Collate/Locale/hu.pl \
+	  Collate/Locale/bn.pl $(INST_LIB)/Unicode/Collate/Locale/bn.pl \
+	  Collate/Locale/ig.pl $(INST_LIB)/Unicode/Collate/Locale/ig.pl \
 	  Collate/Locale/ja.pl $(INST_LIB)/Unicode/Collate/Locale/ja.pl \
 	  Collate/Locale/az.pl $(INST_LIB)/Unicode/Collate/Locale/az.pl \
 	  Collate/Locale/is.pl $(INST_LIB)/Unicode/Collate/Locale/is.pl \
@@ -1310,8 +1310,8 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	  Collate/Locale/ln.pl $(INST_LIB)/Unicode/Collate/Locale/ln.pl \
 	  Collate/Locale/cs.pl $(INST_LIB)/Unicode/Collate/Locale/cs.pl \
 	  Collate/Locale/th.pl $(INST_LIB)/Unicode/Collate/Locale/th.pl \
-	  Collate/Locale/tn.pl $(INST_LIB)/Unicode/Collate/Locale/tn.pl \
 	  Collate/Locale/zh_strk.pl $(INST_LIB)/Unicode/Collate/Locale/zh_strk.pl \
+	  Collate/Locale/tn.pl $(INST_LIB)/Unicode/Collate/Locale/tn.pl \
 	  Collate/Locale/ru.pl $(INST_LIB)/Unicode/Collate/Locale/ru.pl \
 	  Collate/Locale/kl.pl $(INST_LIB)/Unicode/Collate/Locale/kl.pl \
 	  Collate/Locale/sl.pl $(INST_LIB)/Unicode/Collate/Locale/sl.pl \
@@ -1320,14 +1320,14 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	  Collate/Locale/zh_pin.pl $(INST_LIB)/Unicode/Collate/Locale/zh_pin.pl \
 	  Collate.pm $(INST_LIB)/Unicode/Collate.pm \
 	  Collate/Locale/fa.pl $(INST_LIB)/Unicode/Collate/Locale/fa.pl \
-	  Collate/Locale/fi.pl $(INST_LIB)/Unicode/Collate/Locale/fi.pl \
 	  Collate/CJK/GB2312.pm $(INST_LIB)/Unicode/Collate/CJK/GB2312.pm \
 	  Collate/Locale/fr.pl $(INST_LIB)/Unicode/Collate/Locale/fr.pl \
+	  Collate/Locale/fi.pl $(INST_LIB)/Unicode/Collate/Locale/fi.pl \
 	  Collate/Locale/kok.pl $(INST_LIB)/Unicode/Collate/Locale/kok.pl \
 	  Collate/Locale/sv_refo.pl $(INST_LIB)/Unicode/Collate/Locale/sv_refo.pl \
 	  Collate/Locale/hr.pl $(INST_LIB)/Unicode/Collate/Locale/hr.pl \
-	  Collate/Locale/da.pl $(INST_LIB)/Unicode/Collate/Locale/da.pl \
 	  Collate/Locale.pm $(INST_LIB)/Unicode/Collate/Locale.pm \
+	  Collate/Locale/da.pl $(INST_LIB)/Unicode/Collate/Locale/da.pl \
 	  Collate/Locale/fi_phone.pl $(INST_LIB)/Unicode/Collate/Locale/fi_phone.pl \
 	  Collate/Locale/ha.pl $(INST_LIB)/Unicode/Collate/Locale/ha.pl \
 	  Collate/Locale/kk.pl $(INST_LIB)/Unicode/Collate/Locale/kk.pl \
@@ -1352,9 +1352,9 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	  Collate/Locale/pl.pl $(INST_LIB)/Unicode/Collate/Locale/pl.pl \
 	  Collate/Locale/gu.pl $(INST_LIB)/Unicode/Collate/Locale/gu.pl \
 	  Collate/Locale/nn.pl $(INST_LIB)/Unicode/Collate/Locale/nn.pl \
-	  Collate/Locale/kn.pl $(INST_LIB)/Unicode/Collate/Locale/kn.pl \
+	  Collate/Locale/or.pl $(INST_LIB)/Unicode/Collate/Locale/or.pl \
 	  Collate/CJK/Korean.pm $(INST_LIB)/Unicode/Collate/CJK/Korean.pm \
-	  Collate/Locale/or.pl $(INST_LIB)/Unicode/Collate/Locale/or.pl 
+	  Collate/Locale/kn.pl $(INST_LIB)/Unicode/Collate/Locale/kn.pl 
 	$(NOECHO) $(TOUCH) pm_to_blib
 
 

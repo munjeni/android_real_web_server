@@ -48,8 +48,53 @@
 
 /* ========== BEGIN XSINIT ================================================== */
 
+/* ---- code from parts/inc/call ---- */
+#define NEED_eval_pv
+#define NEED_load_module
+#define NEED_vload_module
+
+/* ---- code from parts/inc/variables ---- */
+#define NEED_PL_signals
+#define NEED_PL_parser
+#define DPPP_PL_parser_NO_DUMMY_WARNING
+
+/* ---- code from parts/inc/SvPV ---- */
+#define NEED_sv_2pv_flags
+#define NEED_sv_pvn_force_flags
+#define NEED_sv_2pvbyte
+
+/* ---- code from parts/inc/strlfuncs ---- */
+#define NEED_my_strlcat
+#define NEED_my_strlcpy
+
+/* ---- code from parts/inc/newRV ---- */
+#define NEED_newRV_noinc
+
+/* ---- code from parts/inc/shared_pv ---- */
+#define NEED_newSVpvn_share
+
 /* ---- code from parts/inc/newSV_type ---- */
 #define NEED_newSV_type
+
+/* ---- code from parts/inc/snprintf ---- */
+#define NEED_my_snprintf
+
+/* ---- code from parts/inc/newCONSTSUB ---- */
+#define NEED_newCONSTSUB
+
+/* ---- code from parts/inc/newSVpv ---- */
+#define NEED_newSVpvn_flags
+
+/* ---- code from parts/inc/pv_tools ---- */
+#define NEED_pv_escape
+#define NEED_pv_pretty
+#define NEED_pv_display
+
+/* ---- code from parts/inc/sprintf ---- */
+#define NEED_my_sprintf
+
+/* ---- code from parts/inc/warn ---- */
+#define NEED_warner
 
 /* ---- code from parts/inc/grok ---- */
 #define NEED_grok_number
@@ -58,51 +103,6 @@
 #define NEED_grok_hex
 #define NEED_grok_oct
 
-/* ---- code from parts/inc/newCONSTSUB ---- */
-#define NEED_newCONSTSUB
-
-/* ---- code from parts/inc/pvs ---- */
-#define NEED_newSVpvn_share
-
-/* ---- code from parts/inc/sprintf ---- */
-#define NEED_my_sprintf
-
-/* ---- code from parts/inc/shared_pv ---- */
-#define NEED_newSVpvn_share
-
-/* ---- code from parts/inc/warn ---- */
-#define NEED_warner
-
-/* ---- code from parts/inc/SvPV ---- */
-#define NEED_sv_2pv_flags
-#define NEED_sv_pvn_force_flags
-#define NEED_sv_2pvbyte
-
-/* ---- code from parts/inc/variables ---- */
-#define NEED_PL_signals
-#define NEED_PL_parser
-#define DPPP_PL_parser_NO_DUMMY_WARNING
-
-/* ---- code from parts/inc/newSVpv ---- */
-#define NEED_newSVpvn_flags
-
-/* ---- code from parts/inc/snprintf ---- */
-#define NEED_my_snprintf
-
-/* ---- code from parts/inc/pv_tools ---- */
-#define NEED_pv_escape
-#define NEED_pv_pretty
-#define NEED_pv_display
-
-/* ---- code from parts/inc/call ---- */
-#define NEED_eval_pv
-#define NEED_load_module
-#define NEED_vload_module
-
-/* ---- code from parts/inc/strlfuncs ---- */
-#define NEED_my_strlcat
-#define NEED_my_strlcpy
-
 /* ---- code from parts/inc/sv_xpvf ---- */
 #define NEED_vnewSVpvf
 #define NEED_sv_catpvf_mg
@@ -110,30 +110,14 @@
 #define NEED_sv_setpvf_mg
 #define NEED_sv_setpvf_mg_nocontext
 
-/* ---- code from parts/inc/newRV ---- */
-#define NEED_newRV_noinc
+/* ---- code from parts/inc/pvs ---- */
+#define NEED_newSVpvn_share
 
 /* =========== END XSINIT =================================================== */
 
 #include "ppport.h"
 
 /* ========== BEGIN XSMISC ================================================== */
-
-/* ---- code from parts/inc/newCONSTSUB ---- */
-void call_newCONSTSUB_1(void)
-{
-#ifdef PERL_NO_GET_CONTEXT
-	dTHX;
-#endif
-	newCONSTSUB(gv_stashpv("Devel::PPPort", FALSE), "test_value_1", newSViv(1));
-}
-
-extern void call_newCONSTSUB_2(void);
-extern void call_newCONSTSUB_3(void);
-
-/* ---- code from parts/inc/exception ---- */
-/* defined in module3.c */
-int exception(int throw_e);
 
 /* ---- code from parts/inc/variables ---- */
 U32 get_PL_signals_1(void)
@@ -236,6 +220,22 @@ typedef struct {
 } my_cxt_t;
 
 START_MY_CXT
+
+/* ---- code from parts/inc/newCONSTSUB ---- */
+void call_newCONSTSUB_1(void)
+{
+#ifdef PERL_NO_GET_CONTEXT
+	dTHX;
+#endif
+	newCONSTSUB(gv_stashpv("Devel::PPPort", FALSE), "test_value_1", newSViv(1));
+}
+
+extern void call_newCONSTSUB_2(void);
+extern void call_newCONSTSUB_3(void);
+
+/* ---- code from parts/inc/exception ---- */
+/* defined in module3.c */
+int exception(int throw_e);
 
 /* ---- code from parts/inc/sv_xpvf ---- */
 static SV * test_vnewSVpvf(pTHX_ const char *pat, ...)
@@ -422,6 +422,2321 @@ S_croak_xs_usage(pTHX_ const CV *const cv, const char *const params)
 
 #line 424 "RealPPPort.c"
 
+XS_EUPXS(XS_Devel__PPPort_iv_size); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_iv_size)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	IV	RETVAL;
+	dXSTARG;
+#line 299 "RealPPPort.xs"
+		RETVAL = IVSIZE == sizeof(IV);
+#line 437 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_uv_size); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_uv_size)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	IV	RETVAL;
+	dXSTARG;
+#line 306 "RealPPPort.xs"
+		RETVAL = UVSIZE == sizeof(UV);
+#line 455 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_iv_type); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_iv_type)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	IV	RETVAL;
+	dXSTARG;
+#line 313 "RealPPPort.xs"
+		RETVAL = sizeof(IVTYPE) == sizeof(IV);
+#line 473 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_uv_type); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_uv_type)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	IV	RETVAL;
+	dXSTARG;
+#line 320 "RealPPPort.xs"
+		RETVAL = sizeof(UVTYPE) == sizeof(UV);
+#line 491 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_G_SCALAR); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_G_SCALAR)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	I32	RETVAL;
+	dXSTARG;
+#line 331 "RealPPPort.xs"
+		RETVAL = G_SCALAR;
+#line 509 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_G_ARRAY); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_G_ARRAY)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	I32	RETVAL;
+	dXSTARG;
+#line 338 "RealPPPort.xs"
+		RETVAL = G_ARRAY;
+#line 527 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_G_DISCARD); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_G_DISCARD)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	I32	RETVAL;
+	dXSTARG;
+#line 345 "RealPPPort.xs"
+		RETVAL = G_DISCARD;
+#line 545 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_eval_sv); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_eval_sv)
+{
+    dVAR; dXSARGS;
+    if (items != 2)
+       croak_xs_usage(cv,  "sv, flags");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+	SV*	sv = ST(0)
+;
+	I32	flags = (I32)SvIV(ST(1))
+;
+#line 354 "RealPPPort.xs"
+		I32 i;
+#line 567 "RealPPPort.c"
+#line 356 "RealPPPort.xs"
+		PUTBACK;
+		i = eval_sv(sv, flags);
+		SPAGAIN;
+		EXTEND(SP, 1);
+		mPUSHi(i);
+#line 574 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_eval_pv); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_eval_pv)
+{
+    dVAR; dXSARGS;
+    if (items != 2)
+       croak_xs_usage(cv,  "p, croak_on_error");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+	char*	p = (char *)SvPV_nolen(ST(0))
+;
+	I32	croak_on_error = (I32)SvIV(ST(1))
+;
+#line 367 "RealPPPort.xs"
+		PUTBACK;
+		EXTEND(SP, 1);
+		PUSHs(eval_pv(p, croak_on_error));
+#line 598 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_call_sv); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_call_sv)
+{
+    dVAR; dXSARGS;
+    if (items < 2)
+       croak_xs_usage(cv,  "sv, flags, ...");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+	SV*	sv = ST(0)
+;
+	I32	flags = (I32)SvIV(ST(1))
+;
+#line 376 "RealPPPort.xs"
+		I32 i;
+#line 620 "RealPPPort.c"
+#line 378 "RealPPPort.xs"
+		for (i=0; i<items-2; i++)
+		  ST(i) = ST(i+2); /* pop first two args */
+		PUSHMARK(SP);
+		SP += items - 2;
+		PUTBACK;
+		i = call_sv(sv, flags);
+		SPAGAIN;
+		EXTEND(SP, 1);
+		mPUSHi(i);
+#line 631 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_call_pv); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_call_pv)
+{
+    dVAR; dXSARGS;
+    if (items < 2)
+       croak_xs_usage(cv,  "subname, flags, ...");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+	char*	subname = (char *)SvPV_nolen(ST(0))
+;
+	I32	flags = (I32)SvIV(ST(1))
+;
+#line 393 "RealPPPort.xs"
+		I32 i;
+#line 653 "RealPPPort.c"
+#line 395 "RealPPPort.xs"
+		for (i=0; i<items-2; i++)
+		  ST(i) = ST(i+2); /* pop first two args */
+		PUSHMARK(SP);
+		SP += items - 2;
+		PUTBACK;
+		i = call_pv(subname, flags);
+		SPAGAIN;
+		EXTEND(SP, 1);
+		mPUSHi(i);
+#line 664 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_call_argv); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_call_argv)
+{
+    dVAR; dXSARGS;
+    if (items < 2)
+       croak_xs_usage(cv,  "subname, flags, ...");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+	char*	subname = (char *)SvPV_nolen(ST(0))
+;
+	I32	flags = (I32)SvIV(ST(1))
+;
+#line 410 "RealPPPort.xs"
+		I32 i;
+		char *args[8];
+#line 687 "RealPPPort.c"
+#line 413 "RealPPPort.xs"
+		if (items > 8)  /* play safe */
+		  XSRETURN_UNDEF;
+		for (i=2; i<items; i++)
+		  args[i-2] = SvPV_nolen(ST(i));
+		args[items-2] = NULL;
+		PUTBACK;
+		i = call_argv(subname, flags, args);
+		SPAGAIN;
+		EXTEND(SP, 1);
+		mPUSHi(i);
+#line 699 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_call_method); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_call_method)
+{
+    dVAR; dXSARGS;
+    if (items < 2)
+       croak_xs_usage(cv,  "methname, flags, ...");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+	char*	methname = (char *)SvPV_nolen(ST(0))
+;
+	I32	flags = (I32)SvIV(ST(1))
+;
+#line 429 "RealPPPort.xs"
+		I32 i;
+#line 721 "RealPPPort.c"
+#line 431 "RealPPPort.xs"
+		for (i=0; i<items-2; i++)
+		  ST(i) = ST(i+2); /* pop first two args */
+		PUSHMARK(SP);
+		SP += items - 2;
+		PUTBACK;
+		i = call_method(methname, flags);
+		SPAGAIN;
+		EXTEND(SP, 1);
+		mPUSHi(i);
+#line 732 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_call_sv_G_METHOD); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_call_sv_G_METHOD)
+{
+    dVAR; dXSARGS;
+    if (items < 2)
+       croak_xs_usage(cv,  "sv, flags, ...");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+	SV*	sv = ST(0)
+;
+	I32	flags = (I32)SvIV(ST(1))
+;
+#line 446 "RealPPPort.xs"
+		I32 i;
+#line 754 "RealPPPort.c"
+#line 448 "RealPPPort.xs"
+		for (i=0; i<items-2; i++)
+		  ST(i) = ST(i+2); /* pop first two args */
+		PUSHMARK(SP);
+		SP += items - 2;
+		PUTBACK;
+		i = call_sv(sv, flags | G_METHOD);
+		SPAGAIN;
+		EXTEND(SP, 1);
+		mPUSHi(i);
+#line 765 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_load_module); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_load_module)
+{
+    dVAR; dXSARGS;
+    if (items < 3)
+       croak_xs_usage(cv,  "flags, name, version, ...");
+    {
+	U32	flags = (unsigned long)SvUV(ST(0))
+;
+	SV *	name = ST(1)
+;
+	SV *	version = ST(2)
+;
+#line 464 "RealPPPort.xs"
+		/* Both SV parameters are donated to the ops built inside
+		   load_module, so we need to bump the refcounts.  */
+		Perl_load_module(aTHX_ flags, SvREFCNT_inc_simple(name),
+		                 SvREFCNT_inc_simple(version), NULL);
+#line 790 "RealPPPort.c"
+    }
+    XSRETURN_EMPTY;
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_compare_PL_signals); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_compare_PL_signals)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	int	RETVAL;
+	dXSTARG;
+#line 476 "RealPPPort.xs"
+		{
+		  U32 ref = get_PL_signals_1();
+		  RETVAL = ref == get_PL_signals_2() && ref == get_PL_signals_3();
+		}
+#line 810 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_PL_sv_undef); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_PL_sv_undef)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	SV *	RETVAL;
+#line 486 "RealPPPort.xs"
+		RETVAL = newSVsv(&PL_sv_undef);
+#line 827 "RealPPPort.c"
+	ST(0) = RETVAL;
+	sv_2mortal(ST(0));
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_PL_sv_yes); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_PL_sv_yes)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	SV *	RETVAL;
+#line 493 "RealPPPort.xs"
+		RETVAL = newSVsv(&PL_sv_yes);
+#line 845 "RealPPPort.c"
+	ST(0) = RETVAL;
+	sv_2mortal(ST(0));
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_PL_sv_no); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_PL_sv_no)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	SV *	RETVAL;
+#line 500 "RealPPPort.xs"
+		RETVAL = newSVsv(&PL_sv_no);
+#line 863 "RealPPPort.c"
+	ST(0) = RETVAL;
+	sv_2mortal(ST(0));
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_PL_na); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_PL_na)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "string");
+    {
+	char *	string = (char *)SvPV_nolen(ST(0))
+;
+	int	RETVAL;
+	dXSTARG;
+#line 508 "RealPPPort.xs"
+		PL_na = strlen(string);
+		RETVAL = PL_na;
+#line 885 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_PL_Sv); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_PL_Sv)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	SV *	RETVAL;
+#line 516 "RealPPPort.xs"
+		PL_Sv = newSVpv("mhx", 0);
+		RETVAL = PL_Sv;
+#line 903 "RealPPPort.c"
+	ST(0) = RETVAL;
+	sv_2mortal(ST(0));
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_PL_tokenbuf); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_PL_tokenbuf)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	SV *	RETVAL;
+#line 524 "RealPPPort.xs"
+		RETVAL = newSViv(PL_tokenbuf[0]);
+#line 921 "RealPPPort.c"
+	ST(0) = RETVAL;
+	sv_2mortal(ST(0));
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_PL_parser); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_PL_parser)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	SV *	RETVAL;
+#line 531 "RealPPPort.xs"
+		RETVAL = newSViv(PL_parser != NULL);
+#line 939 "RealPPPort.c"
+	ST(0) = RETVAL;
+	sv_2mortal(ST(0));
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_PL_hexdigit); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_PL_hexdigit)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	SV *	RETVAL;
+#line 538 "RealPPPort.xs"
+		RETVAL = newSVpv((char *) PL_hexdigit, 0);
+#line 957 "RealPPPort.c"
+	ST(0) = RETVAL;
+	sv_2mortal(ST(0));
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_PL_hints); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_PL_hints)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	SV *	RETVAL;
+#line 545 "RealPPPort.xs"
+		RETVAL = newSViv((IV) PL_hints);
+#line 975 "RealPPPort.c"
+	ST(0) = RETVAL;
+	sv_2mortal(ST(0));
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_PL_ppaddr); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_PL_ppaddr)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "string");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+	char *	string = (char *)SvPV_nolen(ST(0))
+;
+#line 553 "RealPPPort.xs"
+		PUSHMARK(SP);
+		mXPUSHs(newSVpv(string, 0));
+		PUTBACK;
+		ENTER;
+		(void)*(PL_ppaddr[OP_UC])(aTHXR);
+		SPAGAIN;
+		LEAVE;
+		XSRETURN(1);
+#line 1003 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_other_variables); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_other_variables)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+#line 565 "RealPPPort.xs"
+		int count = 0;
+#line 1021 "RealPPPort.c"
+#line 567 "RealPPPort.xs"
+		ppp_TESTVAR(PL_DBsignal);
+		ppp_TESTVAR(PL_DBsingle);
+		ppp_TESTVAR(PL_DBsub);
+		ppp_TESTVAR(PL_DBtrace);
+		ppp_TESTVAR(PL_compiling);
+		ppp_TESTVAR(PL_curcop);
+		ppp_TESTVAR(PL_curstash);
+		ppp_TESTVAR(PL_debstash);
+		ppp_TESTVAR(PL_defgv);
+		ppp_TESTVAR(PL_diehook);
+#if (PERL_BCDVERSION >= 0x5013007)
+                /* can't get a pointer any longer */
+                mXPUSHi(PL_dirty ? 1 : 1);
+                count++;
+#else
+		ppp_TESTVAR(PL_dirty);
+#endif
+		ppp_TESTVAR(PL_dowarn);
+		ppp_TESTVAR(PL_errgv);
+		ppp_TESTVAR(PL_laststatval);
+		ppp_TESTVAR(PL_no_modify);
+		ppp_TESTVAR(PL_perl_destruct_level);
+		ppp_TESTVAR(PL_perldb);
+		ppp_TESTVAR(PL_stack_base);
+		ppp_TESTVAR(PL_stack_sp);
+		ppp_TESTVAR(PL_statcache);
+		ppp_TESTVAR(PL_stdingv);
+		ppp_TESTVAR(PL_sv_arenaroot);
+		ppp_TESTVAR(PL_tainted);
+		ppp_TESTVAR(PL_tainting);
+
+		ppp_PARSERVAR(ppp_expect_t, PL_expect);
+		ppp_PARSERVAR(line_t, PL_copline);
+		ppp_PARSERVAR(ppp_rsfp_t, PL_rsfp);
+		ppp_PARSERVAR(AV *, PL_rsfp_filters);
+		ppp_PARSERVAR(SV *, PL_linestr);
+		ppp_PARSERVAR(char *, PL_bufptr);
+		ppp_PARSERVAR(char *, PL_bufend);
+		ppp_PARSERVAR(ppp_lex_state_t, PL_lex_state);
+		ppp_PARSERVAR(SV *, PL_lex_stuff);
+		ppp_PARSERVAR(ppp_error_count_t, PL_error_count);
+		ppp_PARSERVAR(ppp_in_my_t, PL_in_my);
+#if (PERL_BCDVERSION >= 0x5005000)
+		ppp_PARSERVAR(HV*, PL_in_my_stash);
+#else
+		ppp_PARSERVAR_dummy;
+#endif
+		XSRETURN(count);
+#line 1071 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_no_dummy_parser_vars); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_no_dummy_parser_vars)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "check");
+    {
+	int	check = (int)SvIV(ST(0))
+;
+	int	RETVAL;
+	dXSTARG;
+
+	RETVAL = no_dummy_parser_vars(check);
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_dummy_parser_warning); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_dummy_parser_warning)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	int	RETVAL;
+	dXSTARG;
+
+	RETVAL = dummy_parser_warning();
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_no_THX_arg); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_no_THX_arg)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+	IV	RETVAL;
+	dXSTARG;
+#line 631 "RealPPPort.xs"
+		RETVAL = 1 + sv_2iv(sv);
+#line 1127 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_with_THX_arg); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_with_THX_arg)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "error");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+	char *	error = (char *)SvPV_nolen(ST(0))
+;
+#line 639 "RealPPPort.xs"
+		Perl_croak(aTHX_ "%s", error);
+#line 1147 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_ptrtests); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_ptrtests)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+#line 648 "RealPPPort.xs"
+		int var, *p = &var;
+
+#line 1164 "RealPPPort.c"
+	int	RETVAL;
+	dXSTARG;
+#line 651 "RealPPPort.xs"
+		RETVAL = 0;
+		RETVAL += PTR2nat(p) != 0       ?  1 : 0;
+		RETVAL += PTR2ul(p) != 0UL      ?  2 : 0;
+		RETVAL += PTR2UV(p) != (UV) 0   ?  4 : 0;
+		RETVAL += PTR2IV(p) != (IV) 0   ?  8 : 0;
+		RETVAL += PTR2NV(p) != (NV) 0   ? 16 : 0;
+		RETVAL += p > NUM2PTR(int *, 0) ? 32 : 0;
+
+#line 1176 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_gv_stashpvn); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_gv_stashpvn)
+{
+    dVAR; dXSARGS;
+    if (items != 2)
+       croak_xs_usage(cv,  "name, create");
+    {
+	char *	name = (char *)SvPV_nolen(ST(0))
+;
+	I32	create = (I32)SvIV(ST(1))
+;
+	int	RETVAL;
+	dXSTARG;
+#line 667 "RealPPPort.xs"
+		RETVAL = gv_stashpvn(name, strlen(name), create) != NULL;
+#line 1198 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_get_sv); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_get_sv)
+{
+    dVAR; dXSARGS;
+    if (items != 2)
+       croak_xs_usage(cv,  "name, create");
+    {
+	char *	name = (char *)SvPV_nolen(ST(0))
+;
+	I32	create = (I32)SvIV(ST(1))
+;
+	int	RETVAL;
+	dXSTARG;
+#line 676 "RealPPPort.xs"
+		RETVAL = get_sv(name, create) != NULL;
+#line 1220 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_get_av); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_get_av)
+{
+    dVAR; dXSARGS;
+    if (items != 2)
+       croak_xs_usage(cv,  "name, create");
+    {
+	char *	name = (char *)SvPV_nolen(ST(0))
+;
+	I32	create = (I32)SvIV(ST(1))
+;
+	int	RETVAL;
+	dXSTARG;
+#line 685 "RealPPPort.xs"
+		RETVAL = get_av(name, create) != NULL;
+#line 1242 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_get_hv); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_get_hv)
+{
+    dVAR; dXSARGS;
+    if (items != 2)
+       croak_xs_usage(cv,  "name, create");
+    {
+	char *	name = (char *)SvPV_nolen(ST(0))
+;
+	I32	create = (I32)SvIV(ST(1))
+;
+	int	RETVAL;
+	dXSTARG;
+#line 694 "RealPPPort.xs"
+		RETVAL = get_hv(name, create) != NULL;
+#line 1264 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_get_cv); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_get_cv)
+{
+    dVAR; dXSARGS;
+    if (items != 2)
+       croak_xs_usage(cv,  "name, create");
+    {
+	char *	name = (char *)SvPV_nolen(ST(0))
+;
+	I32	create = (I32)SvIV(ST(1))
+;
+	int	RETVAL;
+	dXSTARG;
+#line 703 "RealPPPort.xs"
+		RETVAL = get_cv(name, create) != NULL;
+#line 1286 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_xsreturn); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_xsreturn)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "two");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+	int	two = (int)SvIV(ST(0))
+;
+#line 711 "RealPPPort.xs"
+		mXPUSHp("test1", 5);
+		if (two)
+		  mXPUSHp("test2", 5);
+		if (two)
+		  XSRETURN(2);
+		else
+		  XSRETURN(1);
+#line 1312 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_boolSV); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_boolSV)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "value");
+    {
+	int	value = (int)SvIV(ST(0))
+;
+	SV *	RETVAL;
+#line 723 "RealPPPort.xs"
+		RETVAL = newSVsv(boolSV(value));
+#line 1331 "RealPPPort.c"
+	ST(0) = RETVAL;
+	sv_2mortal(ST(0));
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_DEFSV); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_DEFSV)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	SV *	RETVAL;
+#line 730 "RealPPPort.xs"
+		RETVAL = newSVsv(DEFSV);
+#line 1349 "RealPPPort.c"
+	ST(0) = RETVAL;
+	sv_2mortal(ST(0));
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_DEFSV_modify); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_DEFSV_modify)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+#line 737 "RealPPPort.xs"
+		XPUSHs(sv_mortalcopy(DEFSV));
+		ENTER;
+		SAVE_DEFSV;
+		DEFSV_set(newSVpvs("DEFSV"));
+		XPUSHs(sv_mortalcopy(DEFSV));
+		/* Yes, this leaks the above scalar; 5.005 with threads for some reason */
+		/* frees it upon LEAVE, thus mortalizing it causes "attempt to free..." */
+		/* sv_2mortal(DEFSV); */
+		LEAVE;
+		XPUSHs(sv_mortalcopy(DEFSV));
+		XSRETURN(3);
+#line 1378 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_ERRSV); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_ERRSV)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	int	RETVAL;
+	dXSTARG;
+#line 752 "RealPPPort.xs"
+		RETVAL = SvTRUE(ERRSV);
+#line 1396 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_UNDERBAR); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_UNDERBAR)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	SV *	RETVAL;
+#line 759 "RealPPPort.xs"
+		{
+		  dUNDERBAR;
+		  RETVAL = newSVsv(UNDERBAR);
+		}
+#line 1416 "RealPPPort.c"
+	ST(0) = RETVAL;
+	sv_2mortal(ST(0));
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_prepush); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_prepush)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+#line 769 "RealPPPort.xs"
+		{
+		  dXSTARG;
+		  XSprePUSH;
+		  PUSHi(42);
+		  XSRETURN(1);
+		}
+#line 1438 "RealPPPort.c"
+    }
+    XSRETURN_EMPTY;
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_PERL_ABS); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_PERL_ABS)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "a");
+    {
+	int	a = (int)SvIV(ST(0))
+;
+	int	RETVAL;
+	dXSTARG;
+
+	RETVAL = PERL_ABS(a);
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_SVf); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_SVf)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "x");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+	SV *	x = ST(0)
+;
+#line 784 "RealPPPort.xs"
+#if (PERL_BCDVERSION >= 0x5004000)
+		x = sv_2mortal(newSVpvf("[%"SVf"]", SVfARG(x)));
+#endif
+		XPUSHs(x);
+		XSRETURN(1);
+#line 1480 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_Perl_ppaddr_t); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_Perl_ppaddr_t)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "string");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+	char *	string = (char *)SvPV_nolen(ST(0))
+;
+#line 794 "RealPPPort.xs"
+		Perl_ppaddr_t lower;
+#line 1500 "RealPPPort.c"
+#line 796 "RealPPPort.xs"
+		lower = PL_ppaddr[OP_LC];
+		mXPUSHs(newSVpv(string, 0));
+		PUTBACK;
+		ENTER;
+		(void)*(lower)(aTHXR);
+		SPAGAIN;
+		LEAVE;
+		XSRETURN(1);
+#line 1510 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_SvPVbyte); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_SvPVbyte)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+#line 813 "RealPPPort.xs"
+		char *str;
+		STRLEN len;
+#line 1529 "RealPPPort.c"
+	IV	RETVAL;
+	dXSTARG;
+#line 816 "RealPPPort.xs"
+		str = SvPVbyte(sv, len);
+		RETVAL = strEQ(str, "mhx") ? (IV) len : (IV) -1;
+#line 1535 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_SvPV_nolen); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_SvPV_nolen)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+#line 825 "RealPPPort.xs"
+		char *str;
+#line 1553 "RealPPPort.c"
+	IV	RETVAL;
+	dXSTARG;
+#line 827 "RealPPPort.xs"
+		str = SvPV_nolen(sv);
+		RETVAL = strEQ(str, "mhx") ? 42 : 0;
+#line 1559 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_SvPV_const); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_SvPV_const)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+#line 836 "RealPPPort.xs"
+		const char *str;
+		STRLEN len;
+#line 1578 "RealPPPort.c"
+	IV	RETVAL;
+	dXSTARG;
+#line 839 "RealPPPort.xs"
+		str = SvPV_const(sv, len);
+		RETVAL = len + (strEQ(str, "mhx") ? 40 : 0);
+#line 1584 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_SvPV_mutable); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_SvPV_mutable)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+#line 848 "RealPPPort.xs"
+		char *str;
+		STRLEN len;
+#line 1603 "RealPPPort.c"
+	IV	RETVAL;
+	dXSTARG;
+#line 851 "RealPPPort.xs"
+		str = SvPV_mutable(sv, len);
+		RETVAL = len + (strEQ(str, "mhx") ? 41 : 0);
+#line 1609 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_SvPV_flags); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_SvPV_flags)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+#line 860 "RealPPPort.xs"
+		char *str;
+		STRLEN len;
+#line 1628 "RealPPPort.c"
+	IV	RETVAL;
+	dXSTARG;
+#line 863 "RealPPPort.xs"
+		str = SvPV_flags(sv, len, SV_GMAGIC);
+		RETVAL = len + (strEQ(str, "mhx") ? 42 : 0);
+#line 1634 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_SvPV_flags_const); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_SvPV_flags_const)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+#line 872 "RealPPPort.xs"
+		const char *str;
+		STRLEN len;
+#line 1653 "RealPPPort.c"
+	IV	RETVAL;
+	dXSTARG;
+#line 875 "RealPPPort.xs"
+		str = SvPV_flags_const(sv, len, SV_GMAGIC);
+		RETVAL = len + (strEQ(str, "mhx") ? 43 : 0);
+#line 1659 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_SvPV_flags_const_nolen); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_SvPV_flags_const_nolen)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+#line 884 "RealPPPort.xs"
+		const char *str;
+#line 1677 "RealPPPort.c"
+	IV	RETVAL;
+	dXSTARG;
+#line 886 "RealPPPort.xs"
+		str = SvPV_flags_const_nolen(sv, SV_GMAGIC);
+		RETVAL = strEQ(str, "mhx") ? 47 : 0;
+#line 1683 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_SvPV_flags_mutable); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_SvPV_flags_mutable)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+#line 895 "RealPPPort.xs"
+		char *str;
+		STRLEN len;
+#line 1702 "RealPPPort.c"
+	IV	RETVAL;
+	dXSTARG;
+#line 898 "RealPPPort.xs"
+		str = SvPV_flags_mutable(sv, len, SV_GMAGIC);
+		RETVAL = len + (strEQ(str, "mhx") ? 45 : 0);
+#line 1708 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_SvPV_force); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_SvPV_force)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+#line 907 "RealPPPort.xs"
+		char *str;
+		STRLEN len;
+#line 1727 "RealPPPort.c"
+	IV	RETVAL;
+	dXSTARG;
+#line 910 "RealPPPort.xs"
+		str = SvPV_force(sv, len);
+		RETVAL = len + (strEQ(str, "mhx") ? 46 : 0);
+#line 1733 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_SvPV_force_nolen); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_SvPV_force_nolen)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+#line 919 "RealPPPort.xs"
+		char *str;
+#line 1751 "RealPPPort.c"
+	IV	RETVAL;
+	dXSTARG;
+#line 921 "RealPPPort.xs"
+		str = SvPV_force_nolen(sv);
+		RETVAL = strEQ(str, "mhx") ? 50 : 0;
+#line 1757 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_SvPV_force_mutable); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_SvPV_force_mutable)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+#line 930 "RealPPPort.xs"
+		char *str;
+		STRLEN len;
+#line 1776 "RealPPPort.c"
+	IV	RETVAL;
+	dXSTARG;
+#line 933 "RealPPPort.xs"
+		str = SvPV_force_mutable(sv, len);
+		RETVAL = len + (strEQ(str, "mhx") ? 48 : 0);
+#line 1782 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_SvPV_force_nomg); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_SvPV_force_nomg)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+#line 942 "RealPPPort.xs"
+		char *str;
+		STRLEN len;
+#line 1801 "RealPPPort.c"
+	IV	RETVAL;
+	dXSTARG;
+#line 945 "RealPPPort.xs"
+		str = SvPV_force_nomg(sv, len);
+		RETVAL = len + (strEQ(str, "mhx") ? 49 : 0);
+#line 1807 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_SvPV_force_nomg_nolen); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_SvPV_force_nomg_nolen)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+#line 954 "RealPPPort.xs"
+		char *str;
+#line 1825 "RealPPPort.c"
+	IV	RETVAL;
+	dXSTARG;
+#line 956 "RealPPPort.xs"
+		str = SvPV_force_nomg_nolen(sv);
+		RETVAL = strEQ(str, "mhx") ? 53 : 0;
+#line 1831 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_SvPV_force_flags); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_SvPV_force_flags)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+#line 965 "RealPPPort.xs"
+		char *str;
+		STRLEN len;
+#line 1850 "RealPPPort.c"
+	IV	RETVAL;
+	dXSTARG;
+#line 968 "RealPPPort.xs"
+		str = SvPV_force_flags(sv, len, SV_GMAGIC);
+		RETVAL = len + (strEQ(str, "mhx") ? 51 : 0);
+#line 1856 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_SvPV_force_flags_nolen); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_SvPV_force_flags_nolen)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+#line 977 "RealPPPort.xs"
+		char *str;
+#line 1874 "RealPPPort.c"
+	IV	RETVAL;
+	dXSTARG;
+#line 979 "RealPPPort.xs"
+		str = SvPV_force_flags_nolen(sv, SV_GMAGIC);
+		RETVAL = strEQ(str, "mhx") ? 55 : 0;
+#line 1880 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_SvPV_force_flags_mutable); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_SvPV_force_flags_mutable)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+#line 988 "RealPPPort.xs"
+		char *str;
+		STRLEN len;
+#line 1899 "RealPPPort.c"
+	IV	RETVAL;
+	dXSTARG;
+#line 991 "RealPPPort.xs"
+		str = SvPV_force_flags_mutable(sv, len, SV_GMAGIC);
+		RETVAL = len + (strEQ(str, "mhx") ? 53 : 0);
+#line 1905 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_SvPV_nolen_const); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_SvPV_nolen_const)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+#line 1000 "RealPPPort.xs"
+		const char *str;
+#line 1923 "RealPPPort.c"
+	IV	RETVAL;
+	dXSTARG;
+#line 1002 "RealPPPort.xs"
+		str = SvPV_nolen_const(sv);
+		RETVAL = strEQ(str, "mhx") ? 57 : 0;
+#line 1929 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_SvPV_nomg); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_SvPV_nomg)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+#line 1011 "RealPPPort.xs"
+		char *str;
+		STRLEN len;
+#line 1948 "RealPPPort.c"
+	IV	RETVAL;
+	dXSTARG;
+#line 1014 "RealPPPort.xs"
+		str = SvPV_nomg(sv, len);
+		RETVAL = len + (strEQ(str, "mhx") ? 55 : 0);
+#line 1954 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_SvPV_nomg_const); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_SvPV_nomg_const)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+#line 1023 "RealPPPort.xs"
+		const char *str;
+		STRLEN len;
+#line 1973 "RealPPPort.c"
+	IV	RETVAL;
+	dXSTARG;
+#line 1026 "RealPPPort.xs"
+		str = SvPV_nomg_const(sv, len);
+		RETVAL = len + (strEQ(str, "mhx") ? 56 : 0);
+#line 1979 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_SvPV_nomg_const_nolen); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_SvPV_nomg_const_nolen)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+#line 1035 "RealPPPort.xs"
+		const char *str;
+#line 1997 "RealPPPort.c"
+	IV	RETVAL;
+	dXSTARG;
+#line 1037 "RealPPPort.xs"
+		str = SvPV_nomg_const_nolen(sv);
+		RETVAL = strEQ(str, "mhx") ? 60 : 0;
+#line 2003 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_SvPV_renew); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_SvPV_renew)
+{
+    dVAR; dXSARGS;
+    if (items != 3)
+       croak_xs_usage(cv,  "sv, nlen, insv");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+	SV *	sv = ST(0)
+;
+	IV	nlen = (IV)SvIV(ST(1))
+;
+	SV *	insv = ST(2)
+;
+#line 1048 "RealPPPort.xs"
+		STRLEN slen;
+		const char *str;
+#line 2028 "RealPPPort.c"
+#line 1051 "RealPPPort.xs"
+		str = SvPV_const(insv, slen);
+		XPUSHs(sv);
+		mXPUSHi(SvLEN(sv));
+		SvPV_renew(sv, nlen);
+		Copy(str, SvPVX(sv), slen + 1, char);
+		SvCUR_set(sv, slen);
+		mXPUSHi(SvLEN(sv));
+#line 2037 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_GvSVn); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_GvSVn)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+#line 1066 "RealPPPort.xs"
+		GV* gv;
+#line 2053 "RealPPPort.c"
+	int	RETVAL;
+	dXSTARG;
+#line 1068 "RealPPPort.xs"
+		RETVAL = 0;
+		gv = gv_fetchpvs("Devel::PPPort::GvTest", GV_ADDMULTI, SVt_PVGV);
+		if (GvSVn(gv) != NULL)
+		{
+		  RETVAL++;
+		}
+#line 2063 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_isGV_with_GP); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_isGV_with_GP)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+#line 1080 "RealPPPort.xs"
+		GV* gv;
+#line 2079 "RealPPPort.c"
+	int	RETVAL;
+	dXSTARG;
+#line 1082 "RealPPPort.xs"
+		RETVAL = 0;
+		gv = gv_fetchpvs("Devel::PPPort::GvTest", GV_ADDMULTI, SVt_PVGV);
+		if (isGV_with_GP(gv))
+		{
+		  RETVAL++;
+		}
+		if (!isGV(&PL_sv_undef))
+		{
+		  RETVAL++;
+		}
+#line 2093 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_get_cvn_flags); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_get_cvn_flags)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+#line 1098 "RealPPPort.xs"
+		CV* xv;
+#line 2109 "RealPPPort.c"
+	int	RETVAL;
+	dXSTARG;
+#line 1100 "RealPPPort.xs"
+		RETVAL = 0;
+		xv = get_cvn_flags("Devel::PPPort::foobar", sizeof("Devel::PPPort::foobar")-1, 0);
+		if(xv == NULL) RETVAL++;
+		xv = get_cvn_flags("Devel::PPPort::foobar", sizeof("Devel::PPPort::foobar")-1, GV_ADDMULTI);
+		if(xv && SvTYPE(xv) == SVt_PVCV) RETVAL++;
+		xv = get_cvn_flags("Devel::PPPort::get_cvn_flags", sizeof("Devel::PPPort::get_cvn_flags")-1, 0);
+		if(xv && SvTYPE(xv) == SVt_PVCV) RETVAL++;
+#line 2120 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_gv_fetchpvn_flags); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_gv_fetchpvn_flags)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	SV *	RETVAL;
+#line 1113 "RealPPPort.xs"
+		RETVAL = newRV_inc((SV*)gv_fetchpvn_flags("Devel::PPPort::VERSION", sizeof("Devel::PPPort::VERSION")-1, 0, SVt_PV));
+#line 2137 "RealPPPort.c"
+	ST(0) = RETVAL;
+	sv_2mortal(ST(0));
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_gv_fetchsv); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_gv_fetchsv)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "name");
+    {
+	SV *	name = ST(0)
+;
+	SV *	RETVAL;
+#line 1121 "RealPPPort.xs"
+		RETVAL = newRV_inc((SV*)gv_fetchsv(name, 0, SVt_PV));
+#line 2157 "RealPPPort.c"
+	ST(0) = RETVAL;
+	sv_2mortal(ST(0));
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_my_strlfunc); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_my_strlfunc)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+#line 1132 "RealPPPort.xs"
+		char buf[8];
+		int len;
+#line 2177 "RealPPPort.c"
+#line 1135 "RealPPPort.xs"
+                len = my_strlcpy(buf, "foo", sizeof(buf));
+		mXPUSHi(len);
+		mXPUSHs(newSVpv(buf, 0));
+		len = my_strlcat(buf, "bar", sizeof(buf));
+		mXPUSHi(len);
+		mXPUSHs(newSVpv(buf, 0));
+		len = my_strlcat(buf, "baz", sizeof(buf));
+		mXPUSHi(len);
+		mXPUSHs(newSVpv(buf, 0));
+		len = my_strlcpy(buf, "1234567890", sizeof(buf));
+		mXPUSHi(len);
+		mXPUSHs(newSVpv(buf, 0));
+		len = my_strlcpy(buf, "1234", sizeof(buf));
+		mXPUSHi(len);
+		mXPUSHs(newSVpv(buf, 0));
+		len = my_strlcat(buf, "567890123456", sizeof(buf));
+		mXPUSHi(len);
+		mXPUSHs(newSVpv(buf, 0));
+		XSRETURN(12);
+#line 2198 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_newRV_inc_REFCNT); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_newRV_inc_REFCNT)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+#line 1162 "RealPPPort.xs"
+		SV *sv, *rv;
+#line 2214 "RealPPPort.c"
+	U32	RETVAL;
+	dXSTARG;
+#line 1164 "RealPPPort.xs"
+		sv = newSViv(42);
+		rv = newRV_inc(sv);
+		SvREFCNT_dec(sv);
+		RETVAL = SvREFCNT(sv);
+		sv_2mortal(rv);
+#line 2223 "RealPPPort.c"
+	XSprePUSH; PUSHu((UV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_newRV_noinc_REFCNT); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_newRV_noinc_REFCNT)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+#line 1175 "RealPPPort.xs"
+		SV *sv, *rv;
+#line 2239 "RealPPPort.c"
+	U32	RETVAL;
+	dXSTARG;
+#line 1177 "RealPPPort.xs"
+		sv = newSViv(42);
+		rv = newRV_noinc(sv);
+		RETVAL = SvREFCNT(sv);
+		sv_2mortal(rv);
+#line 2247 "RealPPPort.c"
+	XSprePUSH; PUSHu((UV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_sv_setuv); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_sv_setuv)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "uv");
+    {
+	UV	uv = (UV)SvUV(ST(0))
+;
+	SV *	RETVAL;
+#line 1192 "RealPPPort.xs"
+		RETVAL = newSViv(1);
+		sv_setuv(RETVAL, uv);
+#line 2267 "RealPPPort.c"
+	ST(0) = RETVAL;
+	sv_2mortal(ST(0));
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_newSVuv); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_newSVuv)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "uv");
+    {
+	UV	uv = (UV)SvUV(ST(0))
+;
+	SV *	RETVAL;
+#line 1201 "RealPPPort.xs"
+		RETVAL = newSVuv(uv);
+#line 2287 "RealPPPort.c"
+	ST(0) = RETVAL;
+	sv_2mortal(ST(0));
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_sv_2uv); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_sv_2uv)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+	UV	RETVAL;
+	dXSTARG;
+#line 1209 "RealPPPort.xs"
+		RETVAL = sv_2uv(sv);
+#line 2308 "RealPPPort.c"
+	XSprePUSH; PUSHu((UV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_SvUVx); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_SvUVx)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+	UV	RETVAL;
+	dXSTARG;
+#line 1217 "RealPPPort.xs"
+		sv--;
+		RETVAL = SvUVx(++sv);
+#line 2329 "RealPPPort.c"
+	XSprePUSH; PUSHu((UV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_XSRETURN_UV); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_XSRETURN_UV)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+#line 1225 "RealPPPort.xs"
+		XSRETURN_UV(42);
+#line 2347 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_PUSHu); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_PUSHu)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+#line 1230 "RealPPPort.xs"
+		dTARG;
+#line 2365 "RealPPPort.c"
+#line 1232 "RealPPPort.xs"
+		TARG = sv_newmortal();
+		EXTEND(SP, 1);
+		PUSHu(42);
+		XSRETURN(1);
+#line 2371 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_XPUSHu); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_XPUSHu)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+#line 1240 "RealPPPort.xs"
+		dTARG;
+#line 2389 "RealPPPort.c"
+#line 1242 "RealPPPort.xs"
+		TARG = sv_newmortal();
+		XPUSHu(43);
+		XSRETURN(1);
+#line 2394 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_newSVpvn_share); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_newSVpvn_share)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+#line 1253 "RealPPPort.xs"
+		const char *s;
+		SV *sv;
+		STRLEN len;
+		U32 hash;
+#line 2413 "RealPPPort.c"
+	int	RETVAL;
+	dXSTARG;
+#line 1258 "RealPPPort.xs"
+		RETVAL = 0;
+		s = "mhx";
+		len = 3;
+		PERL_HASH(hash, (char *) s, len);
+		sv = newSVpvn_share(s, len, 0);
+		s = 0;
+		RETVAL += strEQ(SvPV_nolen_const(sv), "mhx");
+		RETVAL += SvCUR(sv) == len;
+		RETVAL += SvSHARED_HASH(sv) == hash;
+		SvREFCNT_dec(sv);
+		s = "foobar";
+		len = 6;
+		PERL_HASH(hash, (char *) s, len);
+		sv = newSVpvn_share(s, -(I32) len, hash);
+		s = 0;
+		RETVAL += strEQ(SvPV_nolen_const(sv), "foobar");
+		RETVAL += SvCUR(sv) == len;
+		RETVAL += SvSHARED_HASH(sv) == hash;
+		SvREFCNT_dec(sv);
+#line 2436 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_SvREFCNT); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_SvREFCNT)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+#line 1287 "RealPPPort.xs"
+		SV *sv, *svr;
+#line 2454 "RealPPPort.c"
+#line 1289 "RealPPPort.xs"
+		sv = newSV(0);
+		mXPUSHi(SvREFCNT(sv) == 1);
+		svr = SvREFCNT_inc(sv);
+		mXPUSHi(sv == svr);
+		mXPUSHi(SvREFCNT(sv) == 2);
+		svr = SvREFCNT_inc_simple(sv);
+		mXPUSHi(sv == svr);
+		mXPUSHi(SvREFCNT(sv) == 3);
+		svr = SvREFCNT_inc_NN(sv);
+		mXPUSHi(sv == svr);
+		mXPUSHi(SvREFCNT(sv) == 4);
+		svr = SvREFCNT_inc_simple_NN(sv);
+		mXPUSHi(sv == svr);
+		mXPUSHi(SvREFCNT(sv) == 5);
+		SvREFCNT_inc_void(sv);
+		mXPUSHi(SvREFCNT(sv) == 6);
+		SvREFCNT_inc_simple_void(sv);
+		mXPUSHi(SvREFCNT(sv) == 7);
+		SvREFCNT_inc_void_NN(sv);
+		mXPUSHi(SvREFCNT(sv) == 8);
+		SvREFCNT_inc_simple_void_NN(sv);
+		mXPUSHi(SvREFCNT(sv) == 9);
+		while (SvREFCNT(sv) > 1)
+		  SvREFCNT_dec(sv);
+		mXPUSHi(SvREFCNT(sv) == 1);
+		SvREFCNT_dec(sv);
+		XSRETURN(14);
+#line 2483 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_CopSTASHPV); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_CopSTASHPV)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	char *	RETVAL;
+	dXSTARG;
+#line 1324 "RealPPPort.xs"
+		RETVAL = CopSTASHPV(PL_curcop);
+#line 2501 "RealPPPort.c"
+	sv_setpv(TARG, RETVAL); XSprePUSH; PUSHTARG;
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_CopFILE); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_CopFILE)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	char *	RETVAL;
+	dXSTARG;
+#line 1331 "RealPPPort.xs"
+		RETVAL = CopFILE(PL_curcop);
+#line 2519 "RealPPPort.c"
+	sv_setpv(TARG, RETVAL); XSprePUSH; PUSHTARG;
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_mPUSHs); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_mPUSHs)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+#line 1342 "RealPPPort.xs"
+	EXTEND(SP, 3);
+	mPUSHs(newSVpv("foo", 0));
+	mPUSHs(newSVpv("bar13", 3));
+	mPUSHs(newSViv(42));
+	XSRETURN(3);
+#line 2541 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_mPUSHp); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_mPUSHp)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+#line 1351 "RealPPPort.xs"
+	EXTEND(SP, 3);
+	mPUSHp("one", 3);
+	mPUSHp("two", 3);
+	mPUSHp("three", 5);
+	XSRETURN(3);
+#line 2563 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_mPUSHn); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_mPUSHn)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+#line 1360 "RealPPPort.xs"
+	EXTEND(SP, 3);
+	mPUSHn(0.5);
+	mPUSHn(-0.25);
+	mPUSHn(0.125);
+	XSRETURN(3);
+#line 2585 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_mPUSHi); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_mPUSHi)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+#line 1369 "RealPPPort.xs"
+	EXTEND(SP, 3);
+	mPUSHi(-1);
+	mPUSHi(2);
+	mPUSHi(-3);
+	XSRETURN(3);
+#line 2607 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_mPUSHu); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_mPUSHu)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+#line 1378 "RealPPPort.xs"
+	EXTEND(SP, 3);
+	mPUSHu(1);
+	mPUSHu(2);
+	mPUSHu(3);
+	XSRETURN(3);
+#line 2629 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_mXPUSHs); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_mXPUSHs)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+#line 1387 "RealPPPort.xs"
+	mXPUSHs(newSVpv("foo", 0));
+	mXPUSHs(newSVpv("bar13", 3));
+	mXPUSHs(newSViv(42));
+	XSRETURN(3);
+#line 2650 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_mXPUSHp); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_mXPUSHp)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+#line 1395 "RealPPPort.xs"
+	mXPUSHp("one", 3);
+	mXPUSHp("two", 3);
+	mXPUSHp("three", 5);
+	XSRETURN(3);
+#line 2671 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_mXPUSHn); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_mXPUSHn)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+#line 1403 "RealPPPort.xs"
+	mXPUSHn(0.5);
+	mXPUSHn(-0.25);
+	mXPUSHn(0.125);
+	XSRETURN(3);
+#line 2692 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_mXPUSHi); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_mXPUSHi)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+#line 1411 "RealPPPort.xs"
+	mXPUSHi(-1);
+	mXPUSHi(2);
+	mXPUSHi(-3);
+	XSRETURN(3);
+#line 2713 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_mXPUSHu); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_mXPUSHu)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+#line 1419 "RealPPPort.xs"
+	mXPUSHu(1);
+	mXPUSHu(2);
+	mXPUSHu(3);
+	XSRETURN(3);
+#line 2734 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
 XS_EUPXS(XS_Devel__PPPort_newSV_type); /* prototype to pass -Wmissing-prototypes */
 XS_EUPXS(XS_Devel__PPPort_newSV_type)
 {
@@ -429,12 +2744,12 @@ XS_EUPXS(XS_Devel__PPPort_newSV_type)
     if (items != 0)
        croak_xs_usage(cv,  "");
     {
-#line 299 "RealPPPort.xs"
+#line 1431 "RealPPPort.xs"
 		SV* sv;
-#line 435 "RealPPPort.c"
+#line 2750 "RealPPPort.c"
 	int	RETVAL;
 	dXSTARG;
-#line 301 "RealPPPort.xs"
+#line 1433 "RealPPPort.xs"
 		RETVAL = 0;
 		sv = newSV_type(SVt_NULL);
 		if (SvTYPE(sv) == SVt_NULL)
@@ -463,10 +2778,265 @@ XS_EUPXS(XS_Devel__PPPort_newSV_type)
 		  RETVAL++;
 		}
 		SvREFCNT_dec(sv);
-#line 467 "RealPPPort.c"
+#line 2782 "RealPPPort.c"
 	XSprePUSH; PUSHi((IV)RETVAL);
     }
     XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_TestSvUV_set); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_TestSvUV_set)
+{
+    dVAR; dXSARGS;
+    if (items != 2)
+       croak_xs_usage(cv,  "sv, val");
+    {
+	SV *	sv = ST(0)
+;
+	UV	val = (UV)SvUV(ST(1))
+;
+	IV	RETVAL;
+	dXSTARG;
+#line 1473 "RealPPPort.xs"
+		SvUV_set(sv, val);
+		RETVAL = SvUVX(sv) == val ? 42 : -1;
+#line 2805 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_TestSvPVX_const); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_TestSvPVX_const)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+	IV	RETVAL;
+	dXSTARG;
+#line 1482 "RealPPPort.xs"
+                RETVAL = strEQ(SvPVX_const(sv), "mhx") ? 43 : -1;
+#line 2825 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_TestSvPVX_mutable); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_TestSvPVX_mutable)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+	IV	RETVAL;
+	dXSTARG;
+#line 1490 "RealPPPort.xs"
+                RETVAL = strEQ(SvPVX_mutable(sv), "mhx") ? 44 : -1;
+#line 2845 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_TestSvSTASH_set); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_TestSvSTASH_set)
+{
+    dVAR; dXSARGS;
+    if (items != 2)
+       croak_xs_usage(cv,  "sv, name");
+    {
+	SV *	sv = ST(0)
+;
+	char *	name = (char *)SvPV_nolen(ST(1))
+;
+#line 1499 "RealPPPort.xs"
+		sv = SvRV(sv);
+		SvREFCNT_dec(SvSTASH(sv));
+                SvSTASH_set(sv, (HV*) SvREFCNT_inc(gv_stashpv(name, 0)));
+#line 2867 "RealPPPort.c"
+    }
+    XSRETURN_EMPTY;
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_checkmem); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_checkmem)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+#line 1510 "RealPPPort.xs"
+    char *p;
+
+#line 2883 "RealPPPort.c"
+	int	RETVAL;
+	dXSTARG;
+#line 1513 "RealPPPort.xs"
+    RETVAL = 0;
+    Newx(p, 6, char);
+    CopyD("Hello", p, 6, char);
+    if (memEQ(p, "Hello", 6))
+      RETVAL++;
+    ZeroD(p, 6, char);
+    if (memEQ(p, "\0\0\0\0\0\0", 6))
+      RETVAL++;
+    if (memEQs(p, 6, "\0\0\0\0\0\0"))
+      RETVAL++;
+    Poison(p, 6, char);
+    if (memNE(p, "\0\0\0\0\0\0", 6))
+      RETVAL++;
+    if (memNEs(p, 6, "\0\0\0\0\0\0"))
+      RETVAL++;
+    Safefree(p);
+
+    Newxz(p, 6, char);
+    if (memEQ(p, "\0\0\0\0\0\0", 6))
+      RETVAL++;
+    Safefree(p);
+
+    Newxc(p, 3, short, char);
+    Safefree(p);
+
+#line 2912 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_my_snprintf); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_my_snprintf)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+#line 1548 "RealPPPort.xs"
+		char buf[128];
+		int len;
+#line 2931 "RealPPPort.c"
+#line 1551 "RealPPPort.xs"
+		len = my_snprintf(buf, sizeof buf, "foo%s%d", "bar", 42);
+		mXPUSHi(len);
+		mXPUSHs(newSVpv(buf, 0));
+		XSRETURN(2);
+#line 2937 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_MY_CXT_1); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_MY_CXT_1)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	int	RETVAL;
+	dXSTARG;
+#line 1563 "RealPPPort.xs"
+		dMY_CXT;
+		RETVAL = MY_CXT.dummy == 42;
+		++MY_CXT.dummy;
+#line 2957 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_MY_CXT_2); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_MY_CXT_2)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	int	RETVAL;
+	dXSTARG;
+#line 1572 "RealPPPort.xs"
+		dMY_CXT;
+		RETVAL = MY_CXT.dummy == 43;
+#line 2976 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_MY_CXT_CLONE); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_MY_CXT_CLONE)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	int	RETVAL;
+	dXSTARG;
+#line 1580 "RealPPPort.xs"
+		MY_CXT_CLONE;
+		RETVAL = 42;
+#line 2995 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_call_newCONSTSUB_1); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_call_newCONSTSUB_1)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+
+	call_newCONSTSUB_1();
+    }
+    XSRETURN_EMPTY;
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_call_newCONSTSUB_2); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_call_newCONSTSUB_2)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+
+	call_newCONSTSUB_2();
+    }
+    XSRETURN_EMPTY;
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_call_newCONSTSUB_3); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_call_newCONSTSUB_3)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+
+	call_newCONSTSUB_3();
+    }
+    XSRETURN_EMPTY;
 }
 
 
@@ -518,6 +3088,533 @@ XS_EUPXS(XS_Devel__PPPort_HvNAMELEN_get)
 }
 
 
+XS_EUPXS(XS_Devel__PPPort_newSVpvn); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_newSVpvn)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+#line 1617 "RealPPPort.xs"
+		mXPUSHs(newSVpvn("test", 4));
+		mXPUSHs(newSVpvn("test", 2));
+		mXPUSHs(newSVpvn("test", 0));
+		mXPUSHs(newSVpvn(NULL, 2));
+		mXPUSHs(newSVpvn(NULL, 0));
+		XSRETURN(5);
+#line 3108 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_newSVpvn_flags); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_newSVpvn_flags)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+#line 1627 "RealPPPort.xs"
+		XPUSHs(newSVpvn_flags("test", 4, SVs_TEMP));
+		XPUSHs(newSVpvn_flags("test", 2, SVs_TEMP));
+		XPUSHs(newSVpvn_flags("test", 0, SVs_TEMP));
+		XPUSHs(newSVpvn_flags(NULL, 2, SVs_TEMP));
+		XPUSHs(newSVpvn_flags(NULL, 0, SVs_TEMP));
+		XSRETURN(5);
+#line 3131 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_newSVpvn_utf8); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_newSVpvn_utf8)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+#line 1637 "RealPPPort.xs"
+		XPUSHs(newSVpvn_flags("test", 4, SVs_TEMP|SVf_UTF8));
+		XSRETURN(1);
+#line 3150 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_pv_escape_can_unicode); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_pv_escape_can_unicode)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+#line 1647 "RealPPPort.xs"
+#if defined(is_utf8_string) && defined(utf8_to_uvchr)
+		XSRETURN_YES;
+#else
+		XSRETURN_NO;
+#endif
+#line 3172 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_pv_pretty); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_pv_pretty)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+#line 1656 "RealPPPort.xs"
+		char *rv;
+#line 3190 "RealPPPort.c"
+#line 1658 "RealPPPort.xs"
+		EXTEND(SP, 8);
+		ST(0) = sv_newmortal();
+		rv = pv_pretty(ST(0), "foobarbaz",
+				9, 40, NULL, NULL, 0);
+		ST(1) = sv_2mortal(newSVpv(rv, 0));
+		ST(2) = sv_newmortal();
+		rv = pv_pretty(ST(2), "pv_p\retty\n",
+				10, 40, "left", "right", PERL_PV_PRETTY_LTGT);
+		ST(3) = sv_2mortal(newSVpv(rv, 0));
+		ST(4) = sv_newmortal();
+		rv = pv_pretty(ST(4), "N\303\275 Batter\303\255",
+				12, 20, NULL, NULL, PERL_PV_ESCAPE_UNI_DETECT);
+		ST(5) = sv_2mortal(newSVpv(rv, 0));
+		ST(6) = sv_newmortal();
+		rv = pv_pretty(ST(6), "\303\201g\303\246tis Byrjun",
+				15, 18, NULL, NULL, PERL_PV_ESCAPE_UNI_DETECT|PERL_PV_PRETTY_ELLIPSES);
+		ST(7) = sv_2mortal(newSVpv(rv, 0));
+		XSRETURN(8);
+#line 3210 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_pv_display); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_pv_display)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+#line 1680 "RealPPPort.xs"
+		char *rv;
+#line 3228 "RealPPPort.c"
+#line 1682 "RealPPPort.xs"
+		EXTEND(SP, 4);
+		ST(0) = sv_newmortal();
+		rv = pv_display(ST(0), "foob\0rbaz", 9, 10, 20);
+		ST(1) = sv_2mortal(newSVpv(rv, 0));
+		ST(2) = sv_newmortal();
+		rv = pv_display(ST(2), "pv_display", 10, 11, 5);
+		ST(3) = sv_2mortal(newSVpv(rv, 0));
+		XSRETURN(4);
+#line 3238 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_my_sprintf); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_my_sprintf)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+#line 1698 "RealPPPort.xs"
+		char buf[128];
+		int len;
+#line 3257 "RealPPPort.c"
+#line 1701 "RealPPPort.xs"
+		len = my_sprintf(buf, "foo%s%d", "bar", 42);
+		mXPUSHi(len);
+		mXPUSHs(newSVpv(buf, 0));
+		XSRETURN(2);
+#line 3263 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_croak_NVgf); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_croak_NVgf)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "num");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+	NV	num = (NV)SvNV(ST(0))
+;
+#line 1714 "RealPPPort.xs"
+		Perl_croak(aTHX_ "%.20" NVgf "\n", num);
+#line 3283 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_sv_catpv_mg); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_sv_catpv_mg)
+{
+    dVAR; dXSARGS;
+    if (items != 2)
+       croak_xs_usage(cv,  "sv, string");
+    {
+	SV *	sv = ST(0)
+;
+	char *	string = (char *)SvPV_nolen(ST(1))
+;
+#line 1725 "RealPPPort.xs"
+		sv_catpv_mg(sv, string);
+#line 3303 "RealPPPort.c"
+    }
+    XSRETURN_EMPTY;
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_sv_catpvn_mg); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_sv_catpvn_mg)
+{
+    dVAR; dXSARGS;
+    if (items != 2)
+       croak_xs_usage(cv,  "sv, sv2");
+    {
+	SV *	sv = ST(0)
+;
+	SV *	sv2 = ST(1)
+;
+#line 1732 "RealPPPort.xs"
+		char *str;
+		STRLEN len;
+#line 3323 "RealPPPort.c"
+#line 1735 "RealPPPort.xs"
+		str = SvPV(sv2, len);
+		sv_catpvn_mg(sv, str, len);
+#line 3327 "RealPPPort.c"
+    }
+    XSRETURN_EMPTY;
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_sv_catsv_mg); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_sv_catsv_mg)
+{
+    dVAR; dXSARGS;
+    if (items != 2)
+       croak_xs_usage(cv,  "sv, sv2");
+    {
+	SV *	sv = ST(0)
+;
+	SV *	sv2 = ST(1)
+;
+#line 1743 "RealPPPort.xs"
+		sv_catsv_mg(sv, sv2);
+#line 3346 "RealPPPort.c"
+    }
+    XSRETURN_EMPTY;
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_sv_setiv_mg); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_sv_setiv_mg)
+{
+    dVAR; dXSARGS;
+    if (items != 2)
+       croak_xs_usage(cv,  "sv, iv");
+    {
+	SV *	sv = ST(0)
+;
+	IV	iv = (IV)SvIV(ST(1))
+;
+#line 1750 "RealPPPort.xs"
+		sv_setiv_mg(sv, iv);
+#line 3365 "RealPPPort.c"
+    }
+    XSRETURN_EMPTY;
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_sv_setnv_mg); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_sv_setnv_mg)
+{
+    dVAR; dXSARGS;
+    if (items != 2)
+       croak_xs_usage(cv,  "sv, nv");
+    {
+	SV *	sv = ST(0)
+;
+	NV	nv = (NV)SvNV(ST(1))
+;
+#line 1757 "RealPPPort.xs"
+		sv_setnv_mg(sv, nv);
+#line 3384 "RealPPPort.c"
+    }
+    XSRETURN_EMPTY;
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_sv_setpv_mg); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_sv_setpv_mg)
+{
+    dVAR; dXSARGS;
+    if (items != 2)
+       croak_xs_usage(cv,  "sv, pv");
+    {
+	SV *	sv = ST(0)
+;
+	char *	pv = (char *)SvPV_nolen(ST(1))
+;
+#line 1764 "RealPPPort.xs"
+		sv_setpv_mg(sv, pv);
+#line 3403 "RealPPPort.c"
+    }
+    XSRETURN_EMPTY;
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_sv_setpvn_mg); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_sv_setpvn_mg)
+{
+    dVAR; dXSARGS;
+    if (items != 2)
+       croak_xs_usage(cv,  "sv, sv2");
+    {
+	SV *	sv = ST(0)
+;
+	SV *	sv2 = ST(1)
+;
+#line 1771 "RealPPPort.xs"
+		char *str;
+		STRLEN len;
+#line 3423 "RealPPPort.c"
+#line 1774 "RealPPPort.xs"
+		str = SvPV(sv2, len);
+		sv_setpvn_mg(sv, str, len);
+#line 3427 "RealPPPort.c"
+    }
+    XSRETURN_EMPTY;
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_sv_setsv_mg); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_sv_setsv_mg)
+{
+    dVAR; dXSARGS;
+    if (items != 2)
+       croak_xs_usage(cv,  "sv, sv2");
+    {
+	SV *	sv = ST(0)
+;
+	SV *	sv2 = ST(1)
+;
+#line 1782 "RealPPPort.xs"
+		sv_setsv_mg(sv, sv2);
+#line 3446 "RealPPPort.c"
+    }
+    XSRETURN_EMPTY;
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_sv_setuv_mg); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_sv_setuv_mg)
+{
+    dVAR; dXSARGS;
+    if (items != 2)
+       croak_xs_usage(cv,  "sv, uv");
+    {
+	SV *	sv = ST(0)
+;
+	UV	uv = (UV)SvUV(ST(1))
+;
+#line 1789 "RealPPPort.xs"
+		sv_setuv_mg(sv, uv);
+#line 3465 "RealPPPort.c"
+    }
+    XSRETURN_EMPTY;
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_sv_usepvn_mg); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_sv_usepvn_mg)
+{
+    dVAR; dXSARGS;
+    if (items != 2)
+       croak_xs_usage(cv,  "sv, sv2");
+    {
+	SV *	sv = ST(0)
+;
+	SV *	sv2 = ST(1)
+;
+#line 1796 "RealPPPort.xs"
+		char *str, *copy;
+		STRLEN len;
+#line 3485 "RealPPPort.c"
+#line 1799 "RealPPPort.xs"
+		str = SvPV(sv2, len);
+		New(42, copy, len+1, char);
+		Copy(str, copy, len+1, char);
+		sv_usepvn_mg(sv, copy, len);
+#line 3491 "RealPPPort.c"
+    }
+    XSRETURN_EMPTY;
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_SvVSTRING_mg); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_SvVSTRING_mg)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+	int	RETVAL;
+	dXSTARG;
+#line 1808 "RealPPPort.xs"
+		RETVAL = SvVSTRING_mg(sv) != NULL;
+#line 3510 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_sv_magic_portable); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_sv_magic_portable)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    {
+	SV *	sv = ST(0)
+;
+#line 1816 "RealPPPort.xs"
+		MAGIC *mg;
+		const char *foo = "foo";
+#line 3529 "RealPPPort.c"
+	int	RETVAL;
+	dXSTARG;
+#line 1819 "RealPPPort.xs"
+#if (PERL_BCDVERSION >= 0x5004000)
+		sv_magic_portable(sv, 0, '~', foo, 0);
+		mg = mg_find(sv, '~');
+		RETVAL = mg->mg_ptr == foo;
+#else
+		sv_magic(sv, 0, '~', (char *) foo, strlen(foo));
+		mg = mg_find(sv, '~');
+		RETVAL = strEQ(mg->mg_ptr, foo);
+#endif
+		sv_unmagic(sv, '~');
+#line 3543 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_warner); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_warner)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+#line 1839 "RealPPPort.xs"
+#if (PERL_BCDVERSION >= 0x5004000)
+		warner(packWARN(WARN_MISC), "warner %s:%d", "bar", 42);
+#endif
+#line 3561 "RealPPPort.c"
+    }
+    XSRETURN_EMPTY;
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_Perl_warner); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_Perl_warner)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+#line 1846 "RealPPPort.xs"
+#if (PERL_BCDVERSION >= 0x5004000)
+		Perl_warner(aTHX_ packWARN(WARN_MISC), "Perl_warner %s:%d", "bar", 42);
+#endif
+#line 3578 "RealPPPort.c"
+    }
+    XSRETURN_EMPTY;
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_Perl_warner_nocontext); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_Perl_warner_nocontext)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+#line 1853 "RealPPPort.xs"
+#if (PERL_BCDVERSION >= 0x5004000)
+		Perl_warner_nocontext(packWARN(WARN_MISC), "Perl_warner_nocontext %s:%d", "bar", 42);
+#endif
+#line 3595 "RealPPPort.c"
+    }
+    XSRETURN_EMPTY;
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_ckWARN); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_ckWARN)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+#line 1860 "RealPPPort.xs"
+#if (PERL_BCDVERSION >= 0x5004000)
+		if (ckWARN(WARN_MISC))
+		  Perl_warner_nocontext(packWARN(WARN_MISC), "ckWARN %s:%d", "bar", 42);
+#endif
+#line 3613 "RealPPPort.c"
+    }
+    XSRETURN_EMPTY;
+}
+
+
 XS_EUPXS(XS_Devel__PPPort_grok_number); /* prototype to pass -Wmissing-prototypes */
 XS_EUPXS(XS_Devel__PPPort_grok_number)
 {
@@ -527,17 +3624,17 @@ XS_EUPXS(XS_Devel__PPPort_grok_number)
     {
 	SV *	string = ST(0)
 ;
-#line 352 "RealPPPort.xs"
+#line 1873 "RealPPPort.xs"
 		const char *pv;
 		STRLEN len;
-#line 534 "RealPPPort.c"
+#line 3631 "RealPPPort.c"
 	UV	RETVAL;
 	dXSTARG;
-#line 355 "RealPPPort.xs"
+#line 1876 "RealPPPort.xs"
 		pv = SvPV(string, len);
 		if (!grok_number(pv, len, &RETVAL))
 		  XSRETURN_UNDEF;
-#line 541 "RealPPPort.c"
+#line 3638 "RealPPPort.c"
 	XSprePUSH; PUSHu((UV)RETVAL);
     }
     XSRETURN(1);
@@ -553,17 +3650,17 @@ XS_EUPXS(XS_Devel__PPPort_grok_bin)
     {
 	SV *	string = ST(0)
 ;
-#line 365 "RealPPPort.xs"
+#line 1886 "RealPPPort.xs"
 		char *pv;
 		I32 flags;
 		STRLEN len;
-#line 561 "RealPPPort.c"
+#line 3658 "RealPPPort.c"
 	UV	RETVAL;
 	dXSTARG;
-#line 369 "RealPPPort.xs"
+#line 1890 "RealPPPort.xs"
 		pv = SvPV(string, len);
 		RETVAL = grok_bin(pv, &len, &flags, NULL);
-#line 567 "RealPPPort.c"
+#line 3664 "RealPPPort.c"
 	XSprePUSH; PUSHu((UV)RETVAL);
     }
     XSRETURN(1);
@@ -579,17 +3676,17 @@ XS_EUPXS(XS_Devel__PPPort_grok_hex)
     {
 	SV *	string = ST(0)
 ;
-#line 378 "RealPPPort.xs"
+#line 1899 "RealPPPort.xs"
 		char *pv;
 		I32 flags;
 		STRLEN len;
-#line 587 "RealPPPort.c"
+#line 3684 "RealPPPort.c"
 	UV	RETVAL;
 	dXSTARG;
-#line 382 "RealPPPort.xs"
+#line 1903 "RealPPPort.xs"
 		pv = SvPV(string, len);
 		RETVAL = grok_hex(pv, &len, &flags, NULL);
-#line 593 "RealPPPort.c"
+#line 3690 "RealPPPort.c"
 	XSprePUSH; PUSHu((UV)RETVAL);
     }
     XSRETURN(1);
@@ -605,17 +3702,17 @@ XS_EUPXS(XS_Devel__PPPort_grok_oct)
     {
 	SV *	string = ST(0)
 ;
-#line 391 "RealPPPort.xs"
+#line 1912 "RealPPPort.xs"
 		char *pv;
 		I32 flags;
 		STRLEN len;
-#line 613 "RealPPPort.c"
+#line 3710 "RealPPPort.c"
 	UV	RETVAL;
 	dXSTARG;
-#line 395 "RealPPPort.xs"
+#line 1916 "RealPPPort.xs"
 		pv = SvPV(string, len);
 		RETVAL = grok_oct(pv, &len, &flags, NULL);
-#line 619 "RealPPPort.c"
+#line 3716 "RealPPPort.c"
 	XSprePUSH; PUSHu((UV)RETVAL);
     }
     XSRETURN(1);
@@ -631,17 +3728,17 @@ XS_EUPXS(XS_Devel__PPPort_Perl_grok_number)
     {
 	SV *	string = ST(0)
 ;
-#line 404 "RealPPPort.xs"
+#line 1925 "RealPPPort.xs"
 		const char *pv;
 		STRLEN len;
-#line 638 "RealPPPort.c"
+#line 3735 "RealPPPort.c"
 	UV	RETVAL;
 	dXSTARG;
-#line 407 "RealPPPort.xs"
+#line 1928 "RealPPPort.xs"
 		pv = SvPV(string, len);
 		if (!Perl_grok_number(aTHX_ pv, len, &RETVAL))
 		  XSRETURN_UNDEF;
-#line 645 "RealPPPort.c"
+#line 3742 "RealPPPort.c"
 	XSprePUSH; PUSHu((UV)RETVAL);
     }
     XSRETURN(1);
@@ -657,17 +3754,17 @@ XS_EUPXS(XS_Devel__PPPort_Perl_grok_bin)
     {
 	SV *	string = ST(0)
 ;
-#line 417 "RealPPPort.xs"
+#line 1938 "RealPPPort.xs"
 		char *pv;
 		I32 flags;
 		STRLEN len;
-#line 665 "RealPPPort.c"
+#line 3762 "RealPPPort.c"
 	UV	RETVAL;
 	dXSTARG;
-#line 421 "RealPPPort.xs"
+#line 1942 "RealPPPort.xs"
 		pv = SvPV(string, len);
 		RETVAL = Perl_grok_bin(aTHX_ pv, &len, &flags, NULL);
-#line 671 "RealPPPort.c"
+#line 3768 "RealPPPort.c"
 	XSprePUSH; PUSHu((UV)RETVAL);
     }
     XSRETURN(1);
@@ -683,17 +3780,17 @@ XS_EUPXS(XS_Devel__PPPort_Perl_grok_hex)
     {
 	SV *	string = ST(0)
 ;
-#line 430 "RealPPPort.xs"
+#line 1951 "RealPPPort.xs"
 		char *pv;
 		I32 flags;
 		STRLEN len;
-#line 691 "RealPPPort.c"
+#line 3788 "RealPPPort.c"
 	UV	RETVAL;
 	dXSTARG;
-#line 434 "RealPPPort.xs"
+#line 1955 "RealPPPort.xs"
 		pv = SvPV(string, len);
 		RETVAL = Perl_grok_hex(aTHX_ pv, &len, &flags, NULL);
-#line 697 "RealPPPort.c"
+#line 3794 "RealPPPort.c"
 	XSprePUSH; PUSHu((UV)RETVAL);
     }
     XSRETURN(1);
@@ -709,276 +3806,18 @@ XS_EUPXS(XS_Devel__PPPort_Perl_grok_oct)
     {
 	SV *	string = ST(0)
 ;
-#line 443 "RealPPPort.xs"
+#line 1964 "RealPPPort.xs"
 		char *pv;
 		I32 flags;
 		STRLEN len;
-#line 717 "RealPPPort.c"
+#line 3814 "RealPPPort.c"
 	UV	RETVAL;
 	dXSTARG;
-#line 447 "RealPPPort.xs"
+#line 1968 "RealPPPort.xs"
 		pv = SvPV(string, len);
 		RETVAL = Perl_grok_oct(aTHX_ pv, &len, &flags, NULL);
-#line 723 "RealPPPort.c"
+#line 3820 "RealPPPort.c"
 	XSprePUSH; PUSHu((UV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_call_newCONSTSUB_1); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_call_newCONSTSUB_1)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-
-	call_newCONSTSUB_1();
-    }
-    XSRETURN_EMPTY;
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_call_newCONSTSUB_2); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_call_newCONSTSUB_2)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-
-	call_newCONSTSUB_2();
-    }
-    XSRETURN_EMPTY;
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_call_newCONSTSUB_3); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_call_newCONSTSUB_3)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-
-	call_newCONSTSUB_3();
-    }
-    XSRETURN_EMPTY;
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_newSVpvs); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_newSVpvs)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 472 "RealPPPort.xs"
-		mXPUSHs(newSVpvs("newSVpvs"));
-		XSRETURN(1);
-#line 784 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_newSVpvs_flags); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_newSVpvs_flags)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 478 "RealPPPort.xs"
-		XPUSHs(newSVpvs_flags("newSVpvs_flags", SVs_TEMP));
-		XSRETURN(1);
-#line 803 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_newSVpvs_share); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_newSVpvs_share)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-#line 484 "RealPPPort.xs"
-		SV *sv;
-		U32 hash;
-#line 820 "RealPPPort.c"
-	int	RETVAL;
-	dXSTARG;
-#line 487 "RealPPPort.xs"
-		RETVAL = 0;
-		PERL_HASH(hash, "pvs", 3);
-		sv = newSVpvs_share("pvs");
-		RETVAL += strEQ(SvPV_nolen_const(sv), "pvs");
-		RETVAL += SvCUR(sv) == 3;
-		RETVAL += SvSHARED_HASH(sv) == hash;
-		SvREFCNT_dec(sv);
-#line 831 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_sv_catpvs); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_sv_catpvs)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-	SV *	sv = ST(0)
-;
-#line 501 "RealPPPort.xs"
-		sv_catpvs(sv, "sv_catpvs");
-#line 851 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_sv_setpvs); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_sv_setpvs)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-	SV *	sv = ST(0)
-;
-#line 507 "RealPPPort.xs"
-		sv_setpvs(sv, "sv_setpvs");
-#line 871 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_hv_fetchs); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_hv_fetchs)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "hv");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-	SV *	hv = ST(0)
-;
-#line 513 "RealPPPort.xs"
-		SV **s;
-#line 891 "RealPPPort.c"
-#line 515 "RealPPPort.xs"
-		s = hv_fetchs((HV *) SvRV(hv), "hv_fetchs", 0);
-		XPUSHs(sv_mortalcopy(*s));
-		XSRETURN(1);
-#line 896 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_hv_stores); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_hv_stores)
-{
-    dVAR; dXSARGS;
-    if (items != 2)
-       croak_xs_usage(cv,  "hv, sv");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-	SV *	hv = ST(0)
-;
-	SV *	sv = ST(1)
-;
-#line 524 "RealPPPort.xs"
-		(void) hv_stores((HV *) SvRV(hv), "hv_stores", SvREFCNT_inc_simple(sv));
-#line 918 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_gv_fetchpvs); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_gv_fetchpvs)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	SV *	RETVAL;
-#line 529 "RealPPPort.xs"
-		RETVAL = newRV_inc((SV*)gv_fetchpvs("Devel::PPPort::VERSION", 0, SVt_PV));
-#line 935 "RealPPPort.c"
-	ST(0) = RETVAL;
-	sv_2mortal(ST(0));
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_gv_stashpvs); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_gv_stashpvs)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	SV *	RETVAL;
-#line 536 "RealPPPort.xs"
-		RETVAL = newRV_inc((SV*)gv_stashpvs("Devel::PPPort", 0));
-#line 953 "RealPPPort.c"
-	ST(0) = RETVAL;
-	sv_2mortal(ST(0));
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_get_cvs); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_get_cvs)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-#line 543 "RealPPPort.xs"
-		CV* xv;
-#line 970 "RealPPPort.c"
-	int	RETVAL;
-	dXSTARG;
-#line 545 "RealPPPort.xs"
-		RETVAL = 0;
-		xv = get_cvs("Devel::PPPort::foobar", 0);
-		if(xv == NULL) RETVAL++;
-		xv = get_cvs("Devel::PPPort::foobar", GV_ADDMULTI);
-		if(xv && SvTYPE(xv) == SVt_PVCV) RETVAL++;
-		xv = get_cvs("Devel::PPPort::get_cvs", 0);
-		if(xv && SvTYPE(xv) == SVt_PVCV) RETVAL++;
-#line 981 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
     }
     XSRETURN(1);
 }
@@ -1003,2732 +3842,6 @@ XS_EUPXS(XS_Devel__PPPort_exception)
 }
 
 
-XS_EUPXS(XS_Devel__PPPort_sv_setuv); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_sv_setuv)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "uv");
-    {
-	UV	uv = (UV)SvUV(ST(0))
-;
-	SV *	RETVAL;
-#line 573 "RealPPPort.xs"
-		RETVAL = newSViv(1);
-		sv_setuv(RETVAL, uv);
-#line 1020 "RealPPPort.c"
-	ST(0) = RETVAL;
-	sv_2mortal(ST(0));
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_newSVuv); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_newSVuv)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "uv");
-    {
-	UV	uv = (UV)SvUV(ST(0))
-;
-	SV *	RETVAL;
-#line 582 "RealPPPort.xs"
-		RETVAL = newSVuv(uv);
-#line 1040 "RealPPPort.c"
-	ST(0) = RETVAL;
-	sv_2mortal(ST(0));
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_sv_2uv); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_sv_2uv)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-	UV	RETVAL;
-	dXSTARG;
-#line 590 "RealPPPort.xs"
-		RETVAL = sv_2uv(sv);
-#line 1061 "RealPPPort.c"
-	XSprePUSH; PUSHu((UV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_SvUVx); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_SvUVx)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-	UV	RETVAL;
-	dXSTARG;
-#line 598 "RealPPPort.xs"
-		sv--;
-		RETVAL = SvUVx(++sv);
-#line 1082 "RealPPPort.c"
-	XSprePUSH; PUSHu((UV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_XSRETURN_UV); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_XSRETURN_UV)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 606 "RealPPPort.xs"
-		XSRETURN_UV(42);
-#line 1100 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_PUSHu); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_PUSHu)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 611 "RealPPPort.xs"
-		dTARG;
-#line 1118 "RealPPPort.c"
-#line 613 "RealPPPort.xs"
-		TARG = sv_newmortal();
-		EXTEND(SP, 1);
-		PUSHu(42);
-		XSRETURN(1);
-#line 1124 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_XPUSHu); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_XPUSHu)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 621 "RealPPPort.xs"
-		dTARG;
-#line 1142 "RealPPPort.c"
-#line 623 "RealPPPort.xs"
-		TARG = sv_newmortal();
-		XPUSHu(43);
-		XSRETURN(1);
-#line 1147 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_my_sprintf); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_my_sprintf)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 634 "RealPPPort.xs"
-		char buf[128];
-		int len;
-#line 1166 "RealPPPort.c"
-#line 637 "RealPPPort.xs"
-		len = my_sprintf(buf, "foo%s%d", "bar", 42);
-		mXPUSHi(len);
-		mXPUSHs(newSVpv(buf, 0));
-		XSRETURN(2);
-#line 1172 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_newSVpvn_share); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_newSVpvn_share)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-#line 649 "RealPPPort.xs"
-		const char *s;
-		SV *sv;
-		STRLEN len;
-		U32 hash;
-#line 1191 "RealPPPort.c"
-	int	RETVAL;
-	dXSTARG;
-#line 654 "RealPPPort.xs"
-		RETVAL = 0;
-		s = "mhx";
-		len = 3;
-		PERL_HASH(hash, (char *) s, len);
-		sv = newSVpvn_share(s, len, 0);
-		s = 0;
-		RETVAL += strEQ(SvPV_nolen_const(sv), "mhx");
-		RETVAL += SvCUR(sv) == len;
-		RETVAL += SvSHARED_HASH(sv) == hash;
-		SvREFCNT_dec(sv);
-		s = "foobar";
-		len = 6;
-		PERL_HASH(hash, (char *) s, len);
-		sv = newSVpvn_share(s, -(I32) len, hash);
-		s = 0;
-		RETVAL += strEQ(SvPV_nolen_const(sv), "foobar");
-		RETVAL += SvCUR(sv) == len;
-		RETVAL += SvSHARED_HASH(sv) == hash;
-		SvREFCNT_dec(sv);
-#line 1214 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_warner); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_warner)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-#line 683 "RealPPPort.xs"
-#if (PERL_BCDVERSION >= 0x5004000)
-		warner(packWARN(WARN_MISC), "warner %s:%d", "bar", 42);
-#endif
-#line 1232 "RealPPPort.c"
-    }
-    XSRETURN_EMPTY;
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_Perl_warner); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_Perl_warner)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-#line 690 "RealPPPort.xs"
-#if (PERL_BCDVERSION >= 0x5004000)
-		Perl_warner(aTHX_ packWARN(WARN_MISC), "Perl_warner %s:%d", "bar", 42);
-#endif
-#line 1249 "RealPPPort.c"
-    }
-    XSRETURN_EMPTY;
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_Perl_warner_nocontext); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_Perl_warner_nocontext)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-#line 697 "RealPPPort.xs"
-#if (PERL_BCDVERSION >= 0x5004000)
-		Perl_warner_nocontext(packWARN(WARN_MISC), "Perl_warner_nocontext %s:%d", "bar", 42);
-#endif
-#line 1266 "RealPPPort.c"
-    }
-    XSRETURN_EMPTY;
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_ckWARN); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_ckWARN)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-#line 704 "RealPPPort.xs"
-#if (PERL_BCDVERSION >= 0x5004000)
-		if (ckWARN(WARN_MISC))
-		  Perl_warner_nocontext(packWARN(WARN_MISC), "ckWARN %s:%d", "bar", 42);
-#endif
-#line 1284 "RealPPPort.c"
-    }
-    XSRETURN_EMPTY;
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_CopSTASHPV); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_CopSTASHPV)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	char *	RETVAL;
-	dXSTARG;
-#line 716 "RealPPPort.xs"
-		RETVAL = CopSTASHPV(PL_curcop);
-#line 1301 "RealPPPort.c"
-	sv_setpv(TARG, RETVAL); XSprePUSH; PUSHTARG;
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_CopFILE); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_CopFILE)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	char *	RETVAL;
-	dXSTARG;
-#line 723 "RealPPPort.xs"
-		RETVAL = CopFILE(PL_curcop);
-#line 1319 "RealPPPort.c"
-	sv_setpv(TARG, RETVAL); XSprePUSH; PUSHTARG;
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_SvPVbyte); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_SvPVbyte)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-#line 735 "RealPPPort.xs"
-		char *str;
-		STRLEN len;
-#line 1338 "RealPPPort.c"
-	IV	RETVAL;
-	dXSTARG;
-#line 738 "RealPPPort.xs"
-		str = SvPVbyte(sv, len);
-		RETVAL = strEQ(str, "mhx") ? (IV) len : (IV) -1;
-#line 1344 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_SvPV_nolen); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_SvPV_nolen)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-#line 747 "RealPPPort.xs"
-		char *str;
-#line 1362 "RealPPPort.c"
-	IV	RETVAL;
-	dXSTARG;
-#line 749 "RealPPPort.xs"
-		str = SvPV_nolen(sv);
-		RETVAL = strEQ(str, "mhx") ? 42 : 0;
-#line 1368 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_SvPV_const); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_SvPV_const)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-#line 758 "RealPPPort.xs"
-		const char *str;
-		STRLEN len;
-#line 1387 "RealPPPort.c"
-	IV	RETVAL;
-	dXSTARG;
-#line 761 "RealPPPort.xs"
-		str = SvPV_const(sv, len);
-		RETVAL = len + (strEQ(str, "mhx") ? 40 : 0);
-#line 1393 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_SvPV_mutable); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_SvPV_mutable)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-#line 770 "RealPPPort.xs"
-		char *str;
-		STRLEN len;
-#line 1412 "RealPPPort.c"
-	IV	RETVAL;
-	dXSTARG;
-#line 773 "RealPPPort.xs"
-		str = SvPV_mutable(sv, len);
-		RETVAL = len + (strEQ(str, "mhx") ? 41 : 0);
-#line 1418 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_SvPV_flags); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_SvPV_flags)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-#line 782 "RealPPPort.xs"
-		char *str;
-		STRLEN len;
-#line 1437 "RealPPPort.c"
-	IV	RETVAL;
-	dXSTARG;
-#line 785 "RealPPPort.xs"
-		str = SvPV_flags(sv, len, SV_GMAGIC);
-		RETVAL = len + (strEQ(str, "mhx") ? 42 : 0);
-#line 1443 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_SvPV_flags_const); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_SvPV_flags_const)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-#line 794 "RealPPPort.xs"
-		const char *str;
-		STRLEN len;
-#line 1462 "RealPPPort.c"
-	IV	RETVAL;
-	dXSTARG;
-#line 797 "RealPPPort.xs"
-		str = SvPV_flags_const(sv, len, SV_GMAGIC);
-		RETVAL = len + (strEQ(str, "mhx") ? 43 : 0);
-#line 1468 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_SvPV_flags_const_nolen); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_SvPV_flags_const_nolen)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-#line 806 "RealPPPort.xs"
-		const char *str;
-#line 1486 "RealPPPort.c"
-	IV	RETVAL;
-	dXSTARG;
-#line 808 "RealPPPort.xs"
-		str = SvPV_flags_const_nolen(sv, SV_GMAGIC);
-		RETVAL = strEQ(str, "mhx") ? 47 : 0;
-#line 1492 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_SvPV_flags_mutable); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_SvPV_flags_mutable)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-#line 817 "RealPPPort.xs"
-		char *str;
-		STRLEN len;
-#line 1511 "RealPPPort.c"
-	IV	RETVAL;
-	dXSTARG;
-#line 820 "RealPPPort.xs"
-		str = SvPV_flags_mutable(sv, len, SV_GMAGIC);
-		RETVAL = len + (strEQ(str, "mhx") ? 45 : 0);
-#line 1517 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_SvPV_force); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_SvPV_force)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-#line 829 "RealPPPort.xs"
-		char *str;
-		STRLEN len;
-#line 1536 "RealPPPort.c"
-	IV	RETVAL;
-	dXSTARG;
-#line 832 "RealPPPort.xs"
-		str = SvPV_force(sv, len);
-		RETVAL = len + (strEQ(str, "mhx") ? 46 : 0);
-#line 1542 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_SvPV_force_nolen); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_SvPV_force_nolen)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-#line 841 "RealPPPort.xs"
-		char *str;
-#line 1560 "RealPPPort.c"
-	IV	RETVAL;
-	dXSTARG;
-#line 843 "RealPPPort.xs"
-		str = SvPV_force_nolen(sv);
-		RETVAL = strEQ(str, "mhx") ? 50 : 0;
-#line 1566 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_SvPV_force_mutable); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_SvPV_force_mutable)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-#line 852 "RealPPPort.xs"
-		char *str;
-		STRLEN len;
-#line 1585 "RealPPPort.c"
-	IV	RETVAL;
-	dXSTARG;
-#line 855 "RealPPPort.xs"
-		str = SvPV_force_mutable(sv, len);
-		RETVAL = len + (strEQ(str, "mhx") ? 48 : 0);
-#line 1591 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_SvPV_force_nomg); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_SvPV_force_nomg)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-#line 864 "RealPPPort.xs"
-		char *str;
-		STRLEN len;
-#line 1610 "RealPPPort.c"
-	IV	RETVAL;
-	dXSTARG;
-#line 867 "RealPPPort.xs"
-		str = SvPV_force_nomg(sv, len);
-		RETVAL = len + (strEQ(str, "mhx") ? 49 : 0);
-#line 1616 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_SvPV_force_nomg_nolen); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_SvPV_force_nomg_nolen)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-#line 876 "RealPPPort.xs"
-		char *str;
-#line 1634 "RealPPPort.c"
-	IV	RETVAL;
-	dXSTARG;
-#line 878 "RealPPPort.xs"
-		str = SvPV_force_nomg_nolen(sv);
-		RETVAL = strEQ(str, "mhx") ? 53 : 0;
-#line 1640 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_SvPV_force_flags); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_SvPV_force_flags)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-#line 887 "RealPPPort.xs"
-		char *str;
-		STRLEN len;
-#line 1659 "RealPPPort.c"
-	IV	RETVAL;
-	dXSTARG;
-#line 890 "RealPPPort.xs"
-		str = SvPV_force_flags(sv, len, SV_GMAGIC);
-		RETVAL = len + (strEQ(str, "mhx") ? 51 : 0);
-#line 1665 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_SvPV_force_flags_nolen); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_SvPV_force_flags_nolen)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-#line 899 "RealPPPort.xs"
-		char *str;
-#line 1683 "RealPPPort.c"
-	IV	RETVAL;
-	dXSTARG;
-#line 901 "RealPPPort.xs"
-		str = SvPV_force_flags_nolen(sv, SV_GMAGIC);
-		RETVAL = strEQ(str, "mhx") ? 55 : 0;
-#line 1689 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_SvPV_force_flags_mutable); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_SvPV_force_flags_mutable)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-#line 910 "RealPPPort.xs"
-		char *str;
-		STRLEN len;
-#line 1708 "RealPPPort.c"
-	IV	RETVAL;
-	dXSTARG;
-#line 913 "RealPPPort.xs"
-		str = SvPV_force_flags_mutable(sv, len, SV_GMAGIC);
-		RETVAL = len + (strEQ(str, "mhx") ? 53 : 0);
-#line 1714 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_SvPV_nolen_const); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_SvPV_nolen_const)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-#line 922 "RealPPPort.xs"
-		const char *str;
-#line 1732 "RealPPPort.c"
-	IV	RETVAL;
-	dXSTARG;
-#line 924 "RealPPPort.xs"
-		str = SvPV_nolen_const(sv);
-		RETVAL = strEQ(str, "mhx") ? 57 : 0;
-#line 1738 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_SvPV_nomg); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_SvPV_nomg)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-#line 933 "RealPPPort.xs"
-		char *str;
-		STRLEN len;
-#line 1757 "RealPPPort.c"
-	IV	RETVAL;
-	dXSTARG;
-#line 936 "RealPPPort.xs"
-		str = SvPV_nomg(sv, len);
-		RETVAL = len + (strEQ(str, "mhx") ? 55 : 0);
-#line 1763 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_SvPV_nomg_const); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_SvPV_nomg_const)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-#line 945 "RealPPPort.xs"
-		const char *str;
-		STRLEN len;
-#line 1782 "RealPPPort.c"
-	IV	RETVAL;
-	dXSTARG;
-#line 948 "RealPPPort.xs"
-		str = SvPV_nomg_const(sv, len);
-		RETVAL = len + (strEQ(str, "mhx") ? 56 : 0);
-#line 1788 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_SvPV_nomg_const_nolen); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_SvPV_nomg_const_nolen)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-#line 957 "RealPPPort.xs"
-		const char *str;
-#line 1806 "RealPPPort.c"
-	IV	RETVAL;
-	dXSTARG;
-#line 959 "RealPPPort.xs"
-		str = SvPV_nomg_const_nolen(sv);
-		RETVAL = strEQ(str, "mhx") ? 60 : 0;
-#line 1812 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_SvPV_renew); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_SvPV_renew)
-{
-    dVAR; dXSARGS;
-    if (items != 3)
-       croak_xs_usage(cv,  "sv, nlen, insv");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-	SV *	sv = ST(0)
-;
-	IV	nlen = (IV)SvIV(ST(1))
-;
-	SV *	insv = ST(2)
-;
-#line 970 "RealPPPort.xs"
-		STRLEN slen;
-		const char *str;
-#line 1837 "RealPPPort.c"
-#line 973 "RealPPPort.xs"
-		str = SvPV_const(insv, slen);
-		XPUSHs(sv);
-		mXPUSHi(SvLEN(sv));
-		SvPV_renew(sv, nlen);
-		Copy(str, SvPVX(sv), slen + 1, char);
-		SvCUR_set(sv, slen);
-		mXPUSHi(SvLEN(sv));
-#line 1846 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_compare_PL_signals); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_compare_PL_signals)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	int	RETVAL;
-	dXSTARG;
-#line 988 "RealPPPort.xs"
-		{
-		  U32 ref = get_PL_signals_1();
-		  RETVAL = ref == get_PL_signals_2() && ref == get_PL_signals_3();
-		}
-#line 1867 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_PL_sv_undef); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_PL_sv_undef)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	SV *	RETVAL;
-#line 998 "RealPPPort.xs"
-		RETVAL = newSVsv(&PL_sv_undef);
-#line 1884 "RealPPPort.c"
-	ST(0) = RETVAL;
-	sv_2mortal(ST(0));
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_PL_sv_yes); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_PL_sv_yes)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	SV *	RETVAL;
-#line 1005 "RealPPPort.xs"
-		RETVAL = newSVsv(&PL_sv_yes);
-#line 1902 "RealPPPort.c"
-	ST(0) = RETVAL;
-	sv_2mortal(ST(0));
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_PL_sv_no); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_PL_sv_no)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	SV *	RETVAL;
-#line 1012 "RealPPPort.xs"
-		RETVAL = newSVsv(&PL_sv_no);
-#line 1920 "RealPPPort.c"
-	ST(0) = RETVAL;
-	sv_2mortal(ST(0));
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_PL_na); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_PL_na)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "string");
-    {
-	char *	string = (char *)SvPV_nolen(ST(0))
-;
-	int	RETVAL;
-	dXSTARG;
-#line 1020 "RealPPPort.xs"
-		PL_na = strlen(string);
-		RETVAL = PL_na;
-#line 1942 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_PL_Sv); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_PL_Sv)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	SV *	RETVAL;
-#line 1028 "RealPPPort.xs"
-		PL_Sv = newSVpv("mhx", 0);
-		RETVAL = PL_Sv;
-#line 1960 "RealPPPort.c"
-	ST(0) = RETVAL;
-	sv_2mortal(ST(0));
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_PL_tokenbuf); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_PL_tokenbuf)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	SV *	RETVAL;
-#line 1036 "RealPPPort.xs"
-		RETVAL = newSViv(PL_tokenbuf[0]);
-#line 1978 "RealPPPort.c"
-	ST(0) = RETVAL;
-	sv_2mortal(ST(0));
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_PL_parser); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_PL_parser)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	SV *	RETVAL;
-#line 1043 "RealPPPort.xs"
-		RETVAL = newSViv(PL_parser != NULL);
-#line 1996 "RealPPPort.c"
-	ST(0) = RETVAL;
-	sv_2mortal(ST(0));
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_PL_hexdigit); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_PL_hexdigit)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	SV *	RETVAL;
-#line 1050 "RealPPPort.xs"
-		RETVAL = newSVpv((char *) PL_hexdigit, 0);
-#line 2014 "RealPPPort.c"
-	ST(0) = RETVAL;
-	sv_2mortal(ST(0));
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_PL_hints); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_PL_hints)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	SV *	RETVAL;
-#line 1057 "RealPPPort.xs"
-		RETVAL = newSViv((IV) PL_hints);
-#line 2032 "RealPPPort.c"
-	ST(0) = RETVAL;
-	sv_2mortal(ST(0));
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_PL_ppaddr); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_PL_ppaddr)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "string");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-	char *	string = (char *)SvPV_nolen(ST(0))
-;
-#line 1065 "RealPPPort.xs"
-		PUSHMARK(SP);
-		mXPUSHs(newSVpv(string, 0));
-		PUTBACK;
-		ENTER;
-		(void)*(PL_ppaddr[OP_UC])(aTHXR);
-		SPAGAIN;
-		LEAVE;
-		XSRETURN(1);
-#line 2060 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_other_variables); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_other_variables)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 1077 "RealPPPort.xs"
-		int count = 0;
-#line 2078 "RealPPPort.c"
-#line 1079 "RealPPPort.xs"
-		ppp_TESTVAR(PL_DBsignal);
-		ppp_TESTVAR(PL_DBsingle);
-		ppp_TESTVAR(PL_DBsub);
-		ppp_TESTVAR(PL_DBtrace);
-		ppp_TESTVAR(PL_compiling);
-		ppp_TESTVAR(PL_curcop);
-		ppp_TESTVAR(PL_curstash);
-		ppp_TESTVAR(PL_debstash);
-		ppp_TESTVAR(PL_defgv);
-		ppp_TESTVAR(PL_diehook);
-#if (PERL_BCDVERSION >= 0x5013007)
-                /* can't get a pointer any longer */
-                mXPUSHi(PL_dirty ? 1 : 1);
-                count++;
-#else
-		ppp_TESTVAR(PL_dirty);
-#endif
-		ppp_TESTVAR(PL_dowarn);
-		ppp_TESTVAR(PL_errgv);
-		ppp_TESTVAR(PL_laststatval);
-		ppp_TESTVAR(PL_no_modify);
-		ppp_TESTVAR(PL_perl_destruct_level);
-		ppp_TESTVAR(PL_perldb);
-		ppp_TESTVAR(PL_stack_base);
-		ppp_TESTVAR(PL_stack_sp);
-		ppp_TESTVAR(PL_statcache);
-		ppp_TESTVAR(PL_stdingv);
-		ppp_TESTVAR(PL_sv_arenaroot);
-		ppp_TESTVAR(PL_tainted);
-		ppp_TESTVAR(PL_tainting);
-
-		ppp_PARSERVAR(ppp_expect_t, PL_expect);
-		ppp_PARSERVAR(line_t, PL_copline);
-		ppp_PARSERVAR(ppp_rsfp_t, PL_rsfp);
-		ppp_PARSERVAR(AV *, PL_rsfp_filters);
-		ppp_PARSERVAR(SV *, PL_linestr);
-		ppp_PARSERVAR(char *, PL_bufptr);
-		ppp_PARSERVAR(char *, PL_bufend);
-		ppp_PARSERVAR(ppp_lex_state_t, PL_lex_state);
-		ppp_PARSERVAR(SV *, PL_lex_stuff);
-		ppp_PARSERVAR(ppp_error_count_t, PL_error_count);
-		ppp_PARSERVAR(ppp_in_my_t, PL_in_my);
-#if (PERL_BCDVERSION >= 0x5005000)
-		ppp_PARSERVAR(HV*, PL_in_my_stash);
-#else
-		ppp_PARSERVAR_dummy;
-#endif
-		XSRETURN(count);
-#line 2128 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_no_dummy_parser_vars); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_no_dummy_parser_vars)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "check");
-    {
-	int	check = (int)SvIV(ST(0))
-;
-	int	RETVAL;
-	dXSTARG;
-
-	RETVAL = no_dummy_parser_vars(check);
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_dummy_parser_warning); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_dummy_parser_warning)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	int	RETVAL;
-	dXSTARG;
-
-	RETVAL = dummy_parser_warning();
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_ptrtests); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_ptrtests)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-#line 1142 "RealPPPort.xs"
-		int var, *p = &var;
-
-#line 2181 "RealPPPort.c"
-	int	RETVAL;
-	dXSTARG;
-#line 1145 "RealPPPort.xs"
-		RETVAL = 0;
-		RETVAL += PTR2nat(p) != 0       ?  1 : 0;
-		RETVAL += PTR2ul(p) != 0UL      ?  2 : 0;
-		RETVAL += PTR2UV(p) != (UV) 0   ?  4 : 0;
-		RETVAL += PTR2IV(p) != (IV) 0   ?  8 : 0;
-		RETVAL += PTR2NV(p) != (NV) 0   ? 16 : 0;
-		RETVAL += p > NUM2PTR(int *, 0) ? 32 : 0;
-
-#line 2193 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_gv_stashpvn); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_gv_stashpvn)
-{
-    dVAR; dXSARGS;
-    if (items != 2)
-       croak_xs_usage(cv,  "name, create");
-    {
-	char *	name = (char *)SvPV_nolen(ST(0))
-;
-	I32	create = (I32)SvIV(ST(1))
-;
-	int	RETVAL;
-	dXSTARG;
-#line 1161 "RealPPPort.xs"
-		RETVAL = gv_stashpvn(name, strlen(name), create) != NULL;
-#line 2215 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_get_sv); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_get_sv)
-{
-    dVAR; dXSARGS;
-    if (items != 2)
-       croak_xs_usage(cv,  "name, create");
-    {
-	char *	name = (char *)SvPV_nolen(ST(0))
-;
-	I32	create = (I32)SvIV(ST(1))
-;
-	int	RETVAL;
-	dXSTARG;
-#line 1170 "RealPPPort.xs"
-		RETVAL = get_sv(name, create) != NULL;
-#line 2237 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_get_av); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_get_av)
-{
-    dVAR; dXSARGS;
-    if (items != 2)
-       croak_xs_usage(cv,  "name, create");
-    {
-	char *	name = (char *)SvPV_nolen(ST(0))
-;
-	I32	create = (I32)SvIV(ST(1))
-;
-	int	RETVAL;
-	dXSTARG;
-#line 1179 "RealPPPort.xs"
-		RETVAL = get_av(name, create) != NULL;
-#line 2259 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_get_hv); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_get_hv)
-{
-    dVAR; dXSARGS;
-    if (items != 2)
-       croak_xs_usage(cv,  "name, create");
-    {
-	char *	name = (char *)SvPV_nolen(ST(0))
-;
-	I32	create = (I32)SvIV(ST(1))
-;
-	int	RETVAL;
-	dXSTARG;
-#line 1188 "RealPPPort.xs"
-		RETVAL = get_hv(name, create) != NULL;
-#line 2281 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_get_cv); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_get_cv)
-{
-    dVAR; dXSARGS;
-    if (items != 2)
-       croak_xs_usage(cv,  "name, create");
-    {
-	char *	name = (char *)SvPV_nolen(ST(0))
-;
-	I32	create = (I32)SvIV(ST(1))
-;
-	int	RETVAL;
-	dXSTARG;
-#line 1197 "RealPPPort.xs"
-		RETVAL = get_cv(name, create) != NULL;
-#line 2303 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_xsreturn); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_xsreturn)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "two");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-	int	two = (int)SvIV(ST(0))
-;
-#line 1205 "RealPPPort.xs"
-		mXPUSHp("test1", 5);
-		if (two)
-		  mXPUSHp("test2", 5);
-		if (two)
-		  XSRETURN(2);
-		else
-		  XSRETURN(1);
-#line 2329 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_boolSV); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_boolSV)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "value");
-    {
-	int	value = (int)SvIV(ST(0))
-;
-	SV *	RETVAL;
-#line 1217 "RealPPPort.xs"
-		RETVAL = newSVsv(boolSV(value));
-#line 2348 "RealPPPort.c"
-	ST(0) = RETVAL;
-	sv_2mortal(ST(0));
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_DEFSV); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_DEFSV)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	SV *	RETVAL;
-#line 1224 "RealPPPort.xs"
-		RETVAL = newSVsv(DEFSV);
-#line 2366 "RealPPPort.c"
-	ST(0) = RETVAL;
-	sv_2mortal(ST(0));
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_DEFSV_modify); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_DEFSV_modify)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 1231 "RealPPPort.xs"
-		XPUSHs(sv_mortalcopy(DEFSV));
-		ENTER;
-		SAVE_DEFSV;
-		DEFSV_set(newSVpvs("DEFSV"));
-		XPUSHs(sv_mortalcopy(DEFSV));
-		/* Yes, this leaks the above scalar; 5.005 with threads for some reason */
-		/* frees it upon LEAVE, thus mortalizing it causes "attempt to free..." */
-		/* sv_2mortal(DEFSV); */
-		LEAVE;
-		XPUSHs(sv_mortalcopy(DEFSV));
-		XSRETURN(3);
-#line 2395 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_ERRSV); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_ERRSV)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	int	RETVAL;
-	dXSTARG;
-#line 1246 "RealPPPort.xs"
-		RETVAL = SvTRUE(ERRSV);
-#line 2413 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_UNDERBAR); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_UNDERBAR)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	SV *	RETVAL;
-#line 1253 "RealPPPort.xs"
-		{
-		  dUNDERBAR;
-		  RETVAL = newSVsv(UNDERBAR);
-		}
-#line 2433 "RealPPPort.c"
-	ST(0) = RETVAL;
-	sv_2mortal(ST(0));
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_prepush); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_prepush)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-#line 1263 "RealPPPort.xs"
-		{
-		  dXSTARG;
-		  XSprePUSH;
-		  PUSHi(42);
-		  XSRETURN(1);
-		}
-#line 2455 "RealPPPort.c"
-    }
-    XSRETURN_EMPTY;
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_PERL_ABS); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_PERL_ABS)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "a");
-    {
-	int	a = (int)SvIV(ST(0))
-;
-	int	RETVAL;
-	dXSTARG;
-
-	RETVAL = PERL_ABS(a);
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_SVf); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_SVf)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "x");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-	SV *	x = ST(0)
-;
-#line 1278 "RealPPPort.xs"
-#if (PERL_BCDVERSION >= 0x5004000)
-		x = sv_2mortal(newSVpvf("[%"SVf"]", SVfARG(x)));
-#endif
-		XPUSHs(x);
-		XSRETURN(1);
-#line 2497 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_Perl_ppaddr_t); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_Perl_ppaddr_t)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "string");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-	char *	string = (char *)SvPV_nolen(ST(0))
-;
-#line 1288 "RealPPPort.xs"
-		Perl_ppaddr_t lower;
-#line 2517 "RealPPPort.c"
-#line 1290 "RealPPPort.xs"
-		lower = PL_ppaddr[OP_LC];
-		mXPUSHs(newSVpv(string, 0));
-		PUTBACK;
-		ENTER;
-		(void)*(lower)(aTHXR);
-		SPAGAIN;
-		LEAVE;
-		XSRETURN(1);
-#line 2527 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_mPUSHs); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_mPUSHs)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 1306 "RealPPPort.xs"
-	EXTEND(SP, 3);
-	mPUSHs(newSVpv("foo", 0));
-	mPUSHs(newSVpv("bar13", 3));
-	mPUSHs(newSViv(42));
-	XSRETURN(3);
-#line 2549 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_mPUSHp); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_mPUSHp)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 1315 "RealPPPort.xs"
-	EXTEND(SP, 3);
-	mPUSHp("one", 3);
-	mPUSHp("two", 3);
-	mPUSHp("three", 5);
-	XSRETURN(3);
-#line 2571 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_mPUSHn); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_mPUSHn)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 1324 "RealPPPort.xs"
-	EXTEND(SP, 3);
-	mPUSHn(0.5);
-	mPUSHn(-0.25);
-	mPUSHn(0.125);
-	XSRETURN(3);
-#line 2593 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_mPUSHi); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_mPUSHi)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 1333 "RealPPPort.xs"
-	EXTEND(SP, 3);
-	mPUSHi(-1);
-	mPUSHi(2);
-	mPUSHi(-3);
-	XSRETURN(3);
-#line 2615 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_mPUSHu); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_mPUSHu)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 1342 "RealPPPort.xs"
-	EXTEND(SP, 3);
-	mPUSHu(1);
-	mPUSHu(2);
-	mPUSHu(3);
-	XSRETURN(3);
-#line 2637 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_mXPUSHs); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_mXPUSHs)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 1351 "RealPPPort.xs"
-	mXPUSHs(newSVpv("foo", 0));
-	mXPUSHs(newSVpv("bar13", 3));
-	mXPUSHs(newSViv(42));
-	XSRETURN(3);
-#line 2658 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_mXPUSHp); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_mXPUSHp)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 1359 "RealPPPort.xs"
-	mXPUSHp("one", 3);
-	mXPUSHp("two", 3);
-	mXPUSHp("three", 5);
-	XSRETURN(3);
-#line 2679 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_mXPUSHn); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_mXPUSHn)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 1367 "RealPPPort.xs"
-	mXPUSHn(0.5);
-	mXPUSHn(-0.25);
-	mXPUSHn(0.125);
-	XSRETURN(3);
-#line 2700 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_mXPUSHi); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_mXPUSHi)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 1375 "RealPPPort.xs"
-	mXPUSHi(-1);
-	mXPUSHi(2);
-	mXPUSHi(-3);
-	XSRETURN(3);
-#line 2721 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_mXPUSHu); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_mXPUSHu)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 1383 "RealPPPort.xs"
-	mXPUSHu(1);
-	mXPUSHu(2);
-	mXPUSHu(3);
-	XSRETURN(3);
-#line 2742 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_TestSvUV_set); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_TestSvUV_set)
-{
-    dVAR; dXSARGS;
-    if (items != 2)
-       croak_xs_usage(cv,  "sv, val");
-    {
-	SV *	sv = ST(0)
-;
-	UV	val = (UV)SvUV(ST(1))
-;
-	IV	RETVAL;
-	dXSTARG;
-#line 1397 "RealPPPort.xs"
-		SvUV_set(sv, val);
-		RETVAL = SvUVX(sv) == val ? 42 : -1;
-#line 2765 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_TestSvPVX_const); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_TestSvPVX_const)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-	IV	RETVAL;
-	dXSTARG;
-#line 1406 "RealPPPort.xs"
-                RETVAL = strEQ(SvPVX_const(sv), "mhx") ? 43 : -1;
-#line 2785 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_TestSvPVX_mutable); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_TestSvPVX_mutable)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-	IV	RETVAL;
-	dXSTARG;
-#line 1414 "RealPPPort.xs"
-                RETVAL = strEQ(SvPVX_mutable(sv), "mhx") ? 44 : -1;
-#line 2805 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_TestSvSTASH_set); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_TestSvSTASH_set)
-{
-    dVAR; dXSARGS;
-    if (items != 2)
-       croak_xs_usage(cv,  "sv, name");
-    {
-	SV *	sv = ST(0)
-;
-	char *	name = (char *)SvPV_nolen(ST(1))
-;
-#line 1423 "RealPPPort.xs"
-		sv = SvRV(sv);
-		SvREFCNT_dec(SvSTASH(sv));
-                SvSTASH_set(sv, (HV*) SvREFCNT_inc(gv_stashpv(name, 0)));
-#line 2827 "RealPPPort.c"
-    }
-    XSRETURN_EMPTY;
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_iv_size); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_iv_size)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	IV	RETVAL;
-	dXSTARG;
-#line 1434 "RealPPPort.xs"
-		RETVAL = IVSIZE == sizeof(IV);
-#line 2844 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_uv_size); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_uv_size)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	IV	RETVAL;
-	dXSTARG;
-#line 1441 "RealPPPort.xs"
-		RETVAL = UVSIZE == sizeof(UV);
-#line 2862 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_iv_type); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_iv_type)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	IV	RETVAL;
-	dXSTARG;
-#line 1448 "RealPPPort.xs"
-		RETVAL = sizeof(IVTYPE) == sizeof(IV);
-#line 2880 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_uv_type); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_uv_type)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	IV	RETVAL;
-	dXSTARG;
-#line 1455 "RealPPPort.xs"
-		RETVAL = sizeof(UVTYPE) == sizeof(UV);
-#line 2898 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_newSVpvn); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_newSVpvn)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 1466 "RealPPPort.xs"
-		mXPUSHs(newSVpvn("test", 4));
-		mXPUSHs(newSVpvn("test", 2));
-		mXPUSHs(newSVpvn("test", 0));
-		mXPUSHs(newSVpvn(NULL, 2));
-		mXPUSHs(newSVpvn(NULL, 0));
-		XSRETURN(5);
-#line 2921 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_newSVpvn_flags); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_newSVpvn_flags)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 1476 "RealPPPort.xs"
-		XPUSHs(newSVpvn_flags("test", 4, SVs_TEMP));
-		XPUSHs(newSVpvn_flags("test", 2, SVs_TEMP));
-		XPUSHs(newSVpvn_flags("test", 0, SVs_TEMP));
-		XPUSHs(newSVpvn_flags(NULL, 2, SVs_TEMP));
-		XPUSHs(newSVpvn_flags(NULL, 0, SVs_TEMP));
-		XSRETURN(5);
-#line 2944 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_newSVpvn_utf8); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_newSVpvn_utf8)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 1486 "RealPPPort.xs"
-		XPUSHs(newSVpvn_flags("test", 4, SVs_TEMP|SVf_UTF8));
-		XSRETURN(1);
-#line 2963 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_SvREFCNT); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_SvREFCNT)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 1496 "RealPPPort.xs"
-		SV *sv, *svr;
-#line 2981 "RealPPPort.c"
-#line 1498 "RealPPPort.xs"
-		sv = newSV(0);
-		mXPUSHi(SvREFCNT(sv) == 1);
-		svr = SvREFCNT_inc(sv);
-		mXPUSHi(sv == svr);
-		mXPUSHi(SvREFCNT(sv) == 2);
-		svr = SvREFCNT_inc_simple(sv);
-		mXPUSHi(sv == svr);
-		mXPUSHi(SvREFCNT(sv) == 3);
-		svr = SvREFCNT_inc_NN(sv);
-		mXPUSHi(sv == svr);
-		mXPUSHi(SvREFCNT(sv) == 4);
-		svr = SvREFCNT_inc_simple_NN(sv);
-		mXPUSHi(sv == svr);
-		mXPUSHi(SvREFCNT(sv) == 5);
-		SvREFCNT_inc_void(sv);
-		mXPUSHi(SvREFCNT(sv) == 6);
-		SvREFCNT_inc_simple_void(sv);
-		mXPUSHi(SvREFCNT(sv) == 7);
-		SvREFCNT_inc_void_NN(sv);
-		mXPUSHi(SvREFCNT(sv) == 8);
-		SvREFCNT_inc_simple_void_NN(sv);
-		mXPUSHi(SvREFCNT(sv) == 9);
-		while (SvREFCNT(sv) > 1)
-		  SvREFCNT_dec(sv);
-		mXPUSHi(SvREFCNT(sv) == 1);
-		SvREFCNT_dec(sv);
-		XSRETURN(14);
-#line 3010 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_checkmem); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_checkmem)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-#line 1533 "RealPPPort.xs"
-    char *p;
-
-#line 3027 "RealPPPort.c"
-	int	RETVAL;
-	dXSTARG;
-#line 1536 "RealPPPort.xs"
-    RETVAL = 0;
-    Newx(p, 6, char);
-    CopyD("Hello", p, 6, char);
-    if (memEQ(p, "Hello", 6))
-      RETVAL++;
-    ZeroD(p, 6, char);
-    if (memEQ(p, "\0\0\0\0\0\0", 6))
-      RETVAL++;
-    if (memEQs(p, 6, "\0\0\0\0\0\0"))
-      RETVAL++;
-    Poison(p, 6, char);
-    if (memNE(p, "\0\0\0\0\0\0", 6))
-      RETVAL++;
-    if (memNEs(p, 6, "\0\0\0\0\0\0"))
-      RETVAL++;
-    Safefree(p);
-
-    Newxz(p, 6, char);
-    if (memEQ(p, "\0\0\0\0\0\0", 6))
-      RETVAL++;
-    Safefree(p);
-
-    Newxc(p, 3, short, char);
-    Safefree(p);
-
-#line 3056 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_my_snprintf); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_my_snprintf)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 1571 "RealPPPort.xs"
-		char buf[128];
-		int len;
-#line 3075 "RealPPPort.c"
-#line 1574 "RealPPPort.xs"
-		len = my_snprintf(buf, sizeof buf, "foo%s%d", "bar", 42);
-		mXPUSHi(len);
-		mXPUSHs(newSVpv(buf, 0));
-		XSRETURN(2);
-#line 3081 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_MY_CXT_1); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_MY_CXT_1)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	int	RETVAL;
-	dXSTARG;
-#line 1586 "RealPPPort.xs"
-		dMY_CXT;
-		RETVAL = MY_CXT.dummy == 42;
-		++MY_CXT.dummy;
-#line 3101 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_MY_CXT_2); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_MY_CXT_2)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	int	RETVAL;
-	dXSTARG;
-#line 1595 "RealPPPort.xs"
-		dMY_CXT;
-		RETVAL = MY_CXT.dummy == 43;
-#line 3120 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_MY_CXT_CLONE); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_MY_CXT_CLONE)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	int	RETVAL;
-	dXSTARG;
-#line 1603 "RealPPPort.xs"
-		MY_CXT_CLONE;
-		RETVAL = 42;
-#line 3139 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_GvSVn); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_GvSVn)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-#line 1615 "RealPPPort.xs"
-		GV* gv;
-#line 3155 "RealPPPort.c"
-	int	RETVAL;
-	dXSTARG;
-#line 1617 "RealPPPort.xs"
-		RETVAL = 0;
-		gv = gv_fetchpvs("Devel::PPPort::GvTest", GV_ADDMULTI, SVt_PVGV);
-		if (GvSVn(gv) != NULL)
-		{
-		  RETVAL++;
-		}
-#line 3165 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_isGV_with_GP); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_isGV_with_GP)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-#line 1629 "RealPPPort.xs"
-		GV* gv;
-#line 3181 "RealPPPort.c"
-	int	RETVAL;
-	dXSTARG;
-#line 1631 "RealPPPort.xs"
-		RETVAL = 0;
-		gv = gv_fetchpvs("Devel::PPPort::GvTest", GV_ADDMULTI, SVt_PVGV);
-		if (isGV_with_GP(gv))
-		{
-		  RETVAL++;
-		}
-		if (!isGV(&PL_sv_undef))
-		{
-		  RETVAL++;
-		}
-#line 3195 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_get_cvn_flags); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_get_cvn_flags)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-#line 1647 "RealPPPort.xs"
-		CV* xv;
-#line 3211 "RealPPPort.c"
-	int	RETVAL;
-	dXSTARG;
-#line 1649 "RealPPPort.xs"
-		RETVAL = 0;
-		xv = get_cvn_flags("Devel::PPPort::foobar", sizeof("Devel::PPPort::foobar")-1, 0);
-		if(xv == NULL) RETVAL++;
-		xv = get_cvn_flags("Devel::PPPort::foobar", sizeof("Devel::PPPort::foobar")-1, GV_ADDMULTI);
-		if(xv && SvTYPE(xv) == SVt_PVCV) RETVAL++;
-		xv = get_cvn_flags("Devel::PPPort::get_cvn_flags", sizeof("Devel::PPPort::get_cvn_flags")-1, 0);
-		if(xv && SvTYPE(xv) == SVt_PVCV) RETVAL++;
-#line 3222 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_gv_fetchpvn_flags); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_gv_fetchpvn_flags)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	SV *	RETVAL;
-#line 1662 "RealPPPort.xs"
-		RETVAL = newRV_inc((SV*)gv_fetchpvn_flags("Devel::PPPort::VERSION", sizeof("Devel::PPPort::VERSION")-1, 0, SVt_PV));
-#line 3239 "RealPPPort.c"
-	ST(0) = RETVAL;
-	sv_2mortal(ST(0));
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_gv_fetchsv); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_gv_fetchsv)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "name");
-    {
-	SV *	name = ST(0)
-;
-	SV *	RETVAL;
-#line 1670 "RealPPPort.xs"
-		RETVAL = newRV_inc((SV*)gv_fetchsv(name, 0, SVt_PV));
-#line 3259 "RealPPPort.c"
-	ST(0) = RETVAL;
-	sv_2mortal(ST(0));
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_pv_escape_can_unicode); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_pv_escape_can_unicode)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 1681 "RealPPPort.xs"
-#if defined(is_utf8_string) && defined(utf8_to_uvchr)
-		XSRETURN_YES;
-#else
-		XSRETURN_NO;
-#endif
-#line 3282 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_pv_pretty); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_pv_pretty)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 1690 "RealPPPort.xs"
-		char *rv;
-#line 3300 "RealPPPort.c"
-#line 1692 "RealPPPort.xs"
-		EXTEND(SP, 8);
-		ST(0) = sv_newmortal();
-		rv = pv_pretty(ST(0), "foobarbaz",
-				9, 40, NULL, NULL, 0);
-		ST(1) = sv_2mortal(newSVpv(rv, 0));
-		ST(2) = sv_newmortal();
-		rv = pv_pretty(ST(2), "pv_p\retty\n",
-				10, 40, "left", "right", PERL_PV_PRETTY_LTGT);
-		ST(3) = sv_2mortal(newSVpv(rv, 0));
-		ST(4) = sv_newmortal();
-		rv = pv_pretty(ST(4), "N\303\275 Batter\303\255",
-				12, 20, NULL, NULL, PERL_PV_ESCAPE_UNI_DETECT);
-		ST(5) = sv_2mortal(newSVpv(rv, 0));
-		ST(6) = sv_newmortal();
-		rv = pv_pretty(ST(6), "\303\201g\303\246tis Byrjun",
-				15, 18, NULL, NULL, PERL_PV_ESCAPE_UNI_DETECT|PERL_PV_PRETTY_ELLIPSES);
-		ST(7) = sv_2mortal(newSVpv(rv, 0));
-		XSRETURN(8);
-#line 3320 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_pv_display); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_pv_display)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 1714 "RealPPPort.xs"
-		char *rv;
-#line 3338 "RealPPPort.c"
-#line 1716 "RealPPPort.xs"
-		EXTEND(SP, 4);
-		ST(0) = sv_newmortal();
-		rv = pv_display(ST(0), "foob\0rbaz", 9, 10, 20);
-		ST(1) = sv_2mortal(newSVpv(rv, 0));
-		ST(2) = sv_newmortal();
-		rv = pv_display(ST(2), "pv_display", 10, 11, 5);
-		ST(3) = sv_2mortal(newSVpv(rv, 0));
-		XSRETURN(4);
-#line 3348 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_no_THX_arg); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_no_THX_arg)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-	IV	RETVAL;
-	dXSTARG;
-#line 1733 "RealPPPort.xs"
-		RETVAL = 1 + sv_2iv(sv);
-#line 3368 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_with_THX_arg); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_with_THX_arg)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "error");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-	char *	error = (char *)SvPV_nolen(ST(0))
-;
-#line 1741 "RealPPPort.xs"
-		Perl_croak(aTHX_ "%s", error);
-#line 3388 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_G_SCALAR); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_G_SCALAR)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	I32	RETVAL;
-	dXSTARG;
-#line 1750 "RealPPPort.xs"
-		RETVAL = G_SCALAR;
-#line 3406 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_G_ARRAY); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_G_ARRAY)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	I32	RETVAL;
-	dXSTARG;
-#line 1757 "RealPPPort.xs"
-		RETVAL = G_ARRAY;
-#line 3424 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_G_DISCARD); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_G_DISCARD)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-	I32	RETVAL;
-	dXSTARG;
-#line 1764 "RealPPPort.xs"
-		RETVAL = G_DISCARD;
-#line 3442 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_eval_sv); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_eval_sv)
-{
-    dVAR; dXSARGS;
-    if (items != 2)
-       croak_xs_usage(cv,  "sv, flags");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-	SV*	sv = ST(0)
-;
-	I32	flags = (I32)SvIV(ST(1))
-;
-#line 1773 "RealPPPort.xs"
-		I32 i;
-#line 3464 "RealPPPort.c"
-#line 1775 "RealPPPort.xs"
-		PUTBACK;
-		i = eval_sv(sv, flags);
-		SPAGAIN;
-		EXTEND(SP, 1);
-		mPUSHi(i);
-#line 3471 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_eval_pv); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_eval_pv)
-{
-    dVAR; dXSARGS;
-    if (items != 2)
-       croak_xs_usage(cv,  "p, croak_on_error");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-	char*	p = (char *)SvPV_nolen(ST(0))
-;
-	I32	croak_on_error = (I32)SvIV(ST(1))
-;
-#line 1786 "RealPPPort.xs"
-		PUTBACK;
-		EXTEND(SP, 1);
-		PUSHs(eval_pv(p, croak_on_error));
-#line 3495 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_call_sv); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_call_sv)
-{
-    dVAR; dXSARGS;
-    if (items < 2)
-       croak_xs_usage(cv,  "sv, flags, ...");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-	SV*	sv = ST(0)
-;
-	I32	flags = (I32)SvIV(ST(1))
-;
-#line 1795 "RealPPPort.xs"
-		I32 i;
-#line 3517 "RealPPPort.c"
-#line 1797 "RealPPPort.xs"
-		for (i=0; i<items-2; i++)
-		  ST(i) = ST(i+2); /* pop first two args */
-		PUSHMARK(SP);
-		SP += items - 2;
-		PUTBACK;
-		i = call_sv(sv, flags);
-		SPAGAIN;
-		EXTEND(SP, 1);
-		mPUSHi(i);
-#line 3528 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_call_pv); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_call_pv)
-{
-    dVAR; dXSARGS;
-    if (items < 2)
-       croak_xs_usage(cv,  "subname, flags, ...");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-	char*	subname = (char *)SvPV_nolen(ST(0))
-;
-	I32	flags = (I32)SvIV(ST(1))
-;
-#line 1812 "RealPPPort.xs"
-		I32 i;
-#line 3550 "RealPPPort.c"
-#line 1814 "RealPPPort.xs"
-		for (i=0; i<items-2; i++)
-		  ST(i) = ST(i+2); /* pop first two args */
-		PUSHMARK(SP);
-		SP += items - 2;
-		PUTBACK;
-		i = call_pv(subname, flags);
-		SPAGAIN;
-		EXTEND(SP, 1);
-		mPUSHi(i);
-#line 3561 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_call_argv); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_call_argv)
-{
-    dVAR; dXSARGS;
-    if (items < 2)
-       croak_xs_usage(cv,  "subname, flags, ...");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-	char*	subname = (char *)SvPV_nolen(ST(0))
-;
-	I32	flags = (I32)SvIV(ST(1))
-;
-#line 1829 "RealPPPort.xs"
-		I32 i;
-		char *args[8];
-#line 3584 "RealPPPort.c"
-#line 1832 "RealPPPort.xs"
-		if (items > 8)  /* play safe */
-		  XSRETURN_UNDEF;
-		for (i=2; i<items; i++)
-		  args[i-2] = SvPV_nolen(ST(i));
-		args[items-2] = NULL;
-		PUTBACK;
-		i = call_argv(subname, flags, args);
-		SPAGAIN;
-		EXTEND(SP, 1);
-		mPUSHi(i);
-#line 3596 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_call_method); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_call_method)
-{
-    dVAR; dXSARGS;
-    if (items < 2)
-       croak_xs_usage(cv,  "methname, flags, ...");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-	char*	methname = (char *)SvPV_nolen(ST(0))
-;
-	I32	flags = (I32)SvIV(ST(1))
-;
-#line 1848 "RealPPPort.xs"
-		I32 i;
-#line 3618 "RealPPPort.c"
-#line 1850 "RealPPPort.xs"
-		for (i=0; i<items-2; i++)
-		  ST(i) = ST(i+2); /* pop first two args */
-		PUSHMARK(SP);
-		SP += items - 2;
-		PUTBACK;
-		i = call_method(methname, flags);
-		SPAGAIN;
-		EXTEND(SP, 1);
-		mPUSHi(i);
-#line 3629 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_call_sv_G_METHOD); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_call_sv_G_METHOD)
-{
-    dVAR; dXSARGS;
-    if (items < 2)
-       croak_xs_usage(cv,  "sv, flags, ...");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-	SV*	sv = ST(0)
-;
-	I32	flags = (I32)SvIV(ST(1))
-;
-#line 1865 "RealPPPort.xs"
-		I32 i;
-#line 3651 "RealPPPort.c"
-#line 1867 "RealPPPort.xs"
-		for (i=0; i<items-2; i++)
-		  ST(i) = ST(i+2); /* pop first two args */
-		PUSHMARK(SP);
-		SP += items - 2;
-		PUTBACK;
-		i = call_sv(sv, flags | G_METHOD);
-		SPAGAIN;
-		EXTEND(SP, 1);
-		mPUSHi(i);
-#line 3662 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_load_module); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_load_module)
-{
-    dVAR; dXSARGS;
-    if (items < 3)
-       croak_xs_usage(cv,  "flags, name, version, ...");
-    {
-	U32	flags = (unsigned long)SvUV(ST(0))
-;
-	SV *	name = ST(1)
-;
-	SV *	version = ST(2)
-;
-#line 1883 "RealPPPort.xs"
-		/* Both SV parameters are donated to the ops built inside
-		   load_module, so we need to bump the refcounts.  */
-		Perl_load_module(aTHX_ flags, SvREFCNT_inc_simple(name),
-		                 SvREFCNT_inc_simple(version), NULL);
-#line 3687 "RealPPPort.c"
-    }
-    XSRETURN_EMPTY;
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_my_strlfunc); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_my_strlfunc)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    PERL_UNUSED_VAR(ax); /* -Wall */
-    SP -= items;
-    {
-#line 1895 "RealPPPort.xs"
-		char buf[8];
-		int len;
-#line 3705 "RealPPPort.c"
-#line 1898 "RealPPPort.xs"
-                len = my_strlcpy(buf, "foo", sizeof(buf));
-		mXPUSHi(len);
-		mXPUSHs(newSVpv(buf, 0));
-		len = my_strlcat(buf, "bar", sizeof(buf));
-		mXPUSHi(len);
-		mXPUSHs(newSVpv(buf, 0));
-		len = my_strlcat(buf, "baz", sizeof(buf));
-		mXPUSHi(len);
-		mXPUSHs(newSVpv(buf, 0));
-		len = my_strlcpy(buf, "1234567890", sizeof(buf));
-		mXPUSHi(len);
-		mXPUSHs(newSVpv(buf, 0));
-		len = my_strlcpy(buf, "1234", sizeof(buf));
-		mXPUSHi(len);
-		mXPUSHs(newSVpv(buf, 0));
-		len = my_strlcat(buf, "567890123456", sizeof(buf));
-		mXPUSHi(len);
-		mXPUSHs(newSVpv(buf, 0));
-		XSRETURN(12);
-#line 3726 "RealPPPort.c"
-	PUTBACK;
-	return;
-    }
-}
-
-
 XS_EUPXS(XS_Devel__PPPort_vnewSVpvf); /* prototype to pass -Wmissing-prototypes */
 XS_EUPXS(XS_Devel__PPPort_vnewSVpvf)
 {
@@ -3737,9 +3850,9 @@ XS_EUPXS(XS_Devel__PPPort_vnewSVpvf)
        croak_xs_usage(cv,  "");
     {
 	SV *	RETVAL;
-#line 1925 "RealPPPort.xs"
+#line 1990 "RealPPPort.xs"
 		RETVAL = test_vnewSVpvf(aTHX_ "%s-%d", "Perl", 42);
-#line 3743 "RealPPPort.c"
+#line 3856 "RealPPPort.c"
 	ST(0) = RETVAL;
 	sv_2mortal(ST(0));
     }
@@ -3757,10 +3870,10 @@ XS_EUPXS(XS_Devel__PPPort_sv_vcatpvf)
 	SV *	sv = ST(0)
 ;
 	SV *	RETVAL;
-#line 1933 "RealPPPort.xs"
+#line 1998 "RealPPPort.xs"
 		RETVAL = newSVsv(sv);
 		test_sv_vcatpvf(aTHX_ RETVAL, "%s-%d", "Perl", 42);
-#line 3764 "RealPPPort.c"
+#line 3877 "RealPPPort.c"
 	ST(0) = RETVAL;
 	sv_2mortal(ST(0));
     }
@@ -3778,10 +3891,10 @@ XS_EUPXS(XS_Devel__PPPort_sv_vsetpvf)
 	SV *	sv = ST(0)
 ;
 	SV *	RETVAL;
-#line 1942 "RealPPPort.xs"
+#line 2007 "RealPPPort.xs"
 		RETVAL = newSVsv(sv);
 		test_sv_vsetpvf(aTHX_ RETVAL, "%s-%d", "Perl", 42);
-#line 3785 "RealPPPort.c"
+#line 3898 "RealPPPort.c"
 	ST(0) = RETVAL;
 	sv_2mortal(ST(0));
     }
@@ -3798,11 +3911,11 @@ XS_EUPXS(XS_Devel__PPPort_sv_catpvf_mg)
     {
 	SV *	sv = ST(0)
 ;
-#line 1951 "RealPPPort.xs"
+#line 2016 "RealPPPort.xs"
 #if (PERL_BCDVERSION >= 0x5004000)
 		sv_catpvf_mg(sv, "%s-%d", "Perl", 42);
 #endif
-#line 3806 "RealPPPort.c"
+#line 3919 "RealPPPort.c"
     }
     XSRETURN_EMPTY;
 }
@@ -3817,11 +3930,11 @@ XS_EUPXS(XS_Devel__PPPort_Perl_sv_catpvf_mg)
     {
 	SV *	sv = ST(0)
 ;
-#line 1959 "RealPPPort.xs"
+#line 2024 "RealPPPort.xs"
 #if (PERL_BCDVERSION >= 0x5004000)
 		Perl_sv_catpvf_mg(aTHX_ sv, "%s-%d", "-Perl", 43);
 #endif
-#line 3825 "RealPPPort.c"
+#line 3938 "RealPPPort.c"
     }
     XSRETURN_EMPTY;
 }
@@ -3836,7 +3949,7 @@ XS_EUPXS(XS_Devel__PPPort_sv_catpvf_mg_nocontext)
     {
 	SV *	sv = ST(0)
 ;
-#line 1967 "RealPPPort.xs"
+#line 2032 "RealPPPort.xs"
 #if (PERL_BCDVERSION >= 0x5004000)
 #ifdef PERL_IMPLICIT_CONTEXT
 		sv_catpvf_mg_nocontext(sv, "%s-%d", "-Perl", 44);
@@ -3844,7 +3957,7 @@ XS_EUPXS(XS_Devel__PPPort_sv_catpvf_mg_nocontext)
 		sv_catpvf_mg(sv, "%s-%d", "-Perl", 44);
 #endif
 #endif
-#line 3848 "RealPPPort.c"
+#line 3961 "RealPPPort.c"
     }
     XSRETURN_EMPTY;
 }
@@ -3859,11 +3972,11 @@ XS_EUPXS(XS_Devel__PPPort_sv_setpvf_mg)
     {
 	SV *	sv = ST(0)
 ;
-#line 1979 "RealPPPort.xs"
+#line 2044 "RealPPPort.xs"
 #if (PERL_BCDVERSION >= 0x5004000)
 		sv_setpvf_mg(sv, "%s-%d", "mhx", 42);
 #endif
-#line 3867 "RealPPPort.c"
+#line 3980 "RealPPPort.c"
     }
     XSRETURN_EMPTY;
 }
@@ -3878,11 +3991,11 @@ XS_EUPXS(XS_Devel__PPPort_Perl_sv_setpvf_mg)
     {
 	SV *	sv = ST(0)
 ;
-#line 1987 "RealPPPort.xs"
+#line 2052 "RealPPPort.xs"
 #if (PERL_BCDVERSION >= 0x5004000)
 		Perl_sv_setpvf_mg(aTHX_ sv, "%s-%d", "foo", 43);
 #endif
-#line 3886 "RealPPPort.c"
+#line 3999 "RealPPPort.c"
     }
     XSRETURN_EMPTY;
 }
@@ -3897,7 +4010,7 @@ XS_EUPXS(XS_Devel__PPPort_sv_setpvf_mg_nocontext)
     {
 	SV *	sv = ST(0)
 ;
-#line 1995 "RealPPPort.xs"
+#line 2060 "RealPPPort.xs"
 #if (PERL_BCDVERSION >= 0x5004000)
 #ifdef PERL_IMPLICIT_CONTEXT
 		sv_setpvf_mg_nocontext(sv, "%s-%d", "bar", 44);
@@ -3905,338 +4018,225 @@ XS_EUPXS(XS_Devel__PPPort_sv_setpvf_mg_nocontext)
 		sv_setpvf_mg(sv, "%s-%d", "bar", 44);
 #endif
 #endif
-#line 3909 "RealPPPort.c"
+#line 4022 "RealPPPort.c"
     }
     XSRETURN_EMPTY;
 }
 
 
-XS_EUPXS(XS_Devel__PPPort_newRV_inc_REFCNT); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_newRV_inc_REFCNT)
+XS_EUPXS(XS_Devel__PPPort_newSVpvs); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_newSVpvs)
 {
     dVAR; dXSARGS;
     if (items != 0)
        croak_xs_usage(cv,  "");
-    {
-#line 2010 "RealPPPort.xs"
-		SV *sv, *rv;
-#line 3924 "RealPPPort.c"
-	U32	RETVAL;
-	dXSTARG;
-#line 2012 "RealPPPort.xs"
-		sv = newSViv(42);
-		rv = newRV_inc(sv);
-		SvREFCNT_dec(sv);
-		RETVAL = SvREFCNT(sv);
-		sv_2mortal(rv);
-#line 3933 "RealPPPort.c"
-	XSprePUSH; PUSHu((UV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_newRV_noinc_REFCNT); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_newRV_noinc_REFCNT)
-{
-    dVAR; dXSARGS;
-    if (items != 0)
-       croak_xs_usage(cv,  "");
-    {
-#line 2023 "RealPPPort.xs"
-		SV *sv, *rv;
-#line 3949 "RealPPPort.c"
-	U32	RETVAL;
-	dXSTARG;
-#line 2025 "RealPPPort.xs"
-		sv = newSViv(42);
-		rv = newRV_noinc(sv);
-		RETVAL = SvREFCNT(sv);
-		sv_2mortal(rv);
-#line 3957 "RealPPPort.c"
-	XSprePUSH; PUSHu((UV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_sv_catpv_mg); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_sv_catpv_mg)
-{
-    dVAR; dXSARGS;
-    if (items != 2)
-       croak_xs_usage(cv,  "sv, string");
-    {
-	SV *	sv = ST(0)
-;
-	char *	string = (char *)SvPV_nolen(ST(1))
-;
-#line 2041 "RealPPPort.xs"
-		sv_catpv_mg(sv, string);
-#line 3977 "RealPPPort.c"
-    }
-    XSRETURN_EMPTY;
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_sv_catpvn_mg); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_sv_catpvn_mg)
-{
-    dVAR; dXSARGS;
-    if (items != 2)
-       croak_xs_usage(cv,  "sv, sv2");
-    {
-	SV *	sv = ST(0)
-;
-	SV *	sv2 = ST(1)
-;
-#line 2048 "RealPPPort.xs"
-		char *str;
-		STRLEN len;
-#line 3997 "RealPPPort.c"
-#line 2051 "RealPPPort.xs"
-		str = SvPV(sv2, len);
-		sv_catpvn_mg(sv, str, len);
-#line 4001 "RealPPPort.c"
-    }
-    XSRETURN_EMPTY;
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_sv_catsv_mg); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_sv_catsv_mg)
-{
-    dVAR; dXSARGS;
-    if (items != 2)
-       croak_xs_usage(cv,  "sv, sv2");
-    {
-	SV *	sv = ST(0)
-;
-	SV *	sv2 = ST(1)
-;
-#line 2059 "RealPPPort.xs"
-		sv_catsv_mg(sv, sv2);
-#line 4020 "RealPPPort.c"
-    }
-    XSRETURN_EMPTY;
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_sv_setiv_mg); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_sv_setiv_mg)
-{
-    dVAR; dXSARGS;
-    if (items != 2)
-       croak_xs_usage(cv,  "sv, iv");
-    {
-	SV *	sv = ST(0)
-;
-	IV	iv = (IV)SvIV(ST(1))
-;
-#line 2066 "RealPPPort.xs"
-		sv_setiv_mg(sv, iv);
-#line 4039 "RealPPPort.c"
-    }
-    XSRETURN_EMPTY;
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_sv_setnv_mg); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_sv_setnv_mg)
-{
-    dVAR; dXSARGS;
-    if (items != 2)
-       croak_xs_usage(cv,  "sv, nv");
-    {
-	SV *	sv = ST(0)
-;
-	NV	nv = (NV)SvNV(ST(1))
-;
-#line 2073 "RealPPPort.xs"
-		sv_setnv_mg(sv, nv);
-#line 4058 "RealPPPort.c"
-    }
-    XSRETURN_EMPTY;
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_sv_setpv_mg); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_sv_setpv_mg)
-{
-    dVAR; dXSARGS;
-    if (items != 2)
-       croak_xs_usage(cv,  "sv, pv");
-    {
-	SV *	sv = ST(0)
-;
-	char *	pv = (char *)SvPV_nolen(ST(1))
-;
-#line 2080 "RealPPPort.xs"
-		sv_setpv_mg(sv, pv);
-#line 4077 "RealPPPort.c"
-    }
-    XSRETURN_EMPTY;
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_sv_setpvn_mg); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_sv_setpvn_mg)
-{
-    dVAR; dXSARGS;
-    if (items != 2)
-       croak_xs_usage(cv,  "sv, sv2");
-    {
-	SV *	sv = ST(0)
-;
-	SV *	sv2 = ST(1)
-;
-#line 2087 "RealPPPort.xs"
-		char *str;
-		STRLEN len;
-#line 4097 "RealPPPort.c"
-#line 2090 "RealPPPort.xs"
-		str = SvPV(sv2, len);
-		sv_setpvn_mg(sv, str, len);
-#line 4101 "RealPPPort.c"
-    }
-    XSRETURN_EMPTY;
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_sv_setsv_mg); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_sv_setsv_mg)
-{
-    dVAR; dXSARGS;
-    if (items != 2)
-       croak_xs_usage(cv,  "sv, sv2");
-    {
-	SV *	sv = ST(0)
-;
-	SV *	sv2 = ST(1)
-;
-#line 2098 "RealPPPort.xs"
-		sv_setsv_mg(sv, sv2);
-#line 4120 "RealPPPort.c"
-    }
-    XSRETURN_EMPTY;
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_sv_setuv_mg); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_sv_setuv_mg)
-{
-    dVAR; dXSARGS;
-    if (items != 2)
-       croak_xs_usage(cv,  "sv, uv");
-    {
-	SV *	sv = ST(0)
-;
-	UV	uv = (UV)SvUV(ST(1))
-;
-#line 2105 "RealPPPort.xs"
-		sv_setuv_mg(sv, uv);
-#line 4139 "RealPPPort.c"
-    }
-    XSRETURN_EMPTY;
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_sv_usepvn_mg); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_sv_usepvn_mg)
-{
-    dVAR; dXSARGS;
-    if (items != 2)
-       croak_xs_usage(cv,  "sv, sv2");
-    {
-	SV *	sv = ST(0)
-;
-	SV *	sv2 = ST(1)
-;
-#line 2112 "RealPPPort.xs"
-		char *str, *copy;
-		STRLEN len;
-#line 4159 "RealPPPort.c"
-#line 2115 "RealPPPort.xs"
-		str = SvPV(sv2, len);
-		New(42, copy, len+1, char);
-		Copy(str, copy, len+1, char);
-		sv_usepvn_mg(sv, copy, len);
-#line 4165 "RealPPPort.c"
-    }
-    XSRETURN_EMPTY;
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_SvVSTRING_mg); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_SvVSTRING_mg)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-	int	RETVAL;
-	dXSTARG;
-#line 2124 "RealPPPort.xs"
-		RETVAL = SvVSTRING_mg(sv) != NULL;
-#line 4184 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_sv_magic_portable); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_sv_magic_portable)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "sv");
-    {
-	SV *	sv = ST(0)
-;
-#line 2132 "RealPPPort.xs"
-		MAGIC *mg;
-		const char *foo = "foo";
-#line 4203 "RealPPPort.c"
-	int	RETVAL;
-	dXSTARG;
-#line 2135 "RealPPPort.xs"
-#if (PERL_BCDVERSION >= 0x5004000)
-		sv_magic_portable(sv, 0, '~', foo, 0);
-		mg = mg_find(sv, '~');
-		RETVAL = mg->mg_ptr == foo;
-#else
-		sv_magic(sv, 0, '~', (char *) foo, strlen(foo));
-		mg = mg_find(sv, '~');
-		RETVAL = strEQ(mg->mg_ptr, foo);
-#endif
-		sv_unmagic(sv, '~');
-#line 4217 "RealPPPort.c"
-	XSprePUSH; PUSHi((IV)RETVAL);
-    }
-    XSRETURN(1);
-}
-
-
-XS_EUPXS(XS_Devel__PPPort_croak_NVgf); /* prototype to pass -Wmissing-prototypes */
-XS_EUPXS(XS_Devel__PPPort_croak_NVgf)
-{
-    dVAR; dXSARGS;
-    if (items != 1)
-       croak_xs_usage(cv,  "num");
     PERL_UNUSED_VAR(ax); /* -Wall */
     SP -= items;
     {
-	NV	num = (NV)SvNV(ST(0))
-;
-#line 2156 "RealPPPort.xs"
-		Perl_croak(aTHX_ "%.20" NVgf "\n", num);
-#line 4237 "RealPPPort.c"
+#line 2075 "RealPPPort.xs"
+		mXPUSHs(newSVpvs("newSVpvs"));
+		XSRETURN(1);
+#line 4040 "RealPPPort.c"
 	PUTBACK;
 	return;
     }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_newSVpvs_flags); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_newSVpvs_flags)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+#line 2081 "RealPPPort.xs"
+		XPUSHs(newSVpvs_flags("newSVpvs_flags", SVs_TEMP));
+		XSRETURN(1);
+#line 4059 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_newSVpvs_share); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_newSVpvs_share)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+#line 2087 "RealPPPort.xs"
+		SV *sv;
+		U32 hash;
+#line 4076 "RealPPPort.c"
+	int	RETVAL;
+	dXSTARG;
+#line 2090 "RealPPPort.xs"
+		RETVAL = 0;
+		PERL_HASH(hash, "pvs", 3);
+		sv = newSVpvs_share("pvs");
+		RETVAL += strEQ(SvPV_nolen_const(sv), "pvs");
+		RETVAL += SvCUR(sv) == 3;
+		RETVAL += SvSHARED_HASH(sv) == hash;
+		SvREFCNT_dec(sv);
+#line 4087 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_sv_catpvs); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_sv_catpvs)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+	SV *	sv = ST(0)
+;
+#line 2104 "RealPPPort.xs"
+		sv_catpvs(sv, "sv_catpvs");
+#line 4107 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_sv_setpvs); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_sv_setpvs)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "sv");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+	SV *	sv = ST(0)
+;
+#line 2110 "RealPPPort.xs"
+		sv_setpvs(sv, "sv_setpvs");
+#line 4127 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_hv_fetchs); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_hv_fetchs)
+{
+    dVAR; dXSARGS;
+    if (items != 1)
+       croak_xs_usage(cv,  "hv");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+	SV *	hv = ST(0)
+;
+#line 2116 "RealPPPort.xs"
+		SV **s;
+#line 4147 "RealPPPort.c"
+#line 2118 "RealPPPort.xs"
+		s = hv_fetchs((HV *) SvRV(hv), "hv_fetchs", 0);
+		XPUSHs(sv_mortalcopy(*s));
+		XSRETURN(1);
+#line 4152 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_hv_stores); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_hv_stores)
+{
+    dVAR; dXSARGS;
+    if (items != 2)
+       croak_xs_usage(cv,  "hv, sv");
+    PERL_UNUSED_VAR(ax); /* -Wall */
+    SP -= items;
+    {
+	SV *	hv = ST(0)
+;
+	SV *	sv = ST(1)
+;
+#line 2127 "RealPPPort.xs"
+		(void) hv_stores((HV *) SvRV(hv), "hv_stores", SvREFCNT_inc_simple(sv));
+#line 4174 "RealPPPort.c"
+	PUTBACK;
+	return;
+    }
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_gv_fetchpvs); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_gv_fetchpvs)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	SV *	RETVAL;
+#line 2132 "RealPPPort.xs"
+		RETVAL = newRV_inc((SV*)gv_fetchpvs("Devel::PPPort::VERSION", 0, SVt_PV));
+#line 4191 "RealPPPort.c"
+	ST(0) = RETVAL;
+	sv_2mortal(ST(0));
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_gv_stashpvs); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_gv_stashpvs)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+	SV *	RETVAL;
+#line 2139 "RealPPPort.xs"
+		RETVAL = newRV_inc((SV*)gv_stashpvs("Devel::PPPort", 0));
+#line 4209 "RealPPPort.c"
+	ST(0) = RETVAL;
+	sv_2mortal(ST(0));
+    }
+    XSRETURN(1);
+}
+
+
+XS_EUPXS(XS_Devel__PPPort_get_cvs); /* prototype to pass -Wmissing-prototypes */
+XS_EUPXS(XS_Devel__PPPort_get_cvs)
+{
+    dVAR; dXSARGS;
+    if (items != 0)
+       croak_xs_usage(cv,  "");
+    {
+#line 2146 "RealPPPort.xs"
+		CV* xv;
+#line 4226 "RealPPPort.c"
+	int	RETVAL;
+	dXSTARG;
+#line 2148 "RealPPPort.xs"
+		RETVAL = 0;
+		xv = get_cvs("Devel::PPPort::foobar", 0);
+		if(xv == NULL) RETVAL++;
+		xv = get_cvs("Devel::PPPort::foobar", GV_ADDMULTI);
+		if(xv && SvTYPE(xv) == SVt_PVCV) RETVAL++;
+		xv = get_cvs("Devel::PPPort::get_cvs", 0);
+		if(xv && SvTYPE(xv) == SVt_PVCV) RETVAL++;
+#line 4237 "RealPPPort.c"
+	XSprePUSH; PUSHi((IV)RETVAL);
+    }
+    XSRETURN(1);
 }
 
 #ifdef __cplusplus
@@ -4259,46 +4259,53 @@ XS_EXTERNAL(boot_Devel__PPPort)
 #endif
     XS_VERSION_BOOTCHECK;
 
-        newXS("Devel::PPPort::newSV_type", XS_Devel__PPPort_newSV_type, file);
-        newXS("Devel::PPPort::HvNAME_get", XS_Devel__PPPort_HvNAME_get, file);
-        newXS("Devel::PPPort::HvNAMELEN_get", XS_Devel__PPPort_HvNAMELEN_get, file);
-        newXS("Devel::PPPort::grok_number", XS_Devel__PPPort_grok_number, file);
-        newXS("Devel::PPPort::grok_bin", XS_Devel__PPPort_grok_bin, file);
-        newXS("Devel::PPPort::grok_hex", XS_Devel__PPPort_grok_hex, file);
-        newXS("Devel::PPPort::grok_oct", XS_Devel__PPPort_grok_oct, file);
-        newXS("Devel::PPPort::Perl_grok_number", XS_Devel__PPPort_Perl_grok_number, file);
-        newXS("Devel::PPPort::Perl_grok_bin", XS_Devel__PPPort_Perl_grok_bin, file);
-        newXS("Devel::PPPort::Perl_grok_hex", XS_Devel__PPPort_Perl_grok_hex, file);
-        newXS("Devel::PPPort::Perl_grok_oct", XS_Devel__PPPort_Perl_grok_oct, file);
-        newXS("Devel::PPPort::call_newCONSTSUB_1", XS_Devel__PPPort_call_newCONSTSUB_1, file);
-        newXS("Devel::PPPort::call_newCONSTSUB_2", XS_Devel__PPPort_call_newCONSTSUB_2, file);
-        newXS("Devel::PPPort::call_newCONSTSUB_3", XS_Devel__PPPort_call_newCONSTSUB_3, file);
-        newXS("Devel::PPPort::newSVpvs", XS_Devel__PPPort_newSVpvs, file);
-        newXS("Devel::PPPort::newSVpvs_flags", XS_Devel__PPPort_newSVpvs_flags, file);
-        newXS("Devel::PPPort::newSVpvs_share", XS_Devel__PPPort_newSVpvs_share, file);
-        newXS("Devel::PPPort::sv_catpvs", XS_Devel__PPPort_sv_catpvs, file);
-        newXS("Devel::PPPort::sv_setpvs", XS_Devel__PPPort_sv_setpvs, file);
-        newXS("Devel::PPPort::hv_fetchs", XS_Devel__PPPort_hv_fetchs, file);
-        newXS("Devel::PPPort::hv_stores", XS_Devel__PPPort_hv_stores, file);
-        newXS("Devel::PPPort::gv_fetchpvs", XS_Devel__PPPort_gv_fetchpvs, file);
-        newXS("Devel::PPPort::gv_stashpvs", XS_Devel__PPPort_gv_stashpvs, file);
-        newXS("Devel::PPPort::get_cvs", XS_Devel__PPPort_get_cvs, file);
-        newXS("Devel::PPPort::exception", XS_Devel__PPPort_exception, file);
-        newXS("Devel::PPPort::sv_setuv", XS_Devel__PPPort_sv_setuv, file);
-        newXS("Devel::PPPort::newSVuv", XS_Devel__PPPort_newSVuv, file);
-        newXS("Devel::PPPort::sv_2uv", XS_Devel__PPPort_sv_2uv, file);
-        newXS("Devel::PPPort::SvUVx", XS_Devel__PPPort_SvUVx, file);
-        newXS("Devel::PPPort::XSRETURN_UV", XS_Devel__PPPort_XSRETURN_UV, file);
-        newXS("Devel::PPPort::PUSHu", XS_Devel__PPPort_PUSHu, file);
-        newXS("Devel::PPPort::XPUSHu", XS_Devel__PPPort_XPUSHu, file);
-        newXS("Devel::PPPort::my_sprintf", XS_Devel__PPPort_my_sprintf, file);
-        newXS("Devel::PPPort::newSVpvn_share", XS_Devel__PPPort_newSVpvn_share, file);
-        newXS("Devel::PPPort::warner", XS_Devel__PPPort_warner, file);
-        newXS("Devel::PPPort::Perl_warner", XS_Devel__PPPort_Perl_warner, file);
-        newXS("Devel::PPPort::Perl_warner_nocontext", XS_Devel__PPPort_Perl_warner_nocontext, file);
-        newXS("Devel::PPPort::ckWARN", XS_Devel__PPPort_ckWARN, file);
-        newXS("Devel::PPPort::CopSTASHPV", XS_Devel__PPPort_CopSTASHPV, file);
-        newXS("Devel::PPPort::CopFILE", XS_Devel__PPPort_CopFILE, file);
+        newXS("Devel::PPPort::iv_size", XS_Devel__PPPort_iv_size, file);
+        newXS("Devel::PPPort::uv_size", XS_Devel__PPPort_uv_size, file);
+        newXS("Devel::PPPort::iv_type", XS_Devel__PPPort_iv_type, file);
+        newXS("Devel::PPPort::uv_type", XS_Devel__PPPort_uv_type, file);
+        newXS("Devel::PPPort::G_SCALAR", XS_Devel__PPPort_G_SCALAR, file);
+        newXS("Devel::PPPort::G_ARRAY", XS_Devel__PPPort_G_ARRAY, file);
+        newXS("Devel::PPPort::G_DISCARD", XS_Devel__PPPort_G_DISCARD, file);
+        newXS("Devel::PPPort::eval_sv", XS_Devel__PPPort_eval_sv, file);
+        newXS("Devel::PPPort::eval_pv", XS_Devel__PPPort_eval_pv, file);
+        newXS("Devel::PPPort::call_sv", XS_Devel__PPPort_call_sv, file);
+        newXS("Devel::PPPort::call_pv", XS_Devel__PPPort_call_pv, file);
+        newXS("Devel::PPPort::call_argv", XS_Devel__PPPort_call_argv, file);
+        newXS("Devel::PPPort::call_method", XS_Devel__PPPort_call_method, file);
+        newXS("Devel::PPPort::call_sv_G_METHOD", XS_Devel__PPPort_call_sv_G_METHOD, file);
+        newXS("Devel::PPPort::load_module", XS_Devel__PPPort_load_module, file);
+        newXS("Devel::PPPort::compare_PL_signals", XS_Devel__PPPort_compare_PL_signals, file);
+        newXS("Devel::PPPort::PL_sv_undef", XS_Devel__PPPort_PL_sv_undef, file);
+        newXS("Devel::PPPort::PL_sv_yes", XS_Devel__PPPort_PL_sv_yes, file);
+        newXS("Devel::PPPort::PL_sv_no", XS_Devel__PPPort_PL_sv_no, file);
+        newXS("Devel::PPPort::PL_na", XS_Devel__PPPort_PL_na, file);
+        newXS("Devel::PPPort::PL_Sv", XS_Devel__PPPort_PL_Sv, file);
+        newXS("Devel::PPPort::PL_tokenbuf", XS_Devel__PPPort_PL_tokenbuf, file);
+        newXS("Devel::PPPort::PL_parser", XS_Devel__PPPort_PL_parser, file);
+        newXS("Devel::PPPort::PL_hexdigit", XS_Devel__PPPort_PL_hexdigit, file);
+        newXS("Devel::PPPort::PL_hints", XS_Devel__PPPort_PL_hints, file);
+        newXS("Devel::PPPort::PL_ppaddr", XS_Devel__PPPort_PL_ppaddr, file);
+        newXS("Devel::PPPort::other_variables", XS_Devel__PPPort_other_variables, file);
+        newXS("Devel::PPPort::no_dummy_parser_vars", XS_Devel__PPPort_no_dummy_parser_vars, file);
+        newXS("Devel::PPPort::dummy_parser_warning", XS_Devel__PPPort_dummy_parser_warning, file);
+        newXS("Devel::PPPort::no_THX_arg", XS_Devel__PPPort_no_THX_arg, file);
+        newXS("Devel::PPPort::with_THX_arg", XS_Devel__PPPort_with_THX_arg, file);
+        newXS("Devel::PPPort::ptrtests", XS_Devel__PPPort_ptrtests, file);
+        newXS("Devel::PPPort::gv_stashpvn", XS_Devel__PPPort_gv_stashpvn, file);
+        newXS("Devel::PPPort::get_sv", XS_Devel__PPPort_get_sv, file);
+        newXS("Devel::PPPort::get_av", XS_Devel__PPPort_get_av, file);
+        newXS("Devel::PPPort::get_hv", XS_Devel__PPPort_get_hv, file);
+        newXS("Devel::PPPort::get_cv", XS_Devel__PPPort_get_cv, file);
+        newXS("Devel::PPPort::xsreturn", XS_Devel__PPPort_xsreturn, file);
+        newXS("Devel::PPPort::boolSV", XS_Devel__PPPort_boolSV, file);
+        newXS("Devel::PPPort::DEFSV", XS_Devel__PPPort_DEFSV, file);
+        newXS("Devel::PPPort::DEFSV_modify", XS_Devel__PPPort_DEFSV_modify, file);
+        newXS("Devel::PPPort::ERRSV", XS_Devel__PPPort_ERRSV, file);
+        newXS("Devel::PPPort::UNDERBAR", XS_Devel__PPPort_UNDERBAR, file);
+        newXS("Devel::PPPort::prepush", XS_Devel__PPPort_prepush, file);
+        newXS("Devel::PPPort::PERL_ABS", XS_Devel__PPPort_PERL_ABS, file);
+        newXS("Devel::PPPort::SVf", XS_Devel__PPPort_SVf, file);
+        newXS("Devel::PPPort::Perl_ppaddr_t", XS_Devel__PPPort_Perl_ppaddr_t, file);
         newXS("Devel::PPPort::SvPVbyte", XS_Devel__PPPort_SvPVbyte, file);
         newXS("Devel::PPPort::SvPV_nolen", XS_Devel__PPPort_SvPV_nolen, file);
         newXS("Devel::PPPort::SvPV_const", XS_Devel__PPPort_SvPV_const, file);
@@ -4320,36 +4327,25 @@ XS_EXTERNAL(boot_Devel__PPPort)
         newXS("Devel::PPPort::SvPV_nomg_const", XS_Devel__PPPort_SvPV_nomg_const, file);
         newXS("Devel::PPPort::SvPV_nomg_const_nolen", XS_Devel__PPPort_SvPV_nomg_const_nolen, file);
         newXS("Devel::PPPort::SvPV_renew", XS_Devel__PPPort_SvPV_renew, file);
-        newXS("Devel::PPPort::compare_PL_signals", XS_Devel__PPPort_compare_PL_signals, file);
-        newXS("Devel::PPPort::PL_sv_undef", XS_Devel__PPPort_PL_sv_undef, file);
-        newXS("Devel::PPPort::PL_sv_yes", XS_Devel__PPPort_PL_sv_yes, file);
-        newXS("Devel::PPPort::PL_sv_no", XS_Devel__PPPort_PL_sv_no, file);
-        newXS("Devel::PPPort::PL_na", XS_Devel__PPPort_PL_na, file);
-        newXS("Devel::PPPort::PL_Sv", XS_Devel__PPPort_PL_Sv, file);
-        newXS("Devel::PPPort::PL_tokenbuf", XS_Devel__PPPort_PL_tokenbuf, file);
-        newXS("Devel::PPPort::PL_parser", XS_Devel__PPPort_PL_parser, file);
-        newXS("Devel::PPPort::PL_hexdigit", XS_Devel__PPPort_PL_hexdigit, file);
-        newXS("Devel::PPPort::PL_hints", XS_Devel__PPPort_PL_hints, file);
-        newXS("Devel::PPPort::PL_ppaddr", XS_Devel__PPPort_PL_ppaddr, file);
-        newXS("Devel::PPPort::other_variables", XS_Devel__PPPort_other_variables, file);
-        newXS("Devel::PPPort::no_dummy_parser_vars", XS_Devel__PPPort_no_dummy_parser_vars, file);
-        newXS("Devel::PPPort::dummy_parser_warning", XS_Devel__PPPort_dummy_parser_warning, file);
-        newXS("Devel::PPPort::ptrtests", XS_Devel__PPPort_ptrtests, file);
-        newXS("Devel::PPPort::gv_stashpvn", XS_Devel__PPPort_gv_stashpvn, file);
-        newXS("Devel::PPPort::get_sv", XS_Devel__PPPort_get_sv, file);
-        newXS("Devel::PPPort::get_av", XS_Devel__PPPort_get_av, file);
-        newXS("Devel::PPPort::get_hv", XS_Devel__PPPort_get_hv, file);
-        newXS("Devel::PPPort::get_cv", XS_Devel__PPPort_get_cv, file);
-        newXS("Devel::PPPort::xsreturn", XS_Devel__PPPort_xsreturn, file);
-        newXS("Devel::PPPort::boolSV", XS_Devel__PPPort_boolSV, file);
-        newXS("Devel::PPPort::DEFSV", XS_Devel__PPPort_DEFSV, file);
-        newXS("Devel::PPPort::DEFSV_modify", XS_Devel__PPPort_DEFSV_modify, file);
-        newXS("Devel::PPPort::ERRSV", XS_Devel__PPPort_ERRSV, file);
-        newXS("Devel::PPPort::UNDERBAR", XS_Devel__PPPort_UNDERBAR, file);
-        newXS("Devel::PPPort::prepush", XS_Devel__PPPort_prepush, file);
-        newXS("Devel::PPPort::PERL_ABS", XS_Devel__PPPort_PERL_ABS, file);
-        newXS("Devel::PPPort::SVf", XS_Devel__PPPort_SVf, file);
-        newXS("Devel::PPPort::Perl_ppaddr_t", XS_Devel__PPPort_Perl_ppaddr_t, file);
+        newXS("Devel::PPPort::GvSVn", XS_Devel__PPPort_GvSVn, file);
+        newXS("Devel::PPPort::isGV_with_GP", XS_Devel__PPPort_isGV_with_GP, file);
+        newXS("Devel::PPPort::get_cvn_flags", XS_Devel__PPPort_get_cvn_flags, file);
+        newXS("Devel::PPPort::gv_fetchpvn_flags", XS_Devel__PPPort_gv_fetchpvn_flags, file);
+        newXS("Devel::PPPort::gv_fetchsv", XS_Devel__PPPort_gv_fetchsv, file);
+        newXS("Devel::PPPort::my_strlfunc", XS_Devel__PPPort_my_strlfunc, file);
+        newXS("Devel::PPPort::newRV_inc_REFCNT", XS_Devel__PPPort_newRV_inc_REFCNT, file);
+        newXS("Devel::PPPort::newRV_noinc_REFCNT", XS_Devel__PPPort_newRV_noinc_REFCNT, file);
+        newXS("Devel::PPPort::sv_setuv", XS_Devel__PPPort_sv_setuv, file);
+        newXS("Devel::PPPort::newSVuv", XS_Devel__PPPort_newSVuv, file);
+        newXS("Devel::PPPort::sv_2uv", XS_Devel__PPPort_sv_2uv, file);
+        newXS("Devel::PPPort::SvUVx", XS_Devel__PPPort_SvUVx, file);
+        newXS("Devel::PPPort::XSRETURN_UV", XS_Devel__PPPort_XSRETURN_UV, file);
+        newXS("Devel::PPPort::PUSHu", XS_Devel__PPPort_PUSHu, file);
+        newXS("Devel::PPPort::XPUSHu", XS_Devel__PPPort_XPUSHu, file);
+        newXS("Devel::PPPort::newSVpvn_share", XS_Devel__PPPort_newSVpvn_share, file);
+        newXS("Devel::PPPort::SvREFCNT", XS_Devel__PPPort_SvREFCNT, file);
+        newXS("Devel::PPPort::CopSTASHPV", XS_Devel__PPPort_CopSTASHPV, file);
+        newXS("Devel::PPPort::CopFILE", XS_Devel__PPPort_CopFILE, file);
         newXS("Devel::PPPort::mPUSHs", XS_Devel__PPPort_mPUSHs, file);
         newXS("Devel::PPPort::mPUSHp", XS_Devel__PPPort_mPUSHp, file);
         newXS("Devel::PPPort::mPUSHn", XS_Devel__PPPort_mPUSHn, file);
@@ -4360,56 +4356,29 @@ XS_EXTERNAL(boot_Devel__PPPort)
         newXS("Devel::PPPort::mXPUSHn", XS_Devel__PPPort_mXPUSHn, file);
         newXS("Devel::PPPort::mXPUSHi", XS_Devel__PPPort_mXPUSHi, file);
         newXS("Devel::PPPort::mXPUSHu", XS_Devel__PPPort_mXPUSHu, file);
+        newXS("Devel::PPPort::newSV_type", XS_Devel__PPPort_newSV_type, file);
         newXS("Devel::PPPort::TestSvUV_set", XS_Devel__PPPort_TestSvUV_set, file);
         newXS("Devel::PPPort::TestSvPVX_const", XS_Devel__PPPort_TestSvPVX_const, file);
         newXS("Devel::PPPort::TestSvPVX_mutable", XS_Devel__PPPort_TestSvPVX_mutable, file);
         newXS("Devel::PPPort::TestSvSTASH_set", XS_Devel__PPPort_TestSvSTASH_set, file);
-        newXS("Devel::PPPort::iv_size", XS_Devel__PPPort_iv_size, file);
-        newXS("Devel::PPPort::uv_size", XS_Devel__PPPort_uv_size, file);
-        newXS("Devel::PPPort::iv_type", XS_Devel__PPPort_iv_type, file);
-        newXS("Devel::PPPort::uv_type", XS_Devel__PPPort_uv_type, file);
-        newXS("Devel::PPPort::newSVpvn", XS_Devel__PPPort_newSVpvn, file);
-        newXS("Devel::PPPort::newSVpvn_flags", XS_Devel__PPPort_newSVpvn_flags, file);
-        newXS("Devel::PPPort::newSVpvn_utf8", XS_Devel__PPPort_newSVpvn_utf8, file);
-        newXS("Devel::PPPort::SvREFCNT", XS_Devel__PPPort_SvREFCNT, file);
         newXS("Devel::PPPort::checkmem", XS_Devel__PPPort_checkmem, file);
         newXS("Devel::PPPort::my_snprintf", XS_Devel__PPPort_my_snprintf, file);
         newXS("Devel::PPPort::MY_CXT_1", XS_Devel__PPPort_MY_CXT_1, file);
         newXS("Devel::PPPort::MY_CXT_2", XS_Devel__PPPort_MY_CXT_2, file);
         newXS("Devel::PPPort::MY_CXT_CLONE", XS_Devel__PPPort_MY_CXT_CLONE, file);
-        newXS("Devel::PPPort::GvSVn", XS_Devel__PPPort_GvSVn, file);
-        newXS("Devel::PPPort::isGV_with_GP", XS_Devel__PPPort_isGV_with_GP, file);
-        newXS("Devel::PPPort::get_cvn_flags", XS_Devel__PPPort_get_cvn_flags, file);
-        newXS("Devel::PPPort::gv_fetchpvn_flags", XS_Devel__PPPort_gv_fetchpvn_flags, file);
-        newXS("Devel::PPPort::gv_fetchsv", XS_Devel__PPPort_gv_fetchsv, file);
+        newXS("Devel::PPPort::call_newCONSTSUB_1", XS_Devel__PPPort_call_newCONSTSUB_1, file);
+        newXS("Devel::PPPort::call_newCONSTSUB_2", XS_Devel__PPPort_call_newCONSTSUB_2, file);
+        newXS("Devel::PPPort::call_newCONSTSUB_3", XS_Devel__PPPort_call_newCONSTSUB_3, file);
+        newXS("Devel::PPPort::HvNAME_get", XS_Devel__PPPort_HvNAME_get, file);
+        newXS("Devel::PPPort::HvNAMELEN_get", XS_Devel__PPPort_HvNAMELEN_get, file);
+        newXS("Devel::PPPort::newSVpvn", XS_Devel__PPPort_newSVpvn, file);
+        newXS("Devel::PPPort::newSVpvn_flags", XS_Devel__PPPort_newSVpvn_flags, file);
+        newXS("Devel::PPPort::newSVpvn_utf8", XS_Devel__PPPort_newSVpvn_utf8, file);
         newXS("Devel::PPPort::pv_escape_can_unicode", XS_Devel__PPPort_pv_escape_can_unicode, file);
         newXS("Devel::PPPort::pv_pretty", XS_Devel__PPPort_pv_pretty, file);
         newXS("Devel::PPPort::pv_display", XS_Devel__PPPort_pv_display, file);
-        newXS("Devel::PPPort::no_THX_arg", XS_Devel__PPPort_no_THX_arg, file);
-        newXS("Devel::PPPort::with_THX_arg", XS_Devel__PPPort_with_THX_arg, file);
-        newXS("Devel::PPPort::G_SCALAR", XS_Devel__PPPort_G_SCALAR, file);
-        newXS("Devel::PPPort::G_ARRAY", XS_Devel__PPPort_G_ARRAY, file);
-        newXS("Devel::PPPort::G_DISCARD", XS_Devel__PPPort_G_DISCARD, file);
-        newXS("Devel::PPPort::eval_sv", XS_Devel__PPPort_eval_sv, file);
-        newXS("Devel::PPPort::eval_pv", XS_Devel__PPPort_eval_pv, file);
-        newXS("Devel::PPPort::call_sv", XS_Devel__PPPort_call_sv, file);
-        newXS("Devel::PPPort::call_pv", XS_Devel__PPPort_call_pv, file);
-        newXS("Devel::PPPort::call_argv", XS_Devel__PPPort_call_argv, file);
-        newXS("Devel::PPPort::call_method", XS_Devel__PPPort_call_method, file);
-        newXS("Devel::PPPort::call_sv_G_METHOD", XS_Devel__PPPort_call_sv_G_METHOD, file);
-        newXS("Devel::PPPort::load_module", XS_Devel__PPPort_load_module, file);
-        newXS("Devel::PPPort::my_strlfunc", XS_Devel__PPPort_my_strlfunc, file);
-        newXS("Devel::PPPort::vnewSVpvf", XS_Devel__PPPort_vnewSVpvf, file);
-        newXS("Devel::PPPort::sv_vcatpvf", XS_Devel__PPPort_sv_vcatpvf, file);
-        newXS("Devel::PPPort::sv_vsetpvf", XS_Devel__PPPort_sv_vsetpvf, file);
-        newXS("Devel::PPPort::sv_catpvf_mg", XS_Devel__PPPort_sv_catpvf_mg, file);
-        newXS("Devel::PPPort::Perl_sv_catpvf_mg", XS_Devel__PPPort_Perl_sv_catpvf_mg, file);
-        newXS("Devel::PPPort::sv_catpvf_mg_nocontext", XS_Devel__PPPort_sv_catpvf_mg_nocontext, file);
-        newXS("Devel::PPPort::sv_setpvf_mg", XS_Devel__PPPort_sv_setpvf_mg, file);
-        newXS("Devel::PPPort::Perl_sv_setpvf_mg", XS_Devel__PPPort_Perl_sv_setpvf_mg, file);
-        newXS("Devel::PPPort::sv_setpvf_mg_nocontext", XS_Devel__PPPort_sv_setpvf_mg_nocontext, file);
-        newXS("Devel::PPPort::newRV_inc_REFCNT", XS_Devel__PPPort_newRV_inc_REFCNT, file);
-        newXS("Devel::PPPort::newRV_noinc_REFCNT", XS_Devel__PPPort_newRV_noinc_REFCNT, file);
+        newXS("Devel::PPPort::my_sprintf", XS_Devel__PPPort_my_sprintf, file);
+        newXS("Devel::PPPort::croak_NVgf", XS_Devel__PPPort_croak_NVgf, file);
         newXS("Devel::PPPort::sv_catpv_mg", XS_Devel__PPPort_sv_catpv_mg, file);
         newXS("Devel::PPPort::sv_catpvn_mg", XS_Devel__PPPort_sv_catpvn_mg, file);
         newXS("Devel::PPPort::sv_catsv_mg", XS_Devel__PPPort_sv_catsv_mg, file);
@@ -4422,7 +4391,38 @@ XS_EXTERNAL(boot_Devel__PPPort)
         newXS("Devel::PPPort::sv_usepvn_mg", XS_Devel__PPPort_sv_usepvn_mg, file);
         newXS("Devel::PPPort::SvVSTRING_mg", XS_Devel__PPPort_SvVSTRING_mg, file);
         newXS("Devel::PPPort::sv_magic_portable", XS_Devel__PPPort_sv_magic_portable, file);
-        newXS("Devel::PPPort::croak_NVgf", XS_Devel__PPPort_croak_NVgf, file);
+        newXS("Devel::PPPort::warner", XS_Devel__PPPort_warner, file);
+        newXS("Devel::PPPort::Perl_warner", XS_Devel__PPPort_Perl_warner, file);
+        newXS("Devel::PPPort::Perl_warner_nocontext", XS_Devel__PPPort_Perl_warner_nocontext, file);
+        newXS("Devel::PPPort::ckWARN", XS_Devel__PPPort_ckWARN, file);
+        newXS("Devel::PPPort::grok_number", XS_Devel__PPPort_grok_number, file);
+        newXS("Devel::PPPort::grok_bin", XS_Devel__PPPort_grok_bin, file);
+        newXS("Devel::PPPort::grok_hex", XS_Devel__PPPort_grok_hex, file);
+        newXS("Devel::PPPort::grok_oct", XS_Devel__PPPort_grok_oct, file);
+        newXS("Devel::PPPort::Perl_grok_number", XS_Devel__PPPort_Perl_grok_number, file);
+        newXS("Devel::PPPort::Perl_grok_bin", XS_Devel__PPPort_Perl_grok_bin, file);
+        newXS("Devel::PPPort::Perl_grok_hex", XS_Devel__PPPort_Perl_grok_hex, file);
+        newXS("Devel::PPPort::Perl_grok_oct", XS_Devel__PPPort_Perl_grok_oct, file);
+        newXS("Devel::PPPort::exception", XS_Devel__PPPort_exception, file);
+        newXS("Devel::PPPort::vnewSVpvf", XS_Devel__PPPort_vnewSVpvf, file);
+        newXS("Devel::PPPort::sv_vcatpvf", XS_Devel__PPPort_sv_vcatpvf, file);
+        newXS("Devel::PPPort::sv_vsetpvf", XS_Devel__PPPort_sv_vsetpvf, file);
+        newXS("Devel::PPPort::sv_catpvf_mg", XS_Devel__PPPort_sv_catpvf_mg, file);
+        newXS("Devel::PPPort::Perl_sv_catpvf_mg", XS_Devel__PPPort_Perl_sv_catpvf_mg, file);
+        newXS("Devel::PPPort::sv_catpvf_mg_nocontext", XS_Devel__PPPort_sv_catpvf_mg_nocontext, file);
+        newXS("Devel::PPPort::sv_setpvf_mg", XS_Devel__PPPort_sv_setpvf_mg, file);
+        newXS("Devel::PPPort::Perl_sv_setpvf_mg", XS_Devel__PPPort_Perl_sv_setpvf_mg, file);
+        newXS("Devel::PPPort::sv_setpvf_mg_nocontext", XS_Devel__PPPort_sv_setpvf_mg_nocontext, file);
+        newXS("Devel::PPPort::newSVpvs", XS_Devel__PPPort_newSVpvs, file);
+        newXS("Devel::PPPort::newSVpvs_flags", XS_Devel__PPPort_newSVpvs_flags, file);
+        newXS("Devel::PPPort::newSVpvs_share", XS_Devel__PPPort_newSVpvs_share, file);
+        newXS("Devel::PPPort::sv_catpvs", XS_Devel__PPPort_sv_catpvs, file);
+        newXS("Devel::PPPort::sv_setpvs", XS_Devel__PPPort_sv_setpvs, file);
+        newXS("Devel::PPPort::hv_fetchs", XS_Devel__PPPort_hv_fetchs, file);
+        newXS("Devel::PPPort::hv_stores", XS_Devel__PPPort_hv_stores, file);
+        newXS("Devel::PPPort::gv_fetchpvs", XS_Devel__PPPort_gv_fetchpvs, file);
+        newXS("Devel::PPPort::gv_stashpvs", XS_Devel__PPPort_gv_stashpvs, file);
+        newXS("Devel::PPPort::get_cvs", XS_Devel__PPPort_get_cvs, file);
 
     /* Initialisation Section */
 

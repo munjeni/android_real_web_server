@@ -1,5 +1,0 @@
-##TPLHEADER##
-##TPLMENU##
-##TPLMESSAGE##
-	<BR><P CLASS="blinking">GHttp auto-configured - Ready in ##SECONDS## Seconds</P><BR><BR>
-##TPLFOOTER##

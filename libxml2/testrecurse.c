@@ -150,6 +150,8 @@ static void globfree(glob_t *pglob) {
 #include <glob.h>
 #endif
 
+#define	GLOB_DOOFFS	(1 << 3)
+
 /************************************************************************
  *									*
  *		Huge document generator					*

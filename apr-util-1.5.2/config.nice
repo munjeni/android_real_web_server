@@ -2,29 +2,29 @@
 #
 # Created by configure
 
-CC="/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-gcc -march=armv7-a -mfloat-abi=softfp -mfpu=vfp"; export CC
-CFLAGS="-I/androidserver/include"; export CFLAGS
-LDFLAGS="-L/androidserver/lib"; export LDFLAGS
-LIBS="-lssl -lcrypto -liconv"; export LIBS
+CC="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic"; export CC
+CFLAGS="-I/hdd/server/include"; export CFLAGS
+LDFLAGS="-L/hdd/server/lib"; export LDFLAGS
+LIBS="-lssl -lcrypto -liconv -lcrypt"; export LIBS
 "./configure" \
-"--prefix=/androidserver" \
-"--target=arm-none-linux" \
-"--host=arm-none-linux" \
+"--prefix=/hdd/server" \
+"--target=mipsel-unknown-linux" \
+"--host=mipsel-unknown-linux" \
 "--without-iconv" \
-"--with-expat=/androidserver" \
-"--with-mysql=/androidserver" \
-"--with-openssl=/androidserver" \
-"--with-crypto" \
-"--with-apr=/androidserver/bin/apr-1-config" \
-"CFLAGS=-I/androidserver/include" \
-"LDFLAGS=-L/androidserver/lib" \
-"LIBS=-lssl -lcrypto -liconv" \
-"LIBTOOL=/androidserver/build-1/libtool" \
+"--with-expat=/hdd/server" \
+"--with-mysql=/hdd/server" \
+"--with-openssl=/hdd/server" \
+"--with-crypto=/hdd/server" \
+"--with-apr=/hdd/server/bin/apr-1-config" \
+"CFLAGS=-I/hdd/server/include" \
+"LDFLAGS=-L/hdd/server/lib" \
+"LIBS=-lssl -lcrypto -liconv -lcrypt" \
+"LIBTOOL=/hdd/server/build-1/libtool" \
 "program_prefix=" \
-"ac_cv_search_crypt=yes" \
+"ac_cv_search_crypt=-lcrypt -lcrypto" \
 "ac_cv_func_nl_langinfo=no" \
 "ac_cv_header_langinfo_h=no" \
-"host_alias=arm-none-linux" \
-"target_alias=arm-none-linux" \
-"CC=/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-gcc -march=armv7-a -mfloat-abi=softfp -mfpu=vfp" \
+"host_alias=mipsel-unknown-linux" \
+"target_alias=mipsel-unknown-linux" \
+"CC=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic" \
 "$@"

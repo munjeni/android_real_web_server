@@ -250,7 +250,7 @@ my @names = (qw(CLOCKS_PER_SEC CLOCK_HIGHRES CLOCK_MONOTONIC
             {name=>"d_clock_nanosleep", type=>"IV", macro=>"TIME_HIRES_CLOCK_NANOSLEEP", value=>"1", default=>["IV", "0"]},
             {name=>"d_getitimer", type=>"IV", macro=>"HAS_GETITIMER", value=>"1", default=>["IV", "0"]},
             {name=>"d_gettimeofday", type=>"IV", macro=>"HAS_GETTIMEOFDAY", value=>"1", default=>["IV", "0"]},
-            {name=>"d_hires_stat", type=>"IV", macro=>"TIME_HIRES_STAT", value=>"0", default=>["IV", "0"]},
+            {name=>"d_hires_stat", type=>"IV", macro=>"TIME_HIRES_STAT", value=>"4", default=>["IV", "0"]},
             {name=>"d_nanosleep", type=>"IV", macro=>"TIME_HIRES_NANOSLEEP", value=>"1", default=>["IV", "0"]},
             {name=>"d_setitimer", type=>"IV", macro=>"HAS_SETITIMER", value=>"1", default=>["IV", "0"]},
             {name=>"d_ualarm", type=>"IV", macro=>"HAS_UALARM", value=>"1", default=>["IV", "0"]},
@@ -314,7 +314,7 @@ __END__
   case 12:
     if (memEQ(name, "d_hires_stat", 12)) {
 #ifdef TIME_HIRES_STAT
-      *iv_return = 0;
+      *iv_return = 4;
       return PERL_constant_ISIV;
 #else
       *iv_return = 0;

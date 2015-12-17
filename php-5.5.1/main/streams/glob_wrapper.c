@@ -136,7 +136,7 @@ static void php_glob_stream_path_split(glob_s_t *pglob, char *path, int get_path
 	}
 }
 /* }}} */
-
+#define   GLOB_APPEND     0x0001
 static size_t php_glob_stream_read(php_stream *stream, char *buf, size_t count TSRMLS_DC) /* {{{ */
 {
 	glob_s_t *pglob = (glob_s_t *)stream->abstract;

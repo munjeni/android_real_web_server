@@ -754,7 +754,7 @@ static void php_mysql_do_connect(INTERNAL_FUNCTION_PARAMETERS, int persistent)
 
 		MySG(default_port) = MYSQL_PORT;
 		if ((serv_ptr = getservbyname("mysql", "tcp"))) {
-			MySG(default_port) = (uint) ntohs((unsigned short) serv_ptr->s_port);
+			MySG(default_port) = (uint) ntohs((ushort) serv_ptr->s_port);
 		}
 		if ((env = getenv("MYSQL_TCP_PORT"))) {
 			MySG(default_port) = (uint) atoi(env);

@@ -6,8 +6,8 @@
 
 my $openssl;
 
-my $dir = "/androidserver/ssl";
-my $prefix = "/androidserver";
+my $dir = "/hdd/server/ssl";
+my $prefix = "/hdd/server";
 
 if(defined $ENV{OPENSSL}) {
 	$openssl = $ENV{OPENSSL};

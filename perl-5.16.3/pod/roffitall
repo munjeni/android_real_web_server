@@ -527,6 +527,7 @@ toroff=`
     $libdir/I18N::LangTags.3 \
     $libdir/I18N::LangTags::Detect.3 \
     $libdir/I18N::LangTags::List.3 \
+    $libdir/I18N::Langinfo.3 \
     $libdir/IO.3 \
     $libdir/IO::Compress::Adapter::Bzip2.3 \
     $libdir/IO::Compress::Adapter::Deflate.3 \
@@ -566,8 +567,12 @@ toroff=`
     $libdir/IO::Uncompress::Unzip.3 \
     $libdir/IO::Zlib.3 \
     $libdir/IPC::Cmd.3 \
+    $libdir/IPC::Msg.3 \
     $libdir/IPC::Open2.3 \
     $libdir/IPC::Open3.3 \
+    $libdir/IPC::Semaphore.3 \
+    $libdir/IPC::SharedMem.3 \
+    $libdir/IPC::SysV.3 \
     $libdir/JSON::PP.3 \
     $libdir/JSON::PP::Boolean.3 \
     $libdir/List::Util.3 \

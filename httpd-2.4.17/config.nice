@@ -1,0 +1,74 @@
+#! /bin/sh
+#
+# Created by configure
+
+CC="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc"; export CC
+CFLAGS="-D_GNU_SOURCE -DBIG_SECURITY_HOLE"; export CFLAGS
+LDFLAGS="-L/hdd/server/lib -ldl"; export LDFLAGS
+"./configure" \
+"--prefix=/hdd/server" \
+"--target=mipsel-unknown-linux" \
+"--host=mipsel-unknown-linux" \
+"--enable-load-all-modules" \
+"--enable-mime-magic" \
+"--enable-expires" \
+"--enable-unique-id" \
+"--enable-usertrack" \
+"--enable-remoteip" \
+"--enable-session" \
+"--enable-session-cookie" \
+"--enable-ssl" \
+"--enable-ssl-staticlib-deps" \
+"--with-ssl=/hdd/server" \
+"--with-crypto" \
+"--enable-dav" \
+"--enable-info" \
+"--enable-cgi" \
+"--enable-negotiation" \
+"--enable-rewrite" \
+"--with-z=/hdd/server" \
+"--with-pcre=/hdd/server" \
+"--with-openssl=/hdd/server" \
+"--with-libxml2=/hdd/server" \
+"--with-apr=/hdd/server/bin" \
+"--with-apr-util=/hdd/server/bin" \
+"--enable-auth-digest" \
+"--enable-deflate" \
+"--enable-logio" \
+"--with-mpm=prefork" \
+"--enable-static" \
+"--enable-mods-static=all" \
+"--disable-shared" \
+"--enable-so" \
+"--disable-lbmethod-heartbeat" \
+"--disable-ext-filter" \
+"--disable-heartbeat" \
+"--disable-heartmonitor" \
+"--enable-proxy" \
+"--disable-slotmem-plain" \
+"--enable-suexec" \
+"--with-suexec-bin=/hdd/server/bin/suexec" \
+"--with-suexec-caller=system" \
+"ac_cv_file__dev_zero=yes" \
+"ac_cv_func_setpgrp_void=yes" \
+"apr_cv_process_shared_works=yes" \
+"apr_cv_mutex_robust_shared=yes" \
+"apr_cv_tcp_nodelay_with_cork=yes" \
+"ap_cv_void_ptr_lt_long=no" \
+"ac_cv_struct_rlimit=yes" \
+"ac_cv_func_timegm=no" \
+"ac_cv_func_fopen64=no" \
+"ac_cv_func_getloadavg=no" \
+"ac_cv_func_kqueue=no" \
+"ac_cv_func_port_create=no" \
+"ac_cv_func_bindprocessor=no" \
+"ac_cv_lib_m_sqrt=yes" \
+"ac_cv_search_sqrt=-lm" \
+"ac_cv_search_crypt=-lcrypt -lcrypto" \
+"program_prefix=" \
+"host_alias=mipsel-unknown-linux" \
+"target_alias=mipsel-unknown-linux" \
+"CC=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc" \
+"CFLAGS=-D_GNU_SOURCE -DBIG_SECURITY_HOLE" \
+"LDFLAGS=-L/hdd/server/lib -ldl" \
+"$@"

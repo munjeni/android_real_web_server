@@ -344,7 +344,7 @@ char *hmac_md5 (char *text,unsigned long tl,char *key,unsigned long kl)
 /* Initialize MD5 context
  * Accepts: context to initialize
  */
-
+#if 0
 void md5_init (MD5CONTEXT *ctx)
 {
   ctx->clow = ctx->chigh = 0;	/* initialize byte count to zero */
@@ -353,7 +353,7 @@ void md5_init (MD5CONTEXT *ctx)
   ctx->state[2] = 0x98badcfe; ctx->state[3] = 0x10325476;
   ctx->ptr = ctx->buf;		/* reset buffer pointer */
 }
-
+#endif
 
 /* MD5 add data to context
  * Accepts: context

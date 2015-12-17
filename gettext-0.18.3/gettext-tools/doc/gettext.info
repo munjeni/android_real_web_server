@@ -1,4 +1,4 @@
-This is gettext.info, produced by makeinfo version 5.1 from
+This is gettext.info, produced by makeinfo version 5.2 from
 gettext.texi.
 
    Copyright (C) 1995-1998, 2001-2012 Free Software Foundation, Inc.
@@ -17944,14 +17944,14 @@ Node: Rare Language Codes563042
 Node: Country Codes564892
 Node: Licenses571517
 Node: GNU GPL573373
-Node: GNU LGPL592611
-Node: GNU FDL620830
-Node: Program Index643364
-Node: Option Index645250
-Node: Variable Index698648
-Node: PO Mode Index701905
-Node: Autoconf Macro Index718615
-Node: Index719422
+Node: GNU LGPL592615
+Node: GNU FDL620839
+Node: Program Index643374
+Node: Option Index645260
+Node: Variable Index698658
+Node: PO Mode Index701915
+Node: Autoconf Macro Index718625
+Node: Index719432
 
 End Tag Table
 

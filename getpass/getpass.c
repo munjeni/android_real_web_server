@@ -56,6 +56,8 @@ __weak_alias(getpass,_getpass)
 #endif
 #endif
 
+#define _PASSWORD_LEN       128
+
 char *
 getpass(prompt)
 	const char *prompt;

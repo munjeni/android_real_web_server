@@ -31,25 +31,25 @@
 
 # These definitions are from config.sh (via ../../lib/Config.pm).
 # They may have been overridden via Makefile.PL or on the command line.
-AR = arm-linux-androideabi-ar
-CC = arm-linux-androideabi-gcc
+AR = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ar
+CC = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc
 CCCDLFLAGS = -fPIC
 CCDLFLAGS = -Wl,-E
 DLEXT = so
 DLSRC = dl_dlopen.xs
 EXE_EXT = 
 FULL_AR = ar
-LD = arm-linux-androideabi-gcc
+LD = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ld
 LDDLFLAGS = -shared 
-LDFLAGS = --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot 
+LDFLAGS = --sysroot=/compilationmoj/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root 
 LIBC = 
 LIB_EXT = .a
 OBJ_EXT = .o
 OSNAME = linux
 OSVERS = current
-RANLIB = arm-linux-androideabi-ranlib
-SITELIBEXP = /androidserver/lib/perl5/site_perl/5.16.3
-SITEARCHEXP = /androidserver/lib/perl5/site_perl/5.16.3/arm-androideabi
+RANLIB = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ranlib
+SITELIBEXP = /hdd/server/lib/perl5/site_perl/5.16.3
+SITEARCHEXP = /hdd/server/lib/perl5/site_perl/5.16.3/mipsel-linux
 SO = so
 VENDORARCHEXP = 
 VENDORLIBEXP = 
@@ -79,44 +79,44 @@ MAN3EXT = 3
 INSTALLDIRS = site
 DESTDIR = 
 PREFIX = $(SITEPREFIX)
-PERLPREFIX = /androidserver
-SITEPREFIX = /androidserver
+PERLPREFIX = /hdd/server
+SITEPREFIX = /hdd/server
 VENDORPREFIX = 
-INSTALLPRIVLIB = /androidserver/lib/perl5
+INSTALLPRIVLIB = /hdd/server/lib/perl5
 DESTINSTALLPRIVLIB = $(DESTDIR)$(INSTALLPRIVLIB)
-INSTALLSITELIB = /androidserver/lib/perl5/site_perl/5.16.3
+INSTALLSITELIB = /hdd/server/lib/perl5/site_perl/5.16.3
 DESTINSTALLSITELIB = $(DESTDIR)$(INSTALLSITELIB)
 INSTALLVENDORLIB = 
 DESTINSTALLVENDORLIB = $(DESTDIR)$(INSTALLVENDORLIB)
-INSTALLARCHLIB = /androidserver/lib/perl5/5.16.3/arm-androideabi
+INSTALLARCHLIB = /hdd/server/lib/perl5/5.16.3/mipsel-linux
 DESTINSTALLARCHLIB = $(DESTDIR)$(INSTALLARCHLIB)
-INSTALLSITEARCH = /androidserver/lib/perl5/site_perl/5.16.3/arm-androideabi
+INSTALLSITEARCH = /hdd/server/lib/perl5/site_perl/5.16.3/mipsel-linux
 DESTINSTALLSITEARCH = $(DESTDIR)$(INSTALLSITEARCH)
 INSTALLVENDORARCH = 
 DESTINSTALLVENDORARCH = $(DESTDIR)$(INSTALLVENDORARCH)
-INSTALLBIN = /androidserver/bin
+INSTALLBIN = /hdd/server/bin
 DESTINSTALLBIN = $(DESTDIR)$(INSTALLBIN)
-INSTALLSITEBIN = /androidserver/bin
+INSTALLSITEBIN = /hdd/server/bin
 DESTINSTALLSITEBIN = $(DESTDIR)$(INSTALLSITEBIN)
 INSTALLVENDORBIN = 
 DESTINSTALLVENDORBIN = $(DESTDIR)$(INSTALLVENDORBIN)
-INSTALLSCRIPT = /androidserver/bin
+INSTALLSCRIPT = /hdd/server/bin
 DESTINSTALLSCRIPT = $(DESTDIR)$(INSTALLSCRIPT)
 INSTALLSITESCRIPT = $(INSTALLSCRIPT)
 DESTINSTALLSITESCRIPT = $(DESTDIR)$(INSTALLSITESCRIPT)
 INSTALLVENDORSCRIPT = 
 DESTINSTALLVENDORSCRIPT = $(DESTDIR)$(INSTALLVENDORSCRIPT)
-INSTALLMAN1DIR = /androidserver/share/man/man1
+INSTALLMAN1DIR = /hdd/server/share/man/man1
 DESTINSTALLMAN1DIR = $(DESTDIR)$(INSTALLMAN1DIR)
-INSTALLSITEMAN1DIR = /androidserver/share/man/man1
+INSTALLSITEMAN1DIR = /hdd/server/share/man/man1
 DESTINSTALLSITEMAN1DIR = $(DESTDIR)$(INSTALLSITEMAN1DIR)
-INSTALLVENDORMAN1DIR = /androidserver/share/man/man1
+INSTALLVENDORMAN1DIR = /hdd/server/share/man/man1
 DESTINSTALLVENDORMAN1DIR = $(DESTDIR)$(INSTALLVENDORMAN1DIR)
-INSTALLMAN3DIR = /androidserver/share/man/man3
+INSTALLMAN3DIR = /hdd/server/share/man/man3
 DESTINSTALLMAN3DIR = $(DESTDIR)$(INSTALLMAN3DIR)
-INSTALLSITEMAN3DIR = /androidserver/share/man/man3
+INSTALLSITEMAN3DIR = /hdd/server/share/man/man3
 DESTINSTALLSITEMAN3DIR = $(DESTDIR)$(INSTALLSITEMAN3DIR)
-INSTALLVENDORMAN3DIR = /androidserver/share/man/man3
+INSTALLVENDORMAN3DIR = /hdd/server/share/man/man3
 DESTINSTALLVENDORMAN3DIR = $(DESTDIR)$(INSTALLVENDORMAN3DIR)
 PERL_LIB = ../../../lib
 PERL_ARCHLIB = ../../../lib
@@ -265,7 +265,7 @@ makemakerdflt : all
 
 # --- MakeMaker cflags section:
 
-CCFLAGS = --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot
+CCFLAGS = --sysroot=/compilationmoj/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT
 OPTIMIZE = 
 PERLTYPE = 
 MPOLLUTE = 
@@ -306,7 +306,7 @@ PASTHRU = LIBPERL_A="$(LIBPERL_A)"\
 # --- MakeMaker c_o section:
 
 .c.i:
-	arm-linux-androideabi-gcc -E -c $(PASTHRU_INC) $(INC) \
+	/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -E -c $(PASTHRU_INC) $(INC) \
 	$(CCFLAGS) $(OPTIMIZE) \
 	$(PERLTYPE) $(MPOLLUTE) $(DEFINE_VERSION) \
 	$(XS_DEFINE_VERSION) $(CCCDLFLAGS) "-I$(PERL_INC)" $(PASTHRU_DEFINE) $(DEFINE) $*.c > $*.i
@@ -727,7 +727,7 @@ ppd :
 	$(NOECHO) $(ECHO) '    <ABSTRACT></ABSTRACT>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <AUTHOR></AUTHOR>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="arm-androideabi-5.16" />' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="mipsel-linux-5.16" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <CODEBASE HREF="" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    </IMPLEMENTATION>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '</SOFTPKG>' >> $(DISTNAME).ppd
@@ -753,13 +753,13 @@ Byte$(OBJ_EXT) : Byte.c
 byte_t.c : ../bin/enc2xs Makefile.PL ../ucm/nextstep.ucm ../ucm/hp-roman8.ucm ../ucm/viscii.ucm ../ucm/adobeStdenc.ucm ../ucm/koi8-f.ucm \
 	 ../ucm/koi8-r.ucm ../ucm/koi8-u.ucm ../ucm/macArabic.ucm ../ucm/macCentEuro.ucm ../ucm/macCroatian.ucm ../ucm/macCyrillic.ucm \
 	 ../ucm/macFarsi.ucm ../ucm/macGreek.ucm ../ucm/macHebrew.ucm ../ucm/macIceland.ucm ../ucm/macRoman.ucm ../ucm/macROMnn.ucm \
-	 ../ucm/macRUMnn.ucm ../ucm/macSami.ucm ../ucm/macThai.ucm ../ucm/macTurkish.ucm ../ucm/macUkraine.ucm ../ucm/cp1257.ucm \
-	 ../ucm/8859-6.ucm ../ucm/8859-13.ucm ../ucm/cp424.ucm ../ucm/8859-14.ucm ../ucm/cp869.ucm ../ucm/cp1253.ucm ../ucm/cp437.ucm \
-	 ../ucm/cp850.ucm ../ucm/cp864.ucm ../ucm/cp775.ucm ../ucm/cp1251.ucm ../ucm/8859-8.ucm ../ucm/8859-2.ucm ../ucm/cp862.ucm \
-	 ../ucm/cp857.ucm ../ucm/cp1006.ucm ../ucm/cp861.ucm ../ucm/8859-10.ucm ../ucm/8859-9.ucm ../ucm/cp866.ucm ../ucm/8859-7.ucm \
-	 ../ucm/cp856.ucm ../ucm/8859-11.ucm ../ucm/cp863.ucm ../ucm/cp874.ucm ../ucm/8859-15.ucm ../ucm/cp860.ucm ../ucm/cp1252.ucm \
-	 ../ucm/8859-16.ucm ../ucm/cp1256.ucm ../ucm/cp1255.ucm ../ucm/cp852.ucm ../ucm/cp1250.ucm ../ucm/cp1254.ucm ../ucm/8859-3.ucm \
-	 ../ucm/8859-4.ucm ../ucm/cp737.ucm ../ucm/cp855.ucm ../ucm/8859-5.ucm ../ucm/cp865.ucm ../ucm/cp1258.ucm ../ucm/cp858.ucm
+	 ../ucm/macRUMnn.ucm ../ucm/macSami.ucm ../ucm/macThai.ucm ../ucm/macTurkish.ucm ../ucm/macUkraine.ucm ../ucm/cp874.ucm \
+	 ../ucm/cp858.ucm ../ucm/cp1253.ucm ../ucm/8859-15.ucm ../ucm/cp1258.ucm ../ucm/cp1256.ucm ../ucm/cp1251.ucm ../ucm/8859-13.ucm \
+	 ../ucm/8859-5.ucm ../ucm/cp775.ucm ../ucm/cp856.ucm ../ucm/cp1250.ucm ../ucm/cp869.ucm ../ucm/cp1257.ucm ../ucm/cp437.ucm \
+	 ../ucm/8859-16.ucm ../ucm/cp865.ucm ../ucm/8859-7.ucm ../ucm/cp855.ucm ../ucm/cp737.ucm ../ucm/cp860.ucm ../ucm/cp861.ucm \
+	 ../ucm/cp1006.ucm ../ucm/cp424.ucm ../ucm/cp852.ucm ../ucm/8859-6.ucm ../ucm/8859-2.ucm ../ucm/cp863.ucm ../ucm/8859-8.ucm \
+	 ../ucm/8859-9.ucm ../ucm/cp862.ucm ../ucm/8859-11.ucm ../ucm/8859-3.ucm ../ucm/cp1255.ucm ../ucm/cp1254.ucm ../ucm/8859-14.ucm \
+	 ../ucm/8859-10.ucm ../ucm/cp850.ucm ../ucm/cp866.ucm ../ucm/cp1252.ucm ../ucm/8859-4.ucm ../ucm/cp857.ucm ../ucm/cp864.ucm
 	$(PERL) "-I$(PERL_LIB)" ../bin/enc2xs -"Q" -"O" -o $@ -f byte_t.fnm
 
 

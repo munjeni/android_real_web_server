@@ -1098,7 +1098,7 @@ int php_posix_passwd_to_array(struct passwd *pw, zval *return_value) /* {{{ */
 	add_assoc_string(return_value, "passwd",    pw->pw_passwd, 1);
 	add_assoc_long  (return_value, "uid",       pw->pw_uid);
 	add_assoc_long  (return_value, "gid",		pw->pw_gid);
-	//add_assoc_string(return_value, "gecos",     pw->pw_gecos, 1);
+	add_assoc_string(return_value, "gecos",     pw->pw_gecos, 1);
 	add_assoc_string(return_value, "dir",       pw->pw_dir, 1);
 	add_assoc_string(return_value, "shell",     pw->pw_shell, 1);
 	return 1;

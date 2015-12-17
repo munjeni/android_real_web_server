@@ -1,0 +1,5 @@
+: Configure command line arguments.
+config_arg0='./Configure'
+config_args='--help'
+config_argc=1
+config_arg1='--help'

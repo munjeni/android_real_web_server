@@ -1,6 +1,6 @@
-#!/androidserver/bin/perl -w
+#!/hdd/server/bin/perl -w
 
-eval 'exec /androidserver/bin/perl -w -S $0 ${1+"$@"}'
+eval 'exec /hdd/server/bin/perl -w -S $0 ${1+"$@"}'
     if 0; # not running under some shell
 use strict;
 use CPANPLUS::Backend;

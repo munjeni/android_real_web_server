@@ -1,9 +1,9 @@
-#!/system/bin/sh
+#!/bin/sh
 
-export TERMINFO=/system/etc/terminfo
+export TERMINFO=/hdd/server/etc/terminfo
 export TERM=pcansi
-export LYNX_CFG=/androidserver/lynx/lynx.cfg
-export LYNX_LSS=/androidserver/lynx/lynx.lss
-export TMPDIR=/androidserver/lynx/cache
+export LYNX_CFG=/hdd/server/lynx/etc/lynx.cfg
+export LYNX_LSS=/hdd/server/lynx/etc/lynx.lss
+export TMPDIR=/hdd/server/lynx/cache
 
-/androidserver/lynx/lynx
+/hdd/server/lynx/lynx

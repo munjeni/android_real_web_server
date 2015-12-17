@@ -1,17 +1,16 @@
-# MAKEFILE for GCC created
-# glob implementation for android by munjeni @ XDA 2013
-CFLAGS = -O2 -Wall -c -I./
-CC=/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-gcc
-LD=/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-ld
-AR=/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-ar
+#
+CFLAGS = -O2 -Wall
+CC=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -O2 -Wall -fpic
+LD=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ld
+AR=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ar
 
-CFLAGS += -fpic -march=armv7-a -mfloat-abi=softfp -mfpu=vfp
+CFLAGS += -fpic
 
 default:libglob.a
 
 libglob.a: glob.o
 	${AR} rs libglob.a glob.o
-	${CC} -O2 -Wall -shared -o libglob.so -Wl,--whole-archive libglob.a -Wl,--no-whole-archive
+	#${CC} -O2 -Wall -shared -o libglob.so -Wl,--whole-archive libglob.a -Wl,--no-whole-archive
 
 clean:
 	rm -f *.a *.o
@@ -22,7 +21,9 @@ distclean:
 	rm -f *.so
 
 install:
-	[ ! -d /androidserver/include ] && mkdir -p /androidserver/include
-	[ ! -d /androidserver/lib ] && mkdir -p /androidserver/lib 
-	cp -f *.h /androidserver/include/
-	cp *.a /androidserver/lib/
+	if [ ! -d "/hdd/server/include" ]; then mkdir -p /hdd/server/include; fi
+	if [ ! -d /hdd/server/lib ]; then mkdir -p /hdd/server/lib; fi
+	cp -f *.h /hdd/server/include/
+	cp *.a /hdd/server/lib/
+	#cp *.so /hdd/server/lib/
+

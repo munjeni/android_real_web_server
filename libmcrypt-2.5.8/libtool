@@ -44,7 +44,7 @@ available_tags=" CXX"
 
 # ### BEGIN LIBTOOL CONFIG
 
-# Libtool was configured on host Ubuntu-1204-precise-64-minimal:
+# Libtool was configured on host Ubuntu-1504-vivid-64-minimal:
 
 # Shell to use when invoking shell scripts.
 SHELL="/bin/bash"
@@ -65,8 +65,8 @@ allow_libtool_libs_with_static_runtimes=no
 fast_install=needless
 
 # The host system.
-host_alias=arm-none-linux
-host=arm-none-linux-gnu
+host_alias=mipsel-unknown-linux
+host=mipsel-unknown-linux-gnu
 host_os=linux-gnu
 
 # The build system.
@@ -78,17 +78,17 @@ build_os=linux-gnu
 echo="echo"
 
 # The archiver.
-AR="/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-ar"
+AR="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ar"
 AR_FLAGS="cru"
 
 # A C compiler.
-LTCC="/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-gcc -march=armv7-a -mfloat-abi=softfp -mfpu=vfp"
+LTCC="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic"
 
 # LTCC compiler flags.
-LTCFLAGS="-g -O2"
+LTCFLAGS="-I/hdd/server/include"
 
 # A language-specific compiler.
-CC="/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-gcc -march=armv7-a -mfloat-abi=softfp -mfpu=vfp"
+CC="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic"
 
 # Is the compiler the GNU C compiler?
 with_gcc=yes
@@ -100,7 +100,7 @@ gcc_ver=`gcc -dumpversion`
 EGREP="grep -E"
 
 # The linker used to build libraries.
-LD="/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-ld"
+LD="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ld"
 
 # Whether we need hard or soft links.
 LN_S="ln -s"
@@ -109,7 +109,7 @@ LN_S="ln -s"
 NM="nm"
 
 # A symbol stripping program
-STRIP="/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-strip"
+STRIP="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-strip"
 
 # Used to examine libraries when file_magic_cmd begins "file"
 MAGIC_CMD=file
@@ -202,7 +202,7 @@ library_names_spec="\${libname}\${release}\${shared_ext}\$versuffix \${libname}\
 soname_spec="\${libname}\${release}\${shared_ext}\$major"
 
 # Commands used to build and install an old-style archive.
-RANLIB="/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-ranlib"
+RANLIB="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ranlib"
 old_archive_cmds="\$AR \$AR_FLAGS \$oldlib\$oldobjs\$old_deplibs~\$RANLIB \$oldlib"
 old_postinstall_cmds="chmod 644 \$oldlib~\$RANLIB \$oldlib"
 old_postuninstall_cmds=""
@@ -215,7 +215,10 @@ old_archive_from_expsyms_cmds=""
 
 # Commands used to build and install a shared archive.
 archive_cmds="\$CC -shared \$libobjs \$deplibs \$compiler_flags \${wl}-soname \$wl\$soname -o \$lib"
-archive_expsym_cmds=""
+archive_expsym_cmds="\$echo \\\"{ global:\\\" > \$output_objdir/\$libname.ver~
+  cat \$export_symbols | sed -e \\\"s/\\\\(.*\\\\)/\\\\1;/\\\" >> \$output_objdir/\$libname.ver~
+  \$echo \\\"local: *; };\\\" >> \$output_objdir/\$libname.ver~
+	  \$CC -shared \$libobjs \$deplibs \$compiler_flags \${wl}-soname \$wl\$soname \${wl}-version-script \${wl}\$output_objdir/\$libname.ver -o \$lib"
 postinstall_cmds=""
 postuninstall_cmds=""
 
@@ -224,8 +227,8 @@ module_cmds=""
 module_expsym_cmds=""
 
 # Commands to strip libraries.
-old_striplib="/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-strip --strip-debug"
-striplib="/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-strip --strip-unneeded"
+old_striplib="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-strip --strip-debug"
+striplib="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-strip --strip-unneeded"
 
 # Dependencies to place before the objects being linked to create a
 # shared library.
@@ -325,10 +328,10 @@ variables_saved_for_relink="PATH LD_LIBRARY_PATH LD_RUN_PATH GCC_EXEC_PREFIX COM
 link_all_deplibs=unknown
 
 # Compile-time system search path for libraries
-sys_lib_search_path_spec=`echo " /compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/armv7-a/ /compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/armv7-a/ /compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/lib/arm-linux-androideabi/4.6/armv7-a/ /compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/lib/armv7-a/ /compilation/arm-linux-androideabi-4.6/bin/../sysroot/lib/arm-linux-androideabi/4.6/armv7-a/ /compilation/arm-linux-androideabi-4.6/bin/../sysroot/lib/armv7-a/ /compilation/arm-linux-androideabi-4.6/bin/../sysroot/usr/lib/arm-linux-androideabi/4.6/armv7-a/ /compilation/arm-linux-androideabi-4.6/bin/../sysroot/usr/lib/armv7-a/ /compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/ /compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/ /compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/lib/arm-linux-androideabi/4.6/ /compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/lib/ /compilation/arm-linux-androideabi-4.6/bin/../sysroot/lib/arm-linux-androideabi/4.6/ /compilation/arm-linux-androideabi-4.6/bin/../sysroot/lib/ /compilation/arm-linux-androideabi-4.6/bin/../sysroot/usr/lib/arm-linux-androideabi/4.6/ /compilation/arm-linux-androideabi-4.6/bin/../sysroot/usr/lib/" | $SED -e "s@${gcc_dir}@\${gcc_dir}@g;s@${gcc_ver}@\${gcc_ver}@g"`
+sys_lib_search_path_spec=`echo " /compilationmoj/mipsel-unknown-linux-gnu/bin/../lib/gcc/mipsel-unknown-linux-gnu/4.3.2/ /compilationmoj/mipsel-unknown-linux-gnu/bin/../lib/gcc/ /compilationmoj/mipsel-unknown-linux-gnu/bin/../lib/gcc/mipsel-unknown-linux-gnu/4.3.2/../../../../mipsel-unknown-linux-gnu/lib/mipsel-unknown-linux-gnu/4.3.2/ /compilationmoj/mipsel-unknown-linux-gnu/bin/../lib/gcc/mipsel-unknown-linux-gnu/4.3.2/../../../../mipsel-unknown-linux-gnu/lib/ /compilationmoj/mipsel-unknown-linux-gnu/bin/../mipsel-unknown-linux-gnu/sys-root/lib/mipsel-unknown-linux-gnu/4.3.2/ /compilationmoj/mipsel-unknown-linux-gnu/bin/../mipsel-unknown-linux-gnu/sys-root/lib/ /compilationmoj/mipsel-unknown-linux-gnu/bin/../mipsel-unknown-linux-gnu/sys-root/usr/lib/mipsel-unknown-linux-gnu/4.3.2/ /compilationmoj/mipsel-unknown-linux-gnu/bin/../mipsel-unknown-linux-gnu/sys-root/usr/lib/" | $SED -e "s@${gcc_dir}@\${gcc_dir}@g;s@${gcc_ver}@\${gcc_ver}@g"`
 
 # Run-time system search path for libraries
-sys_lib_dlsearch_path_spec="/lib /usr/lib /usr/lib/i386-linux-gnu/mesa /lib/i386-linux-gnu /usr/lib/i386-linux-gnu /lib/i686-linux-gnu /usr/lib/i686-linux-gnu /usr/local/lib /lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/mesa /lib32 /usr/lib32 "
+sys_lib_dlsearch_path_spec="/lib /usr/lib /usr/lib/x86_64-linux-gnu/libfakeroot /lib/i386-linux-gnu /usr/lib/i386-linux-gnu /lib/i686-linux-gnu /usr/lib/i686-linux-gnu /usr/local/lib /lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/mesa /lib32 /usr/lib32 /libx32 /usr/libx32 "
 
 # Fix the shell variable $srcfile for the compiler.
 fix_srcfile_path=""
@@ -7263,7 +7266,7 @@ disable_libs=static
 # End:
 # ### BEGIN LIBTOOL TAG CONFIG: CXX
 
-# Libtool was configured on host Ubuntu-1204-precise-64-minimal:
+# Libtool was configured on host Ubuntu-1504-vivid-64-minimal:
 
 # Shell to use when invoking shell scripts.
 SHELL="/bin/bash"
@@ -7284,8 +7287,8 @@ allow_libtool_libs_with_static_runtimes=no
 fast_install=needless
 
 # The host system.
-host_alias=arm-none-linux
-host=arm-none-linux-gnu
+host_alias=mipsel-unknown-linux
+host=mipsel-unknown-linux-gnu
 host_os=linux-gnu
 
 # The build system.
@@ -7297,17 +7300,17 @@ build_os=linux-gnu
 echo="echo"
 
 # The archiver.
-AR="/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-ar"
+AR="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ar"
 AR_FLAGS="cru"
 
 # A C compiler.
-LTCC="/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-gcc -march=armv7-a -mfloat-abi=softfp -mfpu=vfp"
+LTCC="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic"
 
 # LTCC compiler flags.
-LTCFLAGS="-g -O2"
+LTCFLAGS="-I/hdd/server/include"
 
 # A language-specific compiler.
-CC="/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-c++"
+CC="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-c++"
 
 # Is the compiler the GNU C compiler?
 with_gcc=yes
@@ -7319,7 +7322,7 @@ gcc_ver=`gcc -dumpversion`
 EGREP="grep -E"
 
 # The linker used to build libraries.
-LD="/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-ld"
+LD="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ld"
 
 # Whether we need hard or soft links.
 LN_S="ln -s"
@@ -7328,7 +7331,7 @@ LN_S="ln -s"
 NM="nm"
 
 # A symbol stripping program
-STRIP="/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-strip"
+STRIP="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-strip"
 
 # Used to examine libraries when file_magic_cmd begins "file"
 MAGIC_CMD=file
@@ -7421,7 +7424,7 @@ library_names_spec="\${libname}\${release}\${shared_ext}\$versuffix \${libname}\
 soname_spec="\${libname}\${release}\${shared_ext}\$major"
 
 # Commands used to build and install an old-style archive.
-RANLIB="/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-ranlib"
+RANLIB="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ranlib"
 old_archive_cmds="\$AR \$AR_FLAGS \$oldlib\$oldobjs\$old_deplibs~\$RANLIB \$oldlib"
 old_postinstall_cmds="chmod 644 \$oldlib~\$RANLIB \$oldlib"
 old_postuninstall_cmds=""
@@ -7443,16 +7446,16 @@ module_cmds=""
 module_expsym_cmds=""
 
 # Commands to strip libraries.
-old_striplib="/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-strip --strip-debug"
-striplib="/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-strip --strip-unneeded"
+old_striplib="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-strip --strip-debug"
+striplib="/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-strip --strip-unneeded"
 
 # Dependencies to place before the objects being linked to create a
 # shared library.
-predep_objects=`echo "/compilation/arm-linux-androideabi-4.6/bin/../sysroot/usr/lib/crtbegin_so.o" | $SED -e "s@${gcc_dir}@\${gcc_dir}@g;s@${gcc_ver}@\${gcc_ver}@g"`
+predep_objects=`echo "/compilationmoj/mipsel-unknown-linux-gnu/bin/../mipsel-unknown-linux-gnu/sys-root/usr/lib/crti.o /compilationmoj/mipsel-unknown-linux-gnu/bin/../lib/gcc/mipsel-unknown-linux-gnu/4.3.2/crtbeginS.o" | $SED -e "s@${gcc_dir}@\${gcc_dir}@g;s@${gcc_ver}@\${gcc_ver}@g"`
 
 # Dependencies to place after the objects being linked to create a
 # shared library.
-postdep_objects=`echo "/compilation/arm-linux-androideabi-4.6/bin/../sysroot/usr/lib/crtend_so.o" | $SED -e "s@${gcc_dir}@\${gcc_dir}@g;s@${gcc_ver}@\${gcc_ver}@g"`
+postdep_objects=`echo "/compilationmoj/mipsel-unknown-linux-gnu/bin/../lib/gcc/mipsel-unknown-linux-gnu/4.3.2/crtendS.o /compilationmoj/mipsel-unknown-linux-gnu/bin/../mipsel-unknown-linux-gnu/sys-root/usr/lib/crtn.o" | $SED -e "s@${gcc_dir}@\${gcc_dir}@g;s@${gcc_ver}@\${gcc_ver}@g"`
 
 # Dependencies to place before the objects being linked to create a
 # shared library.
@@ -7460,11 +7463,11 @@ predeps=""
 
 # Dependencies to place after the objects being linked to create a
 # shared library.
-postdeps="-lstdc++ -lm -lgcc -lc -ldl -lgcc"
+postdeps="-lstdc++ -lm -lgcc_s -lc -lgcc_s"
 
 # The library search path used internally by the compiler when linking
 # a shared library.
-compiler_lib_search_path=`echo "-L/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6 -L/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc -L/compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/lib -L/compilation/arm-linux-androideabi-4.6/bin/../sysroot/usr/lib" | $SED -e "s@${gcc_dir}@\${gcc_dir}@g;s@${gcc_ver}@\${gcc_ver}@g"`
+compiler_lib_search_path=`echo "-L/compilationmoj/mipsel-unknown-linux-gnu/bin/../lib/gcc/mipsel-unknown-linux-gnu/4.3.2 -L/compilationmoj/mipsel-unknown-linux-gnu/bin/../lib/gcc -L/compilationmoj/mipsel-unknown-linux-gnu/bin/../lib/gcc/mipsel-unknown-linux-gnu/4.3.2/../../../../mipsel-unknown-linux-gnu/lib -L/compilationmoj/mipsel-unknown-linux-gnu/bin/../mipsel-unknown-linux-gnu/sys-root/lib -L/compilationmoj/mipsel-unknown-linux-gnu/bin/../mipsel-unknown-linux-gnu/sys-root/usr/lib" | $SED -e "s@${gcc_dir}@\${gcc_dir}@g;s@${gcc_ver}@\${gcc_ver}@g"`
 
 # Method to check whether dependent libraries are shared objects.
 deplibs_check_method="pass_all"
@@ -7544,10 +7547,10 @@ variables_saved_for_relink="PATH LD_LIBRARY_PATH LD_RUN_PATH GCC_EXEC_PREFIX COM
 link_all_deplibs=unknown
 
 # Compile-time system search path for libraries
-sys_lib_search_path_spec=`echo " /compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/ /compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/ /compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/lib/arm-linux-androideabi/4.6/ /compilation/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/lib/ /compilation/arm-linux-androideabi-4.6/bin/../sysroot/lib/arm-linux-androideabi/4.6/ /compilation/arm-linux-androideabi-4.6/bin/../sysroot/lib/ /compilation/arm-linux-androideabi-4.6/bin/../sysroot/usr/lib/arm-linux-androideabi/4.6/ /compilation/arm-linux-androideabi-4.6/bin/../sysroot/usr/lib/" | $SED -e "s@${gcc_dir}@\${gcc_dir}@g;s@${gcc_ver}@\${gcc_ver}@g"`
+sys_lib_search_path_spec=`echo " /compilationmoj/mipsel-unknown-linux-gnu/bin/../lib/gcc/mipsel-unknown-linux-gnu/4.3.2/ /compilationmoj/mipsel-unknown-linux-gnu/bin/../lib/gcc/ /compilationmoj/mipsel-unknown-linux-gnu/bin/../lib/gcc/mipsel-unknown-linux-gnu/4.3.2/../../../../mipsel-unknown-linux-gnu/lib/mipsel-unknown-linux-gnu/4.3.2/ /compilationmoj/mipsel-unknown-linux-gnu/bin/../lib/gcc/mipsel-unknown-linux-gnu/4.3.2/../../../../mipsel-unknown-linux-gnu/lib/ /compilationmoj/mipsel-unknown-linux-gnu/bin/../mipsel-unknown-linux-gnu/sys-root/lib/mipsel-unknown-linux-gnu/4.3.2/ /compilationmoj/mipsel-unknown-linux-gnu/bin/../mipsel-unknown-linux-gnu/sys-root/lib/ /compilationmoj/mipsel-unknown-linux-gnu/bin/../mipsel-unknown-linux-gnu/sys-root/usr/lib/mipsel-unknown-linux-gnu/4.3.2/ /compilationmoj/mipsel-unknown-linux-gnu/bin/../mipsel-unknown-linux-gnu/sys-root/usr/lib/" | $SED -e "s@${gcc_dir}@\${gcc_dir}@g;s@${gcc_ver}@\${gcc_ver}@g"`
 
 # Run-time system search path for libraries
-sys_lib_dlsearch_path_spec="/lib /usr/lib /usr/lib/i386-linux-gnu/mesa /lib/i386-linux-gnu /usr/lib/i386-linux-gnu /lib/i686-linux-gnu /usr/lib/i686-linux-gnu /usr/local/lib /lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/mesa /lib32 /usr/lib32 "
+sys_lib_dlsearch_path_spec="/lib /usr/lib /usr/lib/x86_64-linux-gnu/libfakeroot /lib/i386-linux-gnu /usr/lib/i386-linux-gnu /lib/i686-linux-gnu /usr/lib/i686-linux-gnu /usr/local/lib /lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/mesa /lib32 /usr/lib32 /libx32 /usr/libx32 "
 
 # Fix the shell variable $srcfile for the compiler.
 fix_srcfile_path=""

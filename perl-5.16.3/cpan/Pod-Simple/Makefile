@@ -26,25 +26,25 @@
 
 # These definitions are from config.sh (via ../../lib/Config.pm).
 # They may have been overridden via Makefile.PL or on the command line.
-AR = arm-linux-androideabi-ar
-CC = arm-linux-androideabi-gcc
+AR = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ar
+CC = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc
 CCCDLFLAGS = -fPIC
 CCDLFLAGS = -Wl,-E
 DLEXT = so
 DLSRC = dl_dlopen.xs
 EXE_EXT = 
 FULL_AR = ar
-LD = arm-linux-androideabi-gcc
+LD = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ld
 LDDLFLAGS = -shared 
-LDFLAGS = --sysroot=/compilation/arm-linux-androideabi-4.6/sysroot 
+LDFLAGS = --sysroot=/compilationmoj/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root 
 LIBC = 
 LIB_EXT = .a
 OBJ_EXT = .o
 OSNAME = linux
 OSVERS = current
-RANLIB = arm-linux-androideabi-ranlib
-SITELIBEXP = /androidserver/lib/perl5/site_perl/5.16.3
-SITEARCHEXP = /androidserver/lib/perl5/site_perl/5.16.3/arm-androideabi
+RANLIB = /compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ranlib
+SITELIBEXP = /hdd/server/lib/perl5/site_perl/5.16.3
+SITEARCHEXP = /hdd/server/lib/perl5/site_perl/5.16.3/mipsel-linux
 SO = so
 VENDORARCHEXP = 
 VENDORLIBEXP = 
@@ -74,28 +74,28 @@ MAN3EXT = 3
 INSTALLDIRS = perl
 DESTDIR = 
 PREFIX = $(PERLPREFIX)
-PERLPREFIX = /androidserver
-SITEPREFIX = /androidserver
+PERLPREFIX = /hdd/server
+SITEPREFIX = /hdd/server
 VENDORPREFIX = 
-INSTALLPRIVLIB = /androidserver/lib/perl5
+INSTALLPRIVLIB = /hdd/server/lib/perl5
 DESTINSTALLPRIVLIB = $(DESTDIR)$(INSTALLPRIVLIB)
-INSTALLSITELIB = /androidserver/lib/perl5/site_perl/5.16.3
+INSTALLSITELIB = /hdd/server/lib/perl5/site_perl/5.16.3
 DESTINSTALLSITELIB = $(DESTDIR)$(INSTALLSITELIB)
 INSTALLVENDORLIB = 
 DESTINSTALLVENDORLIB = $(DESTDIR)$(INSTALLVENDORLIB)
-INSTALLARCHLIB = /androidserver/lib/perl5/5.16.3/arm-androideabi
+INSTALLARCHLIB = /hdd/server/lib/perl5/5.16.3/mipsel-linux
 DESTINSTALLARCHLIB = $(DESTDIR)$(INSTALLARCHLIB)
-INSTALLSITEARCH = /androidserver/lib/perl5/site_perl/5.16.3/arm-androideabi
+INSTALLSITEARCH = /hdd/server/lib/perl5/site_perl/5.16.3/mipsel-linux
 DESTINSTALLSITEARCH = $(DESTDIR)$(INSTALLSITEARCH)
 INSTALLVENDORARCH = 
 DESTINSTALLVENDORARCH = $(DESTDIR)$(INSTALLVENDORARCH)
-INSTALLBIN = /androidserver/bin
+INSTALLBIN = /hdd/server/bin
 DESTINSTALLBIN = $(DESTDIR)$(INSTALLBIN)
-INSTALLSITEBIN = /androidserver/bin
+INSTALLSITEBIN = /hdd/server/bin
 DESTINSTALLSITEBIN = $(DESTDIR)$(INSTALLSITEBIN)
 INSTALLVENDORBIN = 
 DESTINSTALLVENDORBIN = $(DESTDIR)$(INSTALLVENDORBIN)
-INSTALLSCRIPT = /androidserver/bin
+INSTALLSCRIPT = /hdd/server/bin
 DESTINSTALLSCRIPT = $(DESTDIR)$(INSTALLSCRIPT)
 INSTALLSITESCRIPT = $(INSTALLSCRIPT)
 DESTINSTALLSITESCRIPT = $(DESTDIR)$(INSTALLSITESCRIPT)
@@ -103,15 +103,15 @@ INSTALLVENDORSCRIPT =
 DESTINSTALLVENDORSCRIPT = $(DESTDIR)$(INSTALLVENDORSCRIPT)
 INSTALLMAN1DIR = none
 DESTINSTALLMAN1DIR = $(DESTDIR)$(INSTALLMAN1DIR)
-INSTALLSITEMAN1DIR = /androidserver/share/man/man1
+INSTALLSITEMAN1DIR = /hdd/server/share/man/man1
 DESTINSTALLSITEMAN1DIR = $(DESTDIR)$(INSTALLSITEMAN1DIR)
-INSTALLVENDORMAN1DIR = /androidserver/share/man/man1
+INSTALLVENDORMAN1DIR = /hdd/server/share/man/man1
 DESTINSTALLVENDORMAN1DIR = $(DESTDIR)$(INSTALLVENDORMAN1DIR)
 INSTALLMAN3DIR = none
 DESTINSTALLMAN3DIR = $(DESTDIR)$(INSTALLMAN3DIR)
-INSTALLSITEMAN3DIR = /androidserver/share/man/man3
+INSTALLSITEMAN3DIR = /hdd/server/share/man/man3
 DESTINSTALLSITEMAN3DIR = $(DESTDIR)$(INSTALLSITEMAN3DIR)
-INSTALLVENDORMAN3DIR = /androidserver/share/man/man3
+INSTALLVENDORMAN3DIR = /hdd/server/share/man/man3
 DESTINSTALLVENDORMAN3DIR = $(DESTDIR)$(INSTALLVENDORMAN3DIR)
 PERL_LIB = ../../lib
 PERL_ARCHLIB = ../../lib
@@ -226,14 +226,14 @@ PM_TO_BLIB = lib/Pod/Simple/DumpAsText.pm \
 	../../lib/Pod/Simple/TextContent.pm \
 	lib/Pod/Simple/TranscodeSmart.pm \
 	../../lib/Pod/Simple/TranscodeSmart.pm \
-	lib/Pod/Simple/Search.pm \
-	../../lib/Pod/Simple/Search.pm \
 	lib/Pod/Simple/Text.pm \
 	../../lib/Pod/Simple/Text.pm \
-	lib/Pod/Simple/PullParserStartToken.pm \
-	../../lib/Pod/Simple/PullParserStartToken.pm \
+	lib/Pod/Simple/Search.pm \
+	../../lib/Pod/Simple/Search.pm \
 	lib/Pod/Simple/Debug.pm \
 	../../lib/Pod/Simple/Debug.pm \
+	lib/Pod/Simple/PullParserStartToken.pm \
+	../../lib/Pod/Simple/PullParserStartToken.pm \
 	lib/Pod/Simple/Methody.pm \
 	../../lib/Pod/Simple/Methody.pm \
 	lib/Pod/Simple/PullParserEndToken.pm \
@@ -242,10 +242,10 @@ PM_TO_BLIB = lib/Pod/Simple/DumpAsText.pm \
 	../../lib/Pod/Simple/PullParserTextToken.pm \
 	lib/Pod/Simple.pm \
 	../../lib/Pod/Simple.pm \
-	lib/Pod/Simple/HTMLBatch.pm \
-	../../lib/Pod/Simple/HTMLBatch.pm \
 	lib/Pod/Simple/TranscodeDumb.pm \
 	../../lib/Pod/Simple/TranscodeDumb.pm \
+	lib/Pod/Simple/HTMLBatch.pm \
+	../../lib/Pod/Simple/HTMLBatch.pm \
 	lib/Pod/Simple/RTF.pm \
 	../../lib/Pod/Simple/RTF.pm \
 	lib/Pod/Simple/Checker.pm \
@@ -268,10 +268,10 @@ PM_TO_BLIB = lib/Pod/Simple/DumpAsText.pm \
 	../../lib/Pod/Simple.pod \
 	lib/Pod/Simple/DumpAsXML.pm \
 	../../lib/Pod/Simple/DumpAsXML.pm \
-	lib/Pod/Simple/HTMLLegacy.pm \
-	../../lib/Pod/Simple/HTMLLegacy.pm \
 	lib/Pod/Simple/BlackBox.pm \
 	../../lib/Pod/Simple/BlackBox.pm \
+	lib/Pod/Simple/HTMLLegacy.pm \
+	../../lib/Pod/Simple/HTMLLegacy.pm \
 	lib/Pod/Simple/Transcode.pm \
 	../../lib/Pod/Simple/Transcode.pm
 
@@ -889,7 +889,7 @@ ppd :
 	$(NOECHO) $(ECHO) '    <ABSTRACT></ABSTRACT>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <AUTHOR></AUTHOR>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="arm-androideabi-5.16" />' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="mipsel-linux-5.16" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <CODEBASE HREF="" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    </IMPLEMENTATION>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '</SOFTPKG>' >> $(DISTNAME).ppd
@@ -905,16 +905,16 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	  lib/Pod/Simple/Progress.pm ../../lib/Pod/Simple/Progress.pm \
 	  lib/Pod/Simple/TextContent.pm ../../lib/Pod/Simple/TextContent.pm \
 	  lib/Pod/Simple/TranscodeSmart.pm ../../lib/Pod/Simple/TranscodeSmart.pm \
-	  lib/Pod/Simple/Search.pm ../../lib/Pod/Simple/Search.pm \
 	  lib/Pod/Simple/Text.pm ../../lib/Pod/Simple/Text.pm \
-	  lib/Pod/Simple/PullParserStartToken.pm ../../lib/Pod/Simple/PullParserStartToken.pm \
+	  lib/Pod/Simple/Search.pm ../../lib/Pod/Simple/Search.pm \
 	  lib/Pod/Simple/Debug.pm ../../lib/Pod/Simple/Debug.pm \
+	  lib/Pod/Simple/PullParserStartToken.pm ../../lib/Pod/Simple/PullParserStartToken.pm \
 	  lib/Pod/Simple/Methody.pm ../../lib/Pod/Simple/Methody.pm \
 	  lib/Pod/Simple/PullParserEndToken.pm ../../lib/Pod/Simple/PullParserEndToken.pm \
 	  lib/Pod/Simple/PullParserTextToken.pm ../../lib/Pod/Simple/PullParserTextToken.pm \
 	  lib/Pod/Simple.pm ../../lib/Pod/Simple.pm \
-	  lib/Pod/Simple/HTMLBatch.pm ../../lib/Pod/Simple/HTMLBatch.pm \
 	  lib/Pod/Simple/TranscodeDumb.pm ../../lib/Pod/Simple/TranscodeDumb.pm \
+	  lib/Pod/Simple/HTMLBatch.pm ../../lib/Pod/Simple/HTMLBatch.pm \
 	  lib/Pod/Simple/RTF.pm ../../lib/Pod/Simple/RTF.pm \
 	  lib/Pod/Simple/Checker.pm ../../lib/Pod/Simple/Checker.pm \
 	  lib/Pod/Simple/PullParser.pm ../../lib/Pod/Simple/PullParser.pm \
@@ -926,8 +926,8 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	  lib/Pod/Simple/Subclassing.pod ../../lib/Pod/Simple/Subclassing.pod \
 	  lib/Pod/Simple.pod ../../lib/Pod/Simple.pod \
 	  lib/Pod/Simple/DumpAsXML.pm ../../lib/Pod/Simple/DumpAsXML.pm \
-	  lib/Pod/Simple/HTMLLegacy.pm ../../lib/Pod/Simple/HTMLLegacy.pm \
 	  lib/Pod/Simple/BlackBox.pm ../../lib/Pod/Simple/BlackBox.pm \
+	  lib/Pod/Simple/HTMLLegacy.pm ../../lib/Pod/Simple/HTMLLegacy.pm \
 	  lib/Pod/Simple/Transcode.pm ../../lib/Pod/Simple/Transcode.pm 
 	$(NOECHO) $(TOUCH) pm_to_blib
 

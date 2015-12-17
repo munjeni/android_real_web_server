@@ -1,8 +1,8 @@
 # MAKEFILE for GCC
-CFLAGS = -O2 -Wall -c -I./
-CC=/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-gcc -march=armv7-a -mfloat-abi=softfp -mfpu=vfp -fPIC
-LD=/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-ld
-AR=/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-ar
+CFLAGS = -O2 -Wall -c -I./ -I/hdd/server/include
+CC=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fPIC -L/hdd/server/lib -lcrypto
+LD=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ld
+AR=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ar
 
 default:libcrypt.a
 

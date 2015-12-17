@@ -32,7 +32,7 @@ DIST_SUBDIRS =		yassl
 $(top_builddir)/include/mysqld_error.h: comp_err.c \
 			$(top_srcdir)/sql/share/errmsg.txt
 	$(MAKE) $(AM_MAKEFLAGS) comp_err$(EXEEXT)
-	/compilation/qemu-arm $(top_builddir)/extra/comp_err$(EXEEXT) \
+	/compilation/qemu-mipsel -L /compilationmoj/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root $(top_builddir)/extra/comp_err$(EXEEXT) \
 	--charset=$(top_srcdir)/sql/share/charsets \
 	--out-dir=$(top_builddir)/sql/share/ \
 	--header_file=$(top_builddir)/include/mysqld_error.h \

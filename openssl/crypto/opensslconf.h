@@ -76,8 +76,6 @@
 # endif
 #endif
 
-#define OPENSSL_CPUID_OBJ
-
 /* crypto/opensslconf.h.in */
 
 /* Generate 80386 code? */
@@ -85,8 +83,8 @@
 
 #if !(defined(VMS) || defined(__VMS)) /* VMS uses logical names instead */
 #if defined(HEADER_CRYPTLIB_H) && !defined(OPENSSLDIR)
-#define ENGINESDIR "/androidserver/lib/engines"
-#define OPENSSLDIR "/androidserver/ssl"
+#define ENGINESDIR "/hdd/server/lib/engines"
+#define OPENSSLDIR "/hdd/server/ssl"
 #endif
 #endif
 

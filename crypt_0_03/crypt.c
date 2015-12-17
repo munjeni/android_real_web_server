@@ -1,4 +1,5 @@
 #include "crypt.h"
+#include <openssl/des.h>
 
 char *crypt_error;
 
@@ -137,5 +138,14 @@ int find_prng(char *name)
    for (x = 0; prng_descriptor[x].name != NULL; x++)
        if (!strcmp(prng_descriptor[x].name, name)) return x;
    return -1;
+}
+
+static char buffer[14];
+
+char *crypt(const char *key, const char *salt)
+{
+	memset(buffer, '\0', 14);
+	DES_fcrypt(key, salt, buffer);
+	return buffer;
 }
 

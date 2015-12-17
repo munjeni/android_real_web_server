@@ -1,6 +1,6 @@
-#!/androidserver/bin/perl
+#!/hdd/server/bin/perl
 
-eval 'exec /androidserver/bin/perl  -S $0 ${1+"$@"}'
+eval 'exec /hdd/server/bin/perl  -S $0 ${1+"$@"}'
     if 0; # not running under some shell
 
 # zipdetails

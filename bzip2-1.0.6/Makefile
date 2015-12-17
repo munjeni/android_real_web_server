@@ -15,16 +15,16 @@
 SHELL=/bin/sh
 
 # To assist in cross-compiling
-CC=/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-gcc -march=armv7-a -mfloat-abi=softfp -mfpu=vfp -fPIC
-AR=/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-ar
-RANLIB=/compilation/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-ranlib
+CC=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -static -fPIC
+AR=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ar
+RANLIB=/compilationmoj/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-ranlib
 LDFLAGS=
 
 BIGFILES=-D_FILE_OFFSET_BITS=64
 CFLAGS=-Wall -Winline -O2 -g $(BIGFILES)
 
 # Where you want it installed when you do 'make install'
-PREFIX=/androidserver
+PREFIX=/hdd/server
 
 
 OBJS= blocksort.o  \
@@ -55,12 +55,12 @@ libbz2.a: $(OBJS)
 check: test
 test: bzip2
 	@cat words1
-	/compilation/qemu-arm ./bzip2 -1  < sample1.ref > sample1.rb2
-	/compilation/qemu-arm ./bzip2 -2  < sample2.ref > sample2.rb2
-	/compilation/qemu-arm ./bzip2 -3  < sample3.ref > sample3.rb2
-	/compilation/qemu-arm ./bzip2 -d  < sample1.bz2 > sample1.tst
-	/compilation/qemu-arm ./bzip2 -d  < sample2.bz2 > sample2.tst
-	/compilation/qemu-arm ./bzip2 -ds < sample3.bz2 > sample3.tst
+	/compilation/qemu-mipsel ./bzip2 -1  < sample1.ref > sample1.rb2
+	/compilation/qemu-mipsel ./bzip2 -2  < sample2.ref > sample2.rb2
+	/compilation/qemu-mipsel ./bzip2 -3  < sample3.ref > sample3.rb2
+	/compilation/qemu-mipsel ./bzip2 -d  < sample1.bz2 > sample1.tst
+	/compilation/qemu-mipsel ./bzip2 -d  < sample2.bz2 > sample2.tst
+	/compilation/qemu-mipsel ./bzip2 -ds < sample3.bz2 > sample3.tst
 	cmp sample1.bz2 sample1.rb2 
 	cmp sample2.bz2 sample2.rb2
 	cmp sample3.bz2 sample3.rb2

@@ -1,4 +1,4 @@
-#!/androidserver/bin/perl
+#!/hdd/server/bin/perl
     eval 'exec perl -S $0 "$@"'
         if 0;
 #############################################################################

@@ -79,7 +79,7 @@
 #endif
 
 #if defined(HAVE_VALUES_H)
-#include "/root/arm-none-linux-gnueabi/arm-2011.03/arm-none-linux-gnueabi/libc/usr/include/values.h"
+#include <values.h>
 #endif
 
 #if defined(HAVE_SYS_MMAN_H)
