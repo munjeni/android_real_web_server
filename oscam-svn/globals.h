@@ -2162,7 +2162,7 @@ struct s_config
 	char        *emu_stream_source_host;
 	int32_t     emu_stream_source_port;
 	char        *emu_stream_source_auth_user;
-	char        *emu_stream_source_auth_password;
+	char        *emu_stream_source_auth_password;	
 	int32_t     emu_stream_relay_port;
 	uint32_t    emu_stream_ecm_delay;
 	int8_t      emu_stream_relay_enabled;
