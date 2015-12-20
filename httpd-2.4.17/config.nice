@@ -4,7 +4,6 @@
 
 CC="/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc"; export CC
 CFLAGS="-D_GNU_SOURCE -DBIG_SECURITY_HOLE"; export CFLAGS
-LDFLAGS="-L/hdd/server/lib -ldl"; export LDFLAGS
 "./configure" \
 "--prefix=/hdd/server" \
 "--target=mipsel-unknown-linux" \
@@ -48,7 +47,7 @@ LDFLAGS="-L/hdd/server/lib -ldl"; export LDFLAGS
 "--disable-slotmem-plain" \
 "--enable-suexec" \
 "--with-suexec-bin=/hdd/server/bin/suexec" \
-"--with-suexec-caller=system" \
+"--with-suexec-caller=root" \
 "ac_cv_file__dev_zero=yes" \
 "ac_cv_func_setpgrp_void=yes" \
 "apr_cv_process_shared_works=yes" \
@@ -70,5 +69,4 @@ LDFLAGS="-L/hdd/server/lib -ldl"; export LDFLAGS
 "target_alias=mipsel-unknown-linux" \
 "CC=/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc" \
 "CFLAGS=-D_GNU_SOURCE -DBIG_SECURITY_HOLE" \
-"LDFLAGS=-L/hdd/server/lib -ldl" \
 "$@"

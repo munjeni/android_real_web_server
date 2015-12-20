@@ -55,12 +55,12 @@ libbz2.a: $(OBJS)
 check: test
 test: bzip2
 	@cat words1
-	/compilation/qemu-mipsel ./bzip2 -1  < sample1.ref > sample1.rb2
-	/compilation/qemu-mipsel ./bzip2 -2  < sample2.ref > sample2.rb2
-	/compilation/qemu-mipsel ./bzip2 -3  < sample3.ref > sample3.rb2
-	/compilation/qemu-mipsel ./bzip2 -d  < sample1.bz2 > sample1.tst
-	/compilation/qemu-mipsel ./bzip2 -d  < sample2.bz2 > sample2.tst
-	/compilation/qemu-mipsel ./bzip2 -ds < sample3.bz2 > sample3.tst
+	/compilation/qemu-mipsel -L /compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root ./bzip2 -1  < sample1.ref > sample1.rb2
+	/compilation/qemu-mipsel -L /compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root ./bzip2 -2  < sample2.ref > sample2.rb2
+	/compilation/qemu-mipsel -L /compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root ./bzip2 -3  < sample3.ref > sample3.rb2
+	/compilation/qemu-mipsel -L /compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root ./bzip2 -d  < sample1.bz2 > sample1.tst
+	/compilation/qemu-mipsel -L /compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root ./bzip2 -d  < sample2.bz2 > sample2.tst
+	/compilation/qemu-mipsel -L /compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root ./bzip2 -ds < sample3.bz2 > sample3.tst
 	cmp sample1.bz2 sample1.rb2 
 	cmp sample2.bz2 sample2.rb2
 	cmp sample3.bz2 sample3.rb2

@@ -28,7 +28,7 @@ echo "" > CONFIGURE.log
 
 mkdir -p /hdd/server/lib
 cd /hdd/server/lib
-tar xzf /compilation/lib.tar.gz
+#tar xzf /compilation/lib.tar.gz
 cd /compilation
 
 #####################################################################
@@ -71,7 +71,7 @@ sleep 3
 cd perl-5.16.3
 for TT in `find . -type f -name *.o`; do rm $TT; done
 rm -rf cpan/Time-HiRes/xdefine
-if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc" RANLIB="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib" AR="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar" LD="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld" STRIP="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip" CXX="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++" ASCPP="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as" OBJDUMP="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-objdump" ./configure --target=mipsel-unknown-linux-gnu --sysroot=$PLATFORM --disable-mod=ext/Errno -d -Dprefix=/hdd/server -A ccflags=-DUSE_HASH_SEED_EXPLICIT ; then
+if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc" RANLIB="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib" AR="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar" LD="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld" STRIP="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip" CXX="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++" ASCPP="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as" OBJDUMP="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-objdump" ./configure --target=mipsel-unknown-linux-gnu --sysroot=$PLATFORM -d -Dprefix=/hdd/server -A ccflags=-DUSE_HASH_SEED_EXPLICIT ; then
     echo "Failure!!!"
     exit 1
 fi
@@ -237,7 +237,7 @@ echo ""
 sleep 3
 cd libmcrypt-2.5.8
 for TT in `find . -type f -name *.o`; do rm $TT; done
-if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc -fpic" RANLIB=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib AR=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar LD=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld STRIP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip CXX=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++ ASCPP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as LDFLAGS="-L/hdd/server/lib -ldl" CFLAGS="-I/hdd/server/include" ./configure --prefix=/hdd/server --enable-static --disable-shared --target=mipsel-unknown-linux --host=mipsel-unknown-linux program_prefix="" ac_cv_func_shl_load=no ac_cv_lib_dld_shl_load=no ; then
+if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc -fpic" RANLIB=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib AR=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar LD=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld STRIP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip CXX=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++ ASCPP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as CFLAGS="-I/hdd/server/include" ./configure --prefix=/hdd/server --enable-static --disable-shared --target=mipsel-unknown-linux --host=mipsel-unknown-linux program_prefix="" ac_cv_func_shl_load=no ac_cv_lib_dld_shl_load=no ; then
     echo "Failure!!!"
     exit 1
 fi
@@ -349,10 +349,10 @@ cd openssl
 for TT in `find . -type f -name *.o`; do rm $TT; done
 #compiling static openssl
 #export PATH=$PATH:/root/mipsel-unknown-linux-gnueabi/arm-2011.03/bin
-#./Configure linux-generic32 -DL_ENDIAN --prefix=/hdd/server no-shared -static -ldl -lgcc -lc -lm -fPIC
+#./Configure linux-generic32 -DL_ENDIAN --prefix=/hdd/server no-shared -static -fPIC
 #make CC="mipsel-unknown-linux-gnueabi-gcc" RANLIB=mipsel-unknown-linux-gnueabi-ranlib
 #configuring imap
-#make slx CC=/root/mipsel-unknown-linux-gnueabi/arm-2011.03/bin/mipsel-unknown-linux-gnueabi-gcc RANLIB=/root/mipsel-unknown-linux-gnueabi/arm-2011.03/bin/mipsel-unknown-linux-gnueabi-ranlib AR=/root/mipsel-unknown-linux-gnueabi/arm-2011.03/bin/mipsel-unknown-linux-gnueabi-ar LD=/root/mipsel-unknown-linux-gnueabi/arm-2011.03/bin/mipsel-unknown-linux-gnueabi-ld STRIP=/root/mipsel-unknown-linux-gnueabi/arm-2011.03/bin/mipsel-unknown-linux-gnueabi-strip CXX=/root/mipsel-unknown-linux-gnueabi/arm-2011.03/bin/mipsel-unknown-linux-gnueabi-c++ ASCPP=/root/mipsel-unknown-linux-gnueabi/arm-2011.03/bin/mipsel-unknown-linux-gnueabi-as EXTRACFLAGS="-fPIC -I/hdd/server/include/openssl -I/hdd/server/include" SSLDIR=/hdd/server/ssl SSLLIB="/hdd/server/lib" EXTRALDFLAGS="-lm -lc -lgcc -lssl -lcrypto -ldl"
+#make slx CC=/root/mipsel-unknown-linux-gnueabi/arm-2011.03/bin/mipsel-unknown-linux-gnueabi-gcc RANLIB=/root/mipsel-unknown-linux-gnueabi/arm-2011.03/bin/mipsel-unknown-linux-gnueabi-ranlib AR=/root/mipsel-unknown-linux-gnueabi/arm-2011.03/bin/mipsel-unknown-linux-gnueabi-ar LD=/root/mipsel-unknown-linux-gnueabi/arm-2011.03/bin/mipsel-unknown-linux-gnueabi-ld STRIP=/root/mipsel-unknown-linux-gnueabi/arm-2011.03/bin/mipsel-unknown-linux-gnueabi-strip CXX=/root/mipsel-unknown-linux-gnueabi/arm-2011.03/bin/mipsel-unknown-linux-gnueabi-c++ ASCPP=/root/mipsel-unknown-linux-gnueabi/arm-2011.03/bin/mipsel-unknown-linux-gnueabi-as EXTRACFLAGS="-fPIC -I/hdd/server/include/openssl -I/hdd/server/include" SSLDIR=/hdd/server/ssl SSLLIB="/hdd/server/lib" EXTRALDFLAGS="-lssl -lcrypto"
 #cp c-client/*.a /hdd/server/lib/
 #cp c-client/*.h /hdd/server/include/
 if ! ./Configure linux-generic32 --prefix=/hdd/server no-shared -fPIC ; then
@@ -417,7 +417,7 @@ sleep 3
 cd libxml2
 for TT in `find . -type f -name *.o`; do rm $TT; done
 ./autogen.sh
-if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc -fpic  -ldl -lgcc" RANLIB=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib AR=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar LD=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld STRIP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip CXX=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++ ASCPP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as ./configure --target=mipsel-unknown-linux --host=mipsel-unknown-linux --prefix=/hdd/server --without-iconv --without-python --enable-static --disable-shared --without-readline --with-zlib=/hdd/server/lib program_prefix="" CFLAGS="-I/hdd/server/iinclude" LDFLAGS="-L/hdd/server/lib" LIBS="-lz -liconv" ; then
+if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc -fpic" RANLIB=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib AR=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar LD=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld STRIP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip CXX=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++ ASCPP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as ./configure --target=mipsel-unknown-linux --host=mipsel-unknown-linux --prefix=/hdd/server --without-iconv --without-python --enable-static --disable-shared --without-readline --with-zlib=/hdd/server/lib program_prefix="" CFLAGS="-I/hdd/server/iinclude" LDFLAGS="-L/hdd/server/lib" LIBS="-lz -liconv" ; then
     echo "Failure!!!"
     exit 1
 fi
@@ -441,7 +441,7 @@ echo ""
 sleep 3
 cd bind-9.4.1
 for TT in `find . -type f -name *.o`; do rm $TT; done
-if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc -fpic" RANLIB=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib AR=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar LD=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld STRIP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip CXX=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++ ASCPP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as BUILD_CC=gcc LDFLAGS="-L/hdd/server/lib" LIBS="-lmissing -ldl" ./configure --prefix=/hdd/server --target=mipsel-unknown-linux --host=mipsel-unknown-linux --enable-static --disable-shared --with-openssl=/hdd/server --with-randomdev=/dev/urandom --with-libiconv=/hdd/server --enable-libbind ; then
+if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc -fpic" RANLIB=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib AR=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar LD=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld STRIP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip CXX=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++ ASCPP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as BUILD_CC=gcc LDFLAGS="-L/hdd/server/lib" LIBS="-lmissing" ./configure --prefix=/hdd/server --target=mipsel-unknown-linux --host=mipsel-unknown-linux --enable-static --disable-shared --with-openssl=/hdd/server --with-randomdev=/dev/urandom --with-libiconv=/hdd/server --enable-libbind ; then
     echo "Failure!!!"
     exit 1
 fi
@@ -458,24 +458,24 @@ if ! make install ; then
 fi
 make distclean
 cd ..
-mkdir /hdd/server/bind/include/sys
+mkdir -p /hdd/server/bind/include/sys
 echo "" >/hdd/server/bind/include/sys/bitypes.h
 ln -s /hdd/server/lib/libbind.a /hdd/server/lib/libresolv.a
-/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-objcopy --localize-symbol=MD5_Init /hdd/server/lib/libresolv.a
-/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-objcopy --localize-symbol=MD5_Final /hdd/server/lib/libresolv.a
-/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-objcopy --localize-symbol=MD5_Update /hdd/server/lib/libresolv.a
-/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-objcopy --localize-symbol=MD5_version /hdd/server/lib/libresolv.a
+#/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-objcopy --localize-symbol=MD5_Init /hdd/server/lib/libresolv.a
+#/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-objcopy --localize-symbol=MD5_Final /hdd/server/lib/libresolv.a
+#/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-objcopy --localize-symbol=MD5_Update /hdd/server/lib/libresolv.a
+#/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-objcopy --localize-symbol=MD5_version /hdd/server/lib/libresolv.a
 ##########################################################
 echo ""
 echo -e "${RED}COMPILING MYSQL${NC}"
 echo ""
 sleep 3
-cd mysql-5.1.32
+cd mysql-5.1.51
 for TT in `find . -type f -name *.o`; do rm $TT; done
 for TT in `find . -type f -name *.lo`; do rm $TT; done
 for TT in `find . -type d -name *.libs`; do rm -rf $TT; done
 for TT in `find . -type d -name *.deps`; do rm -rf $TT; done
-if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc" RANLIB="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib" AR="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar" LD="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld" STRIP="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip" CXX="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++" ASCPP="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as" CC_FOR_BUILD="gcc" CFLAGS="-I/hdd/server/include -O3 -fPIC -D_GNU_SOURCE" CXXFLAGS="-I/hdd/server/include -O3 -fPIC -D_GNU_SOURCE" LDFLAGS="-L/hdd/server/lib" LIBS="-lncurses -lz -lssl -lcrypto -lmissing -lpthread" ./configure --prefix=/hdd/server --target=mipsel --host=mipsel --with-lib-ccflags=-fPIC --disable-shared --enable-static --with-ssl --without-docs --without-man --with-readline ac_cv_sys_restartable_syscalls=yes with_named_curses=yes mysql_cv_termcap_lib=y ac_cv_search_crypt=no ac_cv_func_re_comp=no ac_cv_func_getline=no ac_cv_func_tcgetattr=no ac_cv_func_wctomb=no ac_cv_func_strunvis=no ac_cv_func_strvis=no ac_cv_func__doprnt=no ac_cv_func_bcmp=no ac_cv_func_bfill=no ac_cv_func_bmove=no ac_cv_func_chsize=no ac_cv_func_cuserid=no ac_cv_func_fconvert=no ac_cv_func_fpresetsticky=no ac_cv_func_fpsetmask=no ac_cv_func_gethostbyaddr_r=no ac_cv_func_getpass=no ac_cv_func_getpassphrase=no ac_cv_func_getwd=no ac_cv_func_gethrtime=no ac_cv_func_locking=no ac_cv_func_mlockall=no ac_cv_func_mmap64=no ac_cv_func_getpagesize=no ac_cv_func_rwlock_init=no ac_cv_func_shmget=no ac_cv_func_shmat=no ac_cv_func_shmdt=no ac_cv_func_shmctl=no ac_cv_func_sigemptyset=no ac_cv_func_sigaddset=no ac_cv_func_sighold=no ac_cv_func_sigset=no ac_cv_type_sigset_t=no ac_cv_func_sigthreadmask=no ac_cv_func_port_create=no ac_cv_func_stpcpy=no ac_cv_func_tell=no ac_cv_func_thr_setconcurrency=no ac_cv_func_posix_fallocate=no ac_cv_lib_rt_aio_read=no program_prefix="" ; then
+if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc" RANLIB="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib" AR="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar" LD="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld" STRIP="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip" CXX="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++" ASCPP="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as" CC_FOR_BUILD="gcc" CFLAGS="-I/hdd/server/include -O3 -fPIC -D_GNU_SOURCE" CXXFLAGS="-I/hdd/server/include -O3 -fPIC -D_GNU_SOURCE" LDFLAGS="-L/hdd/server/lib" LIBS="-lncurses -lz -lssl -lcrypto -lmissing" ./configure --prefix=/hdd/server --target=mipsel --host=mipsel --with-lib-ccflags=-fPIC --disable-shared --enable-static --with-ssl --without-docs --without-man --with-readline --enable-community-features --enable-local-infile --with-mysqld-user=root --with-big-tables --with-plugins=partition,blackhole,federated,heap,innodb_plugin --with-named-curses-libs="/hdd/server/lib/libncurses.a" ac_cv_sys_restartable_syscalls=y with_named_curses=y mysql_cv_termcap_lib=y ac_cv_search_crypt='-lcrypt -lcrypto' ac_cv_c_bigendian=no ac_cv_func_gethostbyaddr_r=no program_prefix="" ; then
     echo "Failure!!!"
     exit 1
 fi
@@ -499,7 +499,7 @@ echo ""
 sleep 3
 cd apr
 for TT in `find . -type f -name *.o`; do rm $TT; done
-if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc -fpic" RANLIB=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib AR=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar LD=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld STRIP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip CXX=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++ ASCPP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as CC_FOR_BUILD=gcc LDFLAGS="-L/hdd/server/lib" LIBS="-lcrypt -lcrypto -lpthread -ldl" CFLAGS="-I/hdd/server/include" ./configure --prefix=/hdd/server --target=mipsel-unknown-linux --host=mipsel-unknown-linux --enable-static --disable-shared --with-crypto program_prefix="" ac_cv_file__dev_zero=yes ac_cv_func_setpgrp_void=yes apr_cv_process_shared_works=yes apr_cv_mutex_robust_shared=yes apr_cv_tcp_nodelay_with_cork=yes ac_cv_search_crypt="-lcrypt -lcrypto" ac_cv_search_modf="-lm" ac_cv_func_gethostbyaddr_r=no ac_cv_func_kqueue=no ac_cv_func_port_create=no ac_cv_func_getpwnam_r=no ac_cv_func_getpwuid_r=no ac_cv_func_getgrnam_r=no ac_cv_func_getgrgid_r=no ac_cv_func_shm_open=no ac_cv_search_shm_open=no ac_cv_func_getservbyname_r=no ac_cv_func_shm_unlink=no ac_cv_func_shmget=no ac_cv_func_shmat=no ac_cv_func_shmdt=no ac_cv_func_shmctl=no ac_cv_func_create_area=no ac_cv_func_isinf=no ac_cv_func_getifaddrs=no ac_cv_func_sendfilev=no ac_cv_lib_sendfile_sendfilev=no ac_cv_func__getch=no ac_cv_func_getpass=no ac_cv_func_getpassphrase=no ac_cv_func_strnicmp=no ac_cv_func_stricmp=no ac_cv_func_semget=no ac_cv_func_semctl=no ac_cv_func_create_sem=no ac_cv_func_uuid_create=no ac_cv_search_uuid_create=no ac_cv_func_uuid_generate=no ac_cv_search_uuid_generate=no ac_cv_func_send_file=no ac_cv_func_set_h_errno=no ac_cv_sizeof_pid_t=4 ac_cv_func_nl_langinfo=no ; then
+if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc -fpic" RANLIB=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib AR=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar LD=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld STRIP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip CXX=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++ ASCPP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as CC_FOR_BUILD=gcc LDFLAGS="-L/hdd/server/lib" LIBS="-lcrypt -lcrypto" CFLAGS="-I/hdd/server/include" ./configure --prefix=/hdd/server --target=mipsel-unknown-linux --host=mipsel-unknown-linux --enable-static --disable-shared --with-crypto program_prefix="" ac_cv_file__dev_zero=yes ac_cv_func_setpgrp_void=yes apr_cv_process_shared_works=yes apr_cv_mutex_robust_shared=yes apr_cv_tcp_nodelay_with_cork=yes ac_cv_search_crypt="-lcrypt -lcrypto" ac_cv_search_modf="-lm" ac_cv_func_gethostbyaddr_r=no ac_cv_func_kqueue=no ac_cv_func_port_create=no ac_cv_func_getpwnam_r=no ac_cv_func_getpwuid_r=no ac_cv_func_getgrnam_r=no ac_cv_func_getgrgid_r=no ac_cv_func_shm_open=no ac_cv_search_shm_open=no ac_cv_func_getservbyname_r=no ac_cv_func_shm_unlink=no ac_cv_func_shmget=no ac_cv_func_shmat=no ac_cv_func_shmdt=no ac_cv_func_shmctl=no ac_cv_func_create_area=no ac_cv_func_isinf=no ac_cv_func_getifaddrs=no ac_cv_func_sendfilev=no ac_cv_lib_sendfile_sendfilev=no ac_cv_func__getch=no ac_cv_func_getpass=no ac_cv_func_getpassphrase=no ac_cv_func_strnicmp=no ac_cv_func_stricmp=no ac_cv_func_semget=no ac_cv_func_semctl=no ac_cv_func_create_sem=no ac_cv_func_uuid_create=no ac_cv_search_uuid_create=no ac_cv_func_uuid_generate=no ac_cv_search_uuid_generate=no ac_cv_func_send_file=no ac_cv_func_set_h_errno=no ac_cv_sizeof_pid_t=4 ac_cv_func_nl_langinfo=no ; then
     echo "Failure!!!"
     exit 1
 fi
@@ -602,9 +602,10 @@ echo -e "${RED}COMPILING FONTCONFIG-2.10.2${NC}"
 echo ""
 sleep 3
 cd fontconfig-2.10.2
+cp -fr ../system/fonts /hdd/server/fonts
 for TT in `find . -type f -name *.o`; do rm $TT; done
 cp /compilation/ft2build.h /hdd/server/include/
-if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc -fpic" RANLIB=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib AR=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar LD=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld STRIP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip CXX=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++ ASCPP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as ./configure --prefix=/hdd/server --target=mipsel-unknown-linux --host=mipsel-unknown-linux --disable-shared --enable-static --enable-iconv --disable-libxml2 --disable-docs --with-arch=mipsel --with-libiconv=/hdd/server/bin --with-libiconv-includes=/hdd/server/include --with-libiconv-lib=/hdd/server/lib --with-expat --with-expat-includes=/hdd/server/include --with-expat-lib=/hdd/server/lib --with-default-fonts=/hdd/server/fonts --with-add-fonts=/system/fonts FREETYPE_CFLAGS="-I/hdd/server/include/freetype2" FREETYPE_LIBS="-L/hdd/server/lib -lfreetype" CFLAGS="-I/hdd/server/include" LIBTOOL=/hdd/server/build-1/libtool ac_cv_func__doprnt=no ac_cv_func_getpagesize=no ac_cv_func_chsize=no ac_cv_func_fstatvfs=no ; then
+if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc -fpic" RANLIB=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib AR=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar LD=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld STRIP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip CXX=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++ ASCPP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as ./configure --prefix=/hdd/server --target=mipsel-unknown-linux --host=mipsel-unknown-linux --disable-shared --enable-static --enable-iconv --disable-libxml2 --disable-docs --with-arch=mipsel --with-libiconv=/hdd/server/bin --with-libiconv-includes=/hdd/server/include --with-libiconv-lib=/hdd/server/lib --with-expat --with-expat-includes=/hdd/server/include --with-expat-lib=/hdd/server/lib --with-default-fonts=/hdd/server/fonts --with-add-fonts=/hdd/server/fonts FREETYPE_CFLAGS="-I/hdd/server/include/freetype2" FREETYPE_LIBS="-L/hdd/server/lib -lfreetype" CFLAGS="-I/hdd/server/include" LIBTOOL=/hdd/server/build-1/libtool ac_cv_func__doprnt=no ac_cv_func_getpagesize=no ac_cv_func_chsize=no ac_cv_func_fstatvfs=no ; then
     echo "Failure!!!"
     exit 1
 fi
@@ -653,7 +654,7 @@ echo ""
 sleep 3
 cd tiff-4.0.3
 for TT in `find . -type f -name *.o`; do rm $TT; done
-if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc -fpic" RANLIB=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib AR=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar LD=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld STRIP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip CXX=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++ ASCPP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as CFLAGS="-I/hdd/server/include" LDFLAGS="-L/hdd/server/lib -lpthread" LIBTOOL=/hdd/server/build-1/libtool ./configure --prefix=/hdd/server --target=mipsel-unknown-linux --host=mipsel-unknown-linux --disable-shared --enable-static --without-x --disable-jbig --disable-lzma --with-zlib-include-dir=/hdd/server/include --with-zlib-lib-dir=/hdd/server/lib --with-jpeg-lib-dir=/hdd/server/lib ac_cv_func_setmode=no ac_cv_func_lfind=no ; then
+if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc -fpic" RANLIB=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib AR=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar LD=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld STRIP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip CXX=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++ ASCPP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as CFLAGS="-I/hdd/server/include" LIBTOOL=/hdd/server/build-1/libtool ./configure --prefix=/hdd/server --target=mipsel-unknown-linux --host=mipsel-unknown-linux --disable-shared --enable-static --without-x --disable-jbig --disable-lzma --with-zlib-include-dir=/hdd/server/include --with-zlib-lib-dir=/hdd/server/lib --with-jpeg-lib-dir=/hdd/server/lib ac_cv_func_setmode=no ac_cv_func_lfind=no ; then
     echo "Failure!!!"
     exit 1
 fi
@@ -677,7 +678,7 @@ echo ""
 sleep 3
 cd libgd-2.1.0
 for TT in `find . -type f -name *.o`; do rm $TT; done
-if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc -fpic" RANLIB=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib AR=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar LD=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld STRIP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip CXX=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++ ASCPP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as LDFLAGS="-L/hdd/server/lib" LIBS="-liconv -pthread" LIBTOOL=/hdd/server/build-1/libtool ./configure --prefix=/hdd/server --target=mipsel-unknown-linux --host=mipsel-unknown-linux --disable-shared --enable-static --without-x --without-libiconv-prefix --with-zlib=/hdd/server/lib --with-jpeg=/hdd/server/lib --without-xpm --without-vpx CFLAGS="-I/hdd/server/include" LIBPNG_LIBS="-L/hdd/server/lib -lpng16" LIBPNG_CFLAGS="-I/hdd/server/include/libpng16" LIBFONTCONFIG_LIBS="-L/hdd/server/lib -lfontconfig" LIBFONTCONFIG_CFLAGS="-I/hdd/server/include/fontconfig" LIBTIFF_LIBS="-L/hdd/server/lib -ltiff" LIBTIFF_CFLAGS="-I/hdd/server/include" ac_cv_func_sin=no ; then
+if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc -fpic" RANLIB=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib AR=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar LD=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld STRIP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip CXX=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++ ASCPP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as LDFLAGS="-L/hdd/server/lib" LIBS="-liconv" LIBTOOL=/hdd/server/build-1/libtool ./configure --prefix=/hdd/server --target=mipsel-unknown-linux --host=mipsel-unknown-linux --disable-shared --enable-static --without-x --without-libiconv-prefix --with-zlib=/hdd/server/lib --with-jpeg=/hdd/server/lib --without-xpm --without-vpx CFLAGS="-I/hdd/server/include" LIBPNG_LIBS="-L/hdd/server/lib -lpng16" LIBPNG_CFLAGS="-I/hdd/server/include/libpng16" LIBFONTCONFIG_LIBS="-L/hdd/server/lib -lfontconfig" LIBFONTCONFIG_CFLAGS="-I/hdd/server/include/fontconfig" LIBTIFF_LIBS="-L/hdd/server/lib -ltiff" LIBTIFF_CFLAGS="-I/hdd/server/include" ac_cv_func_sin=no ; then
     echo "Failure!!!"
     exit 1
 fi
@@ -701,7 +702,7 @@ echo ""
 sleep 3
 cd gettext-0.18.3
 for TT in `find . -type f -name *.o`; do rm $TT; done
-if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc -fpic" RANLIB=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib AR=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar LD=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld STRIP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip CXX=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++ ASCPP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as ./configure --prefix=/hdd/server --target=mipsel-unknown-linux --host=mipsel-unknown-linux --enable-static --disable-shared --with-libpth-prefix --disable-java --disable-native-java --disable-threads --disable-c++ --enable-relocatable --disable-curses --disable-acl --disable-openmp --without-bzip2 --without-xz --with-libiconv-prefix=/hdd/server CFLAGS="-I/hdd/server/include" LDFLAGS="-L/hdd/server/lib" LIBTOOL=/hdd/server/build-1/libtool ; then
+if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc -fpic" RANLIB=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib AR=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar LD=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld STRIP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip CXX=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++ ASCPP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as CFLAGS="-I/hdd/server/include" LDFLAGS="-L/hdd/server/lib" LIBTOOL=/hdd/server/build-1/libtool ./configure --prefix=/hdd/server --target=mipsel-unknown-linux --host=mipsel-unknown-linux --enable-static --disable-shared --with-libpth-prefix --disable-java --disable-native-java --disable-threads --disable-c++ --enable-relocatable --disable-curses --disable-acl --disable-openmp --without-bzip2 --without-xz --with-libiconv-prefix=/hdd/server ; then
     echo "Failure!!!"
     exit 1
 fi
@@ -758,7 +759,6 @@ CXX="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++" \
 ASCPP="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as" \
 CFLAGS="-D_GNU_SOURCE -DBIG_SECURITY_HOLE" \
 CXXFLAGS="-D_GNU_SOURCE -DBIG_SECURITY_HOLE" \
-LDFLAGS="-L/hdd/server/lib -ldl" \
 CC_FOR_BUILD=gcc \
 ./configure --prefix=/hdd/server \
 --target=mipsel-unknown-linux \
@@ -802,7 +802,7 @@ CC_FOR_BUILD=gcc \
 --disable-slotmem-plain \
 --enable-suexec \
 --with-suexec-bin=/hdd/server/bin/suexec \
---with-suexec-caller=system \
+--with-suexec-caller=root \
 ac_cv_file__dev_zero=yes \
 ac_cv_func_setpgrp_void=yes \
 apr_cv_process_shared_works=yes \
@@ -847,7 +847,7 @@ for TT in `find . -type f -name *.o`; do rm $TT; done
 echo -e "imap\n\n" >> ../CONFIGURE.log
 echo -e "\n---------------------------------------\n" >> ../CONFIGURE.log
 make clean
-if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc" RANLIB="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib" AR="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar" LD="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld" STRIP="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip" CXX="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++" ASCPP="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as" OBJDUMP="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-objdump" EXTRACFLAGS="-fPIC -I/hdd/server/include" SSLDIR="/hdd/server/ssl" SSLLIB="/hdd/server/lib" EXTRALDFLAGS="-L/hdd/server/lib -lcrypt -lssl -lcrypto -ldl" make lnx ; then
+if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc" RANLIB="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib" AR="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar" LD="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld" STRIP="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip" CXX="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++" ASCPP="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as" OBJDUMP="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-objdump" EXTRACFLAGS="-fPIC -I/hdd/server/include" SSLDIR="/hdd/server/ssl" SSLLIB="/hdd/server/lib" EXTRALDFLAGS="-L/hdd/server/lib -lcrypt -lssl -lcrypto" make lnx ; then
     echo "Failure!!!"
     exit 1
 fi
@@ -890,7 +890,6 @@ CXX="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++" \
 ASCPP="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as" \
 CFLAGS="-I/hdd/server/bind/include -I/hdd/server/include" \
 CXXFLAGS="-I/hdd/server/bind/include -I/hdd/server/include" \
-LDFLAGS="-L/hdd/server/lib -ldl" \
 ./configure --prefix=/hdd/server \
 --target=mipsel-unknown-linux \
 --host=mipsel-unknown-linux \
@@ -979,7 +978,7 @@ echo ""
 sleep 3
 cd lynx2-8-8
 for TT in `find . -type f -name *.o`; do rm $TT; done
-if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc" RANLIB=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib AR=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar LD=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld STRIP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip CXX=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++ ASCPP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as CFLAGS="--sysroot=$PLATFORM" CFLAGS="-I/hdd/server/include" LDFLAGS="-L/hdd/server/lib" LIBS="-lmissing -lcrypt -lssl -lcrypto -lz -lbz2" ./configure --prefix=/hdd/server/lynx --target=mipsel-unknown-linux --host=mipsel-unknown-linux --enable-static --disable-shared --with-libiconv-prefix=/hdd/server --with-ssl=/hdd/server/lib --enable-local-docs --with-bzlib --with-zlib --without-x ; then
+if ! CC="$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-gcc" RANLIB=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ranlib AR=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ar LD=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-ld STRIP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-strip CXX=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-c++ ASCPP=$TOOLCHAIN/bin/mipsel-unknown-linux-gnu-as CFLAGS="--sysroot=$PLATFORM" CFLAGS="-I/hdd/server/include" LDFLAGS="-L/hdd/server/lib" LIBS="-lmissing -lcrypt -lssl -lcrypto -lz -lbz2 -liconv" ./configure --prefix=/hdd/server/lynx --target=mipsel-unknown-linux --host=mipsel-unknown-linux --enable-static --disable-shared --with-libiconv=/hdd/server/lib/libiconv.a --with-libiconv-prefix=/hdd/server --with-ssl=/hdd/server/lib --enable-local-docs --with-bzlib --with-zlib --without-x ; then
     echo "Failure!!!"
     exit 1
 fi
@@ -1006,7 +1005,7 @@ echo -e "${RED}COPYING CONFIGURATIONS, INSTALLING NANO, TERMINFO${NC}"
 echo ""
 sleep 3
 cp -fr /compilation/httpd.conf /hdd/server/conf/
-cp -fr /compilation/my.cnf /hdd/server/
+#cp -fr /compilation/my.cnf /hdd/server/
 cp -fr /compilation/nano-bin /hdd/server/bin/
 cp -fr /compilation/nano /hdd/server/bin/
 cp -fr /compilation/nano-bin /hdd/server/bin/

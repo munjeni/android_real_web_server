@@ -9,7 +9,7 @@
 
 /* Package name      : perl5
  * Source directory  : /compilation
- * Configuration time: Thu Dec 17 19:17:03 CET 2015
+ * Configuration time: Sun Dec 20 18:24:09 CET 2015
  * Configured by     : root
  * Target system     : 
  */

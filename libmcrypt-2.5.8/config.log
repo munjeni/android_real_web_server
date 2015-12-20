@@ -86,7 +86,7 @@ configure:2199: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-g
 mipsel-unknown-linux-gnu-c++: '-V' option must have argument
 configure:2202: $? = 1
 configure:2225: checking for C++ compiler default output file name
-configure:2228: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-c++   -L/hdd/server/lib -ldl conftest.cc  >&5
+configure:2228: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-c++    conftest.cc  >&5
 configure:2231: $? = 0
 configure:2277: result: a.out
 configure:2282: checking whether the C++ compiler works
@@ -97,7 +97,7 @@ configure:2308: result: yes
 configure:2315: checking whether we are cross compiling
 configure:2317: result: yes
 configure:2320: checking for suffix of executables
-configure:2322: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-c++ -o conftest   -L/hdd/server/lib -ldl conftest.cc  >&5
+configure:2322: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-c++ -o conftest    conftest.cc  >&5
 configure:2325: $? = 0
 configure:2350: result: 
 configure:2356: checking for suffix of object files
@@ -345,7 +345,7 @@ configure:4600: test -s conftest.o
 configure:4603: $? = 0
 configure:4614: result: yes
 configure:4627: checking for library containing opendir
-configure:4657: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include  -L/hdd/server/lib -ldl conftest.c  >&5
+configure:4657: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include   conftest.c  >&5
 configure:4663: $? = 0
 configure:4667: test -z 
 			 || test ! -s conftest.err
@@ -726,7 +726,7 @@ configure:6310: result: yes
 configure:6450: checking for GNU libc compatible realloc
 configure:6501: result: no
 configure:6543: checking for bzero
-configure:6600: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include  -L/hdd/server/lib -ldl conftest.c  >&5
+configure:6600: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include   conftest.c  >&5
 conftest.c:70: warning: conflicting types for built-in function 'bzero'
 configure:6606: $? = 0
 configure:6610: test -z 
@@ -736,7 +736,7 @@ configure:6616: test -s conftest
 configure:6619: $? = 0
 configure:6631: result: yes
 configure:6543: checking for memmove
-configure:6600: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include  -L/hdd/server/lib -ldl conftest.c  >&5
+configure:6600: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include   conftest.c  >&5
 conftest.c:71: warning: conflicting types for built-in function 'memmove'
 configure:6606: $? = 0
 configure:6610: test -z 
@@ -746,7 +746,7 @@ configure:6616: test -s conftest
 configure:6619: $? = 0
 configure:6631: result: yes
 configure:6543: checking for memset
-configure:6600: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include  -L/hdd/server/lib -ldl conftest.c  >&5
+configure:6600: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include   conftest.c  >&5
 conftest.c:72: warning: conflicting types for built-in function 'memset'
 configure:6606: $? = 0
 configure:6610: test -z 
@@ -756,7 +756,7 @@ configure:6616: test -s conftest
 configure:6619: $? = 0
 configure:6631: result: yes
 configure:6543: checking for mlock
-configure:6600: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include  -L/hdd/server/lib -ldl conftest.c  >&5
+configure:6600: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include   conftest.c  >&5
 configure:6606: $? = 0
 configure:6610: test -z 
 			 || test ! -s conftest.err
@@ -765,7 +765,7 @@ configure:6616: test -s conftest
 configure:6619: $? = 0
 configure:6631: result: yes
 configure:6543: checking for readdir_r
-configure:6600: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include  -L/hdd/server/lib -ldl conftest.c  >&5
+configure:6600: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include   conftest.c  >&5
 configure:6606: $? = 0
 configure:6610: test -z 
 			 || test ! -s conftest.err
@@ -774,7 +774,7 @@ configure:6616: test -s conftest
 configure:6619: $? = 0
 configure:6631: result: yes
 configure:6543: checking for strchr
-configure:6600: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include  -L/hdd/server/lib -ldl conftest.c  >&5
+configure:6600: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include   conftest.c  >&5
 conftest.c:75: warning: conflicting types for built-in function 'strchr'
 configure:6606: $? = 0
 configure:6610: test -z 
@@ -784,7 +784,7 @@ configure:6616: test -s conftest
 configure:6619: $? = 0
 configure:6631: result: yes
 configure:6543: checking for strdup
-configure:6600: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include  -L/hdd/server/lib -ldl conftest.c  >&5
+configure:6600: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include   conftest.c  >&5
 conftest.c:76: warning: conflicting types for built-in function 'strdup'
 configure:6606: $? = 0
 configure:6610: test -z 
@@ -794,7 +794,7 @@ configure:6616: test -s conftest
 configure:6619: $? = 0
 configure:6631: result: yes
 configure:6543: checking for strrchr
-configure:6600: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include  -L/hdd/server/lib -ldl conftest.c  >&5
+configure:6600: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include   conftest.c  >&5
 conftest.c:77: warning: conflicting types for built-in function 'strrchr'
 configure:6606: $? = 0
 configure:6610: test -z 
@@ -804,7 +804,7 @@ configure:6616: test -s conftest
 configure:6619: $? = 0
 configure:6631: result: yes
 configure:6645: checking for readdir,,
-configure:6702: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include  -L/hdd/server/lib -ldl conftest.c  >&5
+configure:6702: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include   conftest.c  >&5
 conftest.c:56:16: warning: missing whitespace after the macro name
 conftest.c:69:15: warning: extra tokens at end of #undef directive
 conftest.c:78: error: expected identifier or '(' before ',' token
@@ -917,7 +917,7 @@ configure: failed program was:
 | }
 configure:6733: result: no
 configure:6747: checking for bcopy,,
-configure:6804: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include  -L/hdd/server/lib -ldl conftest.c  >&5
+configure:6804: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include   conftest.c  >&5
 conftest.c:56:14: warning: missing whitespace after the macro name
 conftest.c:69:13: warning: extra tokens at end of #undef directive
 conftest.c:78: warning: built-in function 'bcopy' declared as non-function
@@ -2431,7 +2431,7 @@ configure:10535: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-
 configure:10538: $? = 0
 configure:10542: nm conftest.o \| sed -n -e 's/^.*[ 	]\([ABCDGIRSTW][ABCDGIRSTW]*\)[ 	][ 	]*\([_A-Za-z][_A-Za-z0-9]*\)$/\1 \2 \2/p' \> conftest.nm
 configure:10545: $? = 0
-configure:10597: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include  -L/hdd/server/lib -ldl conftest.c conftstm.o >&5
+configure:10597: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include   conftest.c conftstm.o >&5
 configure:10600: $? = 0
 configure:10638: result: ok
 configure:10642: checking for objdir
@@ -2472,14 +2472,125 @@ configure:13549: result: no
 configure:13554: checking for shl_load in -ldld
 configure:13616: result: no
 configure:13621: checking for dlopen
-configure:13678: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include  -L/hdd/server/lib -ldl conftest.c  >&5
-configure:13684: $? = 0
-configure:13688: test -z 
+configure:13678: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include   conftest.c  >&5
+/tmp/ccqbQ9Gm.o: In function `main':
+conftest.c:(.text+0x24): undefined reference to `dlopen'
+/tmp/ccqbQ9Gm.o:(.data.rel+0x0): undefined reference to `dlopen'
+collect2: ld returned 1 exit status
+configure:13684: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| 
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE "libmcrypt"
+| #define VERSION "2.5.8"
+| #ifdef __cplusplus
+| extern "C" void exit (int) throw ();
+| #endif
+| #define HAVE_DIRENT_H 1
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_ARGZ_H 1
+| #define HAVE_BYTESWAP_H 1
+| #define HAVE_DIRENT_H 1
+| #define HAVE_DLFCN_H 1
+| #define HAVE_ENDIAN_H 1
+| #define HAVE_MALLOC_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_MMAN_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_UNISTD_H 1
+| #define CLOSEDIR_VOID 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_MALLOC 0
+| //#define malloc rpl_malloc
+| #define HAVE_STDLIB_H 1
+| #define HAVE_REALLOC 0
+| #define realloc rpl_realloc
+| #define HAVE_BZERO 1
+| #define HAVE_MEMMOVE 1
+| #define HAVE_MEMSET 1
+| #define HAVE_MLOCK 1
+| #define HAVE_READDIR_R 1
+| #define HAVE_STRCHR 1
+| #define HAVE_STRDUP 1
+| #define HAVE_STRRCHR 1
+| #define SIZEOF_UNSIGNED_LONG_INT 4
+| #define SIZEOF_UNSIGNED_INT 4
+| #define SIZEOF_UNSIGNED_SHORT_INT 2
+| #define SIZEOF_UNSIGNED_CHAR 1
+| #define HAVE_DLFCN_H 1
+| /* end confdefs.h.  */
+| /* Define dlopen to an innocuous variant, in case <limits.h> declares dlopen.
+|    For example, HP-UX 11i <limits.h> declares gettimeofday.  */
+| #define dlopen innocuous_dlopen
+| 
+| /* System header to define __stub macros and hopefully few prototypes,
+|     which can conflict with char dlopen (); below.
+|     Prefer <limits.h> to <assert.h> if __STDC__ is defined, since
+|     <limits.h> exists even on freestanding compilers.  */
+| 
+| #ifdef __STDC__
+| # include <limits.h>
+| #else
+| # include <assert.h>
+| #endif
+| 
+| #undef dlopen
+| 
+| /* Override any gcc2 internal prototype to avoid an error.  */
+| #ifdef __cplusplus
+| extern "C"
+| {
+| #endif
+| /* We use char because int might match the return type of a gcc2
+|    builtin and then its argument prototype would still apply.  */
+| char dlopen ();
+| /* The GNU C library defines this for functions which it implements
+|     to always fail with ENOSYS.  Some functions are actually named
+|     something starting with __ and the normal name is an alias.  */
+| #if defined (__stub_dlopen) || defined (__stub___dlopen)
+| choke me
+| #else
+| char (*f) () = dlopen;
+| #endif
+| #ifdef __cplusplus
+| }
+| #endif
+| 
+| int
+| main ()
+| {
+| return f != dlopen;
+|   ;
+|   return 0;
+| }
+configure:13709: result: no
+configure:13714: checking for dlopen in -ldl
+configure:13744: /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic -o conftest -I/hdd/server/include   conftest.c -ldl   >&5
+configure:13750: $? = 0
+configure:13754: test -z 
 			 || test ! -s conftest.err
-configure:13691: $? = 0
-configure:13694: test -s conftest
-configure:13697: $? = 0
-configure:13709: result: yes
+configure:13757: $? = 0
+configure:13760: test -s conftest
+configure:13763: $? = 0
+configure:13776: result: yes
 configure:13951: checking whether a program can dlopen itself
 configure:14046: result: cross
 configure:14169: checking if libtool supports shared libraries
@@ -2577,8 +2688,8 @@ ac_cv_env_F77_set=
 ac_cv_env_F77_value=
 ac_cv_env_FFLAGS_set=
 ac_cv_env_FFLAGS_value=
-ac_cv_env_LDFLAGS_set=set
-ac_cv_env_LDFLAGS_value='-L/hdd/server/lib -ldl'
+ac_cv_env_LDFLAGS_set=
+ac_cv_env_LDFLAGS_value=
 ac_cv_env_build_alias_set=
 ac_cv_env_build_alias_value=
 ac_cv_env_host_alias_set=set
@@ -2590,7 +2701,7 @@ ac_cv_f77_compiler_gnu=no
 ac_cv_func_bcopy__=no
 ac_cv_func_bzero=yes
 ac_cv_func_closedir_void=yes
-ac_cv_func_dlopen=yes
+ac_cv_func_dlopen=no
 ac_cv_func_malloc_0_nonnull=no
 ac_cv_func_memcmp_working=no
 ac_cv_func_memmove=yes
@@ -2625,6 +2736,7 @@ ac_cv_header_sys_types_h=yes
 ac_cv_header_unistd_h=yes
 ac_cv_host=mipsel-unknown-linux-gnu
 ac_cv_host_alias=mipsel-unknown-linux
+ac_cv_lib_dl_dlopen=yes
 ac_cv_lib_dld_shl_load=no
 ac_cv_objext=o
 ac_cv_path_install='/usr/bin/install -c'
@@ -2657,7 +2769,7 @@ am_cv_CC_dependencies_compiler_type=gcc3
 am_cv_CXX_dependencies_compiler_type=gcc3
 lt_cv_deplibs_check_method=pass_all
 lt_cv_dlopen=dlopen
-lt_cv_dlopen_libs=
+lt_cv_dlopen_libs=-ldl
 lt_cv_dlopen_self=cross
 lt_cv_file_magic_cmd='$MAGIC_CMD'
 lt_cv_file_magic_test_file=
@@ -2727,7 +2839,7 @@ INSTALL_MODE_MODULES=''
 INSTALL_PROGRAM='${INSTALL}'
 INSTALL_SCRIPT='${INSTALL}'
 INSTALL_STRIP_PROGRAM='${SHELL} $(install_sh) -c -s'
-LDFLAGS='-L/hdd/server/lib -ldl'
+LDFLAGS=''
 LIBLTDL=''
 LIBLTDL_DIR=''
 LIBMCRYPT_CFLAGS='-I${prefix}/include'

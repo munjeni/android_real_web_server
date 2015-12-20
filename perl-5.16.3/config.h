@@ -9,7 +9,7 @@
 
 /* Package name      : perl5
  * Source directory  : /compilation
- * Configuration time: Thu Dec 17 19:17:27 CET 2015
+ * Configuration time: Sun Dec 20 18:24:33 CET 2015
  * Configured by     : root
  * Target system     : mipsel-unknown-linux-gnu
  */

@@ -21063,6 +21063,22 @@ arrays
 
 =back
 
+=head2 Errno - System errno constants
+
+=over 4
+
+=item SYNOPSIS
+
+=item DESCRIPTION
+
+=item CAVEATS
+
+=item AUTHOR
+
+=item COPYRIGHT
+
+=back
+
 =head2 Exporter - Implements default import method for modules
 
 =over 4

@@ -425,6 +425,7 @@ toroff=`
     $libdir/Encode::Unicode::UTF7.3 \
     $libdir/English.3 \
     $libdir/Env.3 \
+    $libdir/Errno.3 \
     $libdir/Exporter.3 \
     $libdir/Exporter::Heavy.3 \
     $libdir/ExtUtils::CBuilder.3 \

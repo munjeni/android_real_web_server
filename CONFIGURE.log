@@ -1,0 +1,421 @@
+
+libmissing
+
+
+
+---------------------------------------
+
+glob
+
+
+
+---------------------------------------
+
+perl
+
+
+try.c:(.text+0xa): undefined reference to `_fwalk'
+try.c:(.text+0xa): undefined reference to `accessx'
+try.c:(.text+0xa): undefined reference to `aintl'
+try.c:(.text+0xa): undefined reference to `asctime64'
+try.c:(.text+0xa): undefined reference to `atolf'
+try.c:(.text+0x14): undefined reference to `chsize'
+try.c:(.text+0xa): undefined reference to `class'
+try.c:(.text+0xa): undefined reference to `ctime64'
+try.c:(.text+0xa): undefined reference to `difftime64'
+try.c:(.text+0xa): undefined reference to `fp_class'
+try.c:(.text+0xa): undefined reference to `fpclass'
+try.c:(.text+0xa): undefined reference to `fpclassify'
+try.c:(.text+0xa): undefined reference to `fpclassl'
+try.c:(.text+0xa): undefined reference to `getespwnam'
+try.c:(.text+0xa): undefined reference to `getfsstat'
+try.c:(.text+0xa): undefined reference to `getmnt'
+try.c:(.text+0xa): undefined reference to `getpgrp2'
+try.c:(.text+0xa): undefined reference to `getprotobyaddr'
+try.c:(.text+0xa): undefined reference to `getprpwnam'
+try.c:(.text+0xa): undefined reference to `getservbyaddr'
+try.c:(.text+0xa): undefined reference to `gmtime64'
+try.c:(.text+0xa): undefined reference to `inetntop'
+try.c:(.text+0xa): undefined reference to `inetpton'
+try.c:(.text+0xa): undefined reference to `localtime64'
+try.c:(.text+0xa): undefined reference to `malloc_good_size'
+try.c:(.text+0xa): undefined reference to `malloc_size'
+try.c:(.text+0xa): undefined reference to `mktime64'
+try.c:(.text+0xa): undefined reference to `setpgrp2'
+try.c:(.text+0xa): undefined reference to `setproctitle'
+try.c:(.text+0xa): undefined reference to `setrgid'
+try.c:(.text+0xa): undefined reference to `setruid'
+try.c:(.text+0xa): undefined reference to `sfreserve'
+try.c:(.text+0xa): undefined reference to `socks5_init'
+try.c:(.text+0xa): undefined reference to `strlcat'
+try.c:(.text+0xa): undefined reference to `strlcpy'
+try.c:(.text+0xa): undefined reference to `unordered'
+try.c:(.text+0x1c): undefined reference to `_fwalk'
+try.c:(.text+0x1c): undefined reference to `accessx'
+try.c:(.text+0x1c): undefined reference to `aintl'
+try.c:(.text+0x1c): undefined reference to `asctime64'
+try.c:(.text+0x1c): undefined reference to `atolf'
+try.c:(.text+0x24): undefined reference to `chsize'
+try.c:(.text+0x1c): undefined reference to `class'
+try.c:(.text+0x1c): undefined reference to `ctime64'
+try.c:(.text+0x1c): undefined reference to `difftime64'
+try.c:(.text+0x1c): undefined reference to `fp_class'
+try.c:(.text+0x1c): undefined reference to `fpclass'
+try.c:(.text+0x1c): undefined reference to `fpclassify'
+try.c:(.text+0x1c): undefined reference to `fpclassl'
+try.c:(.text+0x1c): undefined reference to `getespwnam'
+try.c:(.text+0x1c): undefined reference to `getfsstat'
+try.c:(.text+0x1c): undefined reference to `getmnt'
+try.c:(.text+0x1c): undefined reference to `getpgrp2'
+try.c:(.text+0x1c): undefined reference to `getprotobyaddr'
+try.c:(.text+0x1c): undefined reference to `getprpwnam'
+try.c:(.text+0x1c): undefined reference to `getservbyaddr'
+try.c:(.text+0x1c): undefined reference to `gmtime64'
+try.c:(.text+0x1c): undefined reference to `inetntop'
+try.c:(.text+0x1c): undefined reference to `inetpton'
+try.c:(.text+0x24): undefined reference to `isfinite'
+try.c:(.text+0x1c): undefined reference to `localtime64'
+try.c:(.text+0x1c): undefined reference to `malloc_good_size'
+try.c:(.text+0x1c): undefined reference to `malloc_size'
+try.c:(.text+0x1c): undefined reference to `mkstemps'
+try.c:(.text+0x1c): undefined reference to `mktime64'
+try.c:(.text+0x1c): undefined reference to `setpgrp2'
+try.c:(.text+0x1c): undefined reference to `setproctitle'
+try.c:(.text+0x1c): undefined reference to `setrgid'
+try.c:(.text+0x1c): undefined reference to `setruid'
+try.c:(.text+0x1c): undefined reference to `sfreserve'
+try.c:(.text+0x1c): undefined reference to `socks5_init'
+try.c:(.text+0x1c): undefined reference to `strlcat'
+try.c:(.text+0x1c): undefined reference to `strlcpy'
+try.c:(.text+0x1c): undefined reference to `unordered'
+
+---------------------------------------
+
+ncurses
+
+
+conftest.c:(.text+0x1c): undefined reference to `issetugid'
+
+---------------------------------------
+
+zlib
+
+
+
+---------------------------------------
+
+bzip2
+
+
+
+---------------------------------------
+
+termcap
+
+
+
+---------------------------------------
+
+pcre
+
+
+
+---------------------------------------
+
+mhash
+
+
+
+---------------------------------------
+
+libmcrypt
+
+
+conftest.c:(.text+0x24): undefined reference to `dlopen'
+/tmp/ccqbQ9Gm.o:(.data.rel+0x0): undefined reference to `dlopen'
+
+---------------------------------------
+
+iconv
+
+
+
+---------------------------------------
+
+expat
+
+
+
+---------------------------------------
+
+libmbfl
+
+
+
+---------------------------------------
+
+openssl
+
+
+
+---------------------------------------
+
+crypt
+
+
+
+---------------------------------------
+
+libxml
+
+
+conftest.c:(.text+0x20): undefined reference to `isnand'
+conftest.c:(.text+0x20): undefined reference to `fp_class'
+conftest.c:(.text+0x20): undefined reference to `class'
+conftest.c:(.text+0x20): undefined reference to `fpclass'
+conftest.c:(.text+0x20): undefined reference to `_stat'
+conftest.c:(.text+0x20): undefined reference to `shl_load'
+conftest.c:(.text+0x20): undefined reference to `dlopen'
+
+---------------------------------------
+
+bind
+
+
+/compilation/bind-9.4.1/conftest.c:55: undefined reference to `sysctlbyname'
+/tmp/cc2SC4u2.o:(.data.rel+0x0): undefined reference to `sysctlbyname'
+dso_dlfcn.c:(.text+0x38): undefined reference to `dlopen'
+dso_dlfcn.c:(.text+0x58): undefined reference to `dlsym'
+dso_dlfcn.c:(.text+0x70): undefined reference to `dlclose'
+dso_dlfcn.c:(.text+0xd0): undefined reference to `dladdr'
+dso_dlfcn.c:(.text+0x168): undefined reference to `dlerror'
+dso_dlfcn.c:(.text+0x62c): undefined reference to `dlsym'
+dso_dlfcn.c:(.text+0x720): undefined reference to `dlerror'
+dso_dlfcn.c:(.text+0x7ec): undefined reference to `dlsym'
+dso_dlfcn.c:(.text+0x8ec): undefined reference to `dlerror'
+dso_dlfcn.c:(.text+0x98c): undefined reference to `dlclose'
+dso_dlfcn.c:(.text+0xa88): undefined reference to `dlopen'
+dso_dlfcn.c:(.text+0xadc): undefined reference to `dlopen'
+dso_dlfcn.c:(.text+0xb24): undefined reference to `dlerror'
+dso_dlfcn.c:(.text+0xbd8): undefined reference to `dlclose'
+/compilation/bind-9.4.1/conftest.c:69: undefined reference to `arc4random'
+/tmp/ccCngyW9.o:(.data.rel+0x0): undefined reference to `arc4random'
+/compilation/bind-9.4.1/conftest.c:75: undefined reference to `getipnodebyname'
+/tmp/ccuZ2IMn.o:(.data.rel+0x0): undefined reference to `getipnodebyname'
+
+---------------------------------------
+
+mysql
+
+
+conftest.c:(.text+0x18): undefined reference to `pthread_create'
+conftest.c:(.text+0x18): undefined reference to `issetugid'
+conftest.c:(.text+0x18): undefined reference to `mbscmp'
+conftest.c:(.text+0x18): undefined reference to `strunvis'
+conftest.c:(.text+0x18): undefined reference to `strvis'
+conftest.c:(.text+0x18): undefined reference to `_doprnt'
+conftest.c:(.text+0x18): undefined reference to `bfill'
+conftest.c:(.text+0x18): undefined reference to `bmove'
+conftest.c:(.text+0x18): undefined reference to `chsize'
+conftest.c:(.text+0x18): undefined reference to `fconvert'
+conftest.c:(.text+0x18): undefined reference to `fpresetsticky'
+conftest.c:(.text+0x18): undefined reference to `fpsetmask'
+conftest.c:(.text+0x18): undefined reference to `getpassphrase'
+conftest.c:(.text+0x18): undefined reference to `gethrtime'
+conftest.c:(.text+0x18): undefined reference to `locking'
+conftest.c:(.text+0x18): undefined reference to `pthread_attr_create'
+conftest.c:(.text+0x18): undefined reference to `pthread_attr_setprio'
+conftest.c:(.text+0x18): undefined reference to `pthread_condattr_create'
+conftest.c:(.text+0x18): undefined reference to `pthread_getsequence_np'
+conftest.c:(.text+0x18): undefined reference to `pthread_setprio'
+conftest.c:(.text+0x18): undefined reference to `pthread_setprio_np'
+conftest.c:(.text+0x18): undefined reference to `rwlock_init'
+conftest.c:(.text+0x18): undefined reference to `sigthreadmask'
+conftest.c:(.text+0x18): undefined reference to `port_create'
+conftest.c:(.text+0x18): undefined reference to `tell'
+conftest.c:(.text+0x18): undefined reference to `thr_setconcurrency'
+conftest.c:(.text+0x18): undefined reference to `printstack'
+conftest.c:(.text+0x18): undefined reference to `atomic_add_long'
+conftest.c:(.text+0x18): undefined reference to `atomic_cas_32'
+conftest.c:(.text+0x18): undefined reference to `atomic_cas_64'
+conftest.c:(.text+0x18): undefined reference to `atomic_cas_ulong'
+
+---------------------------------------
+
+apr
+
+
+conftest.c:(.text+0x20): undefined reference to `pthread_key_delete'
+conftest.c:(.text+0x20): undefined reference to `pthread_rwlock_init'
+conftest.c:(.text+0x20): undefined reference to `pthread_attr_setguardsize'
+conftest.c:(.text+0x20): undefined reference to `pthread_yield'
+conftest.c:(.text+0x20): undefined reference to `dlopen'
+conftest.c:(.text+0x20): undefined reference to `sem_open'
+
+---------------------------------------
+
+apr-util
+
+
+conftest.c:(.text+0x20): undefined reference to `crypt_r'
+
+---------------------------------------
+
+libjpeg
+
+
+
+---------------------------------------
+
+freetype
+
+
+
+---------------------------------------
+
+fontconfig
+
+
+
+---------------------------------------
+
+libpng
+
+
+
+---------------------------------------
+
+tiff
+
+
+conftest.c:(.text+0x8c): undefined reference to `pthread_create'
+conftest.c:(.text+0xb0): undefined reference to `pthread_join'
+conftest.c:(.text+0x160): undefined reference to `__pthread_register_cancel'
+conftest.c:(.text+0x17c): undefined reference to `__pthread_unregister_cancel'
+conftest.c:(.text+0x8c): undefined reference to `pthread_create'
+conftest.c:(.text+0xb0): undefined reference to `pthread_join'
+conftest.c:(.text+0x160): undefined reference to `__pthread_register_cancel'
+conftest.c:(.text+0x17c): undefined reference to `__pthread_unregister_cancel'
+conftest.c:(.text+0x8c): undefined reference to `pthread_create'
+conftest.c:(.text+0xb0): undefined reference to `pthread_join'
+conftest.c:(.text+0x160): undefined reference to `__pthread_register_cancel'
+conftest.c:(.text+0x17c): undefined reference to `__pthread_unregister_cancel'
+
+---------------------------------------
+
+libgd
+
+
+conftest.c:(.text+0x8c): undefined reference to `pthread_create'
+conftest.c:(.text+0xb0): undefined reference to `pthread_join'
+conftest.c:(.text+0x160): undefined reference to `__pthread_register_cancel'
+conftest.c:(.text+0x17c): undefined reference to `__pthread_unregister_cancel'
+conftest.c:(.text+0x8c): undefined reference to `pthread_create'
+conftest.c:(.text+0xb0): undefined reference to `pthread_join'
+conftest.c:(.text+0x160): undefined reference to `__pthread_register_cancel'
+conftest.c:(.text+0x17c): undefined reference to `__pthread_unregister_cancel'
+conftest.c:(.text+0x8c): undefined reference to `pthread_create'
+conftest.c:(.text+0xb0): undefined reference to `pthread_join'
+conftest.c:(.text+0x160): undefined reference to `__pthread_register_cancel'
+conftest.c:(.text+0x17c): undefined reference to `__pthread_unregister_cancel'
+
+---------------------------------------
+
+
+gettext
+
+
+
+---------------------------------------
+
+gmp
+
+
+(.text+0x18): undefined reference to `main'
+
+---------------------------------------
+
+
+apache2
+
+
+
+---------------------------------------
+
+imap
+
+
+
+---------------------------------------
+
+php
+
+
+conftest.c:(.text+0x1c): undefined reference to `setproctitle'
+conftest.c:(.text+0x1c): undefined reference to `yp_get_default_domain'
+conftest.c:(.text+0x1c): undefined reference to `__yp_get_default_domain'
+conftest.c:(.text+0x1c): undefined reference to `dlopen'
+conftest.c:(.text+0x1c): undefined reference to `__dlopen'
+conftest.c:(.text+0x1c): undefined reference to `_doprnt'
+conftest.c:(.text+0x1c): undefined reference to `funopen'
+conftest.c:(.text+0x1c): undefined reference to `std_syslog'
+conftest.c:(.text+0x1c): undefined reference to `strlcat'
+conftest.c:(.text+0x1c): undefined reference to `strlcpy'
+conftest.c:(.text+0x1c): undefined reference to `crypt_r'
+conftest.c:(.text+0x1c): undefined reference to `DSA_get_default_method'
+conftest.c:(.text+0x1c): undefined reference to `gdImageCreateFromWebp'
+gdft.c:(.text+0x170): undefined reference to `FcConfigSubstitute'
+gdft.c:(.text+0x190): undefined reference to `FcConfigSubstitute'
+gdft.c:(.text+0x1a8): undefined reference to `FcDefaultSubstitute'
+gdft.c:(.text+0x1cc): undefined reference to `FcFontMatch'
+gdft.c:(.text+0x2fc): undefined reference to `FcPatternBuild'
+gdft.c:(.text+0x338): undefined reference to `FcPatternDestroy'
+gdft.c:(.text+0x390): undefined reference to `FcPatternGetString'
+gdft.c:(.text+0x3b0): undefined reference to `FcPatternDestroy'
+gdft.c:(.text+0x43c): undefined reference to `FcPatternDestroy'
+gdft.c:(.text+0x560): undefined reference to `FcNameParse'
+gdft.c:(.text+0x59c): undefined reference to `FcPatternDestroy'
+gdft.c:(.text+0x5f8): undefined reference to `FcPatternGetString'
+gdft.c:(.text+0x620): undefined reference to `FcPatternDestroy'
+gdft.c:(.text+0x730): undefined reference to `FcPatternDestroy'
+conftest.c:(.text+0x1c): undefined reference to `mysql_stmt_next_result'
+conftest.c:(.text+0x1c): undefined reference to `makedev'
+conftest.c:(.text+0x1c): undefined reference to `fpclass'
+conftest.c:(.text+0x1c): undefined reference to `strpncpy'
+conftest.c:(.text+0x1c): undefined reference to `res_nsearch'
+conftest.c:(.text+0x1c): undefined reference to `__res_nsearch'
+conftest.c:(.text+0x1c): undefined reference to `res_nsearch'
+conftest.c:(.text+0x1c): undefined reference to `res_nsearch'
+conftest.c:(.text+0x1c): undefined reference to `dns_search'
+conftest.c:(.text+0x1c): undefined reference to `__dns_search'
+conftest.c:(.text+0x1c): undefined reference to `dns_search'
+conftest.c:(.text+0x1c): undefined reference to `__dns_search'
+conftest.c:(.text+0x1c): undefined reference to `dns_search'
+conftest.c:(.text+0x1c): undefined reference to `__dns_search'
+conftest.c:(.text+0x1c): undefined reference to `dn_expand'
+conftest.c:(.text+0x1c): undefined reference to `__dn_expand'
+conftest.c:(.text+0x1c): undefined reference to `dn_skipname'
+conftest.c:(.text+0x1c): undefined reference to `__dn_skipname'
+conftest.c:(.text+0x1c): undefined reference to `dn_skipname'
+conftest.c:(.text+0x1c): undefined reference to `dn_skipname'
+conftest.c:(.text+0x1c): undefined reference to `res_search'
+conftest.c:(.text+0x1c): undefined reference to `__res_search'
+conftest.c:(.text+0x1c): undefined reference to `res_search'
+conftest.c:(.text+0x1c): undefined reference to `res_search'
+conftest.c:(.text+0x1c): undefined reference to `sigsetjmp'
+conftest.c:(.text+0x1c): undefined reference to `isfinite'
+
+---------------------------------------
+
+lynx 2.8.8
+
+
+conftest.c:(.text+0x1c): undefined reference to `initscr'
+conftest.c:(.text+0x40): undefined reference to `tgoto'
+conftest.c:(.text+0x1c): undefined reference to `tgoto'
+conftest.c:(.text+0x28): undefined reference to `arc4random_push'
+conftest.c:(.text+0x40): undefined reference to `arc4random'
+conftest.c:(.text+0x24): undefined reference to `arc4random'
+
+---------------------------------------
+

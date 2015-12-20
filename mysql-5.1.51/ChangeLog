@@ -1,0 +1,1267 @@
+------------------------------------------------------------
+revno: 3490
+tags: clone-5.1.51-build
+committer: Alfranio Correia <alfranio.correia@oracle.com>
+branch nick: mysql-5.1-security
+timestamp: Fri 2010-09-10 11:49:57 +0100
+message:
+  BUG#55675 rpl.rpl_log_pos fails sporadically with error binlog truncated in the middle
+    
+  Disabled the test case.
+------------------------------------------------------------
+revno: 3489
+committer: Ramil Kalimullin <ramil@mysql.com>
+branch nick: mysql-5.1-security
+timestamp: Thu 2010-09-09 13:40:17 +0400
+message:
+  Fix for bug#56679: gis.test: valgrind error
+  
+  Item_func_spatial_collection::fix_length_and_dec()
+  changed to use argument's print() method to print
+  the ER_ILLEGAL_VALUE_FOR_TYPE error.
+------------------------------------------------------------
+revno: 3488
+committer: Sergey Vojtovich <svoj@sun.com>
+branch nick: mysql-5.1-security
+timestamp: Wed 2010-09-08 00:16:10 +0400
+message:
+  main.gis-rtree, main.type_float and main.type_newdecimal
+  were marked as experimental due to BUG38965.
+------------------------------------------------------------
+revno: 3487
+committer: Kristofer Pettersson <kristofer.pettersson@oracle.com>
+branch nick: mysql-5.1-security
+timestamp: Tue 2010-09-07 15:43:00 +0200
+message:
+  Post fix following fix for bug55531: Disabling testcase for
+  bug 55568 because {1} isn't a valid geometry for a geometry
+  collection.
+------------------------------------------------------------
+revno: 3486 [merge]
+committer: Kristofer Pettersson <kristofer.pettersson@oracle.com>
+branch nick: mysql-5.1-security
+timestamp: Tue 2010-09-07 13:34:18 +0200
+message:
+  Manual resolve of mysql-test/r/gis.result
+    ------------------------------------------------------------
+    revno: 3484.2.3 [merge]
+    committer: Jimmy Yang <jimmy.yang@oracle.com>
+    branch nick: mysql-5.1-security
+    timestamp: Wed 2010-09-01 17:43:02 -0700
+    message:
+      Merge from mysql-5.1-bugteam to mysql-5.1-security
+        ------------------------------------------------------------
+        revno: 3452.1.45
+        committer: Davi Arnaut <davi.arnaut@oracle.com>
+        branch nick: 55846-5.1
+        timestamp: Tue 2010-08-24 10:48:45 -0300
+        message:
+          Bug#55846: Link tests fail on Windows - my_compiler.h missing
+          
+          Make the my_compiler.h header, like my_attribute.h, part of
+          the distribution. This is required due to the dependency of
+          the former on the latter (which can undefine __attribute__).
+        ------------------------------------------------------------
+        revno: 3452.1.44 [merge]
+        committer: Gleb Shchepa <gshchepa@mysql.com>
+        branch nick: mysql-5.1-bugteam
+        timestamp: Tue 2010-08-31 02:32:03 +0400
+        message:
+          automerge local --> 5.1-bugteam (bug 53034)
+            ------------------------------------------------------------
+            revno: 3452.7.1
+            committer: Gleb Shchepa <gshchepa@mysql.com>
+            branch nick: 53034-5.1-bugteam
+            timestamp: Tue 2010-08-31 02:16:38 +0400
+            message:
+              Bug #53034: Multiple-table DELETE statements not accepting
+                          "Access compatibility" syntax
+              
+              The "wild" "DELETE FROM table_name.* ... USING ..." syntax
+              for multi-table DELETE statements is documented but it was
+              lost in the fix for the bug 30234.
+              
+              The table_ident_opt_wild parser rule has been added
+              to restore the lost syntax.
+        ------------------------------------------------------------
+        revno: 3452.1.43 [merge]
+        committer: Ramil Kalimullin <ramil@mysql.com>
+        branch nick: b51875-5.1-bugteam
+        timestamp: Mon 2010-08-30 12:08:28 +0400
+        message:
+          Automerge.
+            ------------------------------------------------------------
+            revno: 3452.6.1 [merge]
+            committer: Alexey Kopytov <Alexey.Kopytov@Sun.com>
+            branch nick: mysql-5.1-bugteam
+            timestamp: Mon 2010-08-30 11:19:09 +0400
+            message:
+              Automerge.
+                ------------------------------------------------------------
+                revno: 3452.5.1
+                committer: Alexey Kopytov <Alexey.Kopytov@Sun.com>
+                branch nick: mysql-5.1-bugteam
+                timestamp: Fri 2010-08-27 13:44:35 +0400
+                message:
+                  Bug #54465: assert: field_types == 0 || field_types[field_pos]
+                              == MYSQL_TYPE_LONGLONG
+                  
+                  A MIN/MAX() function with a subquery as its argument could lead
+                  to a debug assertion on debug builds or wrong data on release
+                  ones.
+                  
+                  The problem was a combination of the following factors:
+                  
+                  - Item_sum_hybrid::fix_fields() might use the argument
+                  (args[0]) to calculate 'hybrid_field_type' which was later used
+                  to decide how the data should be sent to the client.
+                  
+                  - Item_sum::make_field() might use the argument again to
+                  calculate the field's type when sending result set metadata to
+                  the client.
+                  
+                  - The argument could be changed in between these two calls via
+                    Item::set_arg() leading to inconsistent metadata being
+                    reported.
+                  
+                  Here is what was happening for the bug's test case:
+                  
+                  1. Item_sum_hybrid::fix_fields() calculates hybrid_field_type
+                  as MYSQL_TYPE_LONGLONG based on args[0] which is an
+                  Item::SUBSELECT_ITEM at that time.
+                  
+                  2. A temporary table is created to execute the
+                  query. create_tmp_field_from_item() creates a Field_long object
+                  according to the subselect's max_length.
+                  
+                  3. The subselect item in Item_sum_hybrid is replaced by the
+                  Item_field object referencing the newly created Field_long.
+                  
+                  4. Item_sum::make_field() rightfully returns the
+                  MYSQL_TYPE_LONG type when calculating the result set metadata.
+                  
+                  5. When sending the actual data, Item::send() relies on the
+                  virtual field_type() function which in our case returns
+                  previously calculated hybrid_field_type == MYSQL_TYPE_LONGLONG.
+                  
+                  It looks like the only solution is to never refer to the
+                  argument's metadata after the result metadata has been
+                  calculated in fix_fields(), since the argument itself may be
+                  different by then. In this sense, Item_sum::make_field() should
+                  never be used, because it may rely on the argument's metadata
+                  and is only called after fix_fields(). The "default"
+                  implementation in Item::make_field() should be used instead as
+                  it relies only on field_type(), but not on the argument's type.
+                  
+                  Fixed by removing Item_sum::make_field() so that the superclass
+                  implementation Item::make_field() is always used.
+        ------------------------------------------------------------
+        revno: 3452.1.42
+        committer: Ramil Kalimullin <ramil@mysql.com>
+        branch nick: b51875-5.1-bugteam
+        timestamp: Mon 2010-08-30 11:51:46 +0400
+        message:
+          Fix for bug #51875: crash when loading data into geometry function polyfromwkb
+          
+          Check for number of line strings in the incoming polygon data (wkb) and
+          for number of points in the incoming linestring wkb.
+        ------------------------------------------------------------
+        revno: 3452.1.41 [merge]
+        committer: Vasil Dimov <vasil.dimov@oracle.com>
+        branch nick: mysql-5.1-bugteam
+        timestamp: Sat 2010-08-28 00:58:46 +0300
+        message:
+          Merge mysql-5.1-innodb -> mysql-5.1-bugteam
+            ------------------------------------------------------------
+            revno: 3351.14.188
+            committer: Vasil Dimov <vasil.dimov@oracle.com>
+            branch nick: mysql-5.1-innodb
+            timestamp: Thu 2010-08-26 18:06:07 +0300
+            message:
+              Increment InnoDB Plugin version to 1.0.12.
+              InnoDB Plugin 1.0.11 has been released with MySQL 5.1.50.
+            ------------------------------------------------------------
+            revno: 3351.14.187
+            committer: Marko Mäkelä <marko.makela@oracle.com>
+            branch nick: 5.1-innodb
+            timestamp: Tue 2010-08-24 11:10:03 +0300
+            message:
+              Bug#55832: selects crash too easily when innodb_force_recovery>3
+              
+              dict_update_statistics_low(): Create bogus statistics for those
+              indexes that cannot be accessed because of the innodb_force_recovery
+              setting.
+              
+              ha_innobase::info(): Calculate statistics for each index, even if
+              innodb_force_recovery is set. Fill in bogus data for those indexes
+              that are not accessed because of the innodb_force_recovery setting.
+            ------------------------------------------------------------
+            revno: 3351.14.186
+            committer: Marko Mäkelä <marko.makela@oracle.com>
+            branch nick: 5.1-innodb
+            timestamp: Mon 2010-08-23 13:28:54 +0300
+            message:
+              Bug#55832: selects crash too easily when innodb_force_recovery>3
+              
+              dict_update_statistics_low(): Create bogus statistics for those
+              indexes that cannot be accessed because of the innodb_force_recovery
+              setting.
+              
+              ha_innobase::info(): Calculate statistics for each index, even if
+              innodb_force_recovery is set. Fill in bogus data for those indexes
+              that are not accessed because of the innodb_force_recovery setting.
+            ------------------------------------------------------------
+            revno: 3351.14.185
+            committer: Sunny Bains <Sunny.Bains@Oracle.Com>
+            branch nick: 5.1
+            timestamp: Fri 2010-08-20 17:49:43 +1000
+            message:
+              Fix Bug #54538 - use of exclusive innodb dictionary lock limits performance.
+                          
+              This patch doesn't get rid of the need to acquire the dict_sys->mutex but
+              reduces the need to keep the mutex locked for the duration of the query
+              to fsp_get_available_space_in_free_extents() from ha_innobase::info().
+              
+              rb://390.
+            ------------------------------------------------------------
+            revno: 3351.14.184
+            committer: Sunny Bains <Sunny.Bains@Oracle.Com>
+            branch nick: 5.1
+            timestamp: Fri 2010-08-20 12:57:04 +1000
+            message:
+              Fix Bug #55027: assertion: mutex_own(&dict_sys->mutex) in dict_table_get_on_id()
+              
+              The callers should indicate that the dictionary is locked or not using
+              the trx->dict_operation_lock_mode == RW_X_LATCH mode. Checking explicitly
+              for system tables is unnecessary.
+              
+              Approved by Marko on IRC.
+            ------------------------------------------------------------
+            revno: 3351.14.183
+            committer: Sunny Bains <Sunny.Bains@Oracle.Com>
+            branch nick: 5.1
+            timestamp: Fri 2010-08-20 12:55:52 +1000
+            message:
+              Fix bug#55699 - Assertion failure in innodb plugin with large number of threads
+                    
+              Fix a debug assertion that was missed in svnrev:2380 (fix for Bug# 35352).
+              
+              Approved by Marko on IRC
+            ------------------------------------------------------------
+            revno: 3351.14.182
+            committer: Marko Mäkelä <marko.makela@oracle.com>
+            branch nick: 5.1-innodb
+            timestamp: Wed 2010-08-18 14:01:10 +0300
+            message:
+              Bug#55626: MIN and MAX reading a delete-marked record from secondary index
+              
+              Remove a bogus debug assertion that triggered the bug.
+              Add assertions precisely where records must not be delete-marked.
+              And a comment to clarify when the record is allowed to be delete-marked.
+            ------------------------------------------------------------
+            revno: 3351.14.181 [merge]
+            committer: Vasil Dimov <vasil.dimov@oracle.com>
+            branch nick: mysql-5.1-innodb
+            timestamp: Tue 2010-08-17 22:39:34 +0300
+            message:
+              Merge mysql-5.1-innodb from bk-internal into my local tree
+                ------------------------------------------------------------
+                revno: 3351.59.4
+                committer: Jimmy Yang <jimmy.yang@oracle.com>
+                branch nick: mysql-5.1-innodb
+                timestamp: Fri 2010-08-06 02:49:22 -0700
+                message:
+                  Address bug #55465 ERROR 1280 (42000): Incorrect index name '<index name>',
+                  adding a couple FK related messages.
+                  
+                  rb://409 approved by Sunny Bains
+                ------------------------------------------------------------
+                revno: 3351.59.3
+                committer: Inaam Rana <inaam.rana@oracle.com>
+                branch nick: 5.1
+                timestamp: Thu 2010-08-05 11:34:44 -0400
+                message:
+                  Backport of revno 3148 mysql-innodb-trunk
+                  
+                    Currently we do a full validation of AHI whenever check tables is
+                    called on any table. This patch fixes this by only doing this full
+                    check in debug versions.
+                    
+                    bug#55716
+                    rb://423
+                    approved by: Marko
+                ------------------------------------------------------------
+                revno: 3351.59.2
+                committer: Jimmy Yang <jimmy.yang@oracle.com>
+                branch nick: mysql-5.1-innodb
+                timestamp: Tue 2010-08-03 20:20:55 -0700
+                message:
+                  Backport "NULL pointer check for ut_free()" from mysql-trunk-innodb to
+                  mysql-5.1-innodb plugin to fix bug #55627 segv in ut_free pars_lexer_close
+                  innobase_shutdown innodb-use-sys-malloc=0.
+                ------------------------------------------------------------
+                revno: 3351.59.1
+                committer: Jimmy Yang <jimmy.yang@oracle.com>
+                branch nick: mysql-5.1-innodb
+                timestamp: Sun 2010-08-01 22:25:57 -0700
+                message:
+                  Fix Bug #55382 Assignment with SELECT expressions takes unexpected S locks
+                  in READ COMMITTED
+                  
+                  rb://410 Approved by Sunny Bains
+            ------------------------------------------------------------
+            revno: 3351.14.180
+            committer: Vasil Dimov <vasil.dimov@oracle.com>
+            branch nick: mysql-5.1-innodb
+            timestamp: Tue 2010-08-17 22:37:18 +0300
+            message:
+              Disable all innodb_plugin tests on Solaris until the problem is resolved.
+              
+              Track this via:
+              Bug#56063 InnoDB Plugin mysql-tests fail on Solaris
+        ------------------------------------------------------------
+        revno: 3452.1.40
+        committer: Ramil Kalimullin <ramil@mysql.com>
+        branch nick: b54253-5.1-bugteam
+        timestamp: Fri 2010-08-27 11:44:06 +0400
+        message:
+          Fix for bug #54253: memory leak when using I_S plugins w/o deinit method
+          
+          Free memory allocated by the server for all plugins,
+          with or without deinit() method.
+        ------------------------------------------------------------
+        revno: 3452.1.39
+        committer: Bjorn Munch <bjorn.munch@oracle.com>
+        branch nick: mysql-5.1-bugteam
+        timestamp: Thu 2010-08-26 15:14:50 +0200
+        message:
+          Reduced #ifndef for 52301, caused compile warning
+        ------------------------------------------------------------
+        revno: 3452.1.38 [merge]
+        committer: Alexey Kopytov <Alexey.Kopytov@Sun.com>
+        branch nick: mysql-5.1-bugteam
+        timestamp: Thu 2010-08-26 16:36:48 +0400
+        message:
+          Automerge.
+            ------------------------------------------------------------
+            revno: 3452.4.4
+            committer: Sergey Vojtovich <svoj@sun.com>
+            branch nick: mysql-5.1-bugteam-test
+            timestamp: Thu 2010-08-26 15:23:44 +0400
+            message:
+              Fixed race condition in a test case for BUG#55580.
+            ------------------------------------------------------------
+            revno: 3452.4.3
+            committer: Evgeny Potemkin <epotemkin@mysql.com>
+            branch nick: 55656-bug-5.1-bugteam
+            timestamp: Thu 2010-08-26 13:31:04 +0400
+            message:
+              Bug #55656: mysqldump can be slower after bug 39653 fix.
+              After fix for bug 39653 the shortest available secondary index was used for
+              full table scan. Primary clustered key was used only if no secondary index
+              can be used. However, when chosen secondary index includes all fields of the
+              table being scanned it's better to use primary index since the amount of
+              data to scan is the same but the primary index is clustered.
+              Now the find_shortest_key function takes this into account.
+            ------------------------------------------------------------
+            revno: 3452.4.2 [merge]
+            committer: Bjorn Munch <bjorn.munch@oracle.com>
+            branch nick: mysql-5.1-bugteam
+            timestamp: Wed 2010-08-25 22:49:52 +0200
+            message:
+              merge followup fix for 52301
+                ------------------------------------------------------------
+                revno: 2728.17.154
+                committer: Bjorn Munch <bjorn.munch@oracle.com>
+                branch nick: merge-51
+                timestamp: Wed 2010-08-25 16:34:31 +0200
+                message:
+                  Cherry pick 55501
+                ------------------------------------------------------------
+                revno: 2728.17.153
+                committer: Bjorn Munch <bjorn.munch@oracle.com>
+                branch nick: embprot-51
+                timestamp: Wed 2010-08-25 10:23:19 +0200
+                message:
+                  Bug #52301 Add --protocol to mysqltest
+                  Added code resulted in strange linking problem for embedded on Windows
+                  Avoided by not doing this for embedded mode
+                  It's irrelevant for embedded server anyway, --protocol will be ignored
+            ------------------------------------------------------------
+            revno: 3452.4.1
+            committer: Dmitry Shulga <Dmitry.Shulga@Sun.COM>
+            branch nick: 5.1-bugteam-bug29751
+            timestamp: Wed 2010-08-25 15:47:45 +0700
+            message:
+              Fixed bug #29751 - do not rename the error log at FLUSH LOGS.
+              Added open log file with FILE_SHARE_DELETE flag on Windows.
+        ------------------------------------------------------------
+        revno: 3452.1.37
+        committer: Alexey Kopytov <Alexey.Kopytov@Sun.com>
+        branch nick: mysql-5.1-bugteam
+        timestamp: Tue 2010-08-24 19:51:32 +0400
+        message:
+          Bug #54802: 'NOT BETWEEN' evaluation is incorrect
+          
+          Queries involving predicates of the form "const NOT BETWEEN
+          not_indexed_column AND indexed_column" could return wrong data
+          due to incorrect handling by the range optimizer.
+          
+          For "c NOT BETWEEN f1 AND f2" predicates, get_mm_tree()
+          produces a disjunction of the SEL_ARG trees for "f1 > c" and
+          "f2 < c". If one of the trees is empty (i.e. one of the
+          arguments is not sargable) the resulting tree should be empty
+          as well, since the whole expression in this case is not
+          sargable.
+          
+          The above logic is implemented in get_mm_tree() as follows. The
+          initial state of the resulting tree is NULL (aka empty). We
+          then iterate through arguments and compute the corresponding
+          SEL_ARG tree (either "f1 > c" or "f2 < c"). If the resulting
+          tree is NULL, it is simply replaced by the generated
+          tree. Otherwise it is replaced by a disjunction of itself and
+          the generated tree. The obvious flaw in this implementation is
+          that if the first argument is not sargable and thus produces a
+          NULL tree, the resulting tree will simply be replaced by the
+          tree for the second argument. As a result, "c NOT BETWEEN f1
+          AND f2" will end up as just "f2 < c".
+          
+          Fixed by adding a check so that when the first argument
+          produces an empty tree for the NOT BETWEEN case, the loop is
+          aborted with an empty tree as a result. The whole idea of using
+          a loop for 2 arguments does not make much sense, but it was
+          probably used to avoid code duplication for several BETWEEN
+          variants.
+        ------------------------------------------------------------
+        revno: 3452.1.36
+        committer: Mattias Jonsson <mattias.jonsson@sun.com>
+        branch nick: topush-5.1-bugteam
+        timestamp: Fri 2010-08-20 21:17:51 +0200
+        message:
+          post push test fix
+    ------------------------------------------------------------
+    revno: 3484.2.2 [merge]
+    committer: Alexey Kopytov <Alexey.Kopytov@Sun.com>
+    branch nick: mysql-5.1-security
+    timestamp: Thu 2010-08-26 14:19:04 +0400
+    message:
+      Automerge.
+        ------------------------------------------------------------
+        revno: 3484.3.1
+        committer: Jimmy Yang <jimmy.yang@oracle.com>
+        branch nick: mysql-5.1-security
+        timestamp: Tue 2010-08-24 20:42:33 -0700
+        message:
+          This is to resolve a hang situation in 5.1 builtin raised by
+          bug #49251 (deadlock/crash with concurrent truncate table and index
+          statistics calculation) by backporting a solution from #54678 fixed
+          for 5.1 plugin and 5.5.
+    ------------------------------------------------------------
+    revno: 3484.2.1 [merge]
+    committer: Alexey Kopytov <Alexey.Kopytov@Sun.com>
+    branch nick: mysql-5.1-security
+    timestamp: Thu 2010-08-26 14:15:40 +0400
+    message:
+      Automerge.
+        ------------------------------------------------------------
+        revno: 3484.1.1
+        committer: Alexey Kopytov <Alexey.Kopytov@Sun.com>
+        branch nick: 5.1-security
+        timestamp: Thu 2010-08-26 14:13:02 +0400
+        message:
+          Bug #53544: Server hangs during JOIN query in stored procedure
+                      called twice in a row
+          
+          Queries with nested joins could cause an infinite loop in the
+          server when used from SP/PS.
+          
+          When flattening nested joins, simplify_joins() tracks if the
+          name resolution list needs to be updated by setting
+          fix_name_res to TRUE if the current loop iteration has done any
+          transformations to the join table list. The problem was that
+          the flag was not reset before the next loop iteration leading
+          to unnecessary "fixing" of the name resolution list which in
+          turn could lead to a loop (i.e. circularly-linked part) in that
+          list. This was causing problems on subsequent execution when
+          used together with stored procedures or prepared statements.
+          
+          Fixed by making sure fix_name_res is reset on every loop
+          iteration.
+------------------------------------------------------------
+revno: 3485
+committer: Kristofer Pettersson <kristofer.pettersson@oracle.com>
+branch nick: mysql-5.1-security
+timestamp: Tue 2010-09-07 11:37:46 +0200
+message:
+  Bug#55531 crash with conversions of geometry types / strings
+  
+  Convertion from a floating point number to a string caused a
+  crash.
+  
+  During rare circumstances a String object could crash when
+  it was requested to allocate new memory.
+  A crash could occcur in Field_double::val_str() because of
+  a pointer referencing memory inside a String object which was
+  of unknown size.
+  And finally, the geometric collection should not accept
+  arguments which are non geometric.
+------------------------------------------------------------
+revno: 3484 [merge]
+committer: Alexey Kopytov <Alexey.Kopytov@Sun.com>
+branch nick: mysql-5.1-security
+timestamp: Tue 2010-08-24 14:44:15 +0400
+message:
+  Automerge.
+    ------------------------------------------------------------
+    revno: 3480.1.1
+    committer: Alexey Kopytov <Alexey.Kopytov@Sun.com>
+    branch nick: 5.1-security
+    timestamp: Tue 2010-08-24 14:35:48 +0400
+    message:
+      Bug #55568: user variable assignments crash server when used
+                  within query
+      
+      The server could crash after materializing a derived table
+      which requires a temporary table for grouping.
+      
+      When destroying the temporary table used to execute a query for
+      a derived table, JOIN::destroy() did not clean up Item_fields
+      pointing to fields in the temporary table. This led to
+      dereferencing a dangling pointer when printing out the items
+      tree later in the outer SELECT.
+      
+      The solution is an addendum to the patch for bug37362: in
+      addition to cleaning up items in tmp_all_fields3, do the same
+      for items in tmp_all_fields1, since now we have an example
+      where this is necessary.
+------------------------------------------------------------
+revno: 3483 [merge]
+committer: Georgi Kodinov <Georgi.Kodinov@Oracle.com>
+branch nick: merge-5.1-security
+timestamp: Fri 2010-08-20 15:23:24 +0300
+message:
+  merge
+    ------------------------------------------------------------
+    revno: 1810.3996.1 [merge]
+    committer: Georgi Kodinov <Georgi.Kodinov@Oracle.com>
+    branch nick: merge-5.0-security
+    timestamp: Fri 2010-08-20 14:45:08 +0300
+    message:
+      merge
+------------------------------------------------------------
+revno: 3482 [merge]
+committer: Georgi Kodinov <Georgi.Kodinov@Oracle.com>
+branch nick: merge-5.1-security
+timestamp: Fri 2010-08-20 15:08:01 +0300
+message:
+  merge
+    ------------------------------------------------------------
+    revno: 3452.1.35 [merge]
+    committer: Georgi Kodinov <Georgi.Kodinov@Oracle.com>
+    branch nick: merge-5.1-bugteam
+    timestamp: Fri 2010-08-20 12:13:05 +0300
+    message:
+      merge
+        ------------------------------------------------------------
+        revno: 1810.3995.6 [merge]
+        committer: Georgi Kodinov <Georgi.Kodinov@Oracle.com>
+        branch nick: merge-5.0-bugteam
+        timestamp: Fri 2010-08-20 12:05:31 +0300
+        message:
+          merge
+            ------------------------------------------------------------
+            revno: 1810.3987.36
+            committer: Georgi Kodinov <Georgi.Kodinov@Oracle.com>
+            branch nick: merge-5.0-security
+            timestamp: Mon 2010-08-02 10:48:24 +0300
+            message:
+              tree name update
+    ------------------------------------------------------------
+    revno: 3452.1.34 [merge]
+    committer: Georgi Kodinov <Georgi.Kodinov@Oracle.com>
+    branch nick: merge-5.1-bugteam
+    timestamp: Fri 2010-08-20 12:09:17 +0300
+    message:
+      merge
+        ------------------------------------------------------------
+        revno: 3461.1.7 [merge]
+        author: karen.langford@oracle.com
+        committer: MySQL Build Team <build@mysql.com>
+        branch nick: mysql-5.1
+        timestamp: Thu 2010-08-19 17:18:58 +0200
+        message:
+          Merge from mysql-5.1.50-release
+        ------------------------------------------------------------
+        revno: 3461.1.6
+        committer: MySQL Build Team <build@mysql.com>
+        branch nick: mysql-5.1
+        timestamp: Thu 2010-08-19 17:03:29 +0200
+        message:
+          Raise the version number, 5.1.50 is (was) being built in a parellel tree.
+    ------------------------------------------------------------
+    revno: 3452.1.33 [merge]
+    committer: Mattias Jonsson <mattias.jonsson@oracle.com>
+    branch nick: topush-51-bugteam
+    timestamp: Thu 2010-08-19 09:20:17 +0200
+    message:
+      merge
+        ------------------------------------------------------------
+        revno: 3457.5.1
+        committer: Mattias Jonsson <mattias.jonsson@oracle.com>
+        branch nick: b46086-51-bt
+        timestamp: Thu 2010-07-08 14:36:55 +0200
+        message:
+          Bug#46086: crash when dropping a partitioned table
+                     and the original engine is disabled
+          
+          Missing check that engine is available.
+    ------------------------------------------------------------
+    revno: 3452.1.32
+    committer: <Li-Bing.Song@sun.com>
+    branch nick: mysql-5.1-bugteam
+    timestamp: Wed 2010-08-18 12:56:06 +0800
+    message:
+      WL#5370 Keep forward-compatibility when changing
+              'CREATE TABLE IF NOT EXISTS ... SELECT' behaviour
+      BUG#55474, BUG#55499, BUG#55598, BUG#55616 and BUG#55777 are fixed
+      in this patch too.
+      
+      This is the 5.1 part.
+      It implements:
+      - if the table exists, binlog two events: CREATE TABLE IF NOT EXISTS
+        and INSERT ... SELECT
+      
+      - Insert nothing and binlog nothing on master if the existing object
+        is a view. It only generates a warning that table already exists.
+    ------------------------------------------------------------
+    revno: 3452.1.31
+    committer: Georgi Kodinov <Georgi.Kodinov@Oracle.com>
+    branch nick: B55580-5.1-bugteam
+    timestamp: Fri 2010-08-13 11:07:39 +0300
+    message:
+      Bug #55580 : segfault in read_view_sees_trx_id
+      
+      The server was not checking for errors generated during
+      the execution of Item::val_xxx() methods when copying
+      data to the group, order, or distinct temp table's row.
+      Fixed by extending the copy_funcs() to return an error
+      code and by checking for that error code on the places
+      copy_funcs() is called. 
+      Test case added.
+    ------------------------------------------------------------
+    revno: 3452.1.30
+    committer: Georgi Kodinov <Georgi.Kodinov@Oracle.com>
+    branch nick: B55565-5.1-bugteam
+    timestamp: Fri 2010-08-13 16:05:46 +0300
+    message:
+      Bug #55565: debug assertion when ordering by expressions with user 
+      variable assignments
+      
+      The assert() that is firing is checking if expressions that can't be
+      null return a NULL when evaluated.
+      MAKEDATE() function can return NULL if the second argument is 
+      less then or equal to 0. Thus its nullability depends not only on 
+      the nullability of its arguments but also on their values.
+      Fixed by (overoptimistically) setting MAKEDATE() to be nullable 
+      despite the nullability of its arguments.
+      Test added.
+      Had to update one test result to reflect the metadata change.
+    ------------------------------------------------------------
+    revno: 3452.1.29
+    committer: Martin Hansson <martin.hansson@sun.com>
+    branch nick: 5.1bt
+    timestamp: Wed 2010-08-11 14:13:59 +0200
+    message:
+      Bug#54444: Do not run main.range test for products without partitioning
+      feature
+      
+      The test for bug no 50939 was put in range.test which isn't such a good idea
+      since it requires partitioning. Fixed by moving the test case to
+      partitioning_range.test.
+    ------------------------------------------------------------
+    revno: 3452.1.28 [merge]
+    committer: Georgi Kodinov <Georgi.Kodinov@Oracle.com>
+    branch nick: B55809-5.1-bugteam
+    timestamp: Tue 2010-08-10 16:39:57 +0300
+    message:
+      merge
+        ------------------------------------------------------------
+        revno: 1810.3995.5
+        committer: Georgi Kodinov <Georgi.Kodinov@Oracle.com>
+        branch nick: B55809-5.0-bugteam
+        timestamp: Tue 2010-08-10 16:32:45 +0300
+        message:
+          Bug #55809: Server README not current
+          
+          Updated the README file.
+    ------------------------------------------------------------
+    revno: 3452.1.27
+    committer: Jon Olav Hauglid <jon.hauglid@oracle.com>
+    branch nick: mysql-5.1-bugteam-bug54106
+    timestamp: Mon 2010-08-09 13:39:59 +0200
+    message:
+      Bug #54106 assert in Protocol::end_statement,
+                 INSERT IGNORE ... SELECT ... UNION SELECT ...
+      
+      This assert was triggered by INSERT IGNORE ... SELECT. The assert checks that a
+      statement either sends OK or an error to the client. If the bug was triggered
+      on release builds, it caused OK to be sent to the client instead of the correct
+      error message (in this case ER_FIELD_SPECIFIED_TWICE).
+      
+      The reason the assert was triggered, was that lex->no_error was set to TRUE
+      during JOIN::optimize() because of IGNORE. This causes all errors to be ignored.
+      However, not all errors can be ignored. Some, such as ER_FIELD_SPECIFIED_TWICE
+      will cause the INSERT to fail no matter what. But since lex->no_error was set,
+      the critical errors were ignored, the INSERT failed and neither OK nor the
+      error message was sent to the client.
+      
+      This patch fixes the problem by temporarily turning off lex->no_error in
+      places where errors cannot be ignored during processing of INSERT ... SELECT.
+      
+      Test case added to insert.test.
+    ------------------------------------------------------------
+    revno: 3452.1.26
+    committer: Georgi Kodinov <Georgi.Kodinov@Oracle.com>
+    branch nick: B54909-5.1-bugteam
+    timestamp: Fri 2010-08-06 15:56:23 +0300
+    message:
+      Bug #54909: Confusing description about read_buffer_size and
+      read_rnd_buffer_size
+      
+      Applied the updated description from Paul's patch.
+    ------------------------------------------------------------
+    revno: 3452.1.25
+    committer: Bjorn Munch <bjorn.munch@oracle.com>
+    branch nick: mysql-5.1-bugteam
+    timestamp: Fri 2010-08-06 11:35:17 +0200
+    message:
+      Bug #55503 MTR fails to filter LEAK SUMMARY from valgrind report of restarted servers
+      Undo workaround as fix is being merged in
+    ------------------------------------------------------------
+    revno: 3452.1.24 [merge]
+    committer: Bjorn Munch <bjorn.munch@oracle.com>
+    branch nick: mysql-5.1-bugteam
+    timestamp: Fri 2010-08-06 11:13:52 +0200
+    message:
+      merge from 5.1-mtr
+        ------------------------------------------------------------
+        revno: 2728.17.152 [merge]
+        committer: Bjorn Munch <bjorn.bunch@oracle.com>
+        branch nick: noroot-51
+        timestamp: Wed 2010-08-04 12:19:51 +0200
+        message:
+          merge from 5.1
+        ------------------------------------------------------------
+        revno: 2728.17.151
+        committer: Bjorn Munch <bjorn.bunch@oracle.com>
+        branch nick: noroot-51
+        timestamp: Wed 2010-08-04 10:52:45 +0200
+        message:
+          Bug #55582 mtr root detection (and if-expression execution) broken
+          Follow-up patch: added test cases for -0 and while
+        ------------------------------------------------------------
+        revno: 2728.17.150
+        committer: Bjorn Munch <bjorn.bunch@oracle.com>
+        branch nick: noroot-51
+        timestamp: Tue 2010-08-03 16:11:23 +0200
+        message:
+          Bug #55582 mtr root detection (and if-expression execution) broken
+          if() treated any non-numeric string as false
+          Fixed to treat those as true instead
+          Added some test cases
+          Fixed missing $ in variable name in include/mix2.inc
+        ------------------------------------------------------------
+        revno: 2728.17.149 [merge]
+        committer: Bjorn Munch <bjorn.bunch@oracle.com>
+        branch nick: leak-51
+        timestamp: Mon 2010-08-02 12:43:28 +0200
+        message:
+          Bug #55597 MTR: Restart the server, from within the test case, with new CLI options.
+          The expect file can now include "restart:<server options>"
+          Also drop check-testcase if this has been done
+          Added comment explaining the restart: syntax
+            ------------------------------------------------------------
+            revno: 2728.44.1
+            committer: Bjorn Munch <bjorn.bunch@oracle.com>
+            branch nick: addopt-51
+            timestamp: Wed 2010-07-28 12:24:38 +0200
+            message:
+              Bug #55597 MTR: Restart the server, from within the test case, with new CLI options.
+              The expect file can now include "restart:<server options>"
+              Also drop check-testcase if this has been done
+        ------------------------------------------------------------
+        revno: 2728.17.148
+        committer: Bjorn Munch <bjorn.bunch@oracle.com>
+        branch nick: leak-51
+        timestamp: Fri 2010-07-23 14:53:09 +0200
+        message:
+          Bug #55503 MTR fails to filter LEAK SUMMARY from valgrind report of restarted servers
+          Was not covered by "skip" pattern
+          Replace with a more generic pattern for SUMMARY
+        ------------------------------------------------------------
+        revno: 2728.17.147 [merge]
+        committer: Bjorn Munch <Bjorn.Munch@sun.com>
+        branch nick: mtr-51
+        timestamp: Thu 2010-06-17 09:34:56 +0200
+        message:
+          merge from 5.1 up to rev 3408
+        ------------------------------------------------------------
+        revno: 2728.17.146
+        committer: Bjorn Munch <Bjorn.Munch@sun.com>
+        branch nick: mtr-51
+        timestamp: Tue 2010-06-15 13:37:53 +0200
+        message:
+          Bug #54364 Allow multiple --experimental command line options for MTR
+          Bummer: MTR fails if a test fails and no --experimental is used
+          $experimental_test_cases must be intialized
+        ------------------------------------------------------------
+        revno: 2728.17.145 [merge]
+        committer: Bjorn Munch <Bjorn.Munch@sun.com>
+        branch nick: failperl-51
+        timestamp: Tue 2010-06-15 12:14:48 +0200
+        message:
+          merge 54368
+            ------------------------------------------------------------
+            revno: 2728.43.1
+            committer: Bjorn Munch <Bjorn.Munch@sun.com>
+            branch nick: crlf-51
+            timestamp: Mon 2010-06-14 15:34:43 +0200
+            message:
+              Bug #54368 MTR does not recognize carriage return in --defaults-file
+              Remove any leftover trailing ^M from lines read in
+        ------------------------------------------------------------
+        revno: 2728.17.144 [merge]
+        committer: Bjorn Munch <Bjorn.Munch@sun.com>
+        branch nick: failperl-51
+        timestamp: Tue 2010-06-15 11:30:44 +0200
+        message:
+          merge 54364
+            ------------------------------------------------------------
+            revno: 2728.42.1
+            committer: Bjorn Munch <Bjorn.Munch@sun.com>
+            branch nick: multexp-51
+            timestamp: Thu 2010-06-10 10:34:16 +0200
+            message:
+              Bug #54364 Allow multiple --experimental command line options for MTR
+              Convert --experimental into a multi option
+              Size of diff is caused by intenting code put into a for loop
+        ------------------------------------------------------------
+        revno: 2728.17.143
+        committer: Bjorn Munch <Bjorn.Munch@sun.com>
+        branch nick: failperl-51
+        timestamp: Tue 2010-06-15 11:29:24 +0200
+        message:
+          Bug #54111 mysqltest command remove_files_wildcard does not work in embedded server
+          Wildcard chars are changed in embedded mode
+          Temporarily reset the wild_* variables before wild_compare, also for list_files
+        ------------------------------------------------------------
+        revno: 2728.17.142 [merge]
+        committer: Bjorn Munch <Bjorn.Munch@sun.com>
+        branch nick: failperl-51
+        timestamp: Tue 2010-06-15 11:21:28 +0200
+        message:
+          merge 53949
+            ------------------------------------------------------------
+            revno: 2728.41.1
+            committer: Bjorn Munch <Bjorn.Munch@sun.com>
+            branch nick: skipopt-51
+            timestamp: Wed 2010-06-09 10:21:46 +0200
+            message:
+              Bug #53949 Allow MTR2 to start server without hardcoded command-line options
+              Added option --user-args, to be used with --start*
+              Only keeps --defaults-file and --defaults-group-suffix
+              Also added missing help text entry for --start-and-exit
+        ------------------------------------------------------------
+        revno: 2728.17.141
+        committer: Bjorn Munch <Bjorn.Munch@sun.com>
+        branch nick: failperl-51
+        timestamp: Tue 2010-06-15 11:16:38 +0200
+        message:
+          Bug #52321 mtr test suite paths need to be updated
+          Use $suitedir instead of $basedir to find suites
+          Add 'testdir' to ConfigFactory
+        ------------------------------------------------------------
+        revno: 2728.17.140
+        committer: Bjorn Munch <Bjorn.Munch@sun.com>
+        branch nick: failperl-51
+        timestamp: Mon 2010-06-07 13:30:23 +0200
+        message:
+          Bug #53374 Don't delete temporary perl file if perl fails
+          Simple condition on the delete stmt
+          But NB: next mtr run will clean up and remove the temp file
+        ------------------------------------------------------------
+        revno: 2728.17.139 [merge]
+        committer: Bjorn Munch <Bjorn.Munch@sun.com>
+        branch nick: merge-51
+        timestamp: Wed 2010-06-02 16:23:29 +0200
+        message:
+          Merge from 5.1 up to rev 3392
+        ------------------------------------------------------------
+        revno: 2728.17.138
+        committer: Bjorn Munch <Bjorn.Munch@sun.com>
+        branch nick: noexit-51
+        timestamp: Tue 2010-04-13 12:41:42 +0200
+        message:
+          Bug #52214 Misleading error msg when test fails before having produced any query
+          output
+          Print error message only if real error
+        ------------------------------------------------------------
+        revno: 2728.17.137
+        committer: Bjorn Munch <Bjorn.Munch@sun.com>
+        branch nick: noexit-51
+        timestamp: Tue 2010-04-13 10:01:04 +0200
+        message:
+          Bug #42513 mtr2: mysqltest doesn't count internal commands output as real output
+          MTR insited in exit; if run without result file
+          Simply remove the else part producing the error and let test finish
+        ------------------------------------------------------------
+        revno: 2728.17.136
+        committer: Bjorn Munch <Bjorn.Munch@sun.com>
+        branch nick: tcp-51
+        timestamp: Tue 2010-03-23 15:01:40 +0100
+        message:
+          Bug #52301 Add --protocol to mysqltest
+          Implement as for other clients
+        ------------------------------------------------------------
+        revno: 2728.17.135
+        committer: Bjorn Munch <Bjorn.Munch@sun.com>
+        branch nick: daoebi-51
+        timestamp: Mon 2010-03-22 11:32:17 +0100
+        message:
+          Two more funcs_1 updates after 43588
+        ------------------------------------------------------------
+        revno: 2728.17.134
+        committer: Bjorn Munch <Bjorn.Munch@sun.com>
+        branch nick: daoebi-51
+        timestamp: Mon 2010-03-22 11:28:57 +0100
+        message:
+          Bug #43603 mysqltest command disable_abort_on_error does not affect all built-in commands
+          After disable_abort_on_error, behaved as if --error was in effect
+          Add condition before die, as after queries
+        ------------------------------------------------------------
+        revno: 2728.17.133
+        committer: Bjorn Munch <Bjorn.Munch@sun.com>
+        branch nick: memvar-51
+        timestamp: Fri 2010-03-19 09:56:26 +0100
+        message:
+          Fixed many funcs_1 tests after 43588
+        ------------------------------------------------------------
+        revno: 2728.17.132
+        committer: Bjorn Munch <Bjorn.Munch@sun.com>
+        branch nick: memvar-51
+        timestamp: Wed 2010-03-17 15:25:55 +0100
+        message:
+          Bug #43588 mysqltest command disable_abort_on_error logs connect commands
+          Only log connects after --error
+          A few small test adjustments needed/possible
+        ------------------------------------------------------------
+        revno: 2728.17.131
+        committer: Bjorn Munch <Bjorn.Munch@sun.com>
+        branch nick: standex-51
+        timestamp: Tue 2010-03-16 10:45:32 +0100
+        message:
+          Bug #51767 Implement --start-and-exit also for MTR v2
+          Added option and logic, bypass safe_process
+          Adapted after review comments
+        ------------------------------------------------------------
+        revno: 2728.17.130 [merge]
+        committer: Bjorn Munch <Bjorn.Munch@sun.com>
+        branch nick: merge-51
+        timestamp: Tue 2010-03-09 16:09:32 +0100
+        message:
+          merge 45482
+            ------------------------------------------------------------
+            revno: 2728.40.1
+            committer: Bjorn Munch <Bjorn.Munch@sun.com>
+            branch nick: engcsv-51
+            timestamp: Thu 2010-03-04 11:09:09 +0100
+            message:
+              Bug #45482 MTR2: --default-storage-engine=csv is rejected by mtr
+              Added csv to list of builtin engines
+              Fixed dysfunctional part of csv.test so it actuallu used csv
+        ------------------------------------------------------------
+        revno: 2728.17.129 [merge]
+        committer: Bjorn Munch <Bjorn.Munch@sun.com>
+        branch nick: merge-51
+        timestamp: Mon 2010-03-08 11:30:36 +0100
+        message:
+          small merge from 5.1
+        ------------------------------------------------------------
+        revno: 2728.17.128 [merge]
+        committer: Bjorn Munch <Bjorn.Munch@sun.com>
+        branch nick: merge-51
+        timestamp: Thu 2010-03-04 12:10:36 +0100
+        message:
+          merge from 5.1
+        ------------------------------------------------------------
+        revno: 2728.17.127
+        committer: Bjorn Munch <Bjorn.Munch@sun.com>
+        branch nick: daoeif-51
+        timestamp: Wed 2010-03-03 11:17:00 +0100
+        message:
+          followup test fix after 49761
+        ------------------------------------------------------------
+        revno: 2728.17.126
+        committer: Bjorn Munch <Bjorn.Munch@sun.com>
+        branch nick: daoeif-51
+        timestamp: Tue 2010-03-02 12:39:32 +0100
+        message:
+          Bug #51590 mysqltest: --disable_abort_on_error does not work inside while/if
+          abort_on_error flag for stmt was set at initial parse
+          (Re)-set flag before execution instead, also added to test
+    ------------------------------------------------------------
+    revno: 3452.1.23
+    committer: Georgi Kodinov <Georgi.Kodinov@Oracle.com>
+    branch nick: fix-5.1-bugteam
+    timestamp: Thu 2010-08-05 15:10:24 +0300
+    message:
+      Addendum to bug #42144 : fixed a wrong type conversation causing plugin tests
+      failures on sparc64.
+    ------------------------------------------------------------
+    revno: 3452.1.22
+    committer: Martin Hansson <martin.hansson@sun.com>
+    branch nick: 5.1bt-push
+    timestamp: Thu 2010-08-05 12:42:14 +0200
+    message:
+      Bug#54568: create view cause Assertion failed: 0, 
+      file .\item_subselect.cc, line 836
+      
+      IN quantified predicates are never executed directly. They are rather wrapped
+      inside nodes called IN Optimizers (Item_in_optimizer) which take care of the
+      execution. However, this is not done during query preparation. Unfortunately
+      the LIKE predicate pre-evaluates constant right-hand side arguments even
+      during name resolution. Likely this is meant as an optimization.
+      
+      Fixed by not pre-evaluating LIKE arguments in view prepare mode.
+    ------------------------------------------------------------
+    revno: 3452.1.21
+    committer: Georgi Kodinov <Georgi.Kodinov@Oracle.com>
+    branch nick: fix-5.1-bugteam
+    timestamp: Wed 2010-08-04 15:58:09 +0300
+    message:
+      Bug #42144: plugin_load fails
+      
+      Reverted the ulong->uint diff
+      Re-applied the first diff.
+      The original commit message follows:
+      
+      enum plugin system variables are ulong internally, not int.
+      On systems where long is not the same as an int it causes
+      problems. 
+      Fixed by correct typecasting. Removed the test from the 
+      experimental list.
+    ------------------------------------------------------------
+    revno: 3452.1.20
+    committer: Georgi Kodinov <Georgi.Kodinov@Oracle.com>
+    branch nick: B42144-5.1-bugteam
+    timestamp: Tue 2010-08-03 19:01:30 +0300
+    message:
+      Bug #42144: plugin_load fails
+      
+      The enum system variables were handled inconsistently 
+      as ints, unsigned int and unsigned long on various places.
+      This caused problems on platforms on which 
+      sizeof(int) != sizeof(long).
+      Fixed by homogenizing the type of the enum variables
+      to unsigned int, since it's size compatible with the C enum
+      type. 
+      Removed the test from the experimental list.
+    ------------------------------------------------------------
+    revno: 3452.1.19
+    committer: <Dao-Gang.Qu@sun.com>
+    branch nick: mysql-5.1-bugteam
+    timestamp: Tue 2010-08-03 18:27:45 +0800
+    message:
+      Bug #34283  	mysqlbinlog leaves tmpfile after termination if binlog contains load data infile
+      
+      Post fix
+    ------------------------------------------------------------
+    revno: 3452.1.18
+    committer: <Dao-Gang.Qu@sun.com>
+    branch nick: mysql-5.1-bugteam
+    timestamp: Tue 2010-08-03 10:22:19 +0800
+    message:
+      Bug #34283  mysqlbinlog leaves tmpfile after termination if binlog contains load data infile
+      
+      With statement- or mixed-mode logging, "LOAD DATA INFILE" queries
+      are written to the binlog using special types of log events.
+      When mysqlbinlog reads such events, it re-creates the file in a
+      temporary directory with a generated filename and outputs a
+      "LOAD DATA INFILE" query where the filename is replaced by the
+      generated file. The temporary file is not deleted by mysqlbinlog
+      after termination.
+      
+      To fix the problem, in mixed mode we go to row-based. In SBR, we
+      document it to remind user the tmpfile is left in a temporary
+      directory.
+------------------------------------------------------------
+revno: 3481
+committer: Georgi Kodinov <Georgi.Kodinov@Oracle.com>
+branch nick: B55826-5.1-security
+timestamp: Fri 2010-08-20 11:52:16 +0300
+message:
+  Bug #55826: create table .. select crashes with when 
+    KILL_BAD_DATA is returned
+  
+  Two problems discovered with the LEAST()/GREATEST() 
+  functions:
+  1. The check for a null value should happen even 
+  after the second call to val_str() in the args. This is
+  important because two subsequent calls to the same
+  Item::val_str() may yield different results.
+  Fixed by checking for NULL value before dereferencing
+  the string result.
+  
+  2. While looping over the arguments and evaluating them 
+  the loop should stop if there was an error evaluating so far
+  or the statement was killed. Fixed by checking for error
+  and bailing out.
+------------------------------------------------------------
+revno: 3480
+committer: Sunny Bains <Sunny.Bains@Oracle.Com>
+branch nick: 5.1-security
+timestamp: Mon 2010-08-16 10:12:22 +1000
+message:
+  Add test to the plugin branch from fix for bug# 55277.
+------------------------------------------------------------
+revno: 3479
+committer: Georgi Kodinov <Georgi.Kodinov@Oracle.com>
+branch nick: B55615-5.1-security
+timestamp: Fri 2010-08-13 14:18:46 +0300
+message:
+  Bug #55615 and bug #55564
+  
+  An user assignment variable expression that's 
+  evaluated in a logical expression context 
+  (Item::val_bool()) can be pre-calculated in a 
+  temporary table for GROUP BY.
+  However when the expression value is used after the
+  temp table creation it was re-evaluated instead of
+  being read from the temp table due to a missing 
+  val_bool_result() method.
+  Fixed by implementing the method.
+------------------------------------------------------------
+revno: 3478
+committer: Gleb Shchepa <gshchepa@mysql.com>
+branch nick: 55424-5.1-bugteam
+timestamp: Fri 2010-08-06 23:29:37 +0400
+message:
+  Bug #55424: convert_tz crashes when fed invalid data
+  
+  The CONVERT_TZ function crashes the server when the
+  timezone argument is an empty SET field value.
+  
+  1) The CONVERT_TZ may find a timezone string in the
+     tz_names hash.
+  2) A string representation of the empty SET is a
+     String of zero length with the NULL pointer.
+  3) If the key argument length is zero, hash functions
+     do comparison using the length of the record being
+     compared against.
+  
+  I.e. a zero-length String buffer is an invalid
+  argument for hash search functions, and if String
+  points to NULL buffer, hashcmp() fails with SEGV
+  accessing that memory.
+  
+  The my_tz_find function has been modified to
+  treat empty Strings as invalid timezone values
+  to skip unnecessary hash search.
+------------------------------------------------------------
+revno: 3477
+committer: Sunny Bains <Sunny.Bains@Oracle.Com>
+branch nick: 5.1-security
+timestamp: Thu 2010-08-05 19:24:34 +1000
+message:
+  Fix Bug #55277 - Failing assertion: auto_inc > 0
+  
+  Handle overflow when reading value from SELECT MAX(C) FROM T;
+  
+  Call ha_innobase::info() after initializing the autoinc value
+  in ha_innobase::open().
+  
+  Fix for both the builtin and plugin.
+  
+  rb://402
+------------------------------------------------------------
+revno: 3476
+committer: Sunny Bains <Sunny.Bains@Oracle.Com>
+branch nick: 5.1-security
+timestamp: Thu 2010-08-05 19:18:17 +1000
+message:
+  Fix bug# 55543 - InnoDB Plugin: Signal 6: Assertion failure in file fil/fil0fil.c line 4306
+  
+  The bug is due to a double delete of a BLOB, once via:
+  
+      rollback -> btr_cur_pessimistic_delete()
+  
+  and the second time via purge.
+  
+  The bug is in row_upd_clust_rec_by_insert(). There we relinquish ownership
+  of the non-updated BLOB columns in btr_cur_mark_extern_inherited_fields()
+  before building the row entry that will be inserted and whose contents will
+  be logged in the UNDO log. However, we don't set the BLOB column later to
+  INHERITED so that a possible rollback will not free the original row's
+  non-updated BLOB entries. This is because the condition that checks for
+  that is in :
+  
+  	if (node->upd_ext) {}.
+  
+  node->upd_ext is non-NULL only if a BLOB column was updated and that column
+  is part of some key ordering (see row_upd_replace()). This results in the
+  non-update BLOB columns being deleted during a rollback and subsequently by
+  purge again.
+  
+  rb://413
+------------------------------------------------------------
+revno: 3475
+committer: Jimmy Yang <jimmy.yang@oracle.com>
+branch nick: mysql-5.1-security
+timestamp: Wed 2010-08-04 03:37:44 -0700
+message:
+  Fix bug #54678, InnoDB, TRUNCATE, ALTER, I_S SELECT, crash or deadlock
+  
+  rb://399 approved by Sunny Bains
+------------------------------------------------------------
+revno: 3474
+committer: Jimmy Yang <jimmy.yang@oracle.com>
+branch nick: mysql-5.1-security
+timestamp: Wed 2010-08-04 03:11:33 -0700
+message:
+  Fix Bug #54582 stack overflow when opening many tables linked with
+  foreign keys at once
+  
+  rb://391 approved by Heikki
+  Z
+------------------------------------------------------------
+revno: 3473
+author: karen.langford@oracle.com
+committer: MySQL Build Team <build@mysql.com>
+branch nick: mysql-5.1-security
+timestamp: Tue 2010-08-03 18:57:39 +0200
+message:
+  Raise version number after cloning 5.1.50
+------------------------------------------------------------
+revno: 3472 [merge]
+tags: clone-5.1.50-build, mysql-5.1.50
+committer: Alfranio Correia <alfranio.correia@sun.com>
+branch nick: mysql-5.1-security
+timestamp: Tue 2010-08-03 12:52:02 +0100
+message:
+  auto-merge mysql-5.1-security (local) --> mysql-5.1-security
+    ------------------------------------------------------------
+    revno: 3452.3.1
+    committer: Alfranio Correia <alfranio.correia@sun.com>
+    branch nick: mysql-5.1-bugteam
+    timestamp: Mon 2010-08-02 20:48:56 +0100
+    message:
+      BUG#55625 RBR breaks on failing 'CREATE TABLE'
+      
+      A CREATE...SELECT that fails is written to the binary log if a non-transactional
+      statement is updated. If the logging format is ROW, the CREATE statement and the
+      changes are written to the binary log as distinct events and by consequence the
+      created table is not rolled back in the slave.
+      
+      In this patch, we opted to let the slave goes out of sync by not writting to the
+      binary log the CREATE statement. We do this by simply reseting the binary log's
+      cache.

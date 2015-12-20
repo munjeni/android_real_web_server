@@ -5,7 +5,7 @@
 CC="/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic"; export CC
 CFLAGS="-I/hdd/server/include"; export CFLAGS
 LDFLAGS="-L/hdd/server/lib"; export LDFLAGS
-LIBS="-lcrypt -lcrypto -lpthread -ldl"; export LIBS
+LIBS="-lcrypt -lcrypto"; export LIBS
 "./configure" \
 "--prefix=/hdd/server" \
 "--target=mipsel-unknown-linux" \
@@ -62,5 +62,5 @@ LIBS="-lcrypt -lcrypto -lpthread -ldl"; export LIBS
 "CC=/compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc -fpic" \
 "CFLAGS=-I/hdd/server/include" \
 "LDFLAGS=-L/hdd/server/lib" \
-"LIBS=-lcrypt -lcrypto -lpthread -ldl" \
+"LIBS=-lcrypt -lcrypto" \
 "$@"

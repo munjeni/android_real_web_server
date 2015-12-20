@@ -1,6 +1,5 @@
 Set target='mipsel-unknown-linux-gnu'
 Set sysroot='/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root'
-Set disable_errno='1'
 WARNING: -d makes no sense for this version of configure and was ignored
 Set user prefix='/hdd/server'
 Guessing build platform
@@ -155,8 +154,8 @@ Set cf_email='root@Ubuntu-1504-vivid-64-minimal'
 Result: root@Ubuntu-1504-vivid-64-minimal
 
 Configured on
-Set cf_date='Thu Dec 17 19:16:47 CET 2015'
-Result: Thu Dec 17 19:16:47 CET 2015
+Set cf_date='Sun Dec 20 18:23:50 CET 2015'
+Result: Sun Dec 20 18:23:50 CET 2015
 
 Checking whether to include <stdio.h>
 | #include <stdio.h>
@@ -1833,7 +1832,7 @@ Result: -lm -lcrypt -ldl
 Checking for _fwalk
 | int main(void) { _fwalk(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccY6B7S8.o: In function `main':
+/tmp/ccyKpgdI.o: In function `main':
 try.c:(.text+0xa): undefined reference to `_fwalk'
 collect2: error: ld returned 1 exit status
 Set d__fwalk='undef'
@@ -1854,7 +1853,7 @@ Result: found
 Checking for accessx
 | int main(void) { accessx(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cccH0yJe.o: In function `main':
+/tmp/cc0SwIYQ.o: In function `main':
 try.c:(.text+0xa): undefined reference to `accessx'
 collect2: error: ld returned 1 exit status
 Set d_accessx='undef'
@@ -1863,7 +1862,7 @@ Result: not found
 Checking for aintl
 | int main(void) { aintl(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cckpc5Mg.o: In function `main':
+/tmp/ccBt39zT.o: In function `main':
 try.c:(.text+0xa): undefined reference to `aintl'
 collect2: error: ld returned 1 exit status
 Set d_aintl='undef'
@@ -1879,7 +1878,7 @@ Result: found
 Checking for asctime64
 | int main(void) { asctime64(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cczmZEln.o: In function `main':
+/tmp/cceYf1zX.o: In function `main':
 try.c:(.text+0xa): undefined reference to `asctime64'
 collect2: error: ld returned 1 exit status
 Set d_asctime64='undef'
@@ -1888,7 +1887,7 @@ Result: not found
 Checking for atolf
 | int main(void) { atolf(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccXG4zdq.o: In function `main':
+/tmp/cckXI373.o: In function `main':
 try.c:(.text+0xa): undefined reference to `atolf'
 collect2: error: ld returned 1 exit status
 Set d_atolf='undef'
@@ -1965,7 +1964,7 @@ Result: found
 Checking for chsize
 | int main(void) { chsize(0,0); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cca9CP2I.o: In function `main':
+/tmp/ccq0oS4o.o: In function `main':
 try.c:(.text+0x14): undefined reference to `chsize'
 collect2: error: ld returned 1 exit status
 Set d_chsize='undef'
@@ -1974,7 +1973,7 @@ Result: not found
 Checking for class
 | int main(void) { class(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cczUtwnL.o: In function `main':
+/tmp/ccg5mPpq.o: In function `main':
 try.c:(.text+0xa): undefined reference to `class'
 collect2: error: ld returned 1 exit status
 Set d_class='undef'
@@ -2016,7 +2015,7 @@ Result: found
 Checking for ctime64
 | int main(void) { ctime64(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccJDl5A1.o: In function `main':
+/tmp/ccJ4oWTB.o: In function `main':
 try.c:(.text+0xa): undefined reference to `ctime64'
 collect2: error: ld returned 1 exit status
 Set d_ctime64='undef'
@@ -2037,7 +2036,7 @@ Result: found
 Checking for difftime64
 | int main(void) { difftime64(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cc1T9XB9.o: In function `main':
+/tmp/ccqPDJLH.o: In function `main':
 try.c:(.text+0xa): undefined reference to `difftime64'
 collect2: error: ld returned 1 exit status
 Set d_difftime64='undef'
@@ -2184,7 +2183,7 @@ Result: found
 Checking for fp_class
 | int main(void) { fp_class(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccWQjLBf.o: In function `main':
+/tmp/ccgQoKDL.o: In function `main':
 try.c:(.text+0xa): undefined reference to `fp_class'
 collect2: error: ld returned 1 exit status
 Set d_fp_class='undef'
@@ -2200,7 +2199,7 @@ Result: found
 Checking for fpclass
 | int main(void) { fpclass(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccRupgkm.o: In function `main':
+/tmp/ccFen53O.o: In function `main':
 try.c:(.text+0xa): undefined reference to `fpclass'
 collect2: error: ld returned 1 exit status
 Set d_fpclass='undef'
@@ -2209,7 +2208,7 @@ Result: not found
 Checking for fpclassify
 | int main(void) { fpclassify(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccfCtt5d.o: In function `main':
+/tmp/cc8hK4AS.o: In function `main':
 try.c:(.text+0xa): undefined reference to `fpclassify'
 collect2: error: ld returned 1 exit status
 Set d_fpclassify='undef'
@@ -2218,7 +2217,7 @@ Result: not found
 Checking for fpclassl
 | int main(void) { fpclassl(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccs5B3xg.o: In function `main':
+/tmp/ccmj5dlV.o: In function `main':
 try.c:(.text+0xa): undefined reference to `fpclassl'
 collect2: error: ld returned 1 exit status
 Set d_fpclassl='undef'
@@ -2292,7 +2291,7 @@ Result: found
 Checking for getespwnam
 | int main(void) { getespwnam(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccRGKHfU.o: In function `main':
+/tmp/ccjO9FGv.o: In function `main':
 try.c:(.text+0xa): undefined reference to `getespwnam'
 collect2: error: ld returned 1 exit status
 Set d_getespwnam='undef'
@@ -2301,7 +2300,7 @@ Result: not found
 Checking for getfsstat
 | int main(void) { getfsstat(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccN1Eg9U.o: In function `main':
+/tmp/ccGpcMgy.o: In function `main':
 try.c:(.text+0xa): undefined reference to `getfsstat'
 collect2: error: ld returned 1 exit status
 Set d_getfsstat='undef'
@@ -2358,7 +2357,7 @@ Result: found
 Checking for getmnt
 | int main(void) { getmnt(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cc06S3To.o: In function `main':
+/tmp/ccCo6FnN.o: In function `main':
 try.c:(.text+0xa): undefined reference to `getmnt'
 collect2: error: ld returned 1 exit status
 Set d_getmnt='undef'
@@ -2416,7 +2415,7 @@ Result: found
 Checking for getpgrp2
 | int main(void) { getpgrp2(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccTrh6gF.o: In function `main':
+/tmp/ccHbdd39.o: In function `main':
 try.c:(.text+0xa): undefined reference to `getpgrp2'
 collect2: error: ld returned 1 exit status
 Set d_getpgrp2='undef'
@@ -2439,7 +2438,7 @@ Result: found
 Checking for getprotobyaddr
 | int main(void) { getprotobyaddr(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccOkFfiN.o: In function `main':
+/tmp/ccuEtpnh.o: In function `main':
 try.c:(.text+0xa): undefined reference to `getprotobyaddr'
 collect2: error: ld returned 1 exit status
 Set d_getprotobyaddr='undef'
@@ -2466,7 +2465,7 @@ Result: found
 Checking for getprpwnam
 | int main(void) { getprpwnam(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccraGCKY.o: In function `main':
+/tmp/ccZosZGt.o: In function `main':
 try.c:(.text+0xa): undefined reference to `getprpwnam'
 collect2: error: ld returned 1 exit status
 Set d_getprpwnam='undef'
@@ -2481,7 +2480,7 @@ Result: found
 Checking for getservbyaddr
 | int main(void) { getservbyaddr(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cc3L7RY3.o: In function `main':
+/tmp/ccIobRYx.o: In function `main':
 try.c:(.text+0xa): undefined reference to `getservbyaddr'
 collect2: error: ld returned 1 exit status
 Set d_getservbyaddr='undef'
@@ -2521,7 +2520,7 @@ Result: found
 Checking for gmtime64
 | int main(void) { gmtime64(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cctWVwJm.o: In function `main':
+/tmp/ccM01ePQ.o: In function `main':
 try.c:(.text+0xa): undefined reference to `gmtime64'
 collect2: error: ld returned 1 exit status
 Set d_gmtime64='undef'
@@ -2571,7 +2570,7 @@ Result: found
 Checking for inetntop
 | int main(void) { inetntop(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cc1afvdy.o: In function `main':
+/tmp/ccY9ECp3.o: In function `main':
 try.c:(.text+0xa): undefined reference to `inetntop'
 collect2: error: ld returned 1 exit status
 Set d_inetntop='undef'
@@ -2580,7 +2579,7 @@ Result: not found
 Checking for inetpton
 | int main(void) { inetpton(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccws5W9A.o: In function `main':
+/tmp/cc317BZ5.o: In function `main':
 try.c:(.text+0xa): undefined reference to `inetpton'
 collect2: error: ld returned 1 exit status
 Set d_inetpton='undef'
@@ -2666,7 +2665,7 @@ Result: found
 Checking for localtime64
 | int main(void) { localtime64(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cczi8HTb.o: In function `main':
+/tmp/ccucn5sH.o: In function `main':
 try.c:(.text+0xa): undefined reference to `localtime64'
 collect2: error: ld returned 1 exit status
 Set d_localtime64='undef'
@@ -2691,7 +2690,7 @@ Result: found
 Checking for malloc_good_size
 | int main(void) { malloc_good_size(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccAhXf0i.o: In function `main':
+/tmp/cc0dGrMU.o: In function `main':
 try.c:(.text+0xa): undefined reference to `malloc_good_size'
 collect2: error: ld returned 1 exit status
 Set d_malloc_good_size='undef'
@@ -2700,7 +2699,7 @@ Result: not found
 Checking for malloc_size
 | int main(void) { malloc_size(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cce7sRxi.o: In function `main':
+/tmp/ccQ4bzGW.o: In function `main':
 try.c:(.text+0xa): undefined reference to `malloc_size'
 collect2: error: ld returned 1 exit status
 Set d_malloc_size='undef'
@@ -2833,7 +2832,7 @@ Result: found
 Checking for mktime64
 | int main(void) { mktime64(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccTPzkhU.o: In function `main':
+/tmp/ccEYIKwB.o: In function `main':
 try.c:(.text+0xa): undefined reference to `mktime64'
 collect2: error: ld returned 1 exit status
 Set d_mktime64='undef'
@@ -3148,7 +3147,7 @@ Result: found
 Checking for setpgrp2
 | int main(void) { setpgrp2(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccloNgSX.o: In function `main':
+/tmp/ccglgZ3K.o: In function `main':
 try.c:(.text+0xa): undefined reference to `setpgrp2'
 collect2: error: ld returned 1 exit status
 Set d_setpgrp2='undef'
@@ -3163,7 +3162,7 @@ Result: found
 Checking for setproctitle
 | int main(void) { setproctitle(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccP82hvS.o: In function `main':
+/tmp/ccSvj6ST.o: In function `main':
 try.c:(.text+0xa): undefined reference to `setproctitle'
 collect2: error: ld returned 1 exit status
 Set d_setproctitle='undef'
@@ -3208,7 +3207,7 @@ Result: found
 Checking for setrgid
 | int main(void) { setrgid(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccKJrTC6.o: In function `main':
+/tmp/cc8qmdBb.o: In function `main':
 try.c:(.text+0xa): undefined reference to `setrgid'
 collect2: error: ld returned 1 exit status
 Set d_setrgid='undef'
@@ -3217,7 +3216,7 @@ Result: not found
 Checking for setruid
 | int main(void) { setruid(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccG9VvAa.o: In function `main':
+/tmp/ccgsZlce.o: In function `main':
 try.c:(.text+0xa): undefined reference to `setruid'
 collect2: error: ld returned 1 exit status
 Set d_setruid='undef'
@@ -3246,7 +3245,7 @@ Checking for sfreserve
 | /* <sfio.h> missing */
 | int main(void) { sfreserve(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccNnXesl.o: In function `main':
+/tmp/ccK1Hixj.o: In function `main':
 try.c:(.text+0xa): undefined reference to `sfreserve'
 collect2: error: ld returned 1 exit status
 Set d_sfreserve='undef'
@@ -3330,7 +3329,7 @@ Result: found
 Checking for socks5_init
 | int main(void) { socks5_init(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cc8tq7xU.o: In function `main':
+/tmp/ccCXvG3T.o: In function `main':
 try.c:(.text+0xa): undefined reference to `socks5_init'
 collect2: error: ld returned 1 exit status
 Set d_socks5_init='undef'
@@ -3399,7 +3398,7 @@ Result: found
 Checking for strlcat
 | int main(void) { strlcat(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cctS2mg4.o: In function `main':
+/tmp/ccCWiiij.o: In function `main':
 try.c:(.text+0xa): undefined reference to `strlcat'
 collect2: error: ld returned 1 exit status
 Set d_strlcat='undef'
@@ -3408,7 +3407,7 @@ Result: not found
 Checking for strlcpy
 | int main(void) { strlcpy(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccZjk675.o: In function `main':
+/tmp/ccIw6Lyl.o: In function `main':
 try.c:(.text+0xa): undefined reference to `strlcpy'
 collect2: error: ld returned 1 exit status
 Set d_strlcpy='undef'
@@ -3579,7 +3578,7 @@ Result: found
 Checking for unordered
 | int main(void) { unordered(); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccNaLh58.o: In function `main':
+/tmp/ccQOiiFr.o: In function `main':
 try.c:(.text+0xa): undefined reference to `unordered'
 collect2: error: ld returned 1 exit status
 Set d_unordered='undef'
@@ -3660,7 +3659,7 @@ Checking for sys_errlist
 | void foo() { };
 | int main() { foo(sys_errlist); return 0; }
 > gcc -W -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cczr3kPC.o: In function `main':
+/tmp/ccSf880J.o: In function `main':
 try.c:(.text+0xb): warning: `sys_errlist' is deprecated; use `strerror' or `strerror_r' instead
 Set d_sys_errlist='define'
 Result: found
@@ -3963,7 +3962,7 @@ Set cat='cat'
 Set cccdlflags='-fPIC'
 Set ccdlflags='-Wl,-E'
 Set charbits='8'
-Set cf_time='Thu Dec 17 19:17:03 CET 2015'
+Set cf_time='Sun Dec 20 18:24:09 CET 2015'
 Set chmod='chmod'
 Set comm='comm'
 Set contains='grep'
@@ -4380,10 +4379,9 @@ Writing hinted disable_win32=1 to xconfig.sh
 Writing hinted disable_win32api_file=1 to xconfig.sh
 Writing hinted disable_win32core=1 to xconfig.sh
 
-> cnf/configure --target=mipsel-unknown-linux-gnu --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root --disable-mod=ext/Errno -d -Dprefix=/hdd/server -A ccflags=-DUSE_HASH_SEED_EXPLICIT --keeplog --mode=target --target=mipsel-unknown-linux-gnu --targetarch=mipsel-unknown-linux-gnu
+> cnf/configure --target=mipsel-unknown-linux-gnu --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -d -Dprefix=/hdd/server -A ccflags=-DUSE_HASH_SEED_EXPLICIT --keeplog --mode=target --target=mipsel-unknown-linux-gnu --targetarch=mipsel-unknown-linux-gnu
 Set target='mipsel-unknown-linux-gnu'
 Set sysroot='/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root'
-Set disable_errno='1'
 WARNING: -d makes no sense for this version of configure and was ignored
 Set user prefix='/hdd/server'
 Set keeplog='1'
@@ -4535,8 +4533,8 @@ Set cf_email='root@Ubuntu-1504-vivid-64-minimal'
 Result: root@Ubuntu-1504-vivid-64-minimal
 
 Configured on
-Set cf_date='Thu Dec 17 19:17:06 CET 2015'
-Result: Thu Dec 17 19:17:06 CET 2015
+Set cf_date='Sun Dec 20 18:24:11 CET 2015'
+Result: Sun Dec 20 18:24:11 CET 2015
 
 Checking whether to include <stdio.h>
 | #include <stdio.h>
@@ -5936,7 +5934,7 @@ Result: -lm -lcrypt -ldl
 Checking for _fwalk
 | int main(void) { _fwalk(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccsb0rP2.o: In function `main':
+/tmp/ccsZh7p6.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `_fwalk'
 collect2: ld returned 1 exit status
 Set d__fwalk='undef'
@@ -5953,7 +5951,7 @@ Result: found
 Checking for accessx
 | int main(void) { accessx(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cc8rFr6i.o: In function `main':
+/tmp/cc4EUmDk.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `accessx'
 collect2: ld returned 1 exit status
 Set d_accessx='undef'
@@ -5962,7 +5960,7 @@ Result: not found
 Checking for aintl
 | int main(void) { aintl(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccUKshvo.o: In function `main':
+/tmp/ccKYP9Yn.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `aintl'
 collect2: ld returned 1 exit status
 Set d_aintl='undef'
@@ -5978,7 +5976,7 @@ Result: found
 Checking for asctime64
 | int main(void) { asctime64(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccAGOvdE.o: In function `main':
+/tmp/cccVAS1m.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `asctime64'
 collect2: ld returned 1 exit status
 Set d_asctime64='undef'
@@ -5987,7 +5985,7 @@ Result: not found
 Checking for atolf
 | int main(void) { atolf(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccGRaW1N.o: In function `main':
+/tmp/cc6z1j4q.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `atolf'
 collect2: ld returned 1 exit status
 Set d_atolf='undef'
@@ -6042,7 +6040,7 @@ Result: found
 Checking for chsize
 | int main(void) { chsize(0,0); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccYK44EQ.o: In function `main':
+/tmp/ccY4kqff.o: In function `main':
 try.c:(.text+0x24): undefined reference to `chsize'
 collect2: ld returned 1 exit status
 Set d_chsize='undef'
@@ -6051,7 +6049,7 @@ Result: not found
 Checking for class
 | int main(void) { class(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccIaeC7U.o: In function `main':
+/tmp/ccaJMwhn.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `class'
 collect2: ld returned 1 exit status
 Set d_class='undef'
@@ -6095,7 +6093,7 @@ Result: found
 Checking for ctime64
 | int main(void) { ctime64(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccIMrTIy.o: In function `main':
+/tmp/cc6rN920.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `ctime64'
 collect2: ld returned 1 exit status
 Set d_ctime64='undef'
@@ -6116,7 +6114,7 @@ Result: found
 Checking for difftime64
 | int main(void) { difftime64(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cc0PAYOR.o: In function `main':
+/tmp/ccQnlfEk.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `difftime64'
 collect2: ld returned 1 exit status
 Set d_difftime64='undef'
@@ -6263,7 +6261,7 @@ Result: found
 Checking for fp_class
 | int main(void) { fp_class(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccALhX92.o: In function `main':
+/tmp/ccax8hPt.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `fp_class'
 collect2: ld returned 1 exit status
 Set d_fp_class='undef'
@@ -6279,7 +6277,7 @@ Result: found
 Checking for fpclass
 | int main(void) { fpclass(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccq7VJje.o: In function `main':
+/tmp/cc8TX9on.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `fpclass'
 collect2: ld returned 1 exit status
 Set d_fpclass='undef'
@@ -6288,7 +6286,7 @@ Result: not found
 Checking for fpclassify
 | int main(void) { fpclassify(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cciTiLmm.o: In function `main':
+/tmp/ccc2ukTv.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `fpclassify'
 collect2: ld returned 1 exit status
 Set d_fpclassify='undef'
@@ -6297,7 +6295,7 @@ Result: not found
 Checking for fpclassl
 | int main(void) { fpclassl(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cc6YkGEu.o: In function `main':
+/tmp/ccYIkJdA.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `fpclassl'
 collect2: ld returned 1 exit status
 Set d_fpclassl='undef'
@@ -6373,7 +6371,7 @@ Result: found
 Checking for getespwnam
 | int main(void) { getespwnam(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cc416pMi.o: In function `main':
+/tmp/ccAPlhLN.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `getespwnam'
 collect2: ld returned 1 exit status
 Set d_getespwnam='undef'
@@ -6382,7 +6380,7 @@ Result: not found
 Checking for getfsstat
 | int main(void) { getfsstat(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccYKnp1q.o: In function `main':
+/tmp/ccGmTnyR.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `getfsstat'
 collect2: ld returned 1 exit status
 Set d_getfsstat='undef'
@@ -6439,7 +6437,7 @@ Result: found
 Checking for getmnt
 | int main(void) { getmnt(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccM8gR0g.o: In function `main':
+/tmp/ccyjgWIt.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `getmnt'
 collect2: ld returned 1 exit status
 Set d_getmnt='undef'
@@ -6497,7 +6495,7 @@ Result: found
 Checking for getpgrp2
 | int main(void) { getpgrp2(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cceUfB2S.o: In function `main':
+/tmp/ccubuu9n.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `getpgrp2'
 collect2: ld returned 1 exit status
 Set d_getpgrp2='undef'
@@ -6520,7 +6518,7 @@ Result: found
 Checking for getprotobyaddr
 | int main(void) { getprotobyaddr(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccupb1dd.o: In function `main':
+/tmp/ccmUTfSN.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `getprotobyaddr'
 collect2: ld returned 1 exit status
 Set d_getprotobyaddr='undef'
@@ -6547,7 +6545,7 @@ Result: found
 Checking for getprpwnam
 | int main(void) { getprpwnam(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccw8T41D.o: In function `main':
+/tmp/ccaajHy9.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `getprpwnam'
 collect2: ld returned 1 exit status
 Set d_getprpwnam='undef'
@@ -6562,7 +6560,7 @@ Result: found
 Checking for getservbyaddr
 | int main(void) { getservbyaddr(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cckMfGUP.o: In function `main':
+/tmp/ccueYjKp.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `getservbyaddr'
 collect2: ld returned 1 exit status
 Set d_getservbyaddr='undef'
@@ -6602,7 +6600,7 @@ Result: found
 Checking for gmtime64
 | int main(void) { gmtime64(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccITfc3q.o: In function `main':
+/tmp/ccKghVBF.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `gmtime64'
 collect2: ld returned 1 exit status
 Set d_gmtime64='undef'
@@ -6648,7 +6646,7 @@ Result: found
 Checking for inetntop
 | int main(void) { inetntop(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccMQpzyP.o: In function `main':
+/tmp/ccilOJ4j.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `inetntop'
 collect2: ld returned 1 exit status
 Set d_inetntop='undef'
@@ -6657,7 +6655,7 @@ Result: not found
 Checking for inetpton
 | int main(void) { inetpton(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cckUKuBW.o: In function `main':
+/tmp/ccCGSWps.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `inetpton'
 collect2: ld returned 1 exit status
 Set d_inetpton='undef'
@@ -6685,7 +6683,7 @@ Checking for isfinite
 | #include <math.h>
 | int main(void) { isfinite(0.0); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccwuM5am.o: In function `main':
+/tmp/ccCqQtkR.o: In function `main':
 try.c:(.text+0x24): undefined reference to `isfinite'
 collect2: ld returned 1 exit status
 Set d_isfinite='undef'
@@ -6742,7 +6740,7 @@ Result: found
 Checking for localtime64
 | int main(void) { localtime64(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccmBjMFe.o: In function `main':
+/tmp/ccQItuYo.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `localtime64'
 collect2: ld returned 1 exit status
 Set d_localtime64='undef'
@@ -6767,7 +6765,7 @@ Result: found
 Checking for malloc_good_size
 | int main(void) { malloc_good_size(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccINlZOe.o: In function `main':
+/tmp/ccwNNGGJ.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `malloc_good_size'
 collect2: ld returned 1 exit status
 Set d_malloc_good_size='undef'
@@ -6776,7 +6774,7 @@ Result: not found
 Checking for malloc_size
 | int main(void) { malloc_size(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccyqiPcj.o: In function `main':
+/tmp/ccIPdeHP.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `malloc_size'
 collect2: ld returned 1 exit status
 Set d_malloc_size='undef'
@@ -6869,7 +6867,7 @@ Result: found
 Checking for mkstemps
 | int main(void) { mkstemps(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccQSfoux.o: In function `main':
+/tmp/cc0uR8Cm.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `mkstemps'
 collect2: ld returned 1 exit status
 Set d_mkstemps='undef'
@@ -6885,7 +6883,7 @@ Result: found
 Checking for mktime64
 | int main(void) { mktime64(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccqOUEHO.o: In function `main':
+/tmp/cc6xlvvh.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `mktime64'
 collect2: ld returned 1 exit status
 Set d_mktime64='undef'
@@ -7200,7 +7198,7 @@ Result: found
 Checking for setpgrp2
 | int main(void) { setpgrp2(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccoIxGbN.o: In function `main':
+/tmp/ccqVczMG.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `setpgrp2'
 collect2: ld returned 1 exit status
 Set d_setpgrp2='undef'
@@ -7215,7 +7213,7 @@ Result: found
 Checking for setproctitle
 | int main(void) { setproctitle(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cci7DYb2.o: In function `main':
+/tmp/cca7qDWS.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `setproctitle'
 collect2: ld returned 1 exit status
 Set d_setproctitle='undef'
@@ -7260,7 +7258,7 @@ Result: found
 Checking for setrgid
 | int main(void) { setrgid(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/cc6iavrN.o: In function `main':
+/tmp/ccAEthSc.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `setrgid'
 collect2: ld returned 1 exit status
 Set d_setrgid='undef'
@@ -7269,7 +7267,7 @@ Result: not found
 Checking for setruid
 | int main(void) { setruid(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccIETgwU.o: In function `main':
+/tmp/ccMeLJbg.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `setruid'
 collect2: ld returned 1 exit status
 Set d_setruid='undef'
@@ -7298,7 +7296,7 @@ Checking for sfreserve
 | /* <sfio.h> missing */
 | int main(void) { sfreserve(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccMCYfzj.o: In function `main':
+/tmp/ccQCJR8K.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `sfreserve'
 collect2: ld returned 1 exit status
 Set d_sfreserve='undef'
@@ -7382,7 +7380,7 @@ Result: found
 Checking for socks5_init
 | int main(void) { socks5_init(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccWqjnng.o: In function `main':
+/tmp/ccKFLcZ2.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `socks5_init'
 collect2: ld returned 1 exit status
 Set d_socks5_init='undef'
@@ -7439,7 +7437,7 @@ Result: found
 Checking for strlcat
 | int main(void) { strlcat(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccYsP0h7.o: In function `main':
+/tmp/ccumxxEE.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `strlcat'
 collect2: ld returned 1 exit status
 Set d_strlcat='undef'
@@ -7448,7 +7446,7 @@ Result: not found
 Checking for strlcpy
 | int main(void) { strlcpy(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccWbdCUa.o: In function `main':
+/tmp/ccQBVxTL.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `strlcpy'
 collect2: ld returned 1 exit status
 Set d_strlcpy='undef'
@@ -7603,7 +7601,7 @@ Result: found
 Checking for unordered
 | int main(void) { unordered(); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccEC89Dd.o: In function `main':
+/tmp/cc2pQEw7.o: In function `main':
 try.c:(.text+0x1c): undefined reference to `unordered'
 collect2: ld returned 1 exit status
 Set d_unordered='undef'
@@ -7679,7 +7677,7 @@ Checking for sys_errlist
 | void foo() { };
 | int main() { foo(sys_errlist); return 0; }
 > /compilation/mipsel-unknown-linux-gnu/bin/mipsel-unknown-linux-gnu-gcc --sysroot=/compilation/mipsel-unknown-linux-gnu/mipsel-unknown-linux-gnu/sys-root -DUSE_HASH_SEED_EXPLICIT -o try try.c -lm -lcrypt -lpthread -lnsl -ldl -lutil -lc
-/tmp/ccmKRdlk.o: In function `main':
+/tmp/ccWSayje.o: In function `main':
 try.c:(.text+0x3c): warning: `sys_errlist' is deprecated; use `strerror' or `strerror_r' instead
 Set d_sys_errlist='define'
 Result: found
@@ -7914,7 +7912,7 @@ Set known_extensions='ext/arybase ext/attributes ext/B'
 	dynamic ext/B
 Set known_extensions='ext/arybase ext/attributes ext/B ext/Devel-Peek'
 	dynamic ext/Devel-Peek
-	disabled ext/Errno
+	non-xs ext/Errno
 Set known_extensions='ext/arybase ext/attributes ext/B ext/Devel-Peek ext/Fcntl'
 	dynamic ext/Fcntl
 	non-xs ext/FileCache
@@ -8127,9 +8125,9 @@ Set known_extensions='ext/arybase ext/attributes ext/B ext/Devel-Peek ext/Fcntl 
 	non-xs dist/XSLoader
 
 Static modules: 
-Non-XS modules: ext/FileCache ext/IPC-Open3 ext/Pod-Functions ext/Pod-Html ext/Tie-Memoize cpan/Archive-Extract cpan/Archive-Tar cpan/autodie cpan/AutoLoader cpan/B-Debug cpan/CGI cpan/CPAN cpan/CPAN-Meta cpan/CPAN-Meta-YAML cpan/CPANPLUS cpan/CPANPLUS-Dist-Build cpan/Digest cpan/encoding-warnings cpan/ExtUtils-Constant cpan/ExtUtils-MakeMaker cpan/File-Fetch cpan/File-Path cpan/File-Temp cpan/Getopt-Long cpan/HTTP-Tiny cpan/IO-Compress cpan/IO-Zlib cpan/IPC-Cmd cpan/JSON-PP cpan/libnet cpan/Locale-Codes cpan/Locale-Maketext-Simple cpan/Log-Message cpan/Log-Message-Simple cpan/Math-Complex cpan/Memoize cpan/Module-Build cpan/Module-Load cpan/Module-Load-Conditional cpan/Module-Loaded cpan/Module-Metadata cpan/Module-Pluggable cpan/NEXT cpan/Object-Accessor cpan/Package-Constants cpan/Params-Check cpan/parent cpan/Parse-CPAN-Meta cpan/perlfaq cpan/PerlIO-via-QuotedPrint cpan/Perl-OSType cpan/Pod-Escapes cpan/Pod-LaTeX cpan/podlators cpan/Pod-Parser cpan/Pod-Perldoc cpan/Pod-Simple cpan/Term-ANSIColor cpan/Term-Cap cpan/Term-UI cpan/Test cpan/Test-Harness cpan/Test-Simple cpan/Text-Balanced cpan/Text-ParseWords cpan/Text-Tabs cpan/Tie-RefHash cpan/Time-Local cpan/Version-Requirements dist/Attribute-Handlers dist/autouse dist/base dist/B-Deparse dist/bignum dist/B-Lint dist/Carp dist/constant dist/Devel-SelfStubber dist/Dumpvalue dist/Env dist/ExtUtils-CBuilder dist/ExtUtils-Command dist/ExtUtils-Install dist/ExtUtils-Manifest dist/ExtUtils-ParseXS dist/File-CheckTree dist/Filter-Simple dist/I18N-Collate dist/I18N-LangTags dist/if dist/lib dist/Locale-Maketext dist/Math-BigInt dist/Math-BigRat dist/Module-CoreList dist/Net-Ping dist/Safe dist/Search-Dict dist/SelfLoader dist/Term-Complete dist/Term-ReadLine dist/Text-Abbrev dist/Thread-Queue dist/Thread-Semaphore dist/Tie-File dist/XSLoader 
+Non-XS modules: ext/Errno ext/FileCache ext/IPC-Open3 ext/Pod-Functions ext/Pod-Html ext/Tie-Memoize cpan/Archive-Extract cpan/Archive-Tar cpan/autodie cpan/AutoLoader cpan/B-Debug cpan/CGI cpan/CPAN cpan/CPAN-Meta cpan/CPAN-Meta-YAML cpan/CPANPLUS cpan/CPANPLUS-Dist-Build cpan/Digest cpan/encoding-warnings cpan/ExtUtils-Constant cpan/ExtUtils-MakeMaker cpan/File-Fetch cpan/File-Path cpan/File-Temp cpan/Getopt-Long cpan/HTTP-Tiny cpan/IO-Compress cpan/IO-Zlib cpan/IPC-Cmd cpan/JSON-PP cpan/libnet cpan/Locale-Codes cpan/Locale-Maketext-Simple cpan/Log-Message cpan/Log-Message-Simple cpan/Math-Complex cpan/Memoize cpan/Module-Build cpan/Module-Load cpan/Module-Load-Conditional cpan/Module-Loaded cpan/Module-Metadata cpan/Module-Pluggable cpan/NEXT cpan/Object-Accessor cpan/Package-Constants cpan/Params-Check cpan/parent cpan/Parse-CPAN-Meta cpan/perlfaq cpan/PerlIO-via-QuotedPrint cpan/Perl-OSType cpan/Pod-Escapes cpan/Pod-LaTeX cpan/podlators cpan/Pod-Parser cpan/Pod-Perldoc cpan/Pod-Simple cpan/Term-ANSIColor cpan/Term-Cap cpan/Term-UI cpan/Test cpan/Test-Harness cpan/Test-Simple cpan/Text-Balanced cpan/Text-ParseWords cpan/Text-Tabs cpan/Tie-RefHash cpan/Time-Local cpan/Version-Requirements dist/Attribute-Handlers dist/autouse dist/base dist/B-Deparse dist/bignum dist/B-Lint dist/Carp dist/constant dist/Devel-SelfStubber dist/Dumpvalue dist/Env dist/ExtUtils-CBuilder dist/ExtUtils-Command dist/ExtUtils-Install dist/ExtUtils-Manifest dist/ExtUtils-ParseXS dist/File-CheckTree dist/Filter-Simple dist/I18N-Collate dist/I18N-LangTags dist/if dist/lib dist/Locale-Maketext dist/Math-BigInt dist/Math-BigRat dist/Module-CoreList dist/Net-Ping dist/Safe dist/Search-Dict dist/SelfLoader dist/Term-Complete dist/Term-ReadLine dist/Text-Abbrev dist/Thread-Queue dist/Thread-Semaphore dist/Tie-File dist/XSLoader 
 Dynamic modules: ext/arybase ext/attributes ext/B ext/Devel-Peek ext/Fcntl ext/File-Glob ext/Hash-Util ext/Hash-Util-FieldHash ext/I18N-Langinfo ext/mro ext/Opcode ext/PerlIO-encoding ext/PerlIO-mmap ext/PerlIO-scalar ext/PerlIO-via ext/POSIX ext/re ext/SDBM_File ext/Sys-Hostname ext/Tie-Hash-NamedCapture ext/XS-APItest ext/XS-Typemap cpan/Compress-Raw-Bzip2 cpan/Compress-Raw-Zlib cpan/Devel-PPPort cpan/Digest-MD5 cpan/Digest-SHA cpan/Encode cpan/Filter-Util-Call cpan/IPC-SysV cpan/List-Util cpan/MIME-Base64 cpan/Socket cpan/Sys-Syslog cpan/Text-Soundex cpan/Time-HiRes cpan/Time-Piece cpan/Unicode-Collate cpan/Unicode-Normalize dist/Cwd dist/Data-Dumper dist/IO dist/Math-BigInt-FastCalc dist/Storable dist/threads dist/threads-shared 
-Set extensions=' ext/arybase ext/attributes ext/B ext/Devel-Peek ext/Fcntl ext/File-Glob ext/Hash-Util ext/Hash-Util-FieldHash ext/I18N-Langinfo ext/mro ext/Opcode ext/PerlIO-encoding ext/PerlIO-mmap ext/PerlIO-scalar ext/PerlIO-via ext/POSIX ext/re ext/SDBM_File ext/Sys-Hostname ext/Tie-Hash-NamedCapture ext/XS-APItest ext/XS-Typemap cpan/Compress-Raw-Bzip2 cpan/Compress-Raw-Zlib cpan/Devel-PPPort cpan/Digest-MD5 cpan/Digest-SHA cpan/Encode cpan/Filter-Util-Call cpan/IPC-SysV cpan/List-Util cpan/MIME-Base64 cpan/Socket cpan/Sys-Syslog cpan/Text-Soundex cpan/Time-HiRes cpan/Time-Piece cpan/Unicode-Collate cpan/Unicode-Normalize dist/Cwd dist/Data-Dumper dist/IO dist/Math-BigInt-FastCalc dist/Storable dist/threads dist/threads-shared  ext/FileCache ext/IPC-Open3 ext/Pod-Functions ext/Pod-Html ext/Tie-Memoize cpan/Archive-Extract cpan/Archive-Tar cpan/autodie cpan/AutoLoader cpan/B-Debug cpan/CGI cpan/CPAN cpan/CPAN-Meta cpan/CPAN-Meta-YAML cpan/CPANPLUS cpan/CPANPLUS-Dist-Build cpan/Digest cpan/encoding-warnings cpan/ExtUtils-Constant cpan/ExtUtils-MakeMaker cpan/File-Fetch cpan/File-Path cpan/File-Temp cpan/Getopt-Long cpan/HTTP-Tiny cpan/IO-Compress cpan/IO-Zlib cpan/IPC-Cmd cpan/JSON-PP cpan/libnet cpan/Locale-Codes cpan/Locale-Maketext-Simple cpan/Log-Message cpan/Log-Message-Simple cpan/Math-Complex cpan/Memoize cpan/Module-Build cpan/Module-Load cpan/Module-Load-Conditional cpan/Module-Loaded cpan/Module-Metadata cpan/Module-Pluggable cpan/NEXT cpan/Object-Accessor cpan/Package-Constants cpan/Params-Check cpan/parent cpan/Parse-CPAN-Meta cpan/perlfaq cpan/PerlIO-via-QuotedPrint cpan/Perl-OSType cpan/Pod-Escapes cpan/Pod-LaTeX cpan/podlators cpan/Pod-Parser cpan/Pod-Perldoc cpan/Pod-Simple cpan/Term-ANSIColor cpan/Term-Cap cpan/Term-UI cpan/Test cpan/Test-Harness cpan/Test-Simple cpan/Text-Balanced cpan/Text-ParseWords cpan/Text-Tabs cpan/Tie-RefHash cpan/Time-Local cpan/Version-Requirements dist/Attribute-Handlers dist/autouse dist/base dist/B-Deparse dist/bignum dist/B-Lint dist/Carp dist/constant dist/Devel-SelfStubber dist/Dumpvalue dist/Env dist/ExtUtils-CBuilder dist/ExtUtils-Command dist/ExtUtils-Install dist/ExtUtils-Manifest dist/ExtUtils-ParseXS dist/File-CheckTree dist/Filter-Simple dist/I18N-Collate dist/I18N-LangTags dist/if dist/lib dist/Locale-Maketext dist/Math-BigInt dist/Math-BigRat dist/Module-CoreList dist/Net-Ping dist/Safe dist/Search-Dict dist/SelfLoader dist/Term-Complete dist/Term-ReadLine dist/Text-Abbrev dist/Thread-Queue dist/Thread-Semaphore dist/Tie-File dist/XSLoader '
+Set extensions=' ext/arybase ext/attributes ext/B ext/Devel-Peek ext/Fcntl ext/File-Glob ext/Hash-Util ext/Hash-Util-FieldHash ext/I18N-Langinfo ext/mro ext/Opcode ext/PerlIO-encoding ext/PerlIO-mmap ext/PerlIO-scalar ext/PerlIO-via ext/POSIX ext/re ext/SDBM_File ext/Sys-Hostname ext/Tie-Hash-NamedCapture ext/XS-APItest ext/XS-Typemap cpan/Compress-Raw-Bzip2 cpan/Compress-Raw-Zlib cpan/Devel-PPPort cpan/Digest-MD5 cpan/Digest-SHA cpan/Encode cpan/Filter-Util-Call cpan/IPC-SysV cpan/List-Util cpan/MIME-Base64 cpan/Socket cpan/Sys-Syslog cpan/Text-Soundex cpan/Time-HiRes cpan/Time-Piece cpan/Unicode-Collate cpan/Unicode-Normalize dist/Cwd dist/Data-Dumper dist/IO dist/Math-BigInt-FastCalc dist/Storable dist/threads dist/threads-shared  ext/Errno ext/FileCache ext/IPC-Open3 ext/Pod-Functions ext/Pod-Html ext/Tie-Memoize cpan/Archive-Extract cpan/Archive-Tar cpan/autodie cpan/AutoLoader cpan/B-Debug cpan/CGI cpan/CPAN cpan/CPAN-Meta cpan/CPAN-Meta-YAML cpan/CPANPLUS cpan/CPANPLUS-Dist-Build cpan/Digest cpan/encoding-warnings cpan/ExtUtils-Constant cpan/ExtUtils-MakeMaker cpan/File-Fetch cpan/File-Path cpan/File-Temp cpan/Getopt-Long cpan/HTTP-Tiny cpan/IO-Compress cpan/IO-Zlib cpan/IPC-Cmd cpan/JSON-PP cpan/libnet cpan/Locale-Codes cpan/Locale-Maketext-Simple cpan/Log-Message cpan/Log-Message-Simple cpan/Math-Complex cpan/Memoize cpan/Module-Build cpan/Module-Load cpan/Module-Load-Conditional cpan/Module-Loaded cpan/Module-Metadata cpan/Module-Pluggable cpan/NEXT cpan/Object-Accessor cpan/Package-Constants cpan/Params-Check cpan/parent cpan/Parse-CPAN-Meta cpan/perlfaq cpan/PerlIO-via-QuotedPrint cpan/Perl-OSType cpan/Pod-Escapes cpan/Pod-LaTeX cpan/podlators cpan/Pod-Parser cpan/Pod-Perldoc cpan/Pod-Simple cpan/Term-ANSIColor cpan/Term-Cap cpan/Term-UI cpan/Test cpan/Test-Harness cpan/Test-Simple cpan/Text-Balanced cpan/Text-ParseWords cpan/Text-Tabs cpan/Tie-RefHash cpan/Time-Local cpan/Version-Requirements dist/Attribute-Handlers dist/autouse dist/base dist/B-Deparse dist/bignum dist/B-Lint dist/Carp dist/constant dist/Devel-SelfStubber dist/Dumpvalue dist/Env dist/ExtUtils-CBuilder dist/ExtUtils-Command dist/ExtUtils-Install dist/ExtUtils-Manifest dist/ExtUtils-ParseXS dist/File-CheckTree dist/Filter-Simple dist/I18N-Collate dist/I18N-LangTags dist/if dist/lib dist/Locale-Maketext dist/Math-BigInt dist/Math-BigRat dist/Module-CoreList dist/Net-Ping dist/Safe dist/Search-Dict dist/SelfLoader dist/Term-Complete dist/Term-ReadLine dist/Text-Abbrev dist/Thread-Queue dist/Thread-Semaphore dist/Tie-File dist/XSLoader '
 Generating config.sh
 Set version='5.16.3'
 Set sharedir='/hdd/server/share'
@@ -8223,7 +8221,7 @@ Set cat='cat'
 Set cccdlflags='-fPIC'
 Set ccdlflags='-Wl,-E'
 Set charbits='8'
-Set cf_time='Thu Dec 17 19:17:27 CET 2015'
+Set cf_time='Sun Dec 20 18:24:33 CET 2015'
 Set chmod='chmod'
 Set comm='comm'
 Set contains='grep'
